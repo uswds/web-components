@@ -7,12 +7,11 @@ import { Component, Prop, h } from '@stencil/core';
 })
 export class UsaLink {
   @Prop() href: string;
-  @Prop() text: string;
 
   render() {
     return (
       <a class="usa-link" href={this.href}>
-        {this.text}
+        <slot></slot>
       </a>
     );
   }

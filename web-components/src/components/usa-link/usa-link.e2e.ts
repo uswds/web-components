@@ -12,17 +12,14 @@ describe('usa-link', () => {
   it('renders changes to the name data', async () => {
     const page = await newE2EPage();
 
-    await page.setContent('<usa-link></usa-link>');
+    await page.setContent('<usa-link>Hello, World</usa-link>');
     const component = await page.find('usa-link');
-    const element = await page.find('usa-link >>> a');
-    expect(element.textContent).toEqual(``);
-
-    component.setProperty('text', 'Hello, World');
-    await page.waitForChanges();
+    const element = await page.find('usa-link');
     expect(element.textContent).toEqual(`Hello, World`);
 
     component.setProperty('href', 'https://designsystem.digital.gov');
     await page.waitForChanges();
-    expect(element.getAttribute('href')).toEqual(`https://designsystem.digital.gov`);
+    const link = await page.find('usa-link >>> a');
+    expect(link.getAttribute('href')).toEqual(`https://designsystem.digital.gov`);
   });
 });

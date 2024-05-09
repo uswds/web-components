@@ -8,7 +8,6 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface UsaLink {
         "href": string;
-        "text": string;
     }
 }
 declare global {
@@ -25,7 +24,6 @@ declare global {
 declare namespace LocalJSX {
     interface UsaLink {
         "href"?: string;
-        "text"?: string;
     }
     interface IntrinsicElements {
         "usa-link": UsaLink;
