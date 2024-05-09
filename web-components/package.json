@@ -40,8 +40,10 @@
   },
   "devDependencies": {
     "@stencil/core": "^4.7.0",
+    "@stencil/sass": "^3.0.12",
     "@types/jest": "^29.5.6",
     "@types/node": "^16.18.11",
+    "@uswds/uswds": "^3.8.0",
     "jest": "^29.7.0",
     "jest-cli": "^29.7.0",
     "puppeteer": "^21.9.0"
