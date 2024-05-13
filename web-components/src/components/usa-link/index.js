@@ -54,4 +54,4 @@ export class UsaLink extends LitElement {
   `;
 }
 
-window.customElements.define("usa-link", UsaLink);
+customElements.define("usa-link", UsaLink);
