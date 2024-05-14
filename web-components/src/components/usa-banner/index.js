@@ -1,22 +1,48 @@
-import { LitElement, unsafeCSS, html } from "lit";
+import { LitElement, unsafeCSS, html, css } from "lit";
+import { classMap } from "lit/directives/class-map.js";
 import usaBannerStyle from "@uswds/uswds/scss/usa-banner?inline";
 import usFlagSmall from "@uswds/uswds/img/us_flag_small.png";
+import iconDotGov from "@uswds/uswds/img/icon-dot-gov.svg";
+import iconHttps from "@uswds/uswds/img/icon-https.svg";
 
 export class UsaBanner extends LitElement {
-  constructor() {
-    super();
+  static properties = {
+    isOpen: { type: Boolean },
+    classes: {},
+  };
+
+  toggle() {
+    this.isOpen = !this.isOpen;
   }
 
-  static styles = [unsafeCSS(usaBannerStyle)];
+  constructor() {
+    super();
+    this.isOpen = false;
+  }
+
+  static styles = [
+    unsafeCSS(usaBannerStyle),
+    css`
+      .usa-banner__content {
+        display: none;
+      }
+
+      .usa-banner__header--expanded + .usa-banner__content {
+        display: block;
+      }
+    `,
+  ];
 
   render() {
+    const classes = { ["usa-banner__header--expanded"]: this.isOpen };
+
     return html`
       <section
         class="usa-banner"
         aria-label="Official website of the United States government"
       >
         <div class="usa-accordion">
-          <header class="usa-banner__header">
+          <header class="usa-banner__header ${classMap(classes)}">
             <div class="usa-banner__inner">
               <div class="grid-col-auto">
                 <img
@@ -38,22 +64,20 @@ export class UsaBanner extends LitElement {
               <button
                 type="button"
                 class="usa-accordion__button usa-banner__button"
-                aria-expanded="false"
+                aria-expanded="${this.isOpen}"
                 aria-controls="gov-banner-default"
+                @click="${this.toggle}"
               >
                 <span class="usa-banner__button-text">Here’s how you know</span>
               </button>
             </div>
           </header>
-          <div
-            class="usa-banner__content usa-accordion__content"
-            id="gov-banner-default"
-          >
+          <div class="usa-banner__content usa-accordion__content">
             <div class="grid-row grid-gap-lg">
               <div class="usa-banner__guidance tablet:grid-col-6">
                 <img
                   class="usa-banner__icon usa-media-block__img"
-                  src="/assets/img/icon-dot-gov.svg"
+                  src="${iconDotGov}"
                   role="img"
                   alt=""
                   aria-hidden="true"
@@ -69,7 +93,7 @@ export class UsaBanner extends LitElement {
               <div class="usa-banner__guidance tablet:grid-col-6">
                 <img
                   class="usa-banner__icon usa-media-block__img"
-                  src="/assets/img/icon-https.svg"
+                  src="${iconHttps}"
                   role="img"
                   alt=""
                   aria-hidden="true"
