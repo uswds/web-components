@@ -18,5 +18,8 @@
     "jsdom": "^24.0.0",
     "vite": "^5.2.0",
     "vitest": "^1.6.0"
-  }
+  },
+  "workspaces": [
+    "src/components/usa-banner"
+  ]
 }
