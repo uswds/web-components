@@ -13,6 +13,9 @@ export class UsaBanner extends LitElement {
 
   toggle() {
     this.isOpen = !this.isOpen;
+    this.shadowRoot
+      .querySelector(".usa-banner__content")
+      .toggleAttribute("hidden");
   }
 
   constructor() {
@@ -20,18 +23,7 @@ export class UsaBanner extends LitElement {
     this.isOpen = false;
   }
 
-  static styles = [
-    unsafeCSS(usaBannerStyle),
-    css`
-      .usa-banner__content {
-        display: none;
-      }
-
-      .usa-banner__header--expanded + .usa-banner__content {
-        display: block;
-      }
-    `,
-  ];
+  static styles = [unsafeCSS(usaBannerStyle)];
 
   render() {
     const classes = { ["usa-banner__header--expanded"]: this.isOpen };
@@ -72,7 +64,7 @@ export class UsaBanner extends LitElement {
               </button>
             </div>
           </header>
-          <div class="usa-banner__content usa-accordion__content">
+          <div class="usa-banner__content usa-accordion__content" hidden>
             <div class="grid-row grid-gap-lg">
               <div class="usa-banner__guidance tablet:grid-col-6">
                 <img
