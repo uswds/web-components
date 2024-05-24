@@ -8,6 +8,7 @@
   <title>USWDS + Lit</title>
   <script type="module" src="/src/components/usa-banner/index.js"></script>
   <script type="module" src="/src/components/usa-link/index.js"></script>
+  <script type="module" src="/src/components/usa-identifier/index.js"></script>
   <style>
     :root {
       --theme-link-color: hotpink;
@@ -20,6 +21,17 @@
   <usa-link href="http://designsystem.digital.gov">
     It's dangerous to go alone. Here, take this.
   </usa-link>
+  <usa-identifier
+    site_domain="designsystem.digital.gov"
+    agency_href="https://www.gsa.gov/"
+    agency_name="General Services Administration"
+    agency_logo="https://designsystem.digital.gov/img/gsa-logo.svg"
+  >
+    <ul>
+      <li><a href="https://www.gsa.gov/about-us">About GSA</a></li>
+      <li><a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a></li>
+    </ul>
+  </usa-identifier>
 </body>
 
 </html>
