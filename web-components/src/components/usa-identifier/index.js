@@ -9,11 +9,15 @@ export class UsaIdentifier extends LitElement {
        * Scaffold the logo(s):
        * Add necessary classes
     */
-    const logoList = this.querySelectorAll('.usa-identifier__logo');
-    const logoImageList = this.querySelectorAll('.usa-identifier__logo img');
+    const logoList = this.querySelectorAll('[slot="logo"]');
+    const logoImageList = this.querySelectorAll('[slot="disclaimer"] img');
+    const logoListArr = Array.from(logoList);
     const logoImageListArr = Array.from(logoImageList);
-    logoImageListArr.forEach(logo => {
-      logo.classList.add("usa-identifier__logo-img");
+    logoListArr.forEach(logo => {
+      logo.classList.add("usa-identifier__logo");
+    });
+    logoImageListArr.forEach(logoImg => {
+      logoImg.classList.add("usa-identifier__logo-img");
     });
 
     /**
@@ -39,24 +43,34 @@ export class UsaIdentifier extends LitElement {
       * Scaffold usagov text
       * Add necessary attributes
     */
-    const usagov = this.querySelector('.usa-identifier__usagov-description');
-    const usagovLink = this.querySelector('.usa-identifier__usagov-description a');
+    const usagov = this.querySelector('[slot="usagov"]');
+    const usagovLink = this.querySelector('[slot="disclaimer"] a');
+    usagov.classList.add('usa-identifier__usagov-description');
     usagovLink.classList.add('usa-link');
 
     /**
       * Scaffold disclaimer text
       * Wrap "An" in aria-hidden span
     */
-    const disclaimer = this.querySelector('.usa-identifier__identity-disclaimer');
+    const disclaimer = this.querySelector('[slot="disclaimer"]');
+    disclaimer.classList.add('usa-identifier__identity-disclaimer');
     if ( disclaimer.textContent.includes("An") ){
       disclaimer.innerHTML.replace('An', '<span aria-hidden="true" style="background:pink">An</span>');
     };
+
+    /**
+      * Scaffold domain text
+      * Wrap "An" in aria-hidden span
+    */
+    const domain = this.querySelector('[slot="domain"]');
+    domain.classList.add('usa-identifier__identity-domain');
 
     // return elements
     this.logo = logoList;
     this.list = linksList;
     this.usagov = usagov;
     this.disclaimer = disclaimer;
+    this.domain = domain;
   }
 
   connectedCallback() {
@@ -80,8 +94,8 @@ export class UsaIdentifier extends LitElement {
               ${this.logo}
             </div>
             <section class="usa-identifier__identity" aria-label="Agency description,">
-              <p class="usa-identifier__identity-domain"><slot name="domain"></slot></p>
-              <p class="usa-identifier__identity-usagov">${this.disclaimer}</p>
+              ${this.domain}
+              ${this.disclaimer}
             </section>
           </div>
         </section>

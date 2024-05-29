@@ -28,13 +28,13 @@
   <h2>Identifier - Minimal markup</h2>
 
   <usa-identifier>
-    <a class="usa-identifier__logo" href="https://www.gsa.gov/">
+    <a slot="logo" href="https://www.gsa.gov/">
       <img
         src="https://designsystem.digital.gov/img/gsa-logo.svg"
         alt="General Services Administration logo"/>
     </a>
     <p slot="domain">designsystem.digital.gov</p>
-    <p class="usa-identifier__identity-disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
+    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
     <nav>
       <a href="https://www.gsa.gov/about-us">About GSA</a>
       <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
@@ -44,7 +44,7 @@
       <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
       <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
     </nav>
-    <div class="usa-identifier__usagov-description">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
+    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
   </usa-identifier>
 
   <h2>Identifier - Attribute-based</h2>
