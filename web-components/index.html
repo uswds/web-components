@@ -15,6 +15,9 @@
     :root {
       --theme-link-color: hotpink;
     }
+    .amys-cool-style {
+      background: gold;
+    }
   </style>
 </head>
 
@@ -25,9 +28,36 @@
     It's dangerous to go alone. Here, take this.
   </usa-link>
 
-  <h2>Identifier - Minimal markup</h2>
+  <h2>Minimal markup - one logo</h2>
 
   <usa-identifier>
+    <a slot="logo" href="https://www.gsa.gov/">
+      <img
+        src="https://designsystem.digital.gov/img/gsa-logo.svg"
+        alt="General Services Administration logo"/>
+    </a>
+    <p slot="domain" class="amys-cool-style">designsystem.digital.gov</p>
+    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
+    <nav>
+      <a href="https://www.gsa.gov/about-us">About GSA</a>
+      <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
+      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
+      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
+      <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
+      <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
+      <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
+    </nav>
+    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
+  </usa-identifier>
+
+  <h2>Minimal markup - two logos</h2>
+
+  <usa-identifier>
+    <a slot="logo" href="https://www.gsa.gov/">
+      <img
+        src="https://designsystem.digital.gov/img/gsa-logo.svg"
+        alt="General Services Administration logo"/>
+    </a>
     <a slot="logo" href="https://www.gsa.gov/">
       <img
         src="https://designsystem.digital.gov/img/gsa-logo.svg"
@@ -47,7 +77,26 @@
     <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
   </usa-identifier>
 
-  <h2>Identifier - Attribute-based</h2>
+
+  <h2>Minimal markup - no logos</h2>
+
+  <usa-identifier>
+    <p slot="domain">designsystem.digital.gov</p>
+    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
+    <nav>
+      <a href="https://www.gsa.gov/about-us">About GSA</a>
+      <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
+      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
+      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
+      <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
+      <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
+      <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
+    </nav>
+    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
+  </usa-identifier>
+
+
+  <h2>Attribute-based - one logo</h2>
 
   <usa-identifier-attributes
     site_domain="designsystem.digital.gov"
