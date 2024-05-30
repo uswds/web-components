@@ -11,11 +11,14 @@ export class UsaIdentifier extends LitElement {
     */
     const logoList = this.querySelectorAll('[slot="logo"]');
     const logoListArr = Array.from(logoList);
-    logoListArr.forEach(logo => {
-      const logoImage = this.querySelector('img');
-      logo.classList.add("usa-identifier__logo");
-      logoImage.classList.add("usa-identifier__logo-img");
-    });
+
+    if (logoListArr) {
+      logoListArr.forEach(logo => {
+        const logoImage = this.querySelector('img');
+        logo.classList.add("usa-identifier__logo");
+        logoImage.classList.add("usa-identifier__logo-img");
+      });
+    }
 
     /**
        * Scaffold the required links list:
@@ -25,16 +28,19 @@ export class UsaIdentifier extends LitElement {
     const linksArr = Array.from(nav.children);
     const linksList = document.createElement("ul");
 
-    linksList.classList.add("usa-identifier__required-links-list");
-    nav.insertAdjacentElement("afterbegin", linksList);
+    if (nav) {
+      linksList.classList.add("usa-identifier__required-links-list");
+      nav.insertAdjacentElement("afterbegin", linksList);
 
-    linksArr.forEach(link => {
-      const listItem = document.createElement("li");
-      listItem.classList.add("usa-identifier__required-links-item");
-      link.classList.add("usa-identifier__required-link");
-      listItem.appendChild(link);
-      linksList.appendChild(listItem);
-    });
+      linksArr.forEach(link => {
+        const listItem = document.createElement("li");
+        listItem.classList.add("usa-identifier__required-links-item");
+        link.classList.add("usa-identifier__required-link");
+        listItem.appendChild(link);
+        linksList.appendChild(listItem);
+      });
+    }
+
 
     /**
       * Scaffold usagov text
@@ -42,15 +48,19 @@ export class UsaIdentifier extends LitElement {
     */
     const usagov = this.querySelector('[slot="usagov"]');
     const usagovLink = this.querySelector('[slot="disclaimer"] a');
-    usagov.classList.add('usa-identifier__usagov-description');
-    usagovLink.classList.add('usa-link');
+    if (usagov) {
+      usagov.classList.add('usa-identifier__usagov-description');
+      usagovLink.classList.add('usa-link');
+    }
 
     /**
       * Scaffold disclaimer text:
       * Wrap "An" in aria-hidden span
     */
     const disclaimer = this.querySelector('[slot="disclaimer"]');
-    disclaimer.classList.add('usa-identifier__identity-disclaimer');
+    if(disclaimer) {
+      disclaimer.classList.add('usa-identifier__identity-disclaimer');
+    }
     if ( disclaimer.textContent.includes("An") ){
       disclaimer.innerHTML.replace('An', '<span aria-hidden="true" style="background:pink">An</span>');
     };
@@ -60,7 +70,9 @@ export class UsaIdentifier extends LitElement {
       * Ade necessary attributes
     */
     const domain = this.querySelector('[slot="domain"]');
-    domain.classList.add('usa-identifier__identity-domain');
+    if (domain) {
+      domain.classList.add('usa-identifier__identity-domain');
+    }
 
     // return elements
     this.logo = logoList;
