@@ -10,14 +10,11 @@ export class UsaIdentifier extends LitElement {
        * Add necessary classes
     */
     const logoList = this.querySelectorAll('[slot="logo"]');
-    const logoImageList = this.querySelectorAll('[slot="disclaimer"] img');
     const logoListArr = Array.from(logoList);
-    const logoImageListArr = Array.from(logoImageList);
     logoListArr.forEach(logo => {
+      const logoImage = this.querySelector('img');
       logo.classList.add("usa-identifier__logo");
-    });
-    logoImageListArr.forEach(logoImg => {
-      logoImg.classList.add("usa-identifier__logo-img");
+      logoImage.classList.add("usa-identifier__logo-img");
     });
 
     /**
@@ -49,7 +46,7 @@ export class UsaIdentifier extends LitElement {
     usagovLink.classList.add('usa-link');
 
     /**
-      * Scaffold disclaimer text
+      * Scaffold disclaimer text:
       * Wrap "An" in aria-hidden span
     */
     const disclaimer = this.querySelector('[slot="disclaimer"]');
@@ -60,7 +57,7 @@ export class UsaIdentifier extends LitElement {
 
     /**
       * Scaffold domain text
-      * Wrap "An" in aria-hidden span
+      * Ade necessary attributes
     */
     const domain = this.querySelector('[slot="domain"]');
     domain.classList.add('usa-identifier__identity-domain');
@@ -73,10 +70,6 @@ export class UsaIdentifier extends LitElement {
     this.domain = domain;
   }
 
-  connectedCallback() {
-    super.connectedCallback();
-  }
-
   static styles = [
     unsafeCSS(usaIdentifierStyle),
     unsafeCSS(uswdsCoreStyle)
@@ -87,7 +80,7 @@ export class UsaIdentifier extends LitElement {
       <div class="usa-identifier">
         <section
           class="usa-identifier__section usa-identifier__section--masthead"
-          aria-label="Agency identifier,"
+          aria-label="Agency identifier"
         >
           <div class="usa-identifier__container">
             <div class="usa-identifier__logos">
@@ -107,7 +100,7 @@ export class UsaIdentifier extends LitElement {
             ${this.list}
           </div>
         </nav>
-        <section>
+        <section class="usa-identifier__section usa-identifier__section--usagov">
           <div class="usa-identifier__container">
             <div class="usa-identifier__usagov-description">
               ${this.usagov}
