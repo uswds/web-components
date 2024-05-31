@@ -2,7 +2,7 @@ import { LitElement, html, unsafeCSS } from "lit";
 import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
 import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
 
-export class UsaIdentifierAttributes extends LitElement {
+export class UsaIdentifierAttributesObject extends LitElement {
 
   static get properties() {
     return {
@@ -11,49 +11,13 @@ export class UsaIdentifierAttributes extends LitElement {
        */
       siteDomain: { type: String },
       /**
-       * The parent agency name
+       * The parent agency info
        */
-      parentName: { type: String },
+      parentAgency: {type: Object},
       /**
-       * The parent agency acronym or short name
+       * List of required links
        */
-      parentShortname: { type: String },
-      /**
-       * The destination URL for the agency and logo link
-       */
-      parentHref: { type: String },
-      /**
-       * The destination URL for the agency and logo link
-       */
-      parentLogo: { type: String },
-      /**
-       * Parent agency about page url
-       */
-      linkAbout: { type: String },
-      /**
-       * Parent agency accessibility statement url
-       */
-      linkAccessibility: { type: String },
-      /**
-       * Parent agency FOIA url
-       */
-      linkFOIA: { type: String },
-      /**
-       * Parent agency No FEAR act url
-       */
-      linkNoFEAR: { type: String },
-      /**
-       * Parent agency Office of Inspector General url
-       */
-      linkOIG: { type: String },
-      /**
-       * Parent agency performance reports url
-       */
-      linkPerformance: { type: String },
-      /**
-       * Parent agency privacy policy url
-       */
-      linkPrivacy: { type: String },
+      links: {type: Object},
     };
   }
 
@@ -73,11 +37,11 @@ export class UsaIdentifierAttributes extends LitElement {
             <div class="usa-identifier__logos">
               <a
                 class="usa-identifier__logo"
-                href="${this.parentHref}"
+                href="${this.parentAgency.url}"
                 ><img
                   class="usa-identifier__logo-img"
-                  src="${this.parentLogo}"
-                  alt="${this.parentName} logo"
+                  src="${this.parentAgency.logo}"
+                  alt="${this.parentAgency.name} logo"
                   role="img"
               /></a>
             </div>
@@ -88,7 +52,7 @@ export class UsaIdentifierAttributes extends LitElement {
               <p class="usa-identifier__identity-domain">${this.siteDomain}</p>
               <p class="usa-identifier__identity-disclaimer">
                 <span aria-hidden="true">An </span>official website of the
-                <a href="${this.parentHref}">${this.parentName}</a>
+                <a href="${this.parentAgency.url}">${this.parentAgency.name}</a>
               </p>
             </section>
           </div>
@@ -101,49 +65,49 @@ export class UsaIdentifierAttributes extends LitElement {
             <ul class="usa-identifier__required-links-list">
               <li class="usa-identifier__required-links-item">
                 <a
-                  href="${this.linkAbout}"
+                  href="${this.links.about}"
                   class="usa-identifier__required-link usa-link"
-                  >About ${this.parentShortname}</a
+                  >About ${this.parentAgency.shortname}</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
-                  href="${this.linkAccessibility}"
+                  href="${this.links.accessibility}"
                   class="usa-identifier__required-link usa-link"
                   >Accessibility statement</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
-                  href="${this.linkFOIA}"
+                  href="${this.links.FOIA}"
                   class="usa-identifier__required-link usa-link"
                   >FOIA requests</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
-                  href="${this.linkNoFEAR}"
+                  href="${this.links.NoFEAR}"
                   class="usa-identifier__required-link usa-link"
                   >No FEAR Act data</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
-                  href="${this.linkOIG}"
+                  href="${this.links.OIG}"
                   class="usa-identifier__required-link usa-link"
                   >Office of the Inspector General</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
-                  href="${this.linkPerformance}"
+                  href="${this.links.performance}"
                   class="usa-identifier__required-link usa-link"
                   >Performance reports</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
-                  href="${this.linkPrivacy}"
+                  href="${this.links.privacy}"
                   class="usa-identifier__required-link usa-link"
                   >Privacy policy</a
                 >
@@ -167,4 +131,4 @@ export class UsaIdentifierAttributes extends LitElement {
   }
 }
 
-window.customElements.define("usa-identifier-attributes", UsaIdentifierAttributes);
+window.customElements.define("usa-identifier-attributes-object", UsaIdentifierAttributesObject);
