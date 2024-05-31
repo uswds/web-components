@@ -3,9 +3,12 @@ import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
 import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
 
 export class UsaIdentifierAttributesObject extends LitElement {
-
   static get properties() {
     return {
+      /**
+       * The language of the component
+       */
+      language: {type: String},
       /**
        * The site domain
        */
@@ -27,6 +30,46 @@ export class UsaIdentifierAttributesObject extends LitElement {
   ];
 
   render() {
+    // English content
+    const linksEn = {
+      "about": "About",
+      "accessibility": "Accessibility statement",
+      "FOIA": "FOIA requests",
+      "noFEAR": "No FEAR Act data",
+      "OIG": "Office of the Inspector General",
+      "performance": "Performance reports",
+      "privacy": "Privacy policy"
+    };
+    const usagovEn = {
+      "introText" : "Looking for U.S. government information and services?",
+      "linkText": "Visit USA.gov",
+      "linkHref": "https://www.usa.gov/"
+    };
+
+    // Spanish content
+    const linksEs = {
+      "about": "Acerca de",
+      "accessibility": "Declaración de accesibilidad",
+      "FOIA": "Solicitud a través de FOIA",
+      "noFEAR": "Datos de la ley No FEAR",
+      "OIG": "Oficina del Inspector General",
+      "performance": "Informes de desempeño",
+      "privacy": "Política de privacidad"
+    };
+    const usagovEs = {
+      "introText": "¿Necesita información y servicios del Gobierno?",
+      "linkText": "Visite USA.gov en Español",
+      "linkHref": "https://www.usa.gov/espanol/"
+    }
+
+    let linkNames = linksEn;
+    let usagovText = usagovEn;
+
+    if (this.language ==="es") {
+      linkNames = linksEs;
+      usagovText = usagovEs;
+    };
+
     return html`
       <div class="usa-identifier">
         <section
@@ -67,49 +110,49 @@ export class UsaIdentifierAttributesObject extends LitElement {
                 <a
                   href="${this.links.about}"
                   class="usa-identifier__required-link usa-link"
-                  >About ${this.parentAgency.shortname}</a
+                  >${linkNames.about} ${this.parentAgency.shortname}</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
                   href="${this.links.accessibility}"
                   class="usa-identifier__required-link usa-link"
-                  >Accessibility statement</a
+                  >${linkNames.accessibility}</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
                   href="${this.links.FOIA}"
                   class="usa-identifier__required-link usa-link"
-                  >FOIA requests</a
+                  >${linkNames.FOIA}</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
                   href="${this.links.NoFEAR}"
                   class="usa-identifier__required-link usa-link"
-                  >No FEAR Act data</a
+                  >${linkNames.noFEAR}</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
                   href="${this.links.OIG}"
                   class="usa-identifier__required-link usa-link"
-                  >Office of the Inspector General</a
+                  >${linkNames.OIG}</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
                   href="${this.links.performance}"
                   class="usa-identifier__required-link usa-link"
-                  >Performance reports</a
+                  >${linkNames.performance}</a
                 >
               </li>
               <li class="usa-identifier__required-links-item">
                 <a
                   href="${this.links.privacy}"
                   class="usa-identifier__required-link usa-link"
-                  >Privacy policy</a
+                  >${linkNames.privacy}</a
                 >
               </li>
             </ul>
@@ -121,9 +164,9 @@ export class UsaIdentifierAttributesObject extends LitElement {
         >
           <div class="usa-identifier__container">
             <div class="usa-identifier__usagov-description">
-              Looking for U.S. government information and services?
+              ${usagovText.introText}
             </div>
-            <a href="https://www.usa.gov/" class="usa-link">Visit USA.gov</a>
+            <a href="${usagovText.linkHref}" class="usa-link">${usagovText.linkText}</a>
           </div>
         </section>
       </div>
