@@ -1,0 +1,20 @@
+{
+  "aria_label": "Identificador de la agencia,",
+  "required_links": {
+    "about": "Acerca de",
+    "accessibility": "Declaración de accesibilidad",
+    "FOIA": "Solicitud a través de FOIA",
+    "noFEAR": "Datos de la ley No FEAR",
+    "OIG": "Oficina del Inspector General",
+    "performance": "Informes de desempeño",
+    "privacy": "Política de privacidad"
+  },
+  "usagov": {
+    "aria_label": "Información y servicios del Gobierno de EE. UU.,",
+    "description": "¿Necesita información y servicios del Gobierno?",
+    "link": {
+      "label": "Visite USA.gov en Español",
+      "url": "https://www.usa.gov/espanol/"
+    }
+  }
+}

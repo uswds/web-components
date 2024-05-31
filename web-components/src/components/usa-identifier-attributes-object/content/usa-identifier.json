@@ -1,0 +1,20 @@
+{
+  "aria_label": "Agency identifier",
+  "required_links": {
+    "about": "About",
+    "accessibility": "Accessibility statement",
+    "FOIA": "FOIA requests",
+    "noFEAR": "No FEAR Act data",
+    "OIG": "Office of the Inspector General",
+    "performance": "Performance reports",
+    "privacy": "Privacy policy"
+  },
+  "usagov": {
+    "aria_label": "U.S. government information and services",
+    "description": "Looking for U.S. government information and services?",
+    "link": {
+      "label": "Visit USA.gov",
+      "url": "https://www.usa.gov/"
+    }
+  }
+}
