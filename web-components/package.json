@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "prettier:js": "npx prettier --check './src/components/**/*.js'",
+    "prettier:js:fix": "npx prettier --write './src/components/**/*.js'"
   },
   "dependencies": {
     "@uswds/uswds": "^3.8.0",
@@ -15,7 +17,10 @@
   },
   "devDependencies": {
     "@vitest/ui": "^1.6.0",
+    "eslint": "^9.4.0",
+    "eslint-config-prettier": "^9.1.0",
     "jsdom": "^24.0.0",
+    "prettier": "^3.2.5",
     "vite": "^5.2.0",
     "vitest": "^1.6.0"
   },
