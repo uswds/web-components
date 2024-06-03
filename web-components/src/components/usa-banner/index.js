@@ -12,6 +12,10 @@ export class UsaBanner extends LitElement {
   static properties = {
     isOpen: { type: Boolean },
     classes: {},
+    tld: {
+      type: String,
+      reflect: true
+    },
   };
 
   toggle() {
@@ -24,6 +28,7 @@ export class UsaBanner extends LitElement {
   constructor() {
     super();
     this.isOpen = false;
+    this.tld = "gov";
   }
 
   // ! CSS won't work if comments added inside css``.
@@ -67,6 +72,7 @@ export class UsaBanner extends LitElement {
 
   render() {
     const classes = { ["usa-banner__header--expanded"]: this.isOpen };
+    const tld = (this.tld === "mil") ? "mil" : "gov";
 
     return html`
       <section
@@ -100,7 +106,9 @@ export class UsaBanner extends LitElement {
                 aria-controls="gov-banner-default"
                 @click="${this.toggle}"
               >
-                <span class="usa-banner__button-text">Here’s how you know</span>
+                <span class="usa-banner__button-text">
+                  Here’s how you know
+                </span>
               </button>
             </div>
           </header>
@@ -116,8 +124,8 @@ export class UsaBanner extends LitElement {
                 />
                 <div class="usa-media-block__body">
                   <p>
-                    <strong>Official websites use .gov</strong><br />A
-                    <strong>.gov</strong> website belongs to an official
+                    <strong>Official websites use .${tld}</strong><br />A
+                    <strong>.${tld}</strong> website belongs to an official
                     government organization in the United States.
                   </p>
                 </div>
@@ -132,7 +140,7 @@ export class UsaBanner extends LitElement {
                 />
                 <div class="usa-media-block__body">
                   <p>
-                    <strong>Secure .gov websites use HTTPS</strong><br />A
+                    <strong>Secure .${tld} websites use HTTPS</strong><br />A
                     <strong>lock</strong> (
                     <span class="icon-lock"
                       ><svg
@@ -156,7 +164,7 @@ export class UsaBanner extends LitElement {
                         />
                       </svg> </span
                     >) or <strong>https://</strong> means you’ve safely
-                    connected to the .gov website. Share sensitive information
+                    connected to the .${tld} website. Share sensitive information
                     only on official, secure websites.
                   </p>
                 </div>
