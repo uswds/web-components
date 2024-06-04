@@ -8,8 +8,7 @@
   <title>USWDS + Lit</title>
   <script type="module" src="/src/components/usa-banner/index.js"></script>
   <script type="module" src="/src/components/usa-link/index.js"></script>
-  <script type="module" src="/src/components/usa-identifier/index.js"></script>
-  <script type="module" src="/src/components/usa-identifier-attributes/index.js"></script>
+  <script type="module" src="/src/components/usa-card/index.js"></script>
 
   <style>
     :root {
@@ -28,91 +27,56 @@
     It's dangerous to go alone. Here, take this.
   </usa-link>
 
-  <h2>Minimal markup - one logo</h2>
+  <usa-card>
+    <div slot="card-header">
+      <h2>Card</h2>
+    </div>
+    <div slot="card-body">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+        tenetur quo cupiditate, eaque qui officia recusandae.
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+        tenetur quo cupiditate, eaque qui officia recusandae.
+      </p>
+    </div>
+    <div slot="card-footer">
+      <a href="#" class="usa-button">Visit Florida Keys</a>
+    </div>
+  </usa-card>
+  
+  <usa-card>
+    <div slot="card-header">
+      <h2 class="usa-card__heading">Card w/ media</h2>
+    </div>
+    <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
+    <div slot="card-body">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+        tenetur quo cupiditate, eaque qui officia recusandae.
+      </p>
+    </div>
+    <div slot="card-footer">
+      <a href="#" class="usa-button">Visit Florida Keys</a>
+    </div>
+  </usa-card>
 
-  <usa-identifier>
-    <a slot="logo" href="https://www.gsa.gov/">
-      <img
-        src="https://designsystem.digital.gov/img/gsa-logo.svg"
-        alt="General Services Administration logo"/>
-    </a>
-    <p slot="domain" class="amys-cool-style">designsystem.digital.gov</p>
-    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
-    <nav>
-      <a href="https://www.gsa.gov/about-us">About GSA</a>
-      <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
-      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
-      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
-      <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
-      <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
-      <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
-    </nav>
-    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
-  </usa-identifier>
-
-  <h2>Minimal markup - two logos</h2>
-
-  <usa-identifier>
-    <a slot="logo" href="https://www.gsa.gov/">
-      <img
-        src="https://designsystem.digital.gov/img/gsa-logo.svg"
-        alt="General Services Administration logo"/>
-    </a>
-    <a slot="logo" href="https://www.gsa.gov/">
-      <img
-        src="https://designsystem.digital.gov/img/gsa-logo.svg"
-        alt="General Services Administration logo"/>
-    </a>
-    <p slot="domain">designsystem.digital.gov</p>
-    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
-    <nav>
-      <a href="https://www.gsa.gov/about-us">About GSA</a>
-      <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
-      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
-      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
-      <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
-      <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
-      <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
-    </nav>
-    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
-  </usa-identifier>
-
-
-  <h2>Minimal markup - no logos</h2>
-
-  <usa-identifier>
-    <p slot="domain">designsystem.digital.gov</p>
-    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
-    <nav>
-      <a href="https://www.gsa.gov/about-us">About GSA</a>
-      <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
-      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
-      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
-      <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
-      <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
-      <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
-    </nav>
-    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
-  </usa-identifier>
-
-
-  <h2>Attribute-based - one logo</h2>
-
-  <usa-identifier-attributes
-    site_domain="designsystem.digital.gov"
-    parent_name="General Services Administration"
-    parent_shortname="GSA"
-    parent_href="https://www.gsa.gov/"
-    parent_logo="https://designsystem.digital.gov/img/gsa-logo.svg"
-    link_accessibility="https://www.gsa.gov/website-information/accessibility-statement"
-    link_about="https://www.gsa.gov/about-us"
-    link_foia="https://www.gsa.gov/reference/freedom-of-information-act-foia"
-    link_fear="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002"
-    link_oig="https://www.gsaig.gov/"
-    link_performance="https://www.gsa.gov/reference/reports/budget-performance"
-    link_privacy="https://www.gsa.gov/website-information/website-policies"
-  >
-  </usa-identifier-attributes>
+  <usa-card headerFirst>
+    <div slot="card-header">
+      <h2 class="usa-card__heading">Media with Header first</h2>
+    </div>
+    <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
+    <div slot="card-body">
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+        tenetur quo cupiditate, eaque qui officia recusandae.
+      </p>
+    </div>
+    <div slot="card-footerd">
+      <a href="#" class="usa-button">Visit Florida Keys</a>
+    </div>
+  </usa-card>
 </body>
 
 </html>
