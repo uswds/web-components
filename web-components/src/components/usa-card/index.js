@@ -33,6 +33,9 @@ export class UsaCard extends LitElement {
     // this.link = this.querySelector("a");
 
     this.header = this.querySelector("[slot='card-header']")
+    this.media = this.querySelector("[slot='card-media']")
+    this.body = this.querySelector("[slot='card-body']")
+    this.footer = this.querySelector("[slot='card-footer']")
   }
 
   // Render header
@@ -40,7 +43,7 @@ export class UsaCard extends LitElement {
     return html`
       <div class="usa-card__header">
         <div class="usa-card__heading">
-          ${this.heading}
+          ${this.header}
         </div>
       </div>
     `;
@@ -62,12 +65,12 @@ export class UsaCard extends LitElement {
 
   // Render body
   bodyTemplate() {
-    return html`<div class="usa-card__body">${this.content}</div>`
+    return html`<div class="usa-card__body">${this.body}</div>`
   }
 
   // Render footer
   footerTemplate() {
-    return html`<div class="usa-card__footer">${this.link}</div>`
+    return html`<div class="usa-card__footer">${this.footer}</div>`
   }
 
   setClasses() {
