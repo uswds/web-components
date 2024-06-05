@@ -1,6 +1,7 @@
 {
   "aria_label": "Identificador de la agencia,",
-  "required_links": {
+  "disclaimer":  "Un sitio web oficial de",
+  "linkLabels": {
     "about": "Acerca de",
     "accessibility": "Declaración de accesibilidad",
     "FOIA": "Solicitud a través de FOIA",

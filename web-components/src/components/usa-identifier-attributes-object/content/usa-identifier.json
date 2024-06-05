@@ -1,6 +1,7 @@
 {
   "aria_label": "Agency identifier",
-  "required_links": {
+  "disclaimer":  "An official website of the",
+  "linkLabels": {
     "about": "About",
     "accessibility": "Accessibility statement",
     "FOIA": "FOIA requests",

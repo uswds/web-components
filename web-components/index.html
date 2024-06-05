@@ -97,7 +97,7 @@
   </usa-identifier>
 
 
-  <h2>Attribute-based - one logo</h2>
+  <h2>Attribute - flat structure - one logo</h2>
 
   <usa-identifier-attributes
     siteDomain="designsystem.digital.gov"
@@ -125,7 +125,29 @@
       "url": "https://www.gsa.gov/",
       "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
     }'
-    links= '{
+    linkURLs= '{
+      "about": "https://www.gsa.gov/about-us",
+      "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
+      "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
+      "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
+      "OIG": "https://www.gsaig.gov/",
+      "performance": "https://www.gsa.gov/reference/reports/budget-performance",
+      "privacy": "https://www.gsa.gov/website-information/website-policies"
+    }'
+  >
+  </usa-identifier-attributes-object>
+
+  <h2>Attribute object - English - taxpayer disclosure</h2>
+  <usa-identifier-attributes-object
+    taxpayerDisclosure
+    siteDomain="designsystem.digital.gov"
+    parentAgency= '{
+      "name": "General Services Administration",
+      "shortname": "GSA",
+      "url": "https://www.gsa.gov/",
+      "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
+    }'
+    linkURLs= '{
       "about": "https://www.gsa.gov/about-us",
       "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
       "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
@@ -148,7 +170,50 @@
       "url": "https://www.gsa.gov/",
       "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
     }'
-    links= '{
+    linkURLs= '{
+      "about": "https://www.gsa.gov/about-us",
+      "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
+      "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
+      "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
+      "OIG": "https://www.gsaig.gov/",
+      "performance": "https://www.gsa.gov/reference/reports/budget-performance",
+      "privacy": "https://www.gsa.gov/website-information/website-policies"
+    }'
+  >
+  </usa-identifier-attributes-object>
+
+  <h2>Attribute object - Custom link text</h2>
+
+  <usa-identifier-attributes-object
+    siteDomain="[French] designsystem.digital.gov"
+    parentAgency= '{
+      "name": "[French] General Services Administration",
+      "shortname": "[French] GSA",
+      "url": "https://www.gsa.gov/",
+      "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
+    }'
+    customContent= '{
+      "aria_label": "Agency identifier",
+      "disclaimer": "[French] An official website of the",
+      "linkLabels": {
+        "about": "[French] About",
+        "accessibility": "[French] Accessibility statement",
+        "FOIA": "[French] FOIA requests",
+        "noFEAR": "[French] No FEAR Act data",
+        "OIG": "[French] Office of the Inspector General",
+        "performance": "[French] Performance reports",
+        "privacy": "[French] Privacy policy"
+      },
+      "usagov": {
+        "aria_label": "[French] U.S. government information and services",
+        "description": "[French] Looking for U.S. government information and services?",
+        "link": {
+          "label": "[French] Visit USA.gov",
+          "url": "https://www.usa.gov/"
+        }
+      }
+    }'
+    linkURLs= '{
       "about": "https://www.gsa.gov/about-us",
       "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
       "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
