@@ -19,14 +19,17 @@ export class UsaIdentifierAttributesObject extends LitElement {
        */
       parentAgency: {type: Object},
       /**
-       * List of required link labels
+       * Custom content
        */
-      customContent: {type: Object},
+      langContent: {type: Object},
       /**
        * List of required link urls
        */
       linkURLs: {type: Object},
-      // taxpayerDisclosure: {type: Boolean},
+      /**
+       * Variant that includes taxpayer disclosure
+       */
+      taxpayerDisclosure: {type: Boolean},
     };
   }
 
@@ -39,12 +42,18 @@ export class UsaIdentifierAttributesObject extends LitElement {
     const linkItemClasses = "usa-identifier__required-links-item";
     const linkClasses="usa-identifier__required-link usa-link";
     let content = DefaultContent;
+    let taxpayerContent = '';
 
-    if (this.customContent) {
-      content = this.customContent;
+    // Set non-standard content
+    if (this.langContent) {
+      content = this.langContent;
     } else if (this.language ==="es") {
       content = EsContent;
     };
+
+    if (this.taxpayerDisclosure) {
+      taxpayerContent = `. ${content.taxpayer}.`;
+    }
 
     return html`
       <div class="usa-identifier">
@@ -71,7 +80,7 @@ export class UsaIdentifierAttributesObject extends LitElement {
               <p class="usa-identifier__identity-domain">${this.siteDomain}</p>
               <p class="usa-identifier__identity-disclaimer">
                 ${content.disclaimer}
-                <a href="${this.parentAgency.url}">${this.parentAgency.name}</a>
+                <a href="${this.parentAgency.url}">${this.parentAgency.name}</a>${taxpayerContent}
               </p>
             </section>
           </div>
