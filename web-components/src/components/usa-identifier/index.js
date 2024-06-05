@@ -5,60 +5,18 @@ import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
 export class UsaIdentifier extends LitElement {
   constructor() {
     super();
-
-       /**
-       * Scaffold the logo(s):
-       * Add necessary classes
-    */
-    const logos = this.querySelectorAll('[slot="logo"]');
-    const logosArr = Array.from(logos);
-    let logoWrapper;
-
-    if (logos.length > 0) {
-    logoWrapper = document.createElement('div');
-    logoWrapper.classList.add('usa-identifier__logos');
-
-    logosArr.forEach(logo => {
-      const logoImage = this.querySelector('img');
-      logo.classList.add('usa-identifier__logo');
-      logoImage.classList.add('usa-identifier__logo-img');
-      logoWrapper.appendChild(logo);
-    });
-    }
+    this.logos = [...this.querySelectorAll('[slot="logo"]')];
+    this.links = [...this.querySelector('[slot="links"]').children];
+    this.domain = this.querySelector('[slot="domain"]');
+    this.disclaimer = this.querySelector('[slot="disclaimer"]');
+    this.usagov = this.querySelector('[slot="usagov"]');
 
     /**
-       * Scaffold the required links list:
-       * Build an unordered list, list item wrappers, and
-       * add necessary attributes
-    */
-    const nav = this.querySelector('nav');
-    const linksArr = Array.from(nav.children);
-    let linksList;
-
-    if (nav) {
-      linksList = document.createElement('ul');
-      linksList.classList.add('usa-identifier__required-links-list');
-      nav.insertAdjacentElement('afterbegin', linksList);
-
-      linksArr.forEach(link => {
-        const listItem = document.createElement('li');
-        listItem.classList.add('usa-identifier__required-links-item');
-        link.classList.add('usa-identifier__required-link');
-        listItem.appendChild(link);
-        linksList.appendChild(listItem);
-      });
-    }
-
-    /**
-      * Scaffold usagov text:
+      * Scaffold domain text:
       * Add necessary classes for styling
     */
-    const usagov = this.querySelector('[slot="usagov"]');
-    const usagovLink = this.querySelector('[slot="usagov"] a');
-
-    if (usagov) {
-      usagov.classList.add('usa-identifier__usagov-description');
-      usagovLink.classList.add('usa-link');
+    if (this.domain) {
+      this.domain.classList.add('usa-identifier__identity-domain');
     }
 
     /**
@@ -66,31 +24,19 @@ export class UsaIdentifier extends LitElement {
       * Add necessary classes for styling
       * Wrap "An" in aria-hidden span
     */
-    const disclaimer = this.querySelector('[slot="disclaimer"]');
-
-    if(disclaimer) {
-      disclaimer.classList.add('usa-identifier__identity-disclaimer');
+    if(this.disclaimer) {
+      this.disclaimer.classList.add('usa-identifier__identity-disclaimer');
     }
-
-    if ( disclaimer.textContent.includes('An') ){
-      disclaimer.innerHTML.replace('An', '<span aria-hidden="true" style="background:pink">An</span>');
-    };
 
     /**
-      * Scaffold domain text:
+      * Scaffold usagov text:
       * Add necessary classes for styling
     */
-    const domain = this.querySelector('[slot="domain"]');
-    if (domain) {
-      domain.classList.add('usa-identifier__identity-domain');
+    if (this.usagov) {
+      const usagovLink = this.usagov.querySelector("a");
+      this.usagov.classList.add('usa-identifier__usagov-description');
+      usagovLink.classList.add('usa-link');
     }
-
-    // return elements
-    this.logoWrapper = logoWrapper;
-    this.linkList = linksList;
-    this.usagov = usagov;
-    this.disclaimer = disclaimer;
-    this.domain = domain;
   }
 
   static styles = [
@@ -106,7 +52,14 @@ export class UsaIdentifier extends LitElement {
           aria-label="Agency identifier"
         >
           <div class="usa-identifier__container">
-            ${this.logoWrapper}
+            <div class="usa-identifier__logos">
+              ${this.logos.map((logo) => {
+                const logoImage = logo.querySelector("img");
+                logo.classList.add("usa-identifier__logo");
+                logoImage.classList.add("usa-identifier__logo-img");
+                return html`${logo}`
+              })}
+            </div>
             <section class="usa-identifier__identity" aria-label="Agency description">
               ${this.domain}
               ${this.disclaimer}
@@ -118,7 +71,14 @@ export class UsaIdentifier extends LitElement {
           aria-label="Important links"
         >
           <div class="usa-identifier__container">
-            ${this.linkList}
+            <div class="usa-identifier__logos">
+              <ul class="usa-identifier__required-links-list">
+                ${this.links.map((link) => {
+                  link.classList.add('usa-identifier__required-link');
+                  return html`<li class="usa-identifier__required-links-item">${link}</li>`
+                })}
+              </ul>
+            </div>
           </div>
         </nav>
         <section class="usa-identifier__section usa-identifier__section--usagov">
