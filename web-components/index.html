@@ -26,314 +26,209 @@
     It's dangerous to go alone. Here, take this.
   </usa-link>
 
-  <!-- <h2>Minimal markup - one logo</h2>
+  <h2>Option 1: Minimal markup</h2>
+    <h3>Simple implementation</h3>
+    <ul>
+      <li>Default content</li>
+      <li>One agency/logo</li>
+    </ul>
 
-  <usa-identifier>
-    <a slot="logo" href="https://www.gsa.gov/">
-      <img
-        src="https://designsystem.digital.gov/img/gsa-logo.svg"
-        alt="General Services Administration logo"/>
-    </a>
-    <p slot="domain" class="amys-cool-style">designsystem.digital.gov</p>
-    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
-    <nav slot="links">
-      <a href="https://www.gsa.gov/about-us">About GSA</a>
-      <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
-      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
-      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
-      <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
-      <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
-      <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
-    </nav>
-    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
-  </usa-identifier>
-
-  <h2>Minimal markup - two logos</h2>
-
-  <usa-identifier>
-    <a slot="logo" href="https://www.gsa.gov/">
-      <img
-        src="https://designsystem.digital.gov/img/gsa-logo.svg"
-        alt="General Services Administration logo"/>
-    </a>
-    <a slot="logo" href="https://www.gsa.gov/">
-      <img
-        src="https://designsystem.digital.gov/img/gsa-logo.svg"
-        alt="General Services Administration logo"/>
-    </a>
-    <p slot="domain">designsystem.digital.gov</p>
-    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
-    <nav slot="links">
-      <a href="https://www.gsa.gov/about-us">About GSA</a>
-      <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
-      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
-      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
-      <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
-      <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
-      <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
-    </nav>
-    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
-  </usa-identifier>
+    <usa-identifier>
+      <a slot="logo" href="https://www.gsa.gov/">
+        <img
+          src="https://designsystem.digital.gov/img/gsa-logo.svg"
+          alt="General Services Administration logo"/>
+      </a>
+      <p slot="domain">designsystem.digital.gov</p>
+      <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
+      <nav slot="links">
+        <a href="https://www.gsa.gov/about-us">About GSA</a>
+        <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
+        <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
+        <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
+        <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
+        <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
+        <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
+      </nav>
+      <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
+    </usa-identifier>
 
 
-  <h2>Minimal markup - no logos</h2>
 
-  <usa-identifier>
-    <p slot="domain">designsystem.digital.gov</p>
-    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
-    <nav slot="links">
-      <a href="https://www.gsa.gov/about-us">About GSA</a>
-      <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
-      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
-      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
-      <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
-      <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
-      <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
-    </nav>
-    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
-  </usa-identifier>
+    <h3>Complex implementation</h3>
+    <ul>
+      <li>Custom content</li>
+      <li>Taxpayer disclosure</li>
+      <li>Multiple agencies/logos</li>
+    </ul>
 
+    <usa-identifier>
+      <a slot="logo" href="https://www.gsa.gov/">
+        <img
+          src="https://designsystem.digital.gov/img/gsa-logo.svg"
+          alt="General Services Administration logo"/>
+      </a>
+      <a slot="logo" href="https://www.gsa.gov/">
+        <img
+          src="https://designsystem.digital.gov/img/gsa-logo.svg"
+          alt="General Services Administration logo"/>
+      </a>
+      <p slot="domain">designsystem.digital.gov</p>
+      <p slot="disclaimer">
+        Un sitio web oficial de <a href="https://gsa.gov/">General Services Administration</a> y
+        <a href="https://gsa.gov/">Other agency</a>.
+        Producido y publicado con dinero de los contribuyentes de impuestos.</p>.
+      </p>
+      <nav slot="links">
+        <a href="https://www.gsa.gov/about-us">Acerca de GSA</a>
+        <a href="https://www.gsa.gov/website-information/accessibility-statement">Declaración de accesibilidad</a>
+        <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">Solicitud a través de FOIA</a>
+        <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">Datos de la ley No FEAR</a>
+        <a href="https://www.gsaig.gov/">Oficina del Inspector General</a>
+        <a href="https://www.gsa.gov/reference/reports/budget-performance">Informes de desempeño</a>
+        <a href="https://www.gsa.gov/website-information/website-policies">Política de privacidad</a>
+      </nav>
+      <div slot="usagov">¿Necesita información y servicios del Gobierno? <a href="https://www.usa.gov/espanol/">Visite USA.gov en Español</a></div>
+    </usa-identifier>
 
-  <h2>Attribute - flat structure - one logo</h2>
+  <h2>Option 2: Attribute-based (attribute objects)</h2>
 
-  <usa-identifier-attributes
-    siteDomain="designsystem.digital.gov"
-    parentName="General Services Administration"
-    parentShortname="GSA"
-    parentHref="https://www.gsa.gov/"
-    parentLogo="https://designsystem.digital.gov/img/gsa-logo.svg"
-    linkAccessibility="https://www.gsa.gov/website-information/accessibility-statement"
-    linkAbout="https://www.gsa.gov/about-us"
-    linkFOIA="https://www.gsa.gov/reference/freedom-of-information-act-foia"
-    linkNoFEAR="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002"
-    linkOIG="https://www.gsaig.gov/"
-    linkPerformance="https://www.gsa.gov/reference/reports/budget-performance"
-    linkPrivacy="https://www.gsa.gov/website-information/website-policies"
-  >
-  </usa-identifier-attributes>
+    <h3>Simple implementation</h3>
+    <ul>
+      <li>Default content</li>
+      <li>One agency/logo</li>
+      <li>No taxpayer disclosure</li>
+    </ul>
 
-  <h2>Attribute object - English - one agency</h2>
+    <usa-identifier-attributes-object
+      siteDomain="designsystem.digital.gov"
+      parentAgency= '{
+        "name": "General Services Administration",
+        "shortname": "GSA",
+        "url": "https://www.gsa.gov/",
+        "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
+      }'
+      linkURLs= '{
+        "about": "https://www.gsa.gov/about-us",
+        "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
+        "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
+        "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
+        "OIG": "https://www.gsaig.gov/",
+        "performance": "https://www.gsa.gov/reference/reports/budget-performance",
+        "privacy": "https://www.gsa.gov/website-information/website-policies"
+      }'
+    >
+    </usa-identifier-attributes-object>
 
-  <usa-identifier-attributes-object
-    siteDomain="designsystem.digital.gov"
-    parentAgency= '{
-      "name": "General Services Administration",
-      "shortname": "GSA",
-      "url": "https://www.gsa.gov/",
-      "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
-    }'
-    linkURLs= '{
-      "about": "https://www.gsa.gov/about-us",
-      "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
-      "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
-      "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
-      "OIG": "https://www.gsaig.gov/",
-      "performance": "https://www.gsa.gov/reference/reports/budget-performance",
-      "privacy": "https://www.gsa.gov/website-information/website-policies"
-    }'
-  >
-  </usa-identifier-attributes-object>
+    <h3>Medium complexity implementation</h3>
+    <ul>
+      <li>USWDS-provided Spanish content</li>
+      <li>One agency/logo</li>
+      <li>Taxpayer disclosure</li>
+    </ul>
 
-  <h2>Attribute object - English - Two agencies</h2>
-
-  <usa-identifier-attributes-object
-    siteDomain="designsystem.digital.gov"
-    parentAgency= '{
-      "name": "General Services Administration",
-      "shortname": "GSA",
-      "url": "https://www.gsa.gov/",
-      "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
-    }'
-    secondaryParentAgency= '{
-      "name": "Other agency",
-      "shortname": "OA",
-      "url": "https://www.oa.gov/",
-      "logo": "https://designsystem.digital.gov/assets/img/circle-gray-20.svg"
-    }'
-    linkURLs= '{
-      "about": "https://www.gsa.gov/about-us",
-      "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
-      "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
-      "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
-      "OIG": "https://www.gsaig.gov/",
-      "performance": "https://www.gsa.gov/reference/reports/budget-performance",
-      "privacy": "https://www.gsa.gov/website-information/website-policies"
-    }'
-  >
-  </usa-identifier-attributes-object>
-
-
-  <h2>Attribute object - English - No Logo</h2>
-
-  <usa-identifier-attributes-object
-    siteDomain="designsystem.digital.gov"
-    parentAgency= '{
-      "name": "General Services Administration",
-      "shortname": "GSA",
-      "url": "https://www.gsa.gov/"
-    }'
-    linkURLs= '{
-      "about": "https://www.gsa.gov/about-us",
-      "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
-      "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
-      "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
-      "OIG": "https://www.gsaig.gov/",
-      "performance": "https://www.gsa.gov/reference/reports/budget-performance",
-      "privacy": "https://www.gsa.gov/website-information/website-policies"
-    }'
-  >
-  </usa-identifier-attributes-object>
-
-  <h2>Attribute object - English - taxpayer disclosure</h2>
-  <usa-identifier-attributes-object
-    taxpayerDisclosure
-    siteDomain="designsystem.digital.gov"
-    parentAgency= '{
-      "name": "General Services Administration",
-      "shortname": "GSA",
-      "url": "https://www.gsa.gov/",
-      "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
-    }'
-    linkURLs= '{
-      "about": "https://www.gsa.gov/about-us",
-      "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
-      "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
-      "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
-      "OIG": "https://www.gsaig.gov/",
-      "performance": "https://www.gsa.gov/reference/reports/budget-performance",
-      "privacy": "https://www.gsa.gov/website-information/website-policies"
-    }'
-  >
-  </usa-identifier-attributes-object> -->
-
-  <h2>Minimal markup - simple</h2>
-
-  <usa-identifier>
-    <a slot="logo" href="https://www.gsa.gov/">
-      <img
-        src="https://designsystem.digital.gov/img/gsa-logo.svg"
-        alt="General Services Administration logo"/>
-    </a>
-    <p slot="domain" class="amys-cool-style">designsystem.digital.gov</p>
-    <p slot="disclaimer">An official website of the <a href="https://gsa.gov/">General Services Administration</a></p>
-    <nav slot="links">
-      <a href="https://www.gsa.gov/about-us">About GSA</a>
-      <a href="https://www.gsa.gov/website-information/accessibility-statement">Accessibility statement</a>
-      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">FOIA requests</a>
-      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">No FEAR Act data</a>
-      <a href="https://www.gsaig.gov/">Office of the Inspector General</a>
-      <a href="https://www.gsa.gov/reference/reports/budget-performance">Performance reports</a>
-      <a href="https://www.gsa.gov/website-information/website-policies">Privacy policy</a>
-    </nav>
-    <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
-  </usa-identifier>
+    <usa-identifier-attributes-object
+      language="es"
+      taxpayerDisclosure
+      siteDomain="designsystem.digital.gov"
+      parentAgency= '{
+        "name": "General Services Administration",
+        "shortname": "GSA",
+        "url": "https://www.gsa.gov/",
+        "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
+      }'
+      linkURLs= '{
+        "about": "https://www.gsa.gov/about-us",
+        "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
+        "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
+        "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
+        "OIG": "https://www.gsaig.gov/",
+        "performance": "https://www.gsa.gov/reference/reports/budget-performance",
+        "privacy": "https://www.gsa.gov/website-information/website-policies"
+      }'
+    >
+    </usa-identifier-attributes-object>
 
 
-  <h2>Attribute object - Spanish - simple</h2>
+    <h3>High complexity implementation</h3>
+    <ul>
+      <li>User-provided custom content</li>
+      <li>Two agencies/logos</li>
+      <li>Taxpayer disclosure</li>
+    </ul>
 
-  <usa-identifier-attributes-object
-    language="es"
-    siteDomain="designsystem.digital.gov"
-    parentAgency= '{
-      "name": "General Services Administration",
-      "shortname": "GSA",
-      "url": "https://www.gsa.gov/",
-      "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
-    }'
-    linkURLs= '{
-      "about": "https://www.gsa.gov/about-us",
-      "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
-      "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
-      "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
-      "OIG": "https://www.gsaig.gov/",
-      "performance": "https://www.gsa.gov/reference/reports/budget-performance",
-      "privacy": "https://www.gsa.gov/website-information/website-policies"
-    }'
-  >
-  </usa-identifier-attributes-object>
-
-  <h2>Attribute object - Custom content - Complex</h2>
-
-  <usa-identifier-attributes-object
-    taxpayerDisclosure
-    siteDomain="[French] designsystem.digital.gov"
-    parentAgency= '{
-      "name": "[French] General Services Administration",
-      "shortname": "[French] GSA",
-      "url": "https://www.gsa.gov/",
-      "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
-    }'
-    secondaryParentAgency= '{
-      "name": "[French] Other agency",
-      "shortname": "OA",
-      "url": "https://www.oa.gov/",
-      "logo": "https://designsystem.digital.gov/assets/img/circle-gray-20.svg"
-    }'
-    langContent= '{
-      "aria_label": "Agency identifier",
-      "disclaimer": "[French] An official website of the",
-      "taxpayer": "[French]Produced and published at taxpayer expense",
-      "conjunction": "et",
-      "linkLabels": {
-        "about": "[French] About",
-        "accessibility": "[French] Accessibility statement",
-        "FOIA": "[French] FOIA requests",
-        "noFEAR": "[French] No FEAR Act data",
-        "OIG": "[French] Office of the Inspector General",
-        "performance": "[French] Performance reports",
-        "privacy": "[French] Privacy policy"
-      },
-      "usagov": {
-        "aria_label": "[French] U.S. government information and services",
-        "description": "[French] Looking for U.S. government information and services?",
-        "link": {
-          "label": "[French] Visit USA.gov",
-          "url": "https://www.usa.gov/"
+    <usa-identifier-attributes-object
+      taxpayerDisclosure
+      siteDomain="[French] designsystem.digital.gov"
+      parentAgency= '{
+        "name": "[French] General Services Administration",
+        "shortname": "[French] GSA",
+        "url": "https://www.gsa.gov/",
+        "logo": "https://designsystem.digital.gov/img/gsa-logo.svg"
+      }'
+      secondaryParentAgency= '{
+        "name": "[French] Other agency",
+        "shortname": "OA",
+        "url": "https://www.oa.gov/",
+        "logo": "https://designsystem.digital.gov/assets/img/circle-gray-20.svg"
+      }'
+      langContent= '{
+        "aria_label": "Agency identifier",
+        "disclaimer": "[French] An official website of the",
+        "taxpayer": "[French]Produced and published at taxpayer expense",
+        "conjunction": "et",
+        "linkLabels": {
+          "about": "[French] About",
+          "accessibility": "[French] Accessibility statement",
+          "FOIA": "[French] FOIA requests",
+          "noFEAR": "[French] No FEAR Act data",
+          "OIG": "[French] Office of the Inspector General",
+          "performance": "[French] Performance reports",
+          "privacy": "[French] Privacy policy"
+        },
+        "usagov": {
+          "aria_label": "[French] U.S. government information and services",
+          "description": "[French] Looking for U.S. government information and services?",
+          "link": {
+            "label": "[French] Visit USA.gov",
+            "url": "https://www.usa.gov/"
+          }
         }
-      }
-    }'
-    linkURLs= '{
-      "about": "https://www.gsa.gov/about-us",
-      "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
-      "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
-      "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
-      "OIG": "https://www.gsaig.gov/",
-      "performance": "https://www.gsa.gov/reference/reports/budget-performance",
-      "privacy": "https://www.gsa.gov/website-information/website-policies"
-    }'
-  >
-  </usa-identifier-attributes-object>
+      }'
+      linkURLs= '{
+        "about": "https://www.gsa.gov/about-us",
+        "accessibility": "https://www.gsa.gov/website-information/accessibility-statement",
+        "NoFEAR": "https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002",
+        "FOIA": "https://www.gsa.gov/reference/freedom-of-information-act-foia",
+        "OIG": "https://www.gsaig.gov/",
+        "performance": "https://www.gsa.gov/reference/reports/budget-performance",
+        "privacy": "https://www.gsa.gov/website-information/website-policies"
+      }'
+    >
+    </usa-identifier-attributes-object>
 
-  <h2>Minimal markup - Custom content - Complex</h2>
 
-  <usa-identifier>
-    <a slot="logo" href="https://www.gsa.gov/">
-      <img
-        src="https://designsystem.digital.gov/img/gsa-logo.svg"
-        alt="General Services Administration logo"/>
-    </a>
-    <a slot="logo" href="https://www.gsa.gov/">
-      <img
-        src="https://designsystem.digital.gov/img/gsa-logo.svg"
-        alt="General Services Administration logo"/>
-    </a>
-    <p slot="domain">[French] designsystem.digital.gov</p>
-    <p slot="disclaimer">
-      [French] An official website of the <a href="https://gsa.gov/">[French]General Services Administration</a> et
-      <a href="https://www.oa.gov/">[French] Other agency</a>.
-      [French]Produced and published at taxpayer expense</p>.
-    </p>
-    <nav slot="links">
-      <a href="https://www.gsa.gov/about-us">[French] About GSA</a>
-      <a href="https://www.gsa.gov/website-information/accessibility-statement">[French] Accessibility statement</a>
-      <a href="https://www.gsa.gov/reference/freedom-of-information-act-foia">[French] FOIA requests</a>
-      <a href="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002">[French] No FEAR Act data</a>
-      <a href="https://www.gsaig.gov/">[French] Office of the Inspector General</a>
-      <a href="https://www.gsa.gov/reference/reports/budget-performance">[French] Performance reports</a>
-      <a href="https://www.gsa.gov/website-information/website-policies">[French] Privacy policy</a>
-    </nav>
-    <div slot="usagov">[French] Looking for U.S. government information and services? <a href="https://www.usa.gov/">[French] Visit USA.gov</a></div>
-  </usa-identifier>
-</body>
+    <h2>Option 3: Attribute-based (flat structure)</h2>
+    <h3>Simple implementation</h3>
+    <ul>
+      <li>Default content</li>
+      <li>One agency/logo</li>
+    </ul>
 
+    <usa-identifier-attributes
+      siteDomain="designsystem.digital.gov"
+      parentName="General Services Administration"
+      parentShortname="GSA"
+      parentHref="https://www.gsa.gov/"
+      parentLogo="https://designsystem.digital.gov/img/gsa-logo.svg"
+      linkAccessibility="https://www.gsa.gov/website-information/accessibility-statement"
+      linkAbout="https://www.gsa.gov/about-us"
+      linkFOIA="https://www.gsa.gov/reference/freedom-of-information-act-foia"
+      linkNoFEAR="https://www.gsa.gov/reference/civil-rights-programs/notification-and-federal-employee-antidiscrimination-and-retaliation-act-of-2002"
+      linkOIG="https://www.gsaig.gov/"
+      linkPerformance="https://www.gsa.gov/reference/reports/budget-performance"
+      linkPrivacy="https://www.gsa.gov/website-information/website-policies"
+    >
+    </usa-identifier-attributes>
+  </body>
 </html>
