@@ -27,12 +27,18 @@
   </usa-link>
 
   <h2>Option 1: Minimal markup</h2>
+    <p>Benefits: content is still available if no JS, intuitive implementation and customization</p>
     <h3>Simple implementation</h3>
     <ul>
       <li>Default content</li>
       <li>One agency/logo</li>
     </ul>
 
+    <!--
+      TODO:
+      - consider using named slots for nav links
+      - improve slot naming to be more intuitive
+    -->
     <usa-identifier>
       <a slot="logo" href="https://www.gsa.gov/">
         <img
@@ -52,8 +58,6 @@
       </nav>
       <div slot="usagov">Looking for U.S. government information and services? <a href="https://www.usa.gov/">Visit USA.gov</a></div>
     </usa-identifier>
-
-
 
     <h3>Complex implementation</h3>
     <ul>
@@ -157,6 +161,8 @@
       <li>Taxpayer disclosure</li>
     </ul>
 
+
+    <!-- TODO: re-organize these objects to be more intuitive. Don't separate out "langContent" -->
     <usa-identifier-attributes-object
       taxpayerDisclosure
       siteDomain="[French] designsystem.digital.gov"
