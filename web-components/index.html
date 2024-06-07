@@ -8,6 +8,7 @@
   <title>USWDS + Lit</title>
   <script type="module" src="/src/components/usa-banner/index.js"></script>
   <script type="module" src="/src/components/usa-link/index.js"></script>
+  <script type="module" src="/src/components/usa-card-group/index.js"></script>
   <script type="module" src="/src/components/usa-card/index.js"></script>
 
   <style>
@@ -27,56 +28,60 @@
     It's dangerous to go alone. Here, take this.
   </usa-link>
 
-  <usa-card>
-    <div slot="card-header">
-      <h2>Card</h2>
-    </div>
-    <div slot="card-body">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
-        tenetur quo cupiditate, eaque qui officia recusandae.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
-        tenetur quo cupiditate, eaque qui officia recusandae.
-      </p>
-    </div>
-    <div slot="card-footer">
-      <a href="#" class="usa-button">Visit Florida Keys</a>
-    </div>
-  </usa-card>
+  <usa-card-group>
+    <usa-card>
+      <div slot="card-header">
+        <h2>Card</h2>
+      </div>
+      <div slot="card-body">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+          tenetur quo cupiditate, eaque qui officia recusandae.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+          tenetur quo cupiditate, eaque qui officia recusandae.
+        </p>
+      </div>
+      <div slot="card-footer">
+        <a href="#" class="usa-button">Visit Florida Keys</a>
+      </div>
+    </usa-card>
+
+    <usa-card flag>
+      <div slot="card-header">
+        <h2 class="usa-card__heading">Card w/ media</h2>
+      </div>
+      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
+      <div slot="card-body">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+          tenetur quo cupiditate, eaque qui officia recusandae.
+        </p>
+      </div>
+      <div slot="card-footer">
+        <a href="#" class="usa-button">Visit Florida Keys</a>
+      </div>
+    </usa-card>
+    
+    <usa-card headerFirst flag>
+      <div slot="card-header">
+        <h2 class="usa-card__heading">Media with Header first</h2>
+      </div>
+      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
+      <div slot="card-body">
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
+          tenetur quo cupiditate, eaque qui officia recusandae.
+        </p>
+      </div>
+      <div slot="card-footer">
+        <a href="#" class="usa-button">Visit Florida Keys</a>
+      </div>
+    </usa-card>
+  </usa-card-group>
+    
+  </body>
   
-  <usa-card>
-    <div slot="card-header">
-      <h2 class="usa-card__heading">Card w/ media</h2>
-    </div>
-    <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
-    <div slot="card-body">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
-        tenetur quo cupiditate, eaque qui officia recusandae.
-      </p>
-    </div>
-    <div slot="card-footer">
-      <a href="#" class="usa-button">Visit Florida Keys</a>
-    </div>
-  </usa-card>
-
-  <usa-card headerFirst>
-    <div slot="card-header">
-      <h2 class="usa-card__heading">Media with Header first</h2>
-    </div>
-    <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
-    <div slot="card-body">
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
-        tenetur quo cupiditate, eaque qui officia recusandae.
-      </p>
-    </div>
-    <div slot="card-footerd">
-      <a href="#" class="usa-button">Visit Florida Keys</a>
-    </div>
-  </usa-card>
-</body>
-
-</html>
+  </html>
+  
