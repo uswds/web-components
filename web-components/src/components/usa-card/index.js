@@ -18,8 +18,15 @@ export class UsaCard extends LitElement {
 
   static get properties() {
     return {
+      bodyExdent: { type: Boolean },
+      footerExdent: { type: Boolean },
+      headerExdent: { type: Boolean },
       headerFirst: { type: Boolean},
-      flag: { type: Boolean }
+      flag: { type: Boolean },
+      mediaRight: { type: Boolean },
+      mediaInset: { type: Boolean },
+      mediaExdent: { type: Boolean },
+
     }
   }
   
@@ -35,8 +42,13 @@ export class UsaCard extends LitElement {
 
   // Render header
   headerTemplate() {
+    const classes = {
+      "usa-card__header": true,
+      "usa-card__header--exdent": this.headerExdent
+    }
+
     return html`
-      <div class="usa-card__header">
+      <div class="${classMap(classes)}">
         <div class="usa-card__heading">
           ${this.headerContent}
         </div>
@@ -45,12 +57,18 @@ export class UsaCard extends LitElement {
   }
   // Render media
   mediaTemplate() {
+    const classes = {
+      "usa-card__media": true,
+      "usa-card__media--exdent": this.mediaExdent,
+      "usa-card__media--inset": this.mediaInset
+    }
+
     if(!this.media) {
       return;
     }
 
     return html`
-    <div class="usa-card__media">
+    <div class="${classMap(classes)}">
       <div class="usa-card__img">
         ${this.media}
       </div>
@@ -60,12 +78,22 @@ export class UsaCard extends LitElement {
 
   // Render body
   bodyTemplate() {
-    return html`<div class="usa-card__body">${this.bodyContent}</div>`
+    const classes = {
+      "usa-card__body": true,
+      "usa-card__body--exdent": this.bodyExdent
+    };
+
+    return html`<div class="${classMap(classes)}">${this.bodyContent}</div>`
   }
 
   // Render footer
   footerTemplate() {
-    return html`<div class="usa-card__footer">${this.footerContent}</div>`
+    const classes = {
+      "usa-card__footer": true,
+      "usa-card__footer--exdent": this.footerExdent
+    }
+
+    return html`<div class="${classMap(classes)}">${this.footerContent}</div>`
   }
 
   setClasses() {
@@ -86,7 +114,8 @@ export class UsaCard extends LitElement {
     const classes = {
       "usa-card": true,
       "usa-card--header-first": this.headerFirst,
-      "usa-card--flag": this.flag
+      "usa-card--flag": this.flag,
+      "usa-card--media-right": this.mediaRight
     }
     return html`
         <div class="${classMap(classes)}">
