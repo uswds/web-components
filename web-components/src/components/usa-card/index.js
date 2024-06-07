@@ -27,7 +27,6 @@ export class UsaCard extends LitElement {
     super();
 
     this.cardGroup = this.parentElement;
-    console.log("Parent: ", this.cardGroup);
     this.headerContent = [...this.querySelector("[slot='card-header']").children];
     this.media = this.querySelector("[slot='card-media']")
     this.bodyContent = [...this.querySelector("[slot='card-body']").children];
