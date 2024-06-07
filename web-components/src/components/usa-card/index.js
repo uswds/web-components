@@ -18,24 +18,20 @@ export class UsaCard extends LitElement {
 
   static get properties() {
     return {
-      headerFirst: { type: Boolean}
+      headerFirst: { type: Boolean},
+      flag: { type: Boolean }
     }
   }
   
   constructor() {
     super();
 
-    // TODO: Figure out how to implement slots for each section
-
-    // this.heading = this.querySelector(".usa-card__heading");
-    // this.media = this.querySelector("img");
-    // this.content = this.querySelectorAll("p");
-    // this.link = this.querySelector("a");
-
-    this.header = this.querySelector("[slot='card-header']")
+    this.cardGroup = this.parentElement;
+    console.log("Parent: ", this.cardGroup);
+    this.headerContent = [...this.querySelector("[slot='card-header']").children];
     this.media = this.querySelector("[slot='card-media']")
-    this.body = this.querySelector("[slot='card-body']")
-    this.footer = this.querySelector("[slot='card-footer']")
+    this.bodyContent = [...this.querySelector("[slot='card-body']").children];
+    this.footerContent = [...this.querySelector("[slot='card-footer']").children];
   }
 
   // Render header
@@ -43,7 +39,7 @@ export class UsaCard extends LitElement {
     return html`
       <div class="usa-card__header">
         <div class="usa-card__heading">
-          ${this.header}
+          ${this.headerContent}
         </div>
       </div>
     `;
@@ -65,12 +61,12 @@ export class UsaCard extends LitElement {
 
   // Render body
   bodyTemplate() {
-    return html`<div class="usa-card__body">${this.body}</div>`
+    return html`<div class="usa-card__body">${this.bodyContent}</div>`
   }
 
   // Render footer
   footerTemplate() {
-    return html`<div class="usa-card__footer">${this.footer}</div>`
+    return html`<div class="usa-card__footer">${this.footerContent}</div>`
   }
 
   setClasses() {
@@ -88,9 +84,13 @@ export class UsaCard extends LitElement {
 
   // Render card
   cardTemplate() {
-    const classes = {"usa-card--header-first": this.headerFirst}
+    const classes = {
+      "usa-card": true,
+      "usa-card--header-first": this.headerFirst,
+      "usa-card--flag": this.flag
+    }
     return html`
-        <div class="usa-card ${classMap(classes)}">
+        <div class="${classMap(classes)}">
           <div class="usa-card__container">
             ${this.headerTemplate()}
             ${this.mediaTemplate()}
