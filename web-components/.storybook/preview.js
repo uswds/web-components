@@ -1,3 +1,6 @@
+import UswdsTheme from "./UswdsTheme";
+import "./index.css";
+
 /** @type { import('@storybook/web-components').Preview } */
 const preview = {
   parameters: {
@@ -7,6 +10,10 @@ const preview = {
         date: /Date$/i,
       },
     },
+    docs: {
+      toc: true, // Autogenerate table of contents.
+      theme: UswdsTheme,
+    }
   },
 };
 
