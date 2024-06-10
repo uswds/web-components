@@ -1,5 +1,5 @@
 :where(p:not(.sb-anchor, .sb-unstyled, .sb-unstyled p)),
 :where(li:not(.sb-anchor, .sb-unstyled, .sb-unstyled li)) {
-  font-size: 21px !important;
+  font-size: 22px !important;
   line-height: 1.4 !important;
 }
