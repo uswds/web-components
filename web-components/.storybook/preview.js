@@ -20,6 +20,7 @@ const preview = {
       theme: UswdsTheme,
     }
   },
+  tags: ['autodocs'],
 };
 
 export default preview;
