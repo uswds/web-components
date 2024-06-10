@@ -7,6 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
+    "test": "vitest",
     "storybook": "storybook dev -p 8008",
     "build-storybook": "storybook build",
     "start": "npm run storybook"

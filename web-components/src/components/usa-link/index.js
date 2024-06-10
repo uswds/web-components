@@ -1,5 +1,4 @@
 import { LitElement, css, html } from "lit";
-// import "@uswds/uswds/scss/usa-link";
 
 /**
  * An example element.
@@ -17,13 +16,26 @@ export class UsaLink extends LitElement {
     };
   }
 
+  hasLinkChild() {
+    const childLink = this.querySelector("a");
+    if (!childLink) return false;
+
+    this.href = childLink.href;
+    this.slottedChildren = childLink;
+    this.shadowRoot.appendChild(this.slottedChildren);
+  }
+
   constructor() {
     super();
     this.href = "";
   }
 
   render() {
-    return html` <a class="usa-link" href="${this.href}"><slot></slot></a> `;
+    return this.hasLinkChild()
+      ? html`<a class="usa-link" href="${this.href}"
+          >${this.slottedChildren}</a
+        >`
+      : html`<a class="usa-link" href="${this.href}"><slot></slot></a>`;
   }
 
   static styles = css`
