@@ -18,14 +18,9 @@ import styles from "./usa-link.css.js";
 export class UsaLink extends LitElement {
   static styles = [styles];
 
-  static get properties() {
-    return {
-      /**
-       * The destination URL for the link
-       */
-      href: { type: String },
-    };
-  }
+  static properties = {
+    href: {},
+  };
 
   hasLinkChild() {
     const childLink = this.querySelector("a");
@@ -38,7 +33,6 @@ export class UsaLink extends LitElement {
 
   constructor() {
     super();
-    this.href = "";
   }
 
   templateWithChildren() {
