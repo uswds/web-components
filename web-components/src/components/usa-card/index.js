@@ -16,18 +16,15 @@ export class UsaCard extends LitElement {
     `
   ]
 
-  static get properties() {
-    return {
-      bodyExdent: { type: Boolean },
-      footerExdent: { type: Boolean },
-      headerExdent: { type: Boolean },
-      headerFirst: { type: Boolean},
-      flag: { type: Boolean },
-      mediaRight: { type: Boolean },
-      mediaInset: { type: Boolean },
-      mediaExdent: { type: Boolean },
-
-    }
+  static properties = {
+    bodyExdent: { type: Boolean },
+    footerExdent: { type: Boolean },
+    headerExdent: { type: Boolean },
+    headerFirst: { type: Boolean},
+    flag: { type: Boolean },
+    mediaRight: { type: Boolean },
+    mediaInset: { type: Boolean },
+    mediaExdent: { type: Boolean },
   }
   
   constructor() {
