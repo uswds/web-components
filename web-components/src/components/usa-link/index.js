@@ -33,12 +33,20 @@ export class UsaLink extends LitElement {
     this.href = "";
   }
 
+  templateWithChildren() {
+    return html`<a class="usa-link" href="${this.href}"
+      >${this.slottedChildren}</a
+    >`;
+  }
+
+  templateWithSlots() {
+    return html`<a class="usa-link" href="${this.href}"><slot></slot></a>`;
+  }
+
   render() {
     return this.hasLinkChild()
-      ? html`<a class="usa-link" href="${this.href}"
-          >${this.slottedChildren}</a
-        >`
-      : html`<a class="usa-link" href="${this.href}"><slot></slot></a>`;
+      ? this.templateWithChildren()
+      : this.templateWithSlots();
   }
 }
 
