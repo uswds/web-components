@@ -12,9 +12,9 @@ export default {
     buttonText: "Visit Florida Keys",
     variant: "headerExdent"
   },
-  render: ({ title, variant, content, buttonText }) => {
+  render: ({ title, content, buttonText }) => {
     return html`
-      <usa-card ${variant}="">
+      <usa-card>
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Card"}</h2>
         </div> 
