@@ -6,6 +6,8 @@
 
 Over the course of the next several months (and beyond), we will incrementally build the next version of the Design System. This version will introduce [Web Component](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)-based implmentations of Design System elements. We intend that, as we ship new components and new versions of existing components, you will be able to use them alongside older versions of USWDS.
 
+* [More on our decision to use Web Components](https://github.com/uswds/uswds-proposals/blob/main/decisions/0001-use-web-components.md)
+
 ## Guiding Principles
 
 Work here will accord with the Design System's existing [Product Values](https://designsystem.digital.gov/about/product-values/). However, in the course of building out the next version, we will be discovering and road-testing new values as well. It's going to be fun.
