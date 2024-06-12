@@ -18,6 +18,9 @@ const preview = {
     docs: {
       toc: true, // Autogenerate table of contents.
       theme: UswdsTheme,
+      canvas: {
+        sourceState: 'shown'
+      }
     }
   },
   tags: ['autodocs'],
