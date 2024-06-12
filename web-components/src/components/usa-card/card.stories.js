@@ -7,17 +7,19 @@ export default {
   component: "usa-card",
   args: {
     title: "",
+    image: false,
     media: "https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg",
     content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.",
     buttonText: "Visit Florida Keys",
     variant: "headerExdent"
   },
-  render: ({ title, content, buttonText }) => {
+  render: ({ title, content, buttonText, image, media }) => {
     return html`
       <usa-card>
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Card"}</h2>
         </div> 
+        ${image ? html`<img slot="card-media" src="${media}" alt="Placeholder image">`: null}
         <div slot="card-body">
           <p>
             ${content}
@@ -32,6 +34,13 @@ export default {
 }
 
 export const Default = {};
+
+export const Test = {
+  args: {
+    title: "Test card",
+    image: true
+  }
+}
 
 export const MediaWithMedia = {
   render: ({ title, media, content, buttonText }) => {
