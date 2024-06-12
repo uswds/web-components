@@ -14,6 +14,14 @@ export default {
 
 export const Default = {};
 
+export const ChildLink = {
+  render: ({ href, label }) => html`
+    <usa-link>
+      <a href="${ href }">${ label }</a>
+    </usa-link>
+`,
+}
+
 export const Inverse = {
   parameters: {
     backgrounds: { default: "dark" },
