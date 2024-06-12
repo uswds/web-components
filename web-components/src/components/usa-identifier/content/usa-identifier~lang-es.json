@@ -1,0 +1,65 @@
+{
+  "masthead": {
+    "domain": "domain.gov",
+    "aria_label": "Identificador de la agencia,",
+    "description": "Descripción de la agencia,",
+    "content_prefix": null,
+    "content": "Un sitio web oficial de",
+    "parent": {
+      "name": "<Parent agency>",
+      "shortname": "<Parent shortname>",
+      "url": "javascript:void(0)",
+      "logo": "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
+      "url": "javascript:void(0)"
+    },
+    "other_parent": {
+      "name": "<Other agency>",
+      "shortname": "<Other agency shortname>",
+      "url": "javascript:void(0)",
+      "logo": "./img/circle-gray-20.svg"
+    },
+    "taxpayer_disclaimer": {
+      "content": "Producido y publicado con dinero de los contribuyentes de impuestos.",
+      "display": false
+    }
+  },
+  "required_links": {
+    "aria_label": "Enlaces importantes,",
+    "about": {
+      "label": "Acerca de",
+      "url": "javascript:void(0)"
+    },
+    "accessibility": {
+      "label": "Declaración de accesibilidad",
+      "url": "javascript:void(0)"
+    },
+    "foia": {
+      "label": "Solicitud a través de FOIA",
+      "url": "javascript:void(0)"
+    },
+    "no_FEAR": {
+      "label": "Datos de la ley No FEAR",
+      "url": "javascript:void(0)"
+    },
+    "oig": {
+      "label": "Oficina del Inspector General",
+      "url": "javascript:void(0)"
+    },
+    "performance": {
+      "label": "Informes de desempeño",
+      "url": "javascript:void(0)"
+    },
+    "privacy": {
+      "label": "Política de privacidad",
+      "url": "javascript:void(0)"
+    }
+  },
+  "usagov": {
+    "aria_label": "Información y servicios del Gobierno de EE. UU.,",
+    "description": "¿Necesita información y servicios del Gobierno?",
+    "link": {
+      "label": "Visite USA.gov en Español",
+      "url": "https://www.usa.gov/espanol/"
+    }
+  }
+}

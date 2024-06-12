@@ -1,0 +1,63 @@
+{
+  "masthead": {
+    "domain": "domain.gov",
+    "aria_label": "Agency identifier,",
+    "description": "Agency description,",
+    "content": "An official website of the",
+    "parent": {
+      "name": "<Parent agency>",
+      "shortname": "<Parent shortname>",
+      "logo": "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
+      "url": "https://www.usa.gov/"
+    },
+    "other_parent": {
+      "name": null,
+      "shortname": null,
+      "url": null,
+      "logo": null
+    },
+    "taxpayer_disclaimer": {
+      "content": "Produced and published at taxpayer expense.",
+      "display": false
+    }
+  },
+  "required_links": {
+    "aria_label": "Important links,",
+    "about": {
+      "label": "About",
+      "url": null
+    },
+    "accessibility": {
+      "label": "Accessibility statement",
+      "url": null
+    },
+    "foia": {
+      "label": "FOIA requests",
+      "url": null
+    },
+    "no_FEAR": {
+      "label": "No FEAR Act data",
+      "url": null
+    },
+    "oig": {
+      "label": "Office of the Inspector General",
+      "url": null
+    },
+    "performance": {
+      "label": "Performance reports",
+      "url": null
+    },
+    "privacy": {
+      "label": "Privacy policy",
+      "url": null
+    }
+  },
+  "usagov": {
+    "aria_label": "U.S. government information and services,",
+    "description": "Looking for U.S. government information and services?",
+    "link": {
+      "label": "Visit USA.gov",
+      "url": "https://www.usa.gov/"
+    }
+  }
+}
