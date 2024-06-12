@@ -3,19 +3,25 @@ import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
 import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
 
 export class UsaIdentifier extends LitElement {
-  constructor() {
-    super();
+  static styles = [
+    unsafeCSS(usaIdentifierStyle),
+    unsafeCSS(uswdsCoreStyle)
+  ];
+
+  connectedCallback() {
+    super.connectedCallback()
+    this.domain = this.querySelector('[slot="domain"]');
     this.logos = [...this.querySelectorAll('[slot="logo"]')];
     this.links = [...this.querySelector('[slot="links"]').children];
     this.domain = this.querySelector('[slot="domain"]');
     this.disclaimer = this.querySelector('[slot="disclaimer"]');
     this.usagov = this.querySelector('[slot="usagov"]');
 
-    /**
+     /**
       * Scaffold domain text:
       * Add necessary classes for styling
     */
-    if (this.domain) {
+     if (this.domain) {
       this.domain.classList.add('usa-identifier__identity-domain');
     }
 
@@ -38,11 +44,6 @@ export class UsaIdentifier extends LitElement {
       usagovLink.classList.add('usa-link');
     }
   }
-
-  static styles = [
-    unsafeCSS(usaIdentifierStyle),
-    unsafeCSS(uswdsCoreStyle)
-  ];
 
   render() {
     return html`
