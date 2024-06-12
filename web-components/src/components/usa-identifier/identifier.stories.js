@@ -17,7 +17,8 @@ export default {
     required_links,
     usagov,
     parent_logo,
-    parent_secondary
+    parent_secondary,
+    taxpayer_disclaimer
   }) => html`
     <usa-identifier>
       ${masthead.domain ? html`<p slot="domain">${masthead.domain}</p>`: null}
@@ -38,10 +39,8 @@ export default {
       <p slot="disclaimer">
         ${masthead.content}
         <a href="">${masthead.parent.name}</a>
-        ${parent_secondary ? html`
-          ${parent_secondary.conjunction}
-          <a href="">${parent_secondary.name}</a>
-        `: null}
+        ${parent_secondary ? html`${parent_secondary.conjunction} <a href="">${parent_secondary.name}</a>`: null}
+        ${taxpayer_disclaimer ? html`. ${taxpayer_disclaimer}`: null}
       </p>
       <nav slot="links">
         <a href="${required_links.about.url}">${required_links.about.label} ${parent.shortname}</a>
@@ -79,4 +78,16 @@ export const NoLogo = {};
 NoLogo.args = {
   ...DefaultContent,
   parent_logo: null
+}
+
+export const TaxpayerDisclaimer = {};
+TaxpayerDisclaimer.args = {
+  ...DefaultContent,
+  ...TaxpayerContent
+}
+
+export const TaxpayerDisclaimerSpanish = {};
+TaxpayerDisclaimerSpanish.args = {
+  ...DefaultContent,
+  ...EsTaxpayerContent
 }
