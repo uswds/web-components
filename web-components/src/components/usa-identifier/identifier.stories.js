@@ -38,7 +38,7 @@ export default {
       <p slot="disclaimer">
         ${masthead.content}
         <a href="">${masthead.parent.name}</a>
-        ${parent_secondary? html`
+        ${parent_secondary ? html`
           ${parent_secondary.conjunction}
           <a href="">${parent_secondary.name}</a>
         `: null}
@@ -78,7 +78,5 @@ MultipleLogosSpanish.args = {
 export const NoLogo = {};
 NoLogo.args = {
   ...DefaultContent,
-  primary_logo: {
-    logo: null
-  }
+  parent_logo: null
 }
