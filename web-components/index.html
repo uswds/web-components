@@ -56,10 +56,10 @@
     </usa-card>
 
     <usa-card>
+      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-header">
         <h2 class="usa-card__heading">Card w/ media</h2>
       </div>
-      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-body">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
@@ -72,14 +72,28 @@
     </usa-card>
     
     <usa-card headerFirst>
+      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-header">
-        <h2 class="usa-card__heading">Media with Header first</h2>
+        <h2 class="usa-card__heading">Media with Header first attribute</h2>
+      </div>
+      <div slot="card-body">
+        <p>
+          This card places the header before the `img` using the `headerFirst` attribute. The img tag comes before the header slot in markup.
+        </p>
+      </div>
+      <div slot="card-footer">
+        <a href="#" class="usa-button">Visit Florida Keys</a>
+      </div>
+    </usa-card>
+    
+    <usa-card>
+      <div slot="card-header">
+        <h2 class="usa-card__heading">Media with Header first in markup</h2>
       </div>
       <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-body">
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
-          tenetur quo cupiditate, eaque qui officia recusandae.
+          This card places the header before the img via markup. The img tag comes after the header slot.
         </p>
       </div>
       <div slot="card-footer">
@@ -88,10 +102,10 @@
     </usa-card>
     
     <usa-card mediaInset>
+      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-header">
         <h2 class="usa-card__heading">Inset media</h2>
       </div>
-      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-body">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
@@ -104,10 +118,10 @@
     </usa-card>
     
     <usa-card mediaExdent>
+      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-header">
         <h2 class="usa-card__heading">Exdent media</h2>
       </div>
-      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-body">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum
@@ -120,10 +134,10 @@
     </usa-card>
     
     <usa-card flag>
+      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-header">
         <h2 class="usa-card__heading">Default flag</h2>
       </div>
-      <img slot="card-media" src="https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg" alt="Placeholder image">
       <div slot="card-body">
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum

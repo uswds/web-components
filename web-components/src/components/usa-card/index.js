@@ -20,7 +20,10 @@ export class UsaCard extends LitElement {
     bodyExdent: { type: Boolean },
     footerExdent: { type: Boolean },
     headerExdent: { type: Boolean },
-    headerFirst: { type: Boolean},
+    headerFirst: { 
+      type: Boolean,
+      reflect: true
+    },
     flag: { type: Boolean },
     mediaRight: { type: Boolean },
     mediaInset: { type: Boolean },
@@ -35,6 +38,25 @@ export class UsaCard extends LitElement {
     this.media = this.querySelector("[slot='card-media']")
     this.bodyContent = [...this.querySelector("[slot='card-body']").children];
     this.footerContent = [...this.querySelector("[slot='card-footer']").children];
+    this.slottedChildren = [...this.children];
+    this.slots = this.slottedChildren.map((child) => {
+      return child.getAttribute("slot")
+    })
+  }
+
+  checkHeader() {
+    if(!this.media) {
+      return
+    }
+
+    if(this.slots.indexOf("card-header") < this.slots.indexOf("card-media")) {
+      this.headerFirst = true;
+    }
+  }
+
+  connectedCallback() {
+    super.connectedCallback();
+    this.checkHeader();
   }
 
   // Render header
