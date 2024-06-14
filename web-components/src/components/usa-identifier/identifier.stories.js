@@ -63,24 +63,19 @@ export default {
     main_aria_label,
   }) => html`
     <usa-identifier aria-label="${main_aria_label}">
-      <p slot="domain">${masthead.domain}</p>
-      ${logo1
-        ? html`<a slot="logo" href="${primary_agency.url}">
-            <img src="${logo1}" alt="${primary_agency.name} logo" />
-          </a>`
-        : null}
-      ${logo2
-        ? html`<a slot="logo" href="${secondary_agency.url}">
-            <img src="${logo2}" alt="${secondary_agency.name} logo" />
-          </a>`
-        : null}
+      ${logo1 ? html`
+      <a slot="logo" href="${primary_agency.url}">
+        <img src="${logo1}" alt="${primary_agency.name} logo" />
+      </a>`: null}
+      ${logo2 ? html`
+      <a slot="logo" href="${secondary_agency.url}">
+        <img src="${logo2}" alt="${secondary_agency.name} logo" />
+      </a>`: null}
       <p slot="disclaimer" aria-label="${masthead.aria_label}">
         ${masthead.disclaimer}
         <a href="${primary_agency.url}">${primary_agency.name}</a>
-        ${secondary_agency
-          ? html`${masthead.conjunction}
-              <a href="${secondary_agency.url}">${secondary_agency.name}</a>`
-          : null}${taxpayer ? html`. ${taxpayer}` : null}
+        ${secondary_agency ? html`${masthead.conjunction} <a href="${secondary_agency.url}">${secondary_agency.name}</a>`: null}${taxpayer ? html`.
+        ${taxpayer}` : null}
       </p>
       <nav slot="links" aria-label="${required_links.aria_label}">
         <a href="">${required_links.about} ${primary_agency.shortname}</a>
