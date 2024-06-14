@@ -1,4 +1,4 @@
-import { LitElement, css, html } from "lit";
+import { LitElement, html } from "lit";
 import styles from "./usa-link.css.js";
 
 /**
@@ -61,4 +61,4 @@ export class UsaLink extends LitElement {
   }
 }
 
-window.customElements.define("usa-link", UsaLink);
+customElements.define("usa-link", UsaLink);
