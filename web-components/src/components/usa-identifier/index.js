@@ -1,6 +1,6 @@
-import { LitElement, html, unsafeCSS } from "lit";
-import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
-import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
+import { LitElement, html, unsafeCSS } from 'lit';
+import uswdsCoreStyle from '@uswds/uswds/scss/uswds-core?inline';
+import usaIdentifierStyle from '@uswds/uswds/scss/usa-identifier?inline';
 
 export class UsaIdentifier extends LitElement {
   static styles = [
@@ -33,13 +33,20 @@ export class UsaIdentifier extends LitElement {
     if(this.disclaimer) {
       this.disclaimer.classList.add('usa-identifier__identity-disclaimer');
     }
+    /**
+      * For English implementations, wrap "An" in an aria-hidden span
+      * This prevents "An official" from sounding like "Unofficial" in audible readouts
+    */
+    if(this.disclaimer.innerHTML.includes('An official')) {
+      this.disclaimer.innerHTML = this.disclaimer.innerHTML.replace('An official', '<span aria-hidden="true">An</span> official');
+    }
 
     /**
       * Scaffold usagov text:
       * Add necessary classes for styling
     */
     if (this.usagov) {
-      const usagovLink = this.usagov.querySelector("a");
+      const usagovLink = this.usagov.querySelector('a');
       this.usagov.classList.add('usa-identifier__usagov-description');
       usagovLink.classList.add('usa-link');
     }
@@ -95,4 +102,4 @@ export class UsaIdentifier extends LitElement {
   }
 }
 
-window.customElements.define("usa-identifier", UsaIdentifier);
+window.customElements.define('usa-identifier', UsaIdentifier);
