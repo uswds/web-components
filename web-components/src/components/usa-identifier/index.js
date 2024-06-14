@@ -1,9 +1,17 @@
-import { LitElement, html, unsafeCSS } from "lit";
+import { LitElement, html, unsafeCSS, css } from "lit";
 import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
 import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
 
 export class UsaIdentifier extends LitElement {
-  static styles = [unsafeCSS(usaIdentifierStyle), unsafeCSS(uswdsCoreStyle)];
+  static styles = [
+    unsafeCSS(usaIdentifierStyle),
+    unsafeCSS(uswdsCoreStyle),
+    css`
+      .usa-identifier__usagov-description {
+        display: block;
+      }
+    `,
+  ];
 
   connectedCallback() {
     super.connectedCallback();
