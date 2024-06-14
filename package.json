@@ -1,0 +1,20 @@
+{
+  "name": "uswds-next",
+  "version": "1.0.0",
+  "description": "> [!CAUTION] > Work on the next version of the Design System will happen in this repo. At the moment, any code in here is exploratory only, and in an extremely pre-alpha stage. APIs *will* change.",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uswds/uswds-next.git"
+  },
+  "bugs": {
+    "url": "https://github.com/uswds/uswds-next/issues"
+  },
+  "exports": {
+    "./usa-link": "./web-components/src/components/usa-link/dist/usa-link.js"
+  },
+  "homepage": "https://github.com/uswds/uswds-next#readme",
+  "workspaces": ["./web-components/src/components/*"]
+}
