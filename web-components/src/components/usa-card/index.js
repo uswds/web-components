@@ -115,19 +115,6 @@ export class UsaCard extends LitElement {
     return html`<div class="${classMap(classes)}">${this.footerContent}</div>`
   }
 
-  setClasses() {
-    const classes = ["usa-card"];
-
-    if (this.headerFirst) {
-      classes.push("usa-card--header-first");
-    }
-
-    classes.forEach((className) => {
-      console.log(className);
-      return `className`
-    });
-  }
-
   // Render card
   cardTemplate() {
     const classes = {
