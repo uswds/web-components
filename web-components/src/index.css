@@ -1,0 +1,84 @@
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 300;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Light.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 400;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Regular.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 700;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Bold.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: italic;
+  font-weight: 300;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-LightItalic.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: italic;
+  font-weight: 400;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Italic.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: italic;
+  font-weight: 700;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-BoldItalic.woff2")
+    format("woff2");
+}
+
+:root {
+  font-family:
+    "Public Sans Web",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+}
