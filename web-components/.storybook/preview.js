@@ -5,7 +5,6 @@ import "../src/index.css";
 // Theme overrides.
 import "./index.css";
 
-
 /** @type { import('@storybook/web-components').Preview } */
 const preview = {
   parameters: {
@@ -19,11 +18,11 @@ const preview = {
       toc: true, // Autogenerate table of contents.
       theme: UswdsTheme,
       canvas: {
-        sourceState: 'shown'
-      }
-    }
+        sourceState: "shown",
+      },
+    },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default preview;
