@@ -55,6 +55,20 @@ export class UsaCard extends LitElement {
     }
   }
 
+  getLayout() {
+    if(!this.layout || this.layout === "default" ) {
+      return
+    }
+
+    this.flag = true
+    if(this.layout === "flag") {
+    }
+
+    this.mediaRight = true
+    if(this.layout === "flag-alt") {
+    }
+  }
+
   connectedCallback() {
     super.connectedCallback();
     this.checkHeader();
