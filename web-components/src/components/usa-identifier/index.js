@@ -1,4 +1,4 @@
-import { LitElement, html, unsafeCSS, css } from "lit";
+import { LitElement, html, css, unsafeCSS } from "lit";
 import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
 import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
 
@@ -21,7 +21,26 @@ export class UsaIdentifier extends LitElement {
     this.domain = this.querySelector('[slot="domain"]');
     this.disclaimer = this.querySelector('[slot="disclaimer"]');
     this.usagov = this.querySelector('[slot="usagov"]');
+  }
 
+  // Render the logo(s) for the masthead
+  mastheadLogosTemplate() {
+    if (this.logos.length > 0) {
+      return html`
+      <div class="usa-identifier__logos">
+        ${this.logos.map((logo) => {
+          const logoImage = logo.querySelector("img");
+          logo.classList.add("usa-identifier__logo");
+          logoImage.classList.add("usa-identifier__logo-img");
+          return html`${logo}`;
+        })}
+      </div>
+      `;
+    }
+  }
+
+  // Render the text for the masthead
+  mastheadTextTemplate() {
     /**
      * Scaffold domain text:
      * Add necessary classes for styling
@@ -29,7 +48,6 @@ export class UsaIdentifier extends LitElement {
     if (this.domain) {
       this.domain.classList.add("usa-identifier__identity-domain");
     }
-
     /**
      * Scaffold disclaimer text:
      * Add necessary classes for styling
@@ -49,43 +67,38 @@ export class UsaIdentifier extends LitElement {
       );
     }
 
-    /**
-     * Scaffold usagov text:
-     * Add necessary classes for styling
-     */
-    if (this.usagov) {
-      const usagovLink = this.usagov.querySelector("a");
-      this.usagov.classList.add("usa-identifier__usagov-description");
-      usagovLink.classList.add("usa-link");
+    if (this.disclaimer || this.domain) {
+      return html`
+        <section
+          class="usa-identifier__identity"
+          aria-label="Agency description"
+        >
+          ${this.domain} ${this.disclaimer}
+        </section>
+      `;
     }
   }
 
-  render() {
-    return html`
-      <div class="usa-identifier">
+  // Render the logos and text in the masthead
+  mastheadTemplate() {
+    if (this.domain || this.disclaimer || this.logos.length > 0) {
+      return html`
         <section
           class="usa-identifier__section usa-identifier__section--masthead"
           aria-label="Agency identifier"
         >
           <div class="usa-identifier__container">
-            ${this.logos.length > 0
-              ? html` <div class="usa-identifier__logos">
-                  ${this.logos.map((logo) => {
-                    const logoImage = logo.querySelector("img");
-                    logo.classList.add("usa-identifier__logo");
-                    logoImage.classList.add("usa-identifier__logo-img");
-                    return html`${logo}`;
-                  })}
-                </div>`
-              : null}
-            <section
-              class="usa-identifier__identity"
-              aria-label="Agency description"
-            >
-              ${this.domain} ${this.disclaimer}
-            </section>
+            ${this.mastheadLogosTemplate()} ${this.mastheadTextTemplate()}
           </div>
         </section>
+      `;
+    }
+  }
+
+  // Render the list of links
+  linksTemplate() {
+    if (this.links && this.links.length > 0) {
+      return html`
         <nav
           class="usa-identifier__section usa-identifier__section--required-links"
           aria-label="Important links"
@@ -103,6 +116,22 @@ export class UsaIdentifier extends LitElement {
             </div>
           </div>
         </nav>
+      `;
+    }
+  }
+
+  // Render the footer USA.gov text
+  usagovTemplate() {
+    /**
+     * Scaffold usagov text:
+     * Add necessary classes for styling
+     */
+    if (this.usagov) {
+      const usagovLink = this.usagov.querySelector("a");
+      this.usagov.classList.add("usa-identifier__usagov-description");
+      usagovLink.classList.add("usa-link");
+
+      return html`
         <section
           class="usa-identifier__section usa-identifier__section--usagov"
         >
@@ -110,6 +139,16 @@ export class UsaIdentifier extends LitElement {
             <div class="usa-identifier__usagov-description">${this.usagov}</div>
           </div>
         </section>
+      `;
+    }
+  }
+
+  render() {
+    return html`
+      <div class="usa-identifier">
+        ${this.mastheadTemplate()}
+        ${this.linksTemplate()}
+        ${this.usagovTemplate()}
       </div>
     `;
   }
