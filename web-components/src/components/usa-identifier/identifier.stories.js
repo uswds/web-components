@@ -1,50 +1,50 @@
-import "./index";
+import './index';
 import { html } from 'lit';
 
 export default {
-  title: "Components/Identifier",
-  component: "usa-identifier",
+  title: 'Components/Identifier',
+  component: 'usa-identifier',
   argTypes: {
-    primary_agency: { name: "Primary agency information" },
-    logo1: { control: 'text', name: "Primary agency logo" },
-    secondary_agency: {name: "Secondary agency information" },
-    logo2: { control: 'text', name: "Secondary agency logo" },
-    masthead: { name: "Masthead content" },
-    taxpayer: { name: "Taxpayer disclaimer" },
-    required_links: { name: "Required links" },
-    usagov: { name: "USA.gov information" }
+    primary_agency: { name: 'Primary agency information' },
+    logo1: { control: 'text', name: 'Primary agency logo' },
+    secondary_agency: {name: 'Secondary agency information' },
+    logo2: { control: 'text', name: 'Secondary agency logo' },
+    masthead: { name: 'Masthead content' },
+    taxpayer: { name: 'Taxpayer disclaimer' },
+    required_links: { name: 'Required links' },
+    usagov: { name: 'USA.gov information' }
   },
   args: {
     primary_agency: {
-      name: "[Parent agency]",
-      shortname: "[Agency shortname]",
-      url: "javascipt:void(0)",
+      name: '[Parent agency]',
+      shortname: '[Agency shortname]',
+      url: 'javascipt:void(0)',
     },
-    logo1: "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
+    logo1: 'https://designsystem.digital.gov/assets/img/circle-gray-20.svg',
     secondary_agency: {
-      name: "[Other agency]",
-      url: "javascipt:void(0)",
+      name: '[Other agency]',
+      url: 'javascipt:void(0)',
     },
-    logo2: "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
+    logo2: 'https://designsystem.digital.gov/assets/img/circle-gray-20.svg',
     masthead: {
-      conjunction: "and",
-      domain: "[domain.gov]",
-      disclaimer: "An official website of the",
+      conjunction: 'and',
+      domain: '[domain.gov]',
+      disclaimer: 'An official website of the',
     },
-    taxpayer: "Produced and published at taxpayer expense.",
+    taxpayer: 'Produced and published at taxpayer expense.',
     required_links: {
-      about: "About",
-      accessibility: "Accessibility statement",
-      foia: "FOIA requests",
-      no_FEAR: "No FEAR Act data",
-      oig: "Office of the Inspector General",
-      performance: "Performance reports",
-      privacy: "Privacy policy",
+      about: 'About',
+      accessibility: 'Accessibility statement',
+      foia: 'FOIA requests',
+      no_FEAR: 'No FEAR Act data',
+      oig: 'Office of the Inspector General',
+      performance: 'Performance reports',
+      privacy: 'Privacy policy',
     },
     usagov: {
-      text: "Looking for U.S. government information and services?",
-      link_label: "Visit USA.gov",
-      link_url: "https://www.usa.gov/"
+      text: 'Looking for U.S. government information and services?',
+      link_label: 'Visit USA.gov',
+      link_url: 'https://www.usa.gov/'
     }
   },
   render: ({
@@ -90,24 +90,24 @@ export const Default = {};
 export const DefaultSpanish = {
   args: {
     masthead: {
-      conjunction: "y",
-      domain: "[domain.gov]",
-      disclaimer: "Un sitio web oficial de",
+      conjunction: 'y',
+      domain: '[domain.gov]',
+      disclaimer: 'Un sitio web oficial de',
     },
-    taxpayer: "Producido y publicado con dinero de los contribuyentes de impuestos.",
+    taxpayer: 'Producido y publicado con dinero de los contribuyentes de impuestos.',
     required_links: {
-      about: "Acerca de",
-      accessibility: "Declaración de accesibilidad",
-      foia: "Solicitud a través de FOIA",
-      no_FEAR: "Datos de la ley No FEAR",
-      oig: "Oficina del Inspector General",
-      performance: "Informes de desempeño",
-      privacy: "Política de privacidad",
+      about: 'Acerca de',
+      accessibility: 'Declaración de accesibilidad',
+      foia: 'Solicitud a través de FOIA',
+      no_FEAR: 'Datos de la ley No FEAR',
+      oig: 'Oficina del Inspector General',
+      performance: 'Informes de desempeño',
+      privacy: 'Política de privacidad',
     },
     usagov: {
-      text: "¿Necesita información y servicios del Gobierno?",
-      link_label: "Visite USA.gov en Español",
-      link_url: "https://www.usa.gov/espanol/"
+      text: '¿Necesita información y servicios del Gobierno?',
+      link_label: 'Visite USA.gov en Español',
+      link_url: 'https://www.usa.gov/espanol/'
     }
   },
 };
