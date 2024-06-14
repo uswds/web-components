@@ -12,9 +12,11 @@ export default {
     masthead: { name: 'Masthead content' },
     taxpayer: { name: 'Taxpayer disclaimer' },
     required_links: { name: 'Required links' },
-    usagov: { name: 'USA.gov information' }
+    usagov: { name: 'USA.gov information' },
+    main_aria_label:{ name: 'Component aria-label'}
   },
   args: {
+    main_aria_label: "Agency identifier",
     primary_agency: {
       name: '[Parent agency]',
       shortname: '[Agency shortname]',
@@ -27,12 +29,14 @@ export default {
     },
     logo2: 'https://designsystem.digital.gov/assets/img/circle-gray-20.svg',
     masthead: {
+      aria_label: "Agency description",
       conjunction: 'and',
       domain: '[domain.gov]',
       disclaimer: 'An official website of the',
     },
     taxpayer: 'Produced and published at taxpayer expense.',
     required_links: {
+      aria_label: "Important links",
       about: 'About',
       accessibility: 'Accessibility statement',
       foia: 'FOIA requests',
@@ -45,7 +49,7 @@ export default {
       text: 'Looking for U.S. government information and services?',
       link_label: 'Visit USA.gov',
       link_url: 'https://www.usa.gov/'
-    }
+    },
   },
   render: ({
     primary_agency,
@@ -55,9 +59,10 @@ export default {
     masthead,
     taxpayer,
     required_links,
-    usagov
+    usagov,
+    main_aria_label
   }) => html`
-    <usa-identifier>
+    <usa-identifier aria-label="${main_aria_label}">
       <p slot="domain">${masthead.domain}</p>
       ${logo1 ? html`<a slot="logo" href="${primary_agency.url}">
         <img src="${logo1}" alt="${primary_agency.name} logo"/>
@@ -65,11 +70,11 @@ export default {
       ${logo2 ? html`<a slot="logo" href="${secondary_agency.url}">
         <img src="${logo2}" alt="${secondary_agency.name} logo"/>
       </a>`: null}
-      <p slot="disclaimer">
+      <p slot="disclaimer" aria-label="${masthead.aria_label}">
         ${masthead.disclaimer} <a href="${primary_agency.url}">${primary_agency.name}</a>
         ${secondary_agency ? html`${masthead.conjunction} <a href="${secondary_agency.url}">${secondary_agency.name}</a>`: null}${taxpayer ? html`. ${taxpayer}`: null}
       </p>
-      <nav slot="links">
+      <nav slot="links" aria-label="${required_links.aria_label}">
         <a href="">${required_links.about} ${primary_agency.shortname}</a>
         <a href="">${required_links.accessibility}</a>
         <a href="">${required_links.foia}</a>
@@ -89,13 +94,16 @@ export const Default = {};
 
 export const DefaultSpanish = {
   args: {
+    main_aria_label:"Identificador de la agencia",
     masthead: {
+      aria_label: "Descripción de la agencia",
       conjunction: 'y',
       domain: '[domain.gov]',
       disclaimer: 'Un sitio web oficial de',
     },
     taxpayer: 'Producido y publicado con dinero de los contribuyentes de impuestos.',
     required_links: {
+      aria_label: "Enlaces importantes",
       about: 'Acerca de',
       accessibility: 'Declaración de accesibilidad',
       foia: 'Solicitud a través de FOIA',
@@ -108,7 +116,7 @@ export const DefaultSpanish = {
       text: '¿Necesita información y servicios del Gobierno?',
       link_label: 'Visite USA.gov en Español',
       link_url: 'https://www.usa.gov/espanol/'
-    }
+    },
   },
 };
 
