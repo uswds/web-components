@@ -1,13 +1,12 @@
-import { LitElement, unsafeCSS, html, css } from "lit";
+import { LitElement, html } from "lit";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
 import { classMap } from "lit/directives/class-map.js";
-import usaBannerStyle from "@uswds/uswds/scss/usa-banner?inline";
+
+import { bannerStyles } from "./usa-banner.scss";
+
 import usFlagSmall from "@uswds/uswds/img/us_flag_small.png";
 import iconDotGov from "@uswds/uswds/img/icon-dot-gov.svg";
 import iconHttps from "@uswds/uswds/img/icon-https.svg";
-import close from "@uswds/uswds/img/usa-icons/close.svg";
-import expandMore from "@uswds/uswds/img/usa-icons/expand_more.svg";
-import expandLess from "@uswds/uswds/img/usa-icons/expand_less.svg";
 
 export class UsaBanner extends LitElement {
   static properties = {
@@ -175,44 +174,7 @@ export class UsaBanner extends LitElement {
     `;
   }
 
-  // ! CSS won't work if comments added inside css``.
-  static styles = [
-    unsafeCSS(usaBannerStyle),
-    // TODO: Remove asterisk in favor of global setting or style.
-    css`
-      * {
-        box-sizing: border-box;
-      }
-    `,
-    // ? In USWDS close icon is set via max-width media query, flipped it here.
-    css`
-      .usa-banner__inner {
-        flex-wrap: nowrap;
-      }
-
-      .usa-accordion__button {
-        cursor: pointer;
-      }
-
-      .usa-banner__button::after,
-      .usa-banner__header-action::after {
-        background-image: url(${unsafeCSS(expandMore)});
-        mask-image: url(${unsafeCSS(expandMore)});
-      }
-
-      .usa-banner__button[aria-expanded="true"]::after {
-        background-image: url(${unsafeCSS(close)});
-        mask-image: url(${unsafeCSS(close)});
-      }
-
-      @media all and (min-width: 40em) {
-        .usa-banner__button[aria-expanded="true"]::after {
-          background-image: url(${unsafeCSS(expandLess)});
-          mask-image: url(${unsafeCSS(expandLess)});
-        }
-      }
-    `,
-  ];
+  static styles = [bannerStyles];
 
   render() {
     const classes = { ["usa-banner__header--expanded"]: this.isOpen };
