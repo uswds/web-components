@@ -123,6 +123,58 @@ export class UsaBanner extends LitElement {
     `;
   }
 
+  domainTemplate(tld) {
+    const { domain } = this._bannerText;
+
+    return html`
+      <img
+        class="usa-banner__icon usa-media-block__img"
+        src="${iconDotGov}"
+        role="img"
+        alt=""
+        aria-hidden="true"
+      />
+      <div class="usa-media-block__body">
+        <p>
+          <strong>
+            <slot name="domain-heading"> ${domain.heading} .${tld} </slot>
+          </strong>
+          <br />
+          <slot name="domain-text">
+            ${domain.text1} <strong>.${tld}</strong> ${domain.text2}
+          </slot>
+        </p>
+      </div>
+    `;
+  }
+
+  httpsTemplate(tld) {
+    const { https } = this._bannerText;
+
+    return html`
+      <img
+        class="usa-banner__icon usa-media-block__img"
+        src="${iconHttps}"
+        role="img"
+        alt=""
+        aria-hidden="true"
+      />
+      <div class="usa-media-block__body">
+        <p>
+          <strong>
+            <slot name="https-heading">
+              ${https.heading1} .${tld} ${https.heading2}
+            </slot> </strong
+          ><br />
+          <slot name="https-text">
+            ${unsafeHTML(https.text1)} (${this.svgLock()})
+            ${unsafeHTML(https.text2)} .${tld} ${https.text3}
+          </slot>
+        </p>
+      </div>
+    `;
+  }
+
   // ! CSS won't work if comments added inside css``.
   static styles = [
     unsafeCSS(usaBannerStyle),
@@ -164,8 +216,10 @@ export class UsaBanner extends LitElement {
 
   render() {
     const classes = { ["usa-banner__header--expanded"]: this.isOpen };
+    // ? Is there a better way to fallback to a default value is passed value doesn't match?
+    // Example: User passes `tld="zzz"` --> uses "gov" domain instead of `zzz`.
     const tld = this.tld === "mil" ? "mil" : "gov";
-    const { banner, domain, https } = this._bannerText;
+    const { banner } = this._bannerText;
 
     return html`
       <section class="usa-banner" aria-label=${this.label || banner.label}>
@@ -185,7 +239,7 @@ export class UsaBanner extends LitElement {
                 aria-hidden="true"
               >
                 <p class="usa-banner__header-text">
-                  <slot name="banner-text"> ${banner.text} </slot>
+                  <slot name="banner-text">${banner.text}</slot>
                 </p>
                 <p class="usa-banner__header-action">
                   <slot name="banner-action">${banner.action}</slot>
@@ -207,48 +261,10 @@ export class UsaBanner extends LitElement {
           <div class="usa-banner__content usa-accordion__content" hidden>
             <div class="grid-row grid-gap-lg">
               <div class="usa-banner__guidance tablet:grid-col-6">
-                <img
-                  class="usa-banner__icon usa-media-block__img"
-                  src="${iconDotGov}"
-                  role="img"
-                  alt=""
-                  aria-hidden="true"
-                />
-                <div class="usa-media-block__body">
-                  <p>
-                    <strong>
-                      <slot name="domain-heading">
-                        ${domain.heading} .${tld}
-                      </slot>
-                    </strong>
-                    <br />
-                    <slot name="domain-text">
-                      ${domain.text1} <strong>.${tld}</strong> ${domain.text2}
-                    </slot>
-                  </p>
-                </div>
+                ${this.domainTemplate(tld)}
               </div>
               <div class="usa-banner__guidance tablet:grid-col-6">
-                <img
-                  class="usa-banner__icon usa-media-block__img"
-                  src="${iconHttps}"
-                  role="img"
-                  alt=""
-                  aria-hidden="true"
-                />
-                <div class="usa-media-block__body">
-                  <p>
-                    <strong>
-                      <slot name="https-heading">
-                        ${https.heading1} .${tld} ${https.heading2}
-                      </slot> </strong
-                    ><br />
-                    <slot name="https-text">
-                      ${unsafeHTML(https.text1)} (${this.svgLock()})
-                      ${unsafeHTML(https.text2)} .${tld} ${https.text3}
-                    </slot>
-                  </p>
-                </div>
+                ${this.httpsTemplate(tld)}
               </div>
             </div>
           </div>
