@@ -87,6 +87,32 @@ export default {
 
 export const Default = {};
 
+export const DefaultSpanish = {
+  args: {
+    masthead: {
+      conjunction: "y",
+      domain: "[domain.gov]",
+      disclaimer: "Un sitio web oficial de",
+    },
+    taxpayer: "Producido y publicado con dinero de los contribuyentes de impuestos.",
+    required_links: {
+      about: "Acerca de",
+      accessibility: "Declaración de accesibilidad",
+      foia: "Solicitud a través de FOIA",
+      no_FEAR: "Datos de la ley No FEAR",
+      oig: "Oficina del Inspector General",
+      performance: "Informes de desempeño",
+      privacy: "Política de privacidad",
+    },
+    usagov: {
+      text: "¿Necesita información y servicios del Gobierno?",
+      link_label: "Visite USA.gov en Español",
+      link_url: "https://www.usa.gov/espanol/"
+    }
+  },
+};
+
+
 export const oneAgency = {
   args: {
     logo2: false,
