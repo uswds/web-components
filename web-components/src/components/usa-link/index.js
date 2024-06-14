@@ -1,57 +1,55 @@
 import { LitElement, css, html } from "lit";
-// import "@uswds/uswds/scss/usa-link";
+import styles from "./usa-link.css.js";
 
 /**
- * An example element.
+ * @summary The usa-link component.
  *
  * @slot - This element has a slot
- * @csspart
+ *
+ * @attribute {String} href - The url for the link
+ *
+ * @cssprop --theme-link-color - Sets the link color
+ * @cssprop --theme-link-visited-color - Sets the color for visited links
+ * @cssprop --theme-link-hover-color - Sets the hover state link color
+ * @cssprop --theme-link-active-color - Sets the active state link color
+ *
+ * @tagname usa-link
  */
 export class UsaLink extends LitElement {
-  static get properties() {
-    return {
-      /**
-       * The destination URL for the link
-       */
-      href: { type: String },
-    };
+  static styles = [styles];
+
+  static properties = {
+    href: {},
+  };
+
+  hasLinkChild() {
+    const childLink = this.querySelector("a");
+    if (!childLink) return false;
+
+    this.href = childLink.href;
+    this.slottedChildren = childLink;
+    this.shadowRoot.appendChild(this.slottedChildren);
   }
 
   constructor() {
     super();
-    this.href = "";
+  }
+
+  templateWithChildren() {
+    return html`<a class="usa-link" href="${this.href}"
+      >${this.slottedChildren}</a
+    >`;
+  }
+
+  templateWithSlots() {
+    return html`<a class="usa-link" href="${this.href}"><slot></slot></a>`;
   }
 
   render() {
-    return html` <a class="usa-link" href="${this.href}"><slot></slot></a> `;
+    return this.hasLinkChild()
+      ? this.templateWithChildren()
+      : this.templateWithSlots();
   }
-
-  static styles = css`
-    :host {
-      a {
-        color: var(--theme-link-color, #005ea2);
-        text-decoration: underline;
-      }
-      a:visited {
-        color: var(--theme-link-visited-color, #54278f);
-      }
-
-      a:hover {
-        color: var(--theme-link-hover-color, #1a4480);
-      }
-
-      a:active {
-        color: var(--theme-link-active-color, #162e51);
-      }
-
-      a:focus {
-        /* @include focus-outline; */
-        outline: var(--theme-focus-width, 0.25rem)
-          var(--theme-focus-style, solid) var(--theme-focus-color, #2491ff);
-        outline-offset: var(--theme-focus-offset, 0);
-      }
-    }
-  `;
 }
 
 window.customElements.define("usa-link", UsaLink);
