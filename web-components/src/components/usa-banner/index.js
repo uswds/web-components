@@ -123,7 +123,6 @@ export class UsaBanner extends LitElement {
     `;
   }
 
-
   // ! CSS won't work if comments added inside css``.
   static styles = [
     unsafeCSS(usaBannerStyle),
@@ -163,7 +162,6 @@ export class UsaBanner extends LitElement {
     `,
   ];
 
-
   render() {
     const classes = { ["usa-banner__header--expanded"]: this.isOpen };
     const tld = this.tld === "mil" ? "mil" : "gov";
@@ -201,7 +199,7 @@ export class UsaBanner extends LitElement {
                 @click="${this.toggle}"
               >
                 <span class="usa-banner__button-text">
-                  ${ this._actionText || banner.action }
+                  ${this._actionText || banner.action}
                 </span>
               </button>
             </div>
