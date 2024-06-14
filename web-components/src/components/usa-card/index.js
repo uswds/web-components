@@ -19,25 +19,26 @@ export class UsaCard extends LitElement {
   static properties = {
     bodyExdent: { type: Boolean },
     footerExdent: { type: Boolean },
-    headerExdent: { type: Boolean },
     headerFirst: { 
       type: Boolean,
       reflect: true
     },
-    flag: { type: Boolean },
-    mediaRight: { type: Boolean },
-    mediaInset: { type: Boolean },
-    mediaExdent: { type: Boolean },
+    inset: { type: Boolean },
+    exdent: { type: Boolean},
+    layout: { type: String },
   }
   
   constructor() {
     super();
 
     this.cardGroup = this.parentElement;
-    this.headerContent = [...this.querySelector("[slot='card-header']").children];
+    this.header = this.querySelector("[slot='card-header']");
+    this.headerContent = [...this.header.children];
     this.media = this.querySelector("[slot='card-media']")
-    this.bodyContent = [...this.querySelector("[slot='card-body']").children];
-    this.footerContent = [...this.querySelector("[slot='card-footer']").children];
+    this.body = this.querySelector("[slot='card-body']");
+    this.bodyContent = [...this.body.children];
+    this.footer = this.querySelector("[slot='card-footer']");
+    this.footerContent = [...this.footer.children];
     this.slottedChildren = [...this.children];
     this.slots = this.slottedChildren.map((child) => {
       return child.getAttribute("slot")
@@ -63,7 +64,7 @@ export class UsaCard extends LitElement {
   headerTemplate() {
     const classes = {
       "usa-card__header": true,
-      "usa-card__header--exdent": this.headerExdent
+      "usa-card__header--exdent": this.exdent || this.header.hasAttribute("exdent")
     }
 
     return html`
@@ -74,16 +75,17 @@ export class UsaCard extends LitElement {
       </div>
     `;
   }
+
   // Render media
   mediaTemplate() {
-    const classes = {
-      "usa-card__media": true,
-      "usa-card__media--exdent": this.mediaExdent,
-      "usa-card__media--inset": this.mediaInset
-    }
-
     if(!this.media) {
       return;
+    }
+
+    const classes = {
+      "usa-card__media": true,
+      "usa-card__media--inset": this.media.hasAttribute("inset") && !this.media.hasAttribute("exdent"),
+      "usa-card__media--exdent": this.exdent || this.media.hasAttribute("exdent") && this.media.hasAttribute("indent"),
     }
 
     return html`
@@ -99,7 +101,7 @@ export class UsaCard extends LitElement {
   bodyTemplate() {
     const classes = {
       "usa-card__body": true,
-      "usa-card__body--exdent": this.bodyExdent
+      "usa-card__body--exdent": this.exdent || this.body.hasAttribute("exdent")
     };
 
     return html`<div class="${classMap(classes)}">${this.bodyContent}</div>`
@@ -109,7 +111,7 @@ export class UsaCard extends LitElement {
   footerTemplate() {
     const classes = {
       "usa-card__footer": true,
-      "usa-card__footer--exdent": this.footerExdent
+      "usa-card__footer--exdent": this.exdent || this.footer.hasAttribute("exdent")
     }
 
     return html`<div class="${classMap(classes)}">${this.footerContent}</div>`
@@ -120,8 +122,8 @@ export class UsaCard extends LitElement {
     const classes = {
       "usa-card": true,
       "usa-card--header-first": this.headerFirst,
-      "usa-card--flag": this.flag,
-      "usa-card--media-right": this.mediaRight
+      "usa-card--flag": this.layout === "flag" || this.layout === "flag-alt",
+      "usa-card--media-right": this.layout == "flag-alt",
     }
     return html`
         <div class="${classMap(classes)}">
