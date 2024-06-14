@@ -27,14 +27,14 @@ export class UsaIdentifier extends LitElement {
   mastheadLogosTemplate() {
     if (this.logos.length > 0) {
       return html`
-      <div class="usa-identifier__logos">
-        ${this.logos.map((logo) => {
-          const logoImage = logo.querySelector("img");
-          logo.classList.add("usa-identifier__logo");
-          logoImage.classList.add("usa-identifier__logo-img");
-          return html`${logo}`;
-        })}
-      </div>
+        <div class="usa-identifier__logos">
+          ${this.logos.map((logo) => {
+            const logoImage = logo.querySelector("img");
+            logo.classList.add("usa-identifier__logo");
+            logoImage.classList.add("usa-identifier__logo-img");
+            return html`${logo}`;
+          })}
+        </div>
       `;
     }
   }
@@ -146,8 +146,7 @@ export class UsaIdentifier extends LitElement {
   render() {
     return html`
       <div class="usa-identifier">
-        ${this.mastheadTemplate()}
-        ${this.linksTemplate()}
+        ${this.mastheadTemplate()} ${this.linksTemplate()}
         ${this.usagovTemplate()}
       </div>
     `;
