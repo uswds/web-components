@@ -53,6 +53,7 @@ export class UsaIdentifier extends LitElement {
           aria-label="Agency identifier"
         >
           <div class="usa-identifier__container">
+          ${this.logos.length > 0 ? html`
             <div class="usa-identifier__logos">
               ${this.logos.map((logo) => {
                 const logoImage = logo.querySelector("img");
@@ -60,7 +61,7 @@ export class UsaIdentifier extends LitElement {
                 logoImage.classList.add("usa-identifier__logo-img");
                 return html`${logo}`
               })}
-            </div>
+            </div>`: null}
             <section class="usa-identifier__identity" aria-label="Agency description">
               ${this.domain}
               ${this.disclaimer}
