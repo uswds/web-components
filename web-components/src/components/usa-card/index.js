@@ -55,20 +55,6 @@ export class UsaCard extends LitElement {
     }
   }
 
-  getLayout() {
-    if(!this.layout || this.layout === "default" ) {
-      return
-    }
-
-    this.flag = true
-    if(this.layout === "flag") {
-    }
-
-    this.mediaRight = true
-    if(this.layout === "flag-alt") {
-    }
-  }
-
   connectedCallback() {
     super.connectedCallback();
     this.checkHeader();
@@ -99,7 +85,7 @@ export class UsaCard extends LitElement {
     const classes = {
       "usa-card__media": true,
       "usa-card__media--inset": this.media.hasAttribute("inset") && !this.media.hasAttribute("exdent"),
-      "usa-card__media--exdent": this.exdent || this.media.hasAttribute("exdent") && this.media.hasAttribute("indent"),
+      "usa-card__media--exdent": this.exdent || this.media.hasAttribute("exdent") && !this.media.hasAttribute("indent"),
     }
 
     return html`
