@@ -7,11 +7,11 @@ export default {
   component: "usa-card",
   args: {
     title: "",
-    image: false,
     media: "https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg",
     content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.",
     buttonText: "Visit Florida Keys",
-    variant: "headerExdent"
+    layout: "",
+    headerFirst: false,
   },
   render: ({ title, content, buttonText, image, media }) => {
     return html`
@@ -19,7 +19,6 @@ export default {
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Card"}</h2>
         </div> 
-        ${image ? html`<img slot="card-media" src="${media}" alt="Placeholder image">`: null}
         <div slot="card-body">
           <p>
             ${content}
@@ -35,21 +34,14 @@ export default {
 
 export const Default = {};
 
-export const Test = {
-  args: {
-    title: "Test card",
-    image: true
-  }
-}
-
-export const MediaWithMedia = {
+export const CardWithMedia = {
   render: ({ title, media, content, buttonText }) => {
     return html`
       <usa-card>
+        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Card w/ Media"}</h2>
         </div>
-        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-body">
           <p>
             ${content}
@@ -63,14 +55,18 @@ export const MediaWithMedia = {
   }
 }
 
+// TODO: Fix variant attribute display
 export const MediaWithHeaderFirst = {
-  render: ({ title, media, content, buttonText }) => {
+  args: {
+    headerFirst: true
+  },
+  render: ({ title, media, content, buttonText, headerFirst }) => {
     return html`
-      <usa-card headerFirst>
+      <usa-card ${headerFirst ? "headerFirst" : null}>
+        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Media with Header first"}</h2>
         </div>
-        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-body">
           <p>
               ${content}
@@ -84,14 +80,18 @@ export const MediaWithHeaderFirst = {
   }
 }
 
+// TODO: Fix variant attribute display
 export const InsetMedia = {
-  render: ({ title, media, content, buttonText }) => {
+  args: {
+    inset: true
+  },
+  render: ({ title, media, content, buttonText, inset }) => {
     return html`
-      <usa-card mediaInset>
+      <usa-card>
+        <img slot="card-media" src="${media}" alt="Placeholder image" ${inset ? "inset" : null}>
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Inset media"}</h2>
         </div>
-        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-body">
           <p>
               ${content}
@@ -105,14 +105,15 @@ export const InsetMedia = {
   }
 }
 
+// TODO: Fix variant attribute display
 export const ExdentMedia = {
   render: ({ title, media, content, buttonText }) => {
     return html`
-      <usa-card mediaExdent>
+      <usa-card>
+        <img slot="card-media" src="${media}" alt="Placeholder image" exdent>
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Exdent media"}</h2>
         </div>
-        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-body">
           <p>
               ${content}
@@ -127,13 +128,16 @@ export const ExdentMedia = {
 }
 
 export const Flag = {
-  render: ({ title, media, content, buttonText }) => {
+  args: {
+    layout: "flag"
+  },
+  render: ({ title, media, content, buttonText, layout }) => {
     return html`
-      <usa-card flag>
+      <usa-card layout="${layout}">
+        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Default flag"}</h2>
         </div>
-        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-body">
           <p>
               ${content}
@@ -148,14 +152,18 @@ export const Flag = {
 }
 
 export const FlagMediaRightInset = {
-  render: ({ title, media, content, buttonText }) => {
+  args: {
+    layout: "flag-alt"
+  },
+  render: ({ title, media, content, buttonText, layout }) => {
+
     return html`
-      <usa-card flag mediaRight mediaInset>
+      <usa-card layout="${layout}">
+        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Flag media right inset"}
           </h2>
         </div>
-        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-body">
           <p>
               ${content}
