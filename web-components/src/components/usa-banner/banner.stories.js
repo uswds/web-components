@@ -29,14 +29,14 @@ export const CustomAriaLabel = {
 
 export const CustomContent = {
   args: {
-    bannerText: "Custom banner text I've created",
-    bannerAction: "Learn more",
-    domainHeading: "Domain heading",
+    bannerText: "Un site Web officiel du gouvernement américain",
+    bannerAction: "Voici comment vous le savez",
+    domainHeading: "Les sites Web officiels utilisent",
     domainText:
-      "Domain text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, libero.",
-    httpsHeading: "HTTPS heading",
+      "Un site Web .gov appartient à une organisation gouvernementale officielle aux États-Unis.",
+    httpsHeading: "Les sites Web .gov sécurisés utilisent HTTPS",
     httpsText:
-      "HTTPS text: Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, exercitationem.",
+      `Un verrou ou (lock) https:// signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`,
   },
   render: ({
     bannerText,
