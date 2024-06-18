@@ -6,6 +6,7 @@
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>USWDS + Lit</title>
+  <link rel="stylesheet" href="./src/index.css" />
   <script type="module" src="/src/components/usa-banner/index.js"></script>
   <script type="module" src="/src/components/usa-link/index.js"></script>
   <style>
@@ -16,10 +17,34 @@
 </head>
 
 <body>
-  <usa-banner></usa-banner>
-  <usa-link href="http://designsystem.digital.gov">
-    It's dangerous to go alone. Here, take this.
-  </usa-link>
+  <usa-banner label="My custom aria label"></usa-banner>
+  <usa-banner tld="zzz"></usa-banner>
+  <usa-banner lang="es"></usa-banner>
+  <usa-banner lang="yor" tld="mil" label="Custom Aria label">
+  <span slot="banner-text">Custom banner text I've created</span>
+  <span slot="banner-action">Learn more</span>
+  <span slot="domain-heading">Domain info</span>
+  <span slot="domain-text">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic, libero.
+  </span>
+  <span slot="https-heading">HTTPS info</span>
+  <span slot="https-text">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto, exercitationem.
+  </span>
+
+</usa-banner>
+
+  <p>
+    <usa-link href="http://designsystem.digital.gov">
+      It's dangerous to go alone. Here, take this.
+    </usa-link>
+  </p>
+
+  <p>
+    <usa-link>
+      <a href="https://designsystem.digital.gov">It's dangerous to go alone. Here, take this.</a>
+    </usa-link>
+  </p>
 </body>
 
 </html>
