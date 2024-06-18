@@ -60,12 +60,12 @@ export class UsaIdentifier extends LitElement {
      * For English implementations, wrap "An" in an aria-hidden span
      * This prevents "An official" from sounding like "Unofficial" in audible readouts
      */
-    if (this.disclaimer.innerHTML.includes("An official")) {
-      this.disclaimer.innerHTML = this.disclaimer.innerHTML.replace(
-        "An official",
-        '<span aria-hidden="true">An</span> official'
-      );
-    }
+    // if (this.disclaimer.innerHTML.includes("An official")) {
+    //   this.disclaimer.innerHTML = this.disclaimer.innerHTML.replace(
+    //     "An official",
+    //     '<span aria-hidden="true">An</span> official'
+    //   );
+    // }
 
     if (this.disclaimer || this.domain) {
       return html`
