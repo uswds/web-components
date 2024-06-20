@@ -3,7 +3,7 @@ import "./index";
 import { html } from "lit";
 
 export default {
-  title: "Components/card",
+  title: "Components/Card",
   component: "usa-card",
   args: {
     title: "",
@@ -18,7 +18,7 @@ export default {
       <usa-card>
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Card"}</h2>
-        </div> 
+        </div>
         <div slot="card-body">
           <p>
             ${content}
