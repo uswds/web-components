@@ -11,7 +11,14 @@ export default {
     logo2: { control: "text", name: "Secondary agency logo" },
     masthead: { name: "Masthead content" },
     taxpayer: { name: "Taxpayer disclaimer" },
-    required_links: { name: "Required links" },
+    links_aria_label: { name: "Aria label for required links section" },
+    link_about: { name: "Required link - About" },
+    link_accessibility: { name: "Required link - Accessibility statement" },
+    link_foia: { name: "Required link - FOIA requests" },
+    link_no_FEAR: { name: "Required link - No FEAR Act data" },
+    link_oig: { name: "Required link - Office of the Inspector General" },
+    link_performance: { name: "Required link - Performance reports" },
+    link_privacy: { name: "Required link - Privacy policy" },
     usagov: { name: "USA.gov information" },
     main_aria_label: { name: "Component aria-label" },
   },
@@ -35,15 +42,34 @@ export default {
       disclaimer: "An official website of the",
     },
     taxpayer: "Produced and published at taxpayer expense.",
-    required_links: {
-      aria_label: "Important links",
-      about: "About",
-      accessibility: "Accessibility statement",
-      foia: "FOIA requests",
-      no_FEAR: "No FEAR Act data",
-      oig: "Office of the Inspector General",
-      performance: "Performance reports",
-      privacy: "Privacy policy",
+    links_aria_label: "Important links",
+    link_about: {
+      label: "About",
+      url: "javascipt:void(0)"
+    },
+    link_accessibility: {
+      label: "Accessibility statement",
+      url: "javascipt:void(0)"
+    },
+    link_foia: {
+      label: "FOIA requests",
+      url: "javascipt:void(0)"
+    },
+    link_no_FEAR: {
+      label: "No FEAR Act data",
+      url: "javascipt:void(0)"
+    },
+    link_oig: {
+      label: "Office of the Inspector General",
+      url: "javascipt:void(0)"
+    },
+    link_performance: {
+      label: "Performance reports",
+      url: "javascipt:void(0)"
+    },
+    link_privacy: {
+      label: "Privacy policy",
+      url: "javascipt:void(0)"
     },
     usagov: {
       text: "Looking for U.S. government information and services?",
@@ -58,7 +84,14 @@ export default {
     logo2,
     masthead,
     taxpayer,
-    required_links,
+    links_aria_label,
+    link_about,
+    link_accessibility,
+    link_foia,
+    link_oig,
+    link_no_FEAR,
+    link_performance,
+    link_privacy,
     usagov,
     main_aria_label,
   }) => html`
@@ -77,14 +110,14 @@ export default {
         ${secondary_agency ? html`${masthead.conjunction} <a href="${secondary_agency.url}">${secondary_agency.name}</a>`: null}${taxpayer ? html`.
         ${taxpayer}` : null}
       </p>
-      <nav slot="links" aria-label="${required_links.aria_label}">
-        <a href="">${required_links.about} ${primary_agency.shortname}</a>
-        <a href="">${required_links.accessibility}</a>
-        <a href="">${required_links.foia}</a>
-        <a href="">${required_links.no_FEAR}</a>
-        <a href="">${required_links.oig}</a>
-        <a href="">${required_links.performance}</a>
-        <a href="">${required_links.privacy}</a>
+      <nav slot="links" aria-label="${links_aria_label}">
+        <a href="${link_about.url}">${link_about.label} ${primary_agency.shortname}</a>
+        <a href="${link_accessibility.url}">${link_accessibility.label}</a>
+        <a href="${link_foia.url}">${link_foia.label}</a>
+        <a href="${link_no_FEAR.url}">${link_no_FEAR.label}</a>
+        <a href="${link_oig.url}">${link_oig.label}</a>
+        <a href="${link_performance.url}">${link_performance.label}</a>
+        <a href="${link_privacy.url}">${link_privacy.label}</a>
       </nav>
       <div slot="usagov">
         ${usagov.text} <a href="${usagov.link_url}">${usagov.link_label}</a>
@@ -106,15 +139,34 @@ export const DefaultSpanish = {
     },
     taxpayer:
       "Producido y publicado con dinero de los contribuyentes de impuestos.",
-    required_links: {
-      aria_label: "Enlaces importantes",
-      about: "Acerca de",
-      accessibility: "Declaración de accesibilidad",
-      foia: "Solicitud a través de FOIA",
-      no_FEAR: "Datos de la ley No FEAR",
-      oig: "Oficina del Inspector General",
-      performance: "Informes de desempeño",
-      privacy: "Política de privacidad",
+    links_aria_label: "Enlaces importantes",
+    link_about: {
+      label: "Acerca de",
+      url: "javascipt:void(0)"
+    },
+    link_accessibility: {
+      label: "Declaración de accesibilidad",
+      url: "javascipt:void(0)"
+    },
+    link_foia: {
+      label: "Solicitud a través de FOIA",
+      url: "javascipt:void(0)"
+    },
+    link_no_FEAR: {
+      label: "Datos de la ley No FEAR",
+      url: "javascipt:void(0)"
+    },
+    link_oig: {
+      label: "Oficina del Inspector General",
+      url: "javascipt:void(0)"
+    },
+    link_performance: {
+      label: "Informes de desempeño",
+      url: "javascipt:void(0)"
+    },
+    link_privacy: {
+      label: "Política de privacidad",
+      url: "javascipt:void(0)"
     },
     usagov: {
       text: "¿Necesita información y servicios del Gobierno?",
@@ -124,7 +176,7 @@ export const DefaultSpanish = {
   },
 };
 
-export const oneAgency = {
+export const oneParentAgency = {
   args: {
     logo2: false,
     secondary_agency: false,
@@ -137,7 +189,7 @@ export const oneAgency = {
   },
 };
 
-export const MultipleAgencies = {
+export const MultipleParentAgencies = {
   args: {
     taxpayer: false,
   },
@@ -161,4 +213,13 @@ export const NoLogo = {
   },
 };
 
-export const TaxpayerDisclaimer = {};
+export const TaxpayerDisclaimer = {
+  args: {
+    logo2: false,
+    secondary_agency: false,
+  },
+  argTypes: {
+    logo2: { table: { disable: true } },
+    secondary_agency: { table: { disable: true } },
+  },
+};
