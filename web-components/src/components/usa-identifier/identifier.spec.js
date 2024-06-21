@@ -45,7 +45,7 @@ describe("usa-identifier component - one logo", async () => {
 
   it("adds both logos to the component", () => {
     expect(
-      getInsideIdentifier().querySelector(".usa-identifier__logos").children.length
-    ).toBeGreaterThan(1);
+      getInsideIdentifier().querySelectorAll(".usa-identifier__logo").length
+    ).toBe(2);
   });
 });
