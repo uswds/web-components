@@ -1,7 +1,7 @@
 import UswdsTheme from "./UswdsTheme";
 
 // Global component styles.
-import "../src/index.css";
+import "../storybook/index.css";
 // Theme overrides.
 import "./index.css";
 
