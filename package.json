@@ -39,6 +39,6 @@
     "vitest": "^1.6.0"
   },
   "workspaces": [
-    "src/components/usa-banner"
+    "src/components/*"
   ]
 }
