@@ -1,0 +1,12 @@
+{
+  "name": "usa-banner",
+  "version": "0.0.1",
+  "description": "USWDS goverment website identification banner component",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE.md"
+}
