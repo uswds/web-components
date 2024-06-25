@@ -1,6 +1,7 @@
 import { LitElement, html, css, unsafeCSS } from "lit";
 import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
 import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
+import usaIdentifierContent from "./identifier.json";
 
 export class UsaIdentifier extends LitElement {
   static properties = {
@@ -27,58 +28,10 @@ export class UsaIdentifier extends LitElement {
     this.domain = this.querySelector('[slot="domain"]');
     this.disclaimer = this.querySelector('[slot="disclaimer"]');
     this.usagov = this.querySelector('[slot="usagov"]');
-    this.data = {
-      en: {
-        aria_label: "Agency identifier",
-        masthead: {
-          description: html`<span aria-hidden="true">An</span> official website of the`,
-          agencyConjunction: "and",
-        },
-        taxpayer: "Produced and published at taxpayer expense.",
-        required_links: {
-          aria_label: "Important links",
-          about: "About",
-          accessibility: "Accessibility statement",
-          foia: "FOIA requests",
-          no_fear: "No FEAR Act data",
-          oig: "Office of the Inspector General",
-          performance: "Performance reports",
-          privacy: "Privacy policy",
-        },
-        usagov: {
-          description: "Looking for U.S. government information and services?",
-          link_label: "Visit USA.gov",
-          link_url: "https://www.usa.gov/"
-        }
-      },
-      es: {
-        aria_label: "Identificador de la agencia",
-        masthead: {
-          description: "Un sitio web oficial de",
-          agencyConjunction: "y",
-        },
-        taxpayer: "Producido y publicado con dinero de los contribuyentes de impuestos.",
-        required_links: {
-          aria_label: "Enlaces importantes",
-          about: "Acerca de",
-          accessibility: "Declaración de accesibilidad",
-          foia: "Solicitud a través de FOIA",
-          no_fear: "Datos de la ley No FEAR",
-          oig: "Oficina del Inspector General",
-          performance: "Informes de desempeño",
-          privacy: "Política de privacidad",
-        },
-        usagov: {
-          description: "¿Necesita información y servicios del Gobierno?",
-          link_label: "Visite USA.gov en Español",
-          link_url: "https://www.usa.gov/espanol/"
-        }
-      }
-    }
   }
 
   get _identifierText() {
-    const content = this.data[this.lang] || this.data["en"];
+    const content = usaIdentifierContent[this.lang] || usaIdentifierContent["en"];
     return content;
   }
 
@@ -181,7 +134,7 @@ export class UsaIdentifier extends LitElement {
   // Render the footer USA.gov text
   usagovTemplate() {
     const { usagov } = this._identifierText;
-    let usagovContent = html`${ usagov.description } <a href="${ usagov.link_url }">${ usagov.link_label }</a>`;
+    let usagovContent = this.usagov || html`${ usagov.description } <a href="${ usagov.link_url }">${ usagov.link_label }</a>`;
 
     /**
      * If custom text is included in the usagov slot, scaffold that text:
@@ -205,8 +158,6 @@ export class UsaIdentifier extends LitElement {
       </section>
     `;
   }
-
-
 
   render() {
     const { aria_label } = this._identifierText;

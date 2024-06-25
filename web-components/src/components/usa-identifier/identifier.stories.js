@@ -1,5 +1,6 @@
 import "./index";
 import { html } from "lit";
+import usaIdentifierContent from "./identifier.json";
 
 export default {
   title: "Components/Identifier",
@@ -77,7 +78,7 @@ export default {
       url: "javascipt:void(0)"
     },
     usagov: {
-      include: true
+      include: false,
     },
   },
   render: ({
@@ -123,6 +124,10 @@ export default {
         <a href="${link_performance.url}">${link_performance.label}</a>
         <a href="${link_privacy.url}">${link_privacy.label}</a>
       </nav>
+      ${usagov.include ? html`
+        <div slot="usagov">
+          ${usagov.text} <a href="${usagov.link_url}">${usagov.link_label}</a>
+        </div>`: null}
     </usa-identifier>
   `,
 };
@@ -134,6 +139,19 @@ export const DefaultSpanish = {
     lang: "es"
   }
 };
+
+export const DefaultCustomContent = {
+  args: {
+    lang: "",
+    usagov: {
+      include: true,
+      text: "[French] Looking for U.S. government information and services?",
+      link_label: "[French] Visit USA.gov",
+      link_url: "[French]https://www.usa.gov/",
+    },
+  },
+}
+
 
 export const oneParentAgency = {
   args: {
