@@ -1,0 +1,23 @@
+{
+  "aria_label": "Agency identifier",
+  "disclaimer":  "An official website of the",
+  "taxpayer": "Produced and published at taxpayer expense",
+  "conjunction": "and",
+  "linkLabels": {
+    "about": "About",
+    "accessibility": "Accessibility statement",
+    "FOIA": "FOIA requests",
+    "noFEAR": "No FEAR Act data",
+    "OIG": "Office of the Inspector General",
+    "performance": "Performance reports",
+    "privacy": "Privacy policy"
+  },
+  "usagov": {
+    "aria_label": "U.S. government information and services",
+    "description": "Looking for U.S. government information and services?",
+    "link": {
+      "label": "Visit USA.gov",
+      "url": "https://www.usa.gov/"
+    }
+  }
+}

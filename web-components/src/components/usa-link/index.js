@@ -31,6 +31,15 @@ export class UsaLink extends LitElement {
     this.shadowRoot.appendChild(this.slottedChildren);
   }
 
+  hasLinkChild() {
+    const childLink = this.querySelector("a");
+    if (!childLink) return false;
+
+    this.href = childLink.href;
+    this.slottedChildren = childLink;
+    this.shadowRoot.appendChild(this.slottedChildren);
+  }
+
   constructor() {
     super();
   }
