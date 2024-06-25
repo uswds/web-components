@@ -5,6 +5,10 @@ export default {
   title: "Components/Identifier",
   component: "usa-identifier",
   argTypes: {
+    lang: {
+      options: ['en', 'es'],
+      control: { type: 'radio' }
+    },
     primary_agency: { name: "Primary agency information" },
     logo1: { control: "text", name: "Primary agency logo" },
     secondary_agency: { name: "Secondary agency information" },
@@ -23,6 +27,7 @@ export default {
     main_aria_label: { name: "Component aria-label" },
   },
   args: {
+    lang: "en",
     main_aria_label: "Agency identifier",
     primary_agency: {
       name: "[Parent agency]",
@@ -72,12 +77,11 @@ export default {
       url: "javascipt:void(0)"
     },
     usagov: {
-      text: "Looking for U.S. government information and services?",
-      link_label: "Visit USA.gov",
-      link_url: "https://www.usa.gov/",
+      include: true
     },
   },
   render: ({
+    lang,
     primary_agency,
     secondary_agency,
     logo1,
@@ -95,7 +99,7 @@ export default {
     usagov,
     main_aria_label,
   }) => html`
-    <usa-identifier aria-label="${main_aria_label}">
+    <usa-identifier lang="${lang}" aria-label="${main_aria_label}">
       ${logo1 ? html`
       <a slot="logo" href="${primary_agency.url}">
         <img src="${logo1}" alt="${primary_agency.name} logo" />
@@ -119,9 +123,6 @@ export default {
         <a href="${link_performance.url}">${link_performance.label}</a>
         <a href="${link_privacy.url}">${link_privacy.label}</a>
       </nav>
-      <div slot="usagov">
-        ${usagov.text} <a href="${usagov.link_url}">${usagov.link_label}</a>
-      </div>
     </usa-identifier>
   `,
 };
@@ -130,50 +131,8 @@ export const Default = {};
 
 export const DefaultSpanish = {
   args: {
-    main_aria_label: "Identificador de la agencia",
-    masthead: {
-      aria_label: "Descripción de la agencia",
-      conjunction: "y",
-      domain: "[domain.gov]",
-      disclaimer: "Un sitio web oficial de",
-    },
-    taxpayer:
-      "Producido y publicado con dinero de los contribuyentes de impuestos.",
-    links_aria_label: "Enlaces importantes",
-    link_about: {
-      label: "Acerca de",
-      url: "javascipt:void(0)"
-    },
-    link_accessibility: {
-      label: "Declaración de accesibilidad",
-      url: "javascipt:void(0)"
-    },
-    link_foia: {
-      label: "Solicitud a través de FOIA",
-      url: "javascipt:void(0)"
-    },
-    link_no_FEAR: {
-      label: "Datos de la ley No FEAR",
-      url: "javascipt:void(0)"
-    },
-    link_oig: {
-      label: "Oficina del Inspector General",
-      url: "javascipt:void(0)"
-    },
-    link_performance: {
-      label: "Informes de desempeño",
-      url: "javascipt:void(0)"
-    },
-    link_privacy: {
-      label: "Política de privacidad",
-      url: "javascipt:void(0)"
-    },
-    usagov: {
-      text: "¿Necesita información y servicios del Gobierno?",
-      link_label: "Visite USA.gov en Español",
-      link_url: "https://www.usa.gov/espanol/",
-    },
-  },
+    lang: "es"
+  }
 };
 
 export const oneParentAgency = {
