@@ -1,5 +1,5 @@
 import "./index";
-import { html } from "lit";
+import { html, nothing } from "lit";
 import usaIdentifierContent from "./identifier.json";
 
 export default {
@@ -29,7 +29,7 @@ export default {
   },
   args: {
     lang: "en",
-    main_aria_label: "Agency identifier",
+    main_aria_label: "",
     primary_agency: {
       name: "[Parent agency]",
       shortname: "[Agency shortname]",
@@ -47,34 +47,29 @@ export default {
       domain: "[domain.gov]",
       disclaimer: "An official website of the",
     },
+    showTaxpayer: false,
     taxpayer: "Produced and published at taxpayer expense.",
     links_aria_label: "Important links",
     link_about: {
-      label: "About",
+      shortname: "[Agency shortname]",
       url: "javascipt:void(0)"
     },
     link_accessibility: {
-      label: "Accessibility statement",
       url: "javascipt:void(0)"
     },
     link_foia: {
-      label: "FOIA requests",
       url: "javascipt:void(0)"
     },
     link_no_FEAR: {
-      label: "No FEAR Act data",
       url: "javascipt:void(0)"
     },
     link_oig: {
-      label: "Office of the Inspector General",
       url: "javascipt:void(0)"
     },
     link_performance: {
-      label: "Performance reports",
       url: "javascipt:void(0)"
     },
     link_privacy: {
-      label: "Privacy policy",
       url: "javascipt:void(0)"
     },
     usagov: {
@@ -88,6 +83,7 @@ export default {
     logo1,
     logo2,
     masthead,
+    showTaxpayer,
     taxpayer,
     links_aria_label,
     link_about,
@@ -100,7 +96,7 @@ export default {
     usagov,
     main_aria_label,
   }) => html`
-    <usa-identifier lang="${lang}" aria-label="${main_aria_label}">
+    <usa-identifier lang=${lang || nothing} showTaxpayer=${showTaxpayer || nothing} aria-label=${main_aria_label || nothing} >
       ${logo1 ? html`
       <a slot="logo" href="${primary_agency.url}">
         <img src="${logo1}" alt="${primary_agency.name} logo" />
@@ -112,17 +108,17 @@ export default {
       <p slot="disclaimer" aria-label="${masthead.aria_label}">
         ${masthead.disclaimer}
         <a href="${primary_agency.url}">${primary_agency.name}</a>
-        ${secondary_agency ? html`${masthead.conjunction} <a href="${secondary_agency.url}">${secondary_agency.name}</a>`: null}${taxpayer ? html`.
+        ${secondary_agency ? html`${masthead.conjunction} <a href="${secondary_agency.url}">${secondary_agency.name}</a>`: null}${showTaxpayer ? html`.
         ${taxpayer}` : null}
       </p>
       <nav slot="links" aria-label="${links_aria_label}">
-        <a href="${link_about.url}">${link_about.label} ${primary_agency.shortname}</a>
-        <a href="${link_accessibility.url}">${link_accessibility.label}</a>
-        <a href="${link_foia.url}">${link_foia.label}</a>
-        <a href="${link_no_FEAR.url}">${link_no_FEAR.label}</a>
-        <a href="${link_oig.url}">${link_oig.label}</a>
-        <a href="${link_performance.url}">${link_performance.label}</a>
-        <a href="${link_privacy.url}">${link_privacy.label}</a>
+        <a slot="link_about" href="${link_about.url}" shortname="${link_about.shortname}">${link_about.label ? html`${link_about.label}`: null}</a>
+        <a slot="link_accessibility" href="${link_accessibility.url}">${link_accessibility.label ? html`${link_accessibility.label}`: null}</a>
+        <a slot="link_foia" href="${link_foia.url}">${link_foia.label ? html`${link_foia.label}`: null}</a>
+        <a slot="link_fear" href="${link_no_FEAR.url}">${link_no_FEAR.label ? html`${link_no_FEAR.label}`: null}</a>
+        <a slot="link_oig" href="${link_oig.url}">${link_oig.label ? html`${link_oig.label}`: null}</a>
+        <a slot="link_performance" href="${link_performance.url}">${link_performance.label ? html`${link_performance.label}`: null}</a>
+        <a slot="link_privacy" href="${link_privacy.url}">${link_privacy.label ? html`${link_privacy.label}`: null}</a>
       </nav>
       ${usagov.include ? html`
         <div slot="usagov">
@@ -143,6 +139,38 @@ export const DefaultSpanish = {
 export const DefaultCustomContent = {
   args: {
     lang: "",
+    links_aria_label: "[French] Important links",
+    link_about: {
+      shortname: "[Agency shortname]",
+      label: "[French] About",
+      url: "javascipt:void(0)"
+    },
+    showTaxpayer: true,
+    taxpayer: "[French] Produced and published at taxpayer expense.",
+    link_accessibility: {
+      label: "[French] Accessibility statement",
+      url: "javascipt:void(0)"
+    },
+    link_foia: {
+      label: "[French] FOIA requests",
+      url: "javascipt:void(0)"
+    },
+    link_no_FEAR: {
+      label: "[French] No FEAR Act data",
+      url: "javascipt:void(0)"
+    },
+    link_oig: {
+      label: "[French] Office of the Inspector General",
+      url: "javascipt:void(0)"
+    },
+    link_performance: {
+      label: "[French] Performance reports",
+      url: "javascipt:void(0)"
+    },
+    link_privacy: {
+      label: "[French] Privacy policy",
+      url: "javascipt:void(0)"
+    },
     usagov: {
       include: true,
       text: "[French] Looking for U.S. government information and services?",
@@ -152,41 +180,20 @@ export const DefaultCustomContent = {
   },
 }
 
-
 export const oneParentAgency = {
   args: {
     logo2: false,
     secondary_agency: false,
-    taxpayer: false,
-  },
-  argTypes: {
-    logo2: { table: { disable: true } },
-    secondary_agency: { table: { disable: true } },
-    taxpayer: { table: { disable: true } },
   },
 };
 
-export const MultipleParentAgencies = {
-  args: {
-    taxpayer: false,
-  },
-  argTypes: {
-    taxpayer: { table: { disable: true } },
-  },
-};
+export const MultipleParentAgencies = {};
 
 export const NoLogo = {
   args: {
     logo1: false,
     logo2: false,
     secondary_agency: false,
-    taxpayer: false,
-  },
-  argTypes: {
-    logo1: { table: { disable: true } },
-    logo2: { table: { disable: true } },
-    secondary_agency: { table: { disable: true } },
-    taxpayer: { table: { disable: true } },
   },
 };
 
@@ -194,9 +201,6 @@ export const TaxpayerDisclaimer = {
   args: {
     logo2: false,
     secondary_agency: false,
-  },
-  argTypes: {
-    logo2: { table: { disable: true } },
-    secondary_agency: { table: { disable: true } },
+    showTaxpayer: true,
   },
 };

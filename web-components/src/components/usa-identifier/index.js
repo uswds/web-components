@@ -6,6 +6,7 @@ import usaIdentifierContent from "./identifier.json";
 export class UsaIdentifier extends LitElement {
   static properties = {
     lang: { type: String },
+    taxpayer: {type: Boolean },
     classes: {},
   };
 
@@ -24,7 +25,13 @@ export class UsaIdentifier extends LitElement {
     this.lang;
     this.domain = this.querySelector('[slot="domain"]');
     this.logos = [...this.querySelectorAll('[slot="logo"]')];
-    this.links = [...this.querySelector('[slot="links"]').children];
+    this.linkAbout = this.querySelector('[slot="link_about"]');
+    this.linkAccessibility = this.querySelector('[slot="link_accessibility"]');
+    this.linkFOIA = this.querySelector('[slot="link_foia"]');
+    this.linkNoFEAR = this.querySelector('[slot="link_fear"]');
+    this.linkOIG = this.querySelector('[slot="link_oig"]');
+    this.linkPerformance = this.querySelector('[slot="link_performance"]');
+    this.linkPrivacy = this.querySelector('[slot="link_privacy"]');
     this.domain = this.querySelector('[slot="domain"]');
     this.disclaimer = this.querySelector('[slot="disclaimer"]');
     this.usagov = this.querySelector('[slot="usagov"]');
@@ -108,33 +115,70 @@ export class UsaIdentifier extends LitElement {
 
   // Render the list of links
   linksTemplate() {
-    if (this.links && this.links.length > 0) {
-      return html`
-        <nav
-          class="usa-identifier__section usa-identifier__section--required-links"
-          aria-label="Important links"
-        >
-          <div class="usa-identifier__container">
-            <div class="usa-identifier__logos">
-              <ul class="usa-identifier__required-links-list">
-                ${this.links.map((link) => {
-                  link.classList.add("usa-identifier__required-link");
-                  return html`<li class="usa-identifier__required-links-item">
-                    ${link}
-                  </li>`;
-                })}
-              </ul>
-            </div>
-          </div>
-        </nav>
-      `;
-    }
+    const { required_links } = this._identifierText;
+    const requiredLinkItemClass = "usa-identifier__required-links-item";
+    const requiredLinkClass = "usa-identifier__required-link usa-link";
+    const linksLabel = required_links.aria_label;
+    const aboutText = this.linkAbout.textContent || required_links.about;
+    const agencyShortname = this.linkAbout.getAttribute("shortname") || this.primaryAgency ;
+    const accessibilityText = this.linkAccessibility.textContent || required_links.accessibility;
+    const foiaText = this.linkFOIA.textContent || required_links.foia;
+    const noFearText = this.linkNoFEAR.textContent || required_links.no_fear;
+    const oigText = this.linkOIG.textContent || required_links.oig;
+    const performanceText = this.linkPerformance.textContent || required_links.performance;
+    const privacyText = this.linkPrivacy.textContent || required_links.privacy;
+    return html`
+      <nav
+        class="usa-identifier__section usa-identifier__section--required-links"
+        aria-label="${linksLabel}"
+      >
+        <div class="usa-identifier__container">
+            <ul class="usa-identifier__required-links-list">
+              <li class="${requiredLinkItemClass}">
+                <a class = "${ requiredLinkClass }" href="${this.linkAbout.getAttribute("href")}">
+                  ${ aboutText } ${ agencyShortname }
+                </a>
+              </li>
+              <li class="${requiredLinkItemClass}">
+                <a class = "${ requiredLinkClass }" href="${this.linkAccessibility.getAttribute("href")}">
+                  ${ accessibilityText }
+                </a>
+              </li>
+              <li class="${requiredLinkItemClass}">
+                <a class = "${ requiredLinkClass }" href="${this.linkFOIA.getAttribute("href")}">
+                  ${ foiaText }
+                </a>
+              </li>
+              <li class="${requiredLinkItemClass}">
+                <a class = "${ requiredLinkClass }" href="${this.linkNoFEAR.getAttribute("href")}">
+                  ${ noFearText }
+                </a>
+              </li>
+              <li class="${requiredLinkItemClass}">
+                <a class = "${ requiredLinkClass }" href="${this.linkOIG.getAttribute("href")}">
+                  ${ oigText }
+                </a>
+              </li>
+              <li class="${requiredLinkItemClass}">
+                <a class = "${ requiredLinkClass }" href="${this.linkPerformance.getAttribute("href")}">
+                  ${ performanceText }
+                </a>
+              </li>
+              <li class="${requiredLinkItemClass}">
+                <a class = "${ requiredLinkClass }" href="${this.linkPrivacy.getAttribute("href")}">
+                  ${ privacyText }
+                </a>
+              </li>
+            </ul>
+        </div>
+      </nav>
+    `
   }
 
   // Render the footer USA.gov text
   usagovTemplate() {
     const { usagov } = this._identifierText;
-    let usagovContent = this.usagov || html`${ usagov.description } <a href="${ usagov.link_url }">${ usagov.link_label }</a>`;
+    let usagovContent = html`${ usagov.description } <a class="usa-link" href="${ usagov.link_url }">${ usagov.link_label }</a>`;
 
     /**
      * If custom text is included in the usagov slot, scaffold that text:
