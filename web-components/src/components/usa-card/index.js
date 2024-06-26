@@ -17,11 +17,9 @@ export class UsaCard extends LitElement {
   ]
 
   static properties = {
-    bodyExdent: { type: Boolean },
-    footerExdent: { type: Boolean },
     headerFirst: { 
-      type: Boolean,
-      reflect: true
+      attribute: 'header-first',
+      type: Boolean
     },
     inset: { type: Boolean },
     exdent: { type: Boolean},
@@ -43,21 +41,6 @@ export class UsaCard extends LitElement {
     this.slots = this.slottedChildren.map((child) => {
       return child.getAttribute("slot")
     })
-  }
-
-  checkHeader() {
-    if(!this.media) {
-      return
-    }
-
-    if(this.slots.indexOf("card-header") < this.slots.indexOf("card-media")) {
-      this.headerFirst = true;
-    }
-  }
-
-  connectedCallback() {
-    super.connectedCallback();
-    this.checkHeader();
   }
 
   // Render header
