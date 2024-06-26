@@ -10,13 +10,19 @@ export default {
       options: ['en', 'es'],
       control: { type: 'radio' }
     },
-    primary_agency: { name: "Primary agency information" },
-    logo1: { control: "text", name: "Primary agency logo" },
-    secondary_agency: { name: "Secondary agency information" },
-    logo2: { control: "text", name: "Secondary agency logo" },
-    masthead: { name: "Masthead content" },
-    taxpayer: { name: "Taxpayer disclaimer" },
-    links_aria_label: { name: "Aria label for required links section" },
+    domain: { name: "Site domain" },
+    primary_agency_name: { name: "Primary agency name" },
+    primary_agency_url: { name: "Primary agency url" },
+    primary_agency_shortname: { name: "Primary agency shortname" },
+    primary_agency_logo_show: { name: "Add primary agency logo" },
+    primary_agency_logo: { control: "text", name: "Primary agency logo", control: 'text', if: { arg: 'primary_agency_logo_show' } },
+    secondary_agency_show: { name: "Add secondary agency" },
+    secondary_agency_name: { name: "Secondary agency name", control: 'text', if: { arg: 'secondary_agency_show' } },
+    secondary_agency_logo: { control: "text", name: "Secondary agency logo", control: 'text', if: { arg: 'secondary_agency_show' } },
+    secondary_agency_url: { name: "Secondary agency url", control: 'text', if: { arg: 'secondary_agency_show' } },
+    secondary_agency_conjunction: { name: "Secondary agency conjunction", control: 'text', if: { arg: 'secondary_agency_show' } },
+    taxpayer_show: { name: "Add taxpayer disclaimer"},
+    taxpayer: { name: "Taxpayer disclaimer content", control: 'text', if: { arg: 'taxpayer_show' } },
     link_about: { name: "Required link - About" },
     link_accessibility: { name: "Required link - Accessibility statement" },
     link_foia: { name: "Required link - FOIA requests" },
@@ -25,33 +31,25 @@ export default {
     link_performance: { name: "Required link - Performance reports" },
     link_privacy: { name: "Required link - Privacy policy" },
     usagov: { name: "USA.gov information" },
-    main_aria_label: { name: "Component aria-label" },
+    aria_labels: { name: "Aria labels"}
   },
   args: {
     lang: "en",
-    main_aria_label: "",
-    primary_agency: {
-      name: "[Parent agency]",
-      shortname: "[Agency shortname]",
-      url: "javascipt:void(0)",
-    },
-    logo1: "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
-    secondary_agency: {
-      name: "[Other agency]",
-      url: "javascipt:void(0)",
-    },
-    logo2: "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
-    masthead: {
-      aria_label: "Agency description",
-      conjunction: "and",
-      domain: "[domain.gov]",
-      disclaimer: "An official website of the",
-    },
-    showTaxpayer: false,
-    taxpayer: "Produced and published at taxpayer expense.",
-    links_aria_label: "Important links",
+    domain: "[domain.gov]",
+    primary_agency_name: "[Parent agency]",
+    primary_agency_shortname: "[Agency shortname]",
+    primary_agency_url: "javascipt:void(0)",
+    primary_agency_logo_show: true,
+    primary_agency_logo: "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
+    secondary_agency_show: false,
+    secondary_agency_name: "[Other agency]",
+    secondary_agency_logo: "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
+    secondary_agency_url: "javascipt:void(0)",
+    secondary_agency_conjunction: "",
+    masthead_disclaimer: "An official website of the",
+    taxpayer_show: false,
+    taxpayer: "",
     link_about: {
-      shortname: "[Agency shortname]",
       url: "javascipt:void(0)"
     },
     link_accessibility: {
@@ -75,17 +73,28 @@ export default {
     usagov: {
       include: false,
     },
+    aria_labels: {
+      main: "",
+      links: "",
+      masthead: ""
+    }
   },
   render: ({
     lang,
-    primary_agency,
-    secondary_agency,
-    logo1,
-    logo2,
-    masthead,
-    showTaxpayer,
+    primary_agency_name,
+    primary_agency_url,
+    primary_agency_shortname,
+    primary_agency_logo,
+    primary_agency_logo_show,
+    secondary_agency_show,
+    secondary_agency_logo,
+    secondary_agency_name,
+    secondary_agency_url,
+    secondary_agency_conjunction,
+    domain,
+    masthead_disclaimer,
+    taxpayer_show,
     taxpayer,
-    links_aria_label,
     link_about,
     link_accessibility,
     link_foia,
@@ -94,25 +103,26 @@ export default {
     link_performance,
     link_privacy,
     usagov,
-    main_aria_label,
+    aria_labels
   }) => html`
-    <usa-identifier lang=${lang || nothing} showTaxpayer=${showTaxpayer || nothing} aria-label=${main_aria_label || nothing} >
-      ${logo1 ? html`
-      <a slot="logo" href="${primary_agency.url}">
-        <img src="${logo1}" alt="${primary_agency.name} logo" />
+    <usa-identifier lang=${lang || nothing} taxpayer_show=${taxpayer_show || nothing} aria-label=${aria_labels.main || nothing} >
+      ${primary_agency_logo_show ? html`
+      <a slot="logo" href="${primary_agency_url}">
+        <img src="${primary_agency_logo}" alt="${primary_agency_name} logo" />
       </a>`: null}
-      ${logo2 ? html`
-      <a slot="logo" href="${secondary_agency.url}">
-        <img src="${logo2}" alt="${secondary_agency.name} logo" />
+      ${secondary_agency_show ? html`
+      <a slot="logo" href="${secondary_agency_url}">
+        <img src="${secondary_agency_logo}" alt="${secondary_agency_name} logo" />
       </a>`: null}
-      <p slot="disclaimer" aria-label="${masthead.aria_label}">
-        ${masthead.disclaimer}
-        <a href="${primary_agency.url}">${primary_agency.name}</a>
-        ${secondary_agency ? html`${masthead.conjunction} <a href="${secondary_agency.url}">${secondary_agency.name}</a>`: null}${showTaxpayer ? html`.
+      <p slot="domain">${domain}</p>
+      <p slot="disclaimer" aria-label=${aria_labels.masthead || nothing}>
+        ${masthead_disclaimer}
+        <a href="${primary_agency_url}">${primary_agency_name}</a>
+        ${secondary_agency_show ? html`${secondary_agency_conjunction} <a href="${secondary_agency_url}">${secondary_agency_name}</a>`: null}${taxpayer_show ? html`.
         ${taxpayer}` : null}
       </p>
-      <nav slot="links" aria-label="${links_aria_label}">
-        <a slot="link_about" href="${link_about.url}" shortname="${link_about.shortname}">${link_about.label ? html`${link_about.label}`: null}</a>
+      <nav slot="links" aria-label=${aria_labels.links || nothing}">
+        <a slot="link_about" href="${link_about.url}" shortname="${primary_agency_shortname}">${link_about.label ? html`${link_about.label}`: null}</a>
         <a slot="link_accessibility" href="${link_accessibility.url}">${link_accessibility.label ? html`${link_accessibility.label}`: null}</a>
         <a slot="link_foia" href="${link_foia.url}">${link_foia.label ? html`${link_foia.label}`: null}</a>
         <a slot="link_fear" href="${link_no_FEAR.url}">${link_no_FEAR.label ? html`${link_no_FEAR.label}`: null}</a>
@@ -132,20 +142,19 @@ export const Default = {};
 
 export const DefaultSpanish = {
   args: {
-    lang: "es"
+    lang: "es",
   }
 };
 
-export const DefaultCustomContent = {
+export const CustomContent = {
   args: {
     lang: "",
-    links_aria_label: "[French] Important links",
     link_about: {
       shortname: "[Agency shortname]",
       label: "[French] About",
       url: "javascipt:void(0)"
     },
-    showTaxpayer: true,
+    taxpayer_show: true,
     taxpayer: "[French] Produced and published at taxpayer expense.",
     link_accessibility: {
       label: "[French] Accessibility statement",
@@ -177,30 +186,29 @@ export const DefaultCustomContent = {
       link_label: "[French] Visit USA.gov",
       link_url: "[French]https://www.usa.gov/",
     },
+    aria_labels: {
+      main: "[French] Agency identifier",
+      links: "[French] Important links",
+      masthead: "[French] Agency description"
+    }
   },
 }
 
-export const oneParentAgency = {
+export const MultipleParentAgencies = {
   args: {
-    logo2: false,
-    secondary_agency: false,
-  },
+    secondary_agency_show: true
+  }
 };
-
-export const MultipleParentAgencies = {};
 
 export const NoLogo = {
   args: {
-    logo1: false,
-    logo2: false,
-    secondary_agency: false,
+    primary_agency_logo_show: false,
   },
 };
 
 export const TaxpayerDisclaimer = {
   args: {
-    logo2: false,
-    secondary_agency: false,
-    showTaxpayer: true,
+    secondary_agency_show: true,
+    taxpayer_show: true,
   },
 };

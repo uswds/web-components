@@ -115,10 +115,10 @@ export class UsaIdentifier extends LitElement {
 
   // Render the list of links
   linksTemplate() {
-    const { required_links } = this._identifierText;
+    const { required_links, aria_labels } = this._identifierText;
     const requiredLinkItemClass = "usa-identifier__required-links-item";
     const requiredLinkClass = "usa-identifier__required-link usa-link";
-    const linksLabel = required_links.aria_label;
+    const linksLabel = aria_labels.links;
     const aboutText = this.linkAbout.textContent || required_links.about;
     const agencyShortname = this.linkAbout.getAttribute("shortname") || this.primaryAgency ;
     const accessibilityText = this.linkAccessibility.textContent || required_links.accessibility;
@@ -204,8 +204,8 @@ export class UsaIdentifier extends LitElement {
   }
 
   render() {
-    const { aria_label } = this._identifierText;
-    const componentAriaLabel = this.getAttribute("aria-label") || aria_label;
+    const { aria_labels } = this._identifierText;
+    const componentAriaLabel = this.getAttribute("aria-label") || aria_labels.main;
     return html`
       <section class="usa-identifier" aria-label="${componentAriaLabel}">
         ${this.mastheadTemplate()}
