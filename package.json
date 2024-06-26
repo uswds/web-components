@@ -12,7 +12,8 @@
     "storybook:build": "storybook build",
     "storybook": "storybook dev -p 8008",
     "test": "vitest",
-    "vite:preview": "vite preview"
+    "vite:preview": "vite preview",
+    "pages": "npm run storybook:build && cp -r storybook-static _site"
   },
   "dependencies": {
     "@uswds/uswds": "^3.8.0",
