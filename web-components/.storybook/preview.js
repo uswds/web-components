@@ -14,6 +14,7 @@ const preview = {
         color: /(background|color)$/i,
         date: /Date$/i,
       },
+      expanded: true,
     },
     docs: {
       toc: true, // Autogenerate table of contents.
