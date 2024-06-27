@@ -299,12 +299,24 @@ export const FlagMediaRightInset = {
 }
 
 export const CardGroup = {
+  argTypes: {
+    headerFirst: {
+      table: {
+        disable: true
+      }
+    },
+    layout: {
+      table: {
+        disable: true
+      }
+    }
+  },
   render: ({ title, media, content, buttonText }) => {
     return`
       <usa-card-group>
         <usa-card>
           <div slot="card-header">
-            <h2 class="usa-card__heading">${title}</h2>
+            <h2 class="usa-card__heading">${title || "Card"}</h2>
           </div> 
           <div slot="card-body">
             <p>
@@ -319,7 +331,7 @@ export const CardGroup = {
         <usa-card>
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 class="usa-card__heading">${"Card w/ Media"}</h2>
+            <h2 class="usa-card__heading">${ title || "Card w/ Media"}</h2>
           </div>
           <div slot="card-body">
             <p>
@@ -334,7 +346,7 @@ export const CardGroup = {
         <usa-card header-first>
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 class="usa-card__heading">${"Media with Header first"}</h2>
+            <h2 class="usa-card__heading">${ title || "Media with Header first"}</h2>
           </div>
           <div slot="card-body">
             <p>
@@ -349,7 +361,7 @@ export const CardGroup = {
         <usa-card>
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 class="usa-card__heading">${"Inset Media"}</h2>
+            <h2 class="usa-card__heading">${ title || "Inset Media"}</h2>
           </div>
           <div slot="card-body">
             <p>
@@ -364,7 +376,38 @@ export const CardGroup = {
         <usa-card>
           <img slot="card-media" src="${media}" alt="Placeholder image" exdent>
           <div slot="card-header">
-            <h2 class="usa-card__heading">${"Exdent media"}</h2>
+            <h2 class="usa-card__heading">${ title || "Exdent media"}</h2>
+          </div>
+          <div slot="card-body">
+            <p>
+              ${content}
+            </p>
+          </div>
+          <div slot="card-footer">
+            <a href="#" class="usa-button">${buttonText}</a>
+          </div>
+        </usa-card>
+
+        <usa-card headerFirst layout="flag">
+          <img slot="card-media" src="${media}" alt="Placeholder image">
+          <div slot="card-header">
+            <h2 class="usa-card__heading">${title || "Default flag"}</h2>
+          </div>
+          <div slot="card-body">
+            <p>
+              ${content}
+            </p>
+          </div>
+          <div slot="card-footer">
+            <a href="#" class="usa-button">${buttonText}</a>
+          </div>
+        </usa-card>
+
+        <usa-card headerFirst layout="flag-alt">
+          <img slot="card-media" src="${media}" alt="Placeholder image">
+          <div slot="card-header">
+            <h2 class="usa-card__heading">${title || "Flag media right inset"}
+            </h2>
           </div>
           <div slot="card-body">
             <p>
