@@ -1,19 +1,42 @@
 import "./index";
+import "../usa-card-group/index";
 
-import { html } from "lit";
+import { html, nothing} from "lit";
 
 export default {
-  title: "Components/card",
+  title: "Components/Card",
   component: "usa-card",
   args: {
     title: "",
     media: "https://designsystem.digital.gov/img/introducing-uswds-2-0/built-to-grow--alt.jpg",
     content: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis earum tenetur quo cupiditate, eaque qui officia recusandae.",
     buttonText: "Visit Florida Keys",
-    layout: "",
     headerFirst: false,
+    layout: "default"
   },
-  render: ({ title, content, buttonText, image, media }) => {
+  argTypes: {
+    buttonText: {
+      description: "Card button text."
+    },
+    content: {
+      description: "Card body content."
+    },
+    headerFirst: {
+      description: "Place the header above above card media."
+    },
+    media: {
+      description: "Img src for component preview."
+    },
+    layout: {
+      control: { type: 'radio' },
+      options: ['default', 'flag', 'flag-alt'],
+      description: "Media card layout at wide widths."
+    },
+    title: {
+      description: "Card header text."
+    }
+  },
+  render: ({ title, content, buttonText }) => {
     return html`
       <usa-card>
         <div slot="card-header">
@@ -32,12 +55,56 @@ export default {
   }
 }
 
-export const Default = {};
+export const Default = {
+  argTypes: {
+    media: {
+      table: {
+        disable: true
+      }
+    },
+    headerFirst: {
+      table: {
+        disable: true
+      }
+    },
+    layout: {
+      table: {
+        disable: true
+      }
+    },
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'A default card with a title, text content, and a button.'
+      }
+    }
+  }
+};
 
 export const CardWithMedia = {
-  render: ({ title, media, content, buttonText }) => {
+  argTypes: {
+    headerFirst: {
+      table: {
+        disable: true
+      }
+    },
+    layout: {
+      table: {
+        disable: true
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'A card variant featuring media.'
+      }
+    }
+  },
+  render: ({ title, media, content, buttonText, headerFirst }) => {
     return html`
-      <usa-card>
+      <usa-card ?header-first=${headerFirst}>
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Card w/ Media"}</h2>
@@ -55,21 +122,34 @@ export const CardWithMedia = {
   }
 }
 
-// TODO: Fix variant attribute display
 export const MediaWithHeaderFirst = {
   args: {
     headerFirst: true
   },
+  argTypes: {
+    layout: {
+      table: {
+        disable: true
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'A card variant featuring media, displaying the header first.'
+      }
+    }
+  },
   render: ({ title, media, content, buttonText, headerFirst }) => {
     return html`
-      <usa-card ${headerFirst ? "headerFirst" : null}>
+      <usa-card ?header-first=${headerFirst}>
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Media with Header first"}</h2>
         </div>
         <div slot="card-body">
           <p>
-              ${content}
+            ${content}
           </p>
         </div>
         <div slot="card-footer">
@@ -80,21 +160,36 @@ export const MediaWithHeaderFirst = {
   }
 }
 
-// TODO: Fix variant attribute display
 export const InsetMedia = {
-  args: {
-    inset: true
+  argTypes: {
+    headerFirst: {
+      table: {
+        disable: true
+      }
+    },
+    layout: {
+      table: {
+        disable: true
+      }
+    }
   },
-  render: ({ title, media, content, buttonText, inset }) => {
+  parameters: {
+    docs: {
+      description: {
+        story: 'A card variant featuring media.'
+      }
+    }
+  },
+  render: ({ title, media, content, buttonText }) => {
     return html`
       <usa-card>
-        <img slot="card-media" src="${media}" alt="Placeholder image" ${inset ? "inset" : null}>
+        <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 class="usa-card__heading">${title || "Inset media"}</h2>
+          <h2 class="usa-card__heading">${title || "Inset Media"}</h2>
         </div>
         <div slot="card-body">
           <p>
-              ${content}
+            ${content}
           </p>
         </div>
         <div slot="card-footer">
@@ -105,8 +200,26 @@ export const InsetMedia = {
   }
 }
 
-// TODO: Fix variant attribute display
 export const ExdentMedia = {
+  argTypes: {
+    headerFirst: {
+      table: {
+        disable: true
+      }
+    },
+    layout: {
+      table: {
+        disable: true
+      }
+    }
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Extends the media element out over the card border.'
+      }
+    }
+  },
   render: ({ title, media, content, buttonText }) => {
     return html`
       <usa-card>
@@ -116,7 +229,7 @@ export const ExdentMedia = {
         </div>
         <div slot="card-body">
           <p>
-              ${content}
+            ${content}
           </p>
         </div>
         <div slot="card-footer">
@@ -129,18 +242,27 @@ export const ExdentMedia = {
 
 export const Flag = {
   args: {
-    layout: "flag"
+    layout: "flag",
   },
-  render: ({ title, media, content, buttonText, layout }) => {
+
+  parameters: {
+    docs: {
+      description: {
+        story: 'Display in a horizontal (“flag”) orientation at a specified width ($theme-card-flag-min-width).'
+      }
+    }
+  },
+
+  render: ({ title, media, content, buttonText, headerFirst, layout }) => {
     return html`
-      <usa-card layout="${layout}">
+      <usa-card ?header-first=${headerFirst} layout="${layout == 'default' ? nothing : layout}">
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Default flag"}</h2>
         </div>
         <div slot="card-body">
           <p>
-              ${content}
+            ${content}
           </p>
         </div>
         <div slot="card-footer">
@@ -155,10 +277,9 @@ export const FlagMediaRightInset = {
   args: {
     layout: "flag-alt"
   },
-  render: ({ title, media, content, buttonText, layout }) => {
-
+  render: ({ title, media, content, buttonText, layout, headerFirst }) => {
     return html`
-      <usa-card layout="${layout}">
+      <usa-card ?header-first=${headerFirst} layout="${layout == 'default' ? nothing : layout}">
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
           <h2 class="usa-card__heading">${title || "Flag media right inset"}
@@ -166,13 +287,95 @@ export const FlagMediaRightInset = {
         </div>
         <div slot="card-body">
           <p>
-              ${content}
+            ${content}
           </p>
         </div>
         <div slot="card-footer">
           <a href="#" class="usa-button">${buttonText}</a>
         </div>
       </usa-card>
+    `
+  }
+}
+
+export const CardGroup = {
+  render: ({ title, media, content, buttonText }) => {
+    return`
+      <usa-card-group>
+        <usa-card>
+          <div slot="card-header">
+            <h2 class="usa-card__heading">${title}</h2>
+          </div> 
+          <div slot="card-body">
+            <p>
+              ${content}
+            </p>
+          </div>
+          <div slot="card-footer">
+            <a href="#" class="usa-button">${buttonText}</a>
+          </div>
+        </usa-card>
+
+        <usa-card>
+          <img slot="card-media" src="${media}" alt="Placeholder image">
+          <div slot="card-header">
+            <h2 class="usa-card__heading">${"Card w/ Media"}</h2>
+          </div>
+          <div slot="card-body">
+            <p>
+              ${content}
+            </p>
+          </div>
+          <div slot="card-footer">
+            <a href="#" class="usa-button">${buttonText}</a>
+          </div>
+        </usa-card>
+
+        <usa-card header-first>
+          <img slot="card-media" src="${media}" alt="Placeholder image">
+          <div slot="card-header">
+            <h2 class="usa-card__heading">${"Media with Header first"}</h2>
+          </div>
+          <div slot="card-body">
+            <p>
+              ${content}
+            </p>
+          </div>
+          <div slot="card-footer">
+            <a href="#" class="usa-button">${buttonText}</a>
+          </div>
+        </usa-card>
+
+        <usa-card>
+          <img slot="card-media" src="${media}" alt="Placeholder image">
+          <div slot="card-header">
+            <h2 class="usa-card__heading">${"Inset Media"}</h2>
+          </div>
+          <div slot="card-body">
+            <p>
+              ${content}
+            </p>
+          </div>
+          <div slot="card-footer">
+            <a href="#" class="usa-button">${buttonText}</a>
+          </div>
+        </usa-card>
+
+        <usa-card>
+          <img slot="card-media" src="${media}" alt="Placeholder image" exdent>
+          <div slot="card-header">
+            <h2 class="usa-card__heading">${"Exdent media"}</h2>
+          </div>
+          <div slot="card-body">
+            <p>
+              ${content}
+            </p>
+          </div>
+          <div slot="card-footer">
+            <a href="#" class="usa-button">${buttonText}</a>
+          </div>
+        </usa-card>
+      </usa-card-group>
     `
   }
 }
