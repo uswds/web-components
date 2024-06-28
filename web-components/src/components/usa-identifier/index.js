@@ -33,7 +33,12 @@ export class UsaIdentifier extends LitElement {
     this.linkPrivacy = this.querySelector('[slot="link-privacy"]');
     this.disclaimer = this.querySelector('[slot="disclaimer"]');
     this.usagov = this.querySelector('[slot="usagov"]');
-    this.primaryAgency = this.querySelector('[slot="primary-agency"]')
+    this.agencyIntro = this.querySelector('[slot="agency-intro"]');
+    this.agencyPrimary = this.querySelector('[slot="agency-primary"]');
+    this.agencySecondary = this.querySelector('[slot="agency-secondary"]');
+    this.agencyConjunction = this.querySelector('[slot="agency-conjunction"]');
+    this.agencyTaxpayer = this.querySelector('[slot="agency-taxpayer"]');
+    this.includeTaxpayer = this.getAttribute("taxpayer-show");
   }
 
   get _identifierText() {
@@ -57,7 +62,18 @@ export class UsaIdentifier extends LitElement {
     }
   }
 
+
   mastheadTextTemplate() {
+    const { masthead, taxpayer } = this._identifierText;
+    const agencyIntro = this.agencyIntro ? this.agencyIntro.textContent: masthead.intro;
+    const agencyConjunction = this.agencyConjunction ? this.agencyConjunction.textContent : masthead.conjunction;
+    let taxpayerText;
+    console.log(this.agencyTaxpayer)
+
+    if (this.includeTaxpayer) {
+      taxpayerText = this.agencyTaxpayer ? html`. ${this.agencyTaxpayer.textContent}` : html`. ${taxpayer}`;
+    }
+
     /**
      * Scaffold domain text:
      * Add necessary classes for styling
@@ -73,16 +89,19 @@ export class UsaIdentifier extends LitElement {
       this.disclaimer.classList.add("usa-identifier__identity-disclaimer");
     }
 
-    if (this.disclaimer || this.domain) {
-      return html`
-        <section
-          class="usa-identifier__identity"
-          aria-label="Agency description"
-        >
-          ${this.domain} ${this.disclaimer}
-        </section>
-      `;
-    }
+    return html`
+      <section
+        class="usa-identifier__identity"
+        aria-label="Agency description"
+      >
+        ${this.domain}
+        <p class="usa-identifier__identity-disclaimer">
+          ${this.agencySecondary?
+            html`${agencyIntro} ${this.agencyPrimary} ${agencyConjunction} ${this.agencySecondary}${taxpayerText}`:
+            html`${agencyIntro} ${this.agencyPrimary}${taxpayerText}`}
+        </p>
+      </section>
+    `;
   }
 
   // Render the logos and text in the masthead
@@ -106,7 +125,7 @@ export class UsaIdentifier extends LitElement {
     const { required_links, aria_labels } = this._identifierText;
     const linksLabel = aria_labels.links;
     const linkAbout = this.linkAbout.textContent || required_links.about;
-    const agencyShortname = this.linkAbout.getAttribute("shortname") || this.primaryAgency.textContent ;
+    const agencyShortname = this.linkAbout.getAttribute("shortname") || this.primaryAgency.textContent;
     const requiredLinks = [
       {
         title: `${linkAbout} ${agencyShortname}`,

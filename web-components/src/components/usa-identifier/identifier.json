@@ -1,8 +1,8 @@
 {
   "en": {
     "masthead": {
-      "description": "<span aria-hidden='true'>An</span> official website of the",
-      "agencyConjunction": "and"
+      "intro": "An official website of the",
+      "conjunction": "and"
     },
     "taxpayer": "Produced and published at taxpayer expense.",
     "required_links": {
@@ -27,10 +27,10 @@
   },
   "es": {
     "masthead": {
-      "description": "Un sitio web oficial de",
-      "agencyConjunction": "y"
+      "intro": "Un sitio web oficial de",
+      "conjunction": "y"
     },
-    "taxpayer": "Producido y publicado con dinero de los contribuyentes de impuestos.",
+    "taxpayer": "Producdo y publicado con dinero de los contribuyentes de impuestos.",
     "required_links": {
       "about": "Acerca de",
       "accessibility": "Declaración de accesibilidad",

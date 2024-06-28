@@ -46,9 +46,7 @@ export default {
     secondary_agency_logo: "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
     secondary_agency_url: "javascipt:void(0)",
     secondary_agency_conjunction: "and",
-    masthead_disclaimer: "An official website of the",
     taxpayer_show: false,
-    taxpayer: "",
     link_about: {
       url: "javascipt:void(0)"
     },
@@ -92,9 +90,9 @@ export default {
     secondary_agency_url,
     secondary_agency_conjunction,
     domain,
-    masthead_disclaimer,
+    masthead,
     taxpayer_show,
-    taxpayer,
+    taxpayer_custom,
     link_about,
     link_accessibility,
     link_foia,
@@ -103,9 +101,10 @@ export default {
     link_performance,
     link_privacy,
     usagov,
-    aria_labels
+    aria_labels,
+    agency_intro
   }) => html`
-    <usa-identifier lang=${lang || nothing} taxpayer_show=${taxpayer_show || nothing} aria-label=${aria_labels.main || nothing} >
+    <usa-identifier lang=${lang || nothing} taxpayer-show=${taxpayer_show || nothing} aria-label=${aria_labels.main || nothing} >
       ${primary_agency_logo_show ? html`
       <a slot="logo" href="${primary_agency_url}">
         <img src="${primary_agency_logo}" alt="${primary_agency_name} logo" />
@@ -115,11 +114,13 @@ export default {
         <img src="${secondary_agency_logo}" alt="${secondary_agency_name} logo" />
       </a>`: null}
       <p slot="domain">${domain}</p>
-      <p slot="disclaimer" aria-label=${aria_labels.masthead || nothing}>
-        ${masthead_disclaimer}
-        <a slot="primary-agency" href="${primary_agency_url}">${primary_agency_name}</a>
-        ${secondary_agency_show ? html`${secondary_agency_conjunction} <a slot="secondary-agency" href="${secondary_agency_url}">${secondary_agency_name}</a>`: null}${taxpayer_show ? html`.
-        ${taxpayer}` : null}
+      <p slot="masthead" aria-label=${aria_labels.masthead || nothing}>
+        ${agency_intro ? html`<span slot="agency-intro">${agency_intro}</span>`: null}
+        <a slot="agency-primary" href="${primary_agency_url}">${primary_agency_name}</a>
+        ${secondary_agency_show ? html`
+          <span slot="agency-conjunction">${secondary_agency_conjunction}</span>
+          <a slot="agency-secondary" href="${secondary_agency_url}">${secondary_agency_name}</a>`: null}
+        ${taxpayer_show && taxpayer_custom ? html`<span slot="agency-taxpayer">${taxpayer_custom}</span>`: null}
       </p>
       <nav slot="links" aria-label=${aria_labels.links || nothing}>
         <a slot="link-about" href="${link_about.url}" shortname="${primary_agency_shortname}">${link_about.label ? html`${link_about.label}`: null}</a>
@@ -146,16 +147,18 @@ export const DefaultSpanish = {
   }
 };
 
-export const CustomContent = {
+export const CustomTranslation = {
   args: {
     lang: "",
+    agency_intro: "Un site officiel du",
+    secondary_agency_conjunction: "et",
     link_about: {
       shortname: "[Agency shortname]",
       label: "[French] About",
       url: "javascipt:void(0)"
     },
     taxpayer_show: true,
-    taxpayer: "[French] Produced and published at taxpayer expense.",
+    taxpayer_custom: "Produit et publié aux frais des contribuables.",
     link_accessibility: {
       label: "[French] Accessibility statement",
       url: "javascipt:void(0)"
