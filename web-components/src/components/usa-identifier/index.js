@@ -24,14 +24,13 @@ export class UsaIdentifier extends LitElement {
     super.connectedCallback();
     this.domain = this.querySelector('[slot="domain"]');
     this.logos = [...this.querySelectorAll('[slot="logo"]')];
-    this.linkAbout = this.querySelector('[slot="link_about"]');
-    this.linkAccessibility = this.querySelector('[slot="link_accessibility"]');
-    this.linkFOIA = this.querySelector('[slot="link_foia"]');
-    this.linkNoFEAR = this.querySelector('[slot="link_fear"]');
-    this.linkOIG = this.querySelector('[slot="link_oig"]');
-    this.linkPerformance = this.querySelector('[slot="link_performance"]');
-    this.linkPrivacy = this.querySelector('[slot="link_privacy"]');
-    this.domain = this.querySelector('[slot="domain"]');
+    this.linkAbout = this.querySelector('[slot="link-about"]');
+    this.linkAccessibility = this.querySelector('[slot="link-accessibility"]');
+    this.linkFOIA = this.querySelector('[slot="link-foia"]');
+    this.linkNoFEAR = this.querySelector('[slot="link-fear"]');
+    this.linkOIG = this.querySelector('[slot="link-oig"]');
+    this.linkPerformance = this.querySelector('[slot="link-performance"]');
+    this.linkPrivacy = this.querySelector('[slot="link-privacy"]');
     this.disclaimer = this.querySelector('[slot="disclaimer"]');
     this.usagov = this.querySelector('[slot="usagov"]');
     this.primaryAgency = this.querySelector('[slot="primary-agency"]')
