@@ -22,7 +22,6 @@ export class UsaIdentifier extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.lang;
     this.domain = this.querySelector('[slot="domain"]');
     this.logos = [...this.querySelectorAll('[slot="logo"]')];
     this.linkAbout = this.querySelector('[slot="link_about"]');
@@ -35,6 +34,7 @@ export class UsaIdentifier extends LitElement {
     this.domain = this.querySelector('[slot="domain"]');
     this.disclaimer = this.querySelector('[slot="disclaimer"]');
     this.usagov = this.querySelector('[slot="usagov"]');
+    this.primaryAgency = this.querySelector('[slot="primary-agency"]')
   }
 
   get _identifierText() {
@@ -69,21 +69,10 @@ export class UsaIdentifier extends LitElement {
     /**
      * Scaffold disclaimer text:
      * Add necessary classes for styling
-     * Wrap "An" in aria-hidden span
      */
     if (this.disclaimer) {
       this.disclaimer.classList.add("usa-identifier__identity-disclaimer");
     }
-    /**
-     * For English implementations, wrap "An" in an aria-hidden span
-     * This prevents "An official" from sounding like "Unofficial" in audible readouts
-     */
-    // if (this.disclaimer.innerHTML.includes("An official")) {
-    //   this.disclaimer.innerHTML = this.disclaimer.innerHTML.replace(
-    //     "An official",
-    //     '<span aria-hidden="true">An</span> official'
-    //   );
-    // }
 
     if (this.disclaimer || this.domain) {
       return html`
@@ -116,60 +105,55 @@ export class UsaIdentifier extends LitElement {
   // Render the list of links
   linksTemplate() {
     const { required_links, aria_labels } = this._identifierText;
-    const requiredLinkItemClass = "usa-identifier__required-links-item";
-    const requiredLinkClass = "usa-identifier__required-link usa-link";
     const linksLabel = aria_labels.links;
-    const aboutText = this.linkAbout.textContent || required_links.about;
-    const agencyShortname = this.linkAbout.getAttribute("shortname") || this.primaryAgency ;
-    const accessibilityText = this.linkAccessibility.textContent || required_links.accessibility;
-    const foiaText = this.linkFOIA.textContent || required_links.foia;
-    const noFearText = this.linkNoFEAR.textContent || required_links.no_fear;
-    const oigText = this.linkOIG.textContent || required_links.oig;
-    const performanceText = this.linkPerformance.textContent || required_links.performance;
-    const privacyText = this.linkPrivacy.textContent || required_links.privacy;
+    const linkAbout = this.linkAbout.textContent || required_links.about;
+    const agencyShortname = this.linkAbout.getAttribute("shortname") || this.primaryAgency.textContent ;
+    const requiredLinks = [
+      {
+        title: `${linkAbout} ${agencyShortname}`,
+        href: this.linkAbout.getAttribute("href")
+      },
+      {
+        title: this.linkAccessibility.textContent || required_links.accessibility,
+        href: this.linkAccessibility.getAttribute("href")
+      },
+      {
+        title: this.linkFOIA.textContent || required_links.foia,
+        href: this.linkFOIA.getAttribute("href")
+      },
+      {
+        title: this.linkNoFEAR.textContent || required_links.no_fear,
+        href: this.linkNoFEAR.getAttribute("href")
+      },
+      {
+        title: this.linkOIG.textContent || required_links.oig,
+        href: this.linkOIG.getAttribute("href")
+      },
+      {
+        title: this.linkPerformance.textContent || required_links.performance,
+        href: this.linkPerformance.getAttribute("href")
+      },
+      {
+        title: this.linkPrivacy.textContent || required_links.privacy,
+        href: this.linkPrivacy.getAttribute("href")
+      }
+    ];
+
     return html`
       <nav
         class="usa-identifier__section usa-identifier__section--required-links"
         aria-label="${linksLabel}"
       >
         <div class="usa-identifier__container">
-            <ul class="usa-identifier__required-links-list">
-              <li class="${requiredLinkItemClass}">
-                <a class = "${ requiredLinkClass }" href="${this.linkAbout.getAttribute("href")}">
-                  ${ aboutText } ${ agencyShortname }
-                </a>
-              </li>
-              <li class="${requiredLinkItemClass}">
-                <a class = "${ requiredLinkClass }" href="${this.linkAccessibility.getAttribute("href")}">
-                  ${ accessibilityText }
-                </a>
-              </li>
-              <li class="${requiredLinkItemClass}">
-                <a class = "${ requiredLinkClass }" href="${this.linkFOIA.getAttribute("href")}">
-                  ${ foiaText }
-                </a>
-              </li>
-              <li class="${requiredLinkItemClass}">
-                <a class = "${ requiredLinkClass }" href="${this.linkNoFEAR.getAttribute("href")}">
-                  ${ noFearText }
-                </a>
-              </li>
-              <li class="${requiredLinkItemClass}">
-                <a class = "${ requiredLinkClass }" href="${this.linkOIG.getAttribute("href")}">
-                  ${ oigText }
-                </a>
-              </li>
-              <li class="${requiredLinkItemClass}">
-                <a class = "${ requiredLinkClass }" href="${this.linkPerformance.getAttribute("href")}">
-                  ${ performanceText }
-                </a>
-              </li>
-              <li class="${requiredLinkItemClass}">
-                <a class = "${ requiredLinkClass }" href="${this.linkPrivacy.getAttribute("href")}">
-                  ${ privacyText }
-                </a>
-              </li>
-            </ul>
+          <ul class="usa-identifier__required-links-list">
+            ${requiredLinks.map((requiredLink) =>
+              html`
+                <li class="usa-identifier__required-links-item">
+                  <a class="usa-identifier__required-link usa-link" href="${requiredLink.href}">${requiredLink.title}</a>
+                </li>
+              `
+            )}
+          </ul>
         </div>
       </nav>
     `

@@ -45,7 +45,7 @@ export default {
     secondary_agency_name: "[Other agency]",
     secondary_agency_logo: "https://designsystem.digital.gov/assets/img/circle-gray-20.svg",
     secondary_agency_url: "javascipt:void(0)",
-    secondary_agency_conjunction: "",
+    secondary_agency_conjunction: "and",
     masthead_disclaimer: "An official website of the",
     taxpayer_show: false,
     taxpayer: "",
@@ -117,11 +117,11 @@ export default {
       <p slot="domain">${domain}</p>
       <p slot="disclaimer" aria-label=${aria_labels.masthead || nothing}>
         ${masthead_disclaimer}
-        <a href="${primary_agency_url}">${primary_agency_name}</a>
+        <a slot="primary-agency" href="${primary_agency_url}">${primary_agency_name}</a>
         ${secondary_agency_show ? html`${secondary_agency_conjunction} <a href="${secondary_agency_url}">${secondary_agency_name}</a>`: null}${taxpayer_show ? html`.
         ${taxpayer}` : null}
       </p>
-      <nav slot="links" aria-label=${aria_labels.links || nothing}">
+      <nav slot="links" aria-label=${aria_labels.links || nothing}>
         <a slot="link_about" href="${link_about.url}" shortname="${primary_agency_shortname}">${link_about.label ? html`${link_about.label}`: null}</a>
         <a slot="link_accessibility" href="${link_accessibility.url}">${link_accessibility.label ? html`${link_accessibility.label}`: null}</a>
         <a slot="link_foia" href="${link_foia.url}">${link_foia.label ? html`${link_foia.label}`: null}</a>
