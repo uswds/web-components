@@ -2,6 +2,9 @@ import "./index";
 
 import { html, nothing } from "lit";
 
+import { userEvent, expect, waitFor } from "@storybook/test";
+import { within } from "shadow-dom-testing-library";
+
 export default {
   title: "Components/Banner",
   component: "usa-banner",
@@ -15,6 +18,7 @@ export default {
       lang=${lang || nothing}
       label=${label || nothing}
       tld=${tld || nothing}
+      data-testid="banner"
     ></usa-banner>
   `,
 };
@@ -35,8 +39,7 @@ export const CustomContent = {
     domainText:
       "Un site Web .gov appartient à une organisation gouvernementale officielle aux États-Unis.",
     httpsHeading: "Les sites Web .gov sécurisés utilisent HTTPS",
-    httpsText:
-      `Un verrou ou (lock) https:// signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`,
+    httpsText: `Un verrou ou (lock) https:// signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`,
   },
   render: ({
     bannerText,
@@ -73,5 +76,23 @@ export const EspañolMil = {
   args: {
     lang: "es",
     tld: "mil",
+  },
+};
+
+export const ToggleBanner = {
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    const button = canvas.getByShadowRole("button");
+    const dotGovText = canvas.getByShadowText("Official websites use .gov");
+
+    userEvent.click(button);
+    await waitFor(() => {
+      expect(dotGovText).toBeVisible();
+    });
+
+    userEvent.click(button);
+    await waitFor(() => {
+      expect(dotGovText).not.toBeVisible();
+    });
   },
 };
