@@ -1,27 +1,47 @@
 import "./index";
 
-import { html } from "lit";
+import { html, nothing } from "lit";
 
 export default {
   title: "Components/Details",
   component: "usa-details",
   argTypes: {
-    summary: {name: "Summary content"},
-    info: { name: "Panel content"},
+    detailsSummary: {name: "Summary content"},
+    detailsContent: { name: "Panel content"},
+    open: { name: "Open panel on load" },
+    name: { name: "Details group name" },
   },
   args: {
-    summary: "Great Smoky Mountains National Park",
-    info: "The sprawling landscape encompasses lush forests and an abundance of wildflowers that bloom year-round. ",
+    detailsSummary: "Great Smoky Mountains National Park",
+    detailsContent: "The sprawling landscape encompasses lush forests and an abundance of wildflowers that bloom year-round. ",
+    name: "",
+    open: false,
   },
-  render: ({ summary, info }) =>
-    html`
-      <usa-details>
-        <details>
-          <summary>${summary}</summary>
-          ${info}
-        </details>
-      </usa-details>
-    `,
+  render: ({
+    detailsSummary,
+    detailsContent,
+    name,
+    open
+  }) => html`
+    <usa-details open=${open || nothing} name=${name || nothing}>
+      <details>
+        <summary>${detailsSummary}</summary>
+        <div slot="details-content">${detailsContent}</div>
+      </details>
+    </usa-details>
+  `,
 };
 
 export const Default = {};
+
+export const Open = {
+  args: {
+    open: true,
+  },
+}
+
+export const GroupName = {
+  args: {
+    name: "example-group-name",
+  },
+}
