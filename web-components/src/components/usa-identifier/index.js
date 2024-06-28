@@ -3,6 +3,16 @@ import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
 import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
 import usaIdentifierContent from "./identifier.json";
 
+/**
+ * @summary The usa-identifier component.
+ *
+ * @slot - This element has a slot
+ *
+ * @attribute {String} lang - Set the language for default text content (Options: "en", "es")
+ * @attribute {Boolean} taxpayer - Include the taxpayer disclaimer text
+ *
+ * @tagname usa-identifier
+ */
 export class UsaIdentifier extends LitElement {
   static properties = {
     lang: { type: String },
@@ -38,7 +48,7 @@ export class UsaIdentifier extends LitElement {
     this.agencySecondary = this.querySelector('[slot="agency-secondary"]');
     this.agencyConjunction = this.querySelector('[slot="agency-conjunction"]');
     this.agencyTaxpayer = this.querySelector('[slot="agency-taxpayer"]');
-    this.includeTaxpayer = this.getAttribute("taxpayer-show");
+    this.includeTaxpayer = this.getAttribute("taxpayer");
   }
 
   get _identifierText() {

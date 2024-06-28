@@ -104,7 +104,7 @@ export default {
     aria_labels,
     agency_intro
   }) => html`
-    <usa-identifier lang=${lang || nothing} taxpayer-show=${taxpayer_show || nothing} aria-label=${aria_labels.main || nothing} >
+    <usa-identifier lang=${lang || nothing} taxpayer=${taxpayer_show || nothing} aria-label=${aria_labels.main || nothing} >
       ${primary_agency_logo_show ? html`
       <a slot="logo" href="${primary_agency_url}">
         <img src="${primary_agency_logo}" alt="${primary_agency_name} logo" />
