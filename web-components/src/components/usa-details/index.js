@@ -26,15 +26,14 @@ export class UsaDetails extends LitElement {
           this.content = detail.querySelector('[slot="details__body"]');
           this.open = detail.getAttribute('open');
           this.name = detail.getAttribute('name');
-          this.summary.classList.add('summary');
-          this.content.classList.add('content');
+          this.summary.classList.add('usa-details__summary');
+          this.content.classList.add('usa-details__content');
           return html`
-            <details class="details" open="${this.open || nothing}" name="${this.name || nothing}">
+            <details class="usa-details" open="${this.open || nothing}" name="${this.name || nothing}">
               ${this.summary}
               ${this.content}
             </details>
-          `
-          ;
+          `;
       })}
     `;
   }
