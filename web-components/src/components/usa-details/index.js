@@ -1,6 +1,5 @@
 import { LitElement, html, css, unsafeCSS, nothing } from "lit";
 import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
-import usaAccordionStyle from "@uswds/uswds/scss/usa-accordion?inline";
 
 /**
  * @summary The usa-details component.
@@ -14,7 +13,6 @@ import usaAccordionStyle from "@uswds/uswds/scss/usa-accordion?inline";
  */
 export class UsaDetails extends LitElement {
   static styles = [
-    unsafeCSS(usaAccordionStyle),
     unsafeCSS(uswdsCoreStyle),
     css`
       .details {
@@ -75,11 +73,6 @@ export class UsaDetails extends LitElement {
       }
     `
   ];
-
-  static properties = {
-    detailsOpen: {type: Boolean},
-    detailsName: {type: String},
-  };
 
   connectedCallback() {
     super.connectedCallback();

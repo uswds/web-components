@@ -53,16 +53,16 @@ export default {
         <div slot="details__body">${item1Content}</div>
       </details>
       ${item2Show ? html`
-        <details open=${item2Open || nothing} name=${groupName || nothing}>
-          <summary>${item2Summary}</summary>
-          <div slot="details__body">${item2Content}</div>
-        </details>
+      <details open=${item2Open || nothing} name=${groupName || nothing}>
+        <summary>${item2Summary}</summary>
+        <div slot="details__body">${item2Content}</div>
+      </details>
       `: null}
       ${item3Show ? html`
-        <details open=${item3Open || nothing} name=${groupName || nothing}>
-          <summary>${item3Summary}</summary>
-          <div slot="details__body">${item3Content}</div>
-        </details>
+      <details open=${item3Open || nothing} name=${groupName || nothing}>
+        <summary>${item3Summary}</summary>
+        <div slot="details__body">${item3Content}</div>
+      </details>
       `: null}
     </usa-details>
   `,
