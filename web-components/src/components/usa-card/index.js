@@ -10,8 +10,15 @@ export class UsaCard extends LitElement {
     unsafeCSS(usaCardStyle),
     unsafeCSS(usaButtonStyle),
     css`
-    * {
-        box-sizing: border-box;
+      * {
+          box-sizing: border-box;
+        }
+
+      [slot="card-heading"] {
+        font-family: "Merriweather Web", Georgia, Cambria, "Times New Roman", Times, serif;
+        font-size: 1.34rem;
+        line-height: 1.2;
+        margin: 0px;
       }
     `
   ]
@@ -52,9 +59,7 @@ export class UsaCard extends LitElement {
 
     return html`
       <div class="${classMap(classes)}">
-        <div class="usa-card__heading">
           ${this.headerContent}
-        </div>
       </div>
     `;
   }

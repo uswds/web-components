@@ -40,7 +40,7 @@ export default {
     return html`
       <usa-card>
         <div slot="card-header">
-          <h2 class="usa-card__heading">${title || "Card"}</h2>
+          <h2 slot="card-heading">${title || "Card"}</h2>
         </div> 
         <div slot="card-body">
           <p>
@@ -107,7 +107,7 @@ export const CardWithMedia = {
       <usa-card ?header-first=${headerFirst}>
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 class="usa-card__heading">${title || "Card w/ Media"}</h2>
+          <h2 slot="card-heading">${title || "Card w/ Media"}</h2>
         </div>
         <div slot="card-body">
           <p>
@@ -145,7 +145,7 @@ export const MediaWithHeaderFirst = {
       <usa-card ?header-first=${headerFirst}>
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 class="usa-card__heading">${title || "Media with Header first"}</h2>
+          <h2 slot="card-heading">${title || "Media with Header first"}</h2>
         </div>
         <div slot="card-body">
           <p>
@@ -185,7 +185,7 @@ export const InsetMedia = {
       <usa-card>
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 class="usa-card__heading">${title || "Inset Media"}</h2>
+          <h2 slot="card-heading">${title || "Inset Media"}</h2>
         </div>
         <div slot="card-body">
           <p>
@@ -225,7 +225,7 @@ export const ExdentMedia = {
       <usa-card>
         <img slot="card-media" src="${media}" alt="Placeholder image" exdent>
         <div slot="card-header">
-          <h2 class="usa-card__heading">${title || "Exdent media"}</h2>
+          <h2 slot="card-heading">${title || "Exdent media"}</h2>
         </div>
         <div slot="card-body">
           <p>
@@ -258,7 +258,7 @@ export const Flag = {
       <usa-card ?header-first=${headerFirst} layout="${layout == 'default' ? nothing : layout}">
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 class="usa-card__heading">${title || "Default flag"}</h2>
+          <h2 slot="card-heading">${title || "Default flag"}</h2>
         </div>
         <div slot="card-body">
           <p>
@@ -282,7 +282,7 @@ export const FlagMediaRightInset = {
       <usa-card ?header-first=${headerFirst} layout="${layout == 'default' ? nothing : layout}">
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 class="usa-card__heading">${title || "Flag media right inset"}
+          <h2 slot="card-heading">${title || "Flag media right inset"}
           </h2>
         </div>
         <div slot="card-body">
@@ -316,7 +316,7 @@ export const CardGroup = {
       <usa-card-group>
         <usa-card>
           <div slot="card-header">
-            <h2 class="usa-card__heading">${title || "Card"}</h2>
+            <h2 slot="card-heading">${title || "Card"}</h2>
           </div> 
           <div slot="card-body">
             <p>
@@ -331,7 +331,7 @@ export const CardGroup = {
         <usa-card>
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 class="usa-card__heading">${ title || "Card w/ Media"}</h2>
+            <h2 slot="card-heading">${ title || "Card w/ Media"}</h2>
           </div>
           <div slot="card-body">
             <p>
@@ -346,7 +346,7 @@ export const CardGroup = {
         <usa-card header-first>
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 class="usa-card__heading">${ title || "Media with Header first"}</h2>
+            <h2 slot="card-heading">${ title || "Media with Header first"}</h2>
           </div>
           <div slot="card-body">
             <p>
@@ -361,7 +361,7 @@ export const CardGroup = {
         <usa-card>
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 class="usa-card__heading">${ title || "Inset Media"}</h2>
+            <h2 slot="card-heading">${ title || "Inset Media"}</h2>
           </div>
           <div slot="card-body">
             <p>
@@ -376,7 +376,7 @@ export const CardGroup = {
         <usa-card>
           <img slot="card-media" src="${media}" alt="Placeholder image" exdent>
           <div slot="card-header">
-            <h2 class="usa-card__heading">${ title || "Exdent media"}</h2>
+            <h2 slot="card-heading">${ title || "Exdent media"}</h2>
           </div>
           <div slot="card-body">
             <p>
@@ -391,7 +391,7 @@ export const CardGroup = {
         <usa-card headerFirst layout="flag">
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 class="usa-card__heading">${title || "Default flag"}</h2>
+            <h2 slot="card-heading">${title || "Default flag"}</h2>
           </div>
           <div slot="card-body">
             <p>
@@ -406,7 +406,7 @@ export const CardGroup = {
         <usa-card headerFirst layout="flag-alt">
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 class="usa-card__heading">${title || "Flag media right inset"}
+            <h2 slot="card-heading">${title || "Flag media right inset"}
             </h2>
           </div>
           <div slot="card-body">
