@@ -1,27 +1,9 @@
-import { LitElement, html, unsafeCSS, css } from "lit";
-import { classMap } from "lit/directives/class-map.js"
-import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
-import usaCardStyle from "@uswds/uswds/scss/usa-card?inline";
-import usaButtonStyle from "@uswds/uswds/scss/usa-button?inline";
+import { LitElement, html} from "lit";
+import { classMap } from "lit/directives/class-map.js";
+import { cardStyles } from "./usa-card.scss";
 
 export class UsaCard extends LitElement {
-  static styles = [
-    unsafeCSS(uswdsCoreStyle),
-    unsafeCSS(usaCardStyle),
-    unsafeCSS(usaButtonStyle),
-    css`
-      * {
-          box-sizing: border-box;
-        }
-
-      [slot="card-heading"] {
-        font-family: "Merriweather Web", Georgia, Cambria, "Times New Roman", Times, serif;
-        font-size: 1.34rem;
-        line-height: 1.2;
-        margin: 0px;
-      }
-    `
-  ]
+  static styles = [cardStyles];
 
   static properties = {
     headerFirst: { 
