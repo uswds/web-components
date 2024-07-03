@@ -1,10 +1,9 @@
 import UswdsTheme from "./UswdsTheme";
 
 // Global component styles.
-import "../src/index.css";
+import "../storybook/index.css";
 // Theme overrides.
 import "./index.css";
-
 
 /** @type { import('@storybook/web-components').Preview } */
 const preview = {
@@ -19,9 +18,12 @@ const preview = {
     docs: {
       toc: true, // Autogenerate table of contents.
       theme: UswdsTheme,
-    }
+      canvas: {
+        sourceState: "shown",
+      },
+    },
   },
-  tags: ['autodocs'],
+  tags: ["autodocs"],
 };
 
 export default preview;
