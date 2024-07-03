@@ -176,14 +176,14 @@ export const InsetMedia = {
   parameters: {
     docs: {
       description: {
-        story: 'A card variant featuring media.'
+        story: 'Indents the media element so it doesn’t extend to the edge of the card.'
       }
     }
   },
   render: ({ title, media, content, buttonText }) => {
     return html`
       <usa-card>
-        <img slot="card-media" src="${media}" alt="Placeholder image">
+        <img slot="card-media" src="${media}" alt="Placeholder image" inset>
         <div slot="card-header">
           <h2 slot="card-heading">${title || "Inset Media"}</h2>
         </div>
@@ -244,7 +244,6 @@ export const Flag = {
   args: {
     layout: "flag",
   },
-
   parameters: {
     docs: {
       description: {
@@ -252,7 +251,6 @@ export const Flag = {
       }
     }
   },
-
   render: ({ title, media, content, buttonText, headerFirst, layout }) => {
     return html`
       <usa-card ?header-first=${headerFirst} layout="${layout == 'default' ? nothing : layout}">
@@ -276,6 +274,13 @@ export const Flag = {
 export const FlagMediaRightInset = {
   args: {
     layout: "flag-alt"
+  },
+  parameters: {
+    docs: {
+      description: {
+        story: 'Display in a horizontal (“flag”) orientation with media inset and on the right side.'
+      }
+    }
   },
   render: ({ title, media, content, buttonText, layout, headerFirst }) => {
     return html`
