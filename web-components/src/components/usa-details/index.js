@@ -36,7 +36,6 @@ export class UsaDetails extends LitElement {
       "usa-details": true,
       "usa-details__bordered": this.bordered
     }
-    console.log(this.bordered);
     return html`
       ${this.details.map((detail) => {
           this.summary = detail.querySelector('summary');
