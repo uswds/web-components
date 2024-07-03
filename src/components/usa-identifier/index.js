@@ -1,15 +1,26 @@
 import { LitElement, html, css, unsafeCSS } from "lit";
 import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
-import usaIdentifierStyle from "@uswds/uswds/scss/usa-identifier?inline";
+import styles from "./usa-identifier.css.js";
 import usaIdentifierContent from "./identifier.json";
 
 /**
  * @summary The usa-identifier component.
  *
- * @slot - This element has a slot
- *
- * @attribute {String} lang - Set the language for default text content (Options: "en", "es")
+ * @attribute {String} lang - Set the language for default text content (Options: "en" (Default), "es")
  * @attribute {Boolean} taxpayer - Include the taxpayer disclaimer text
+ *
+ * @slot domain - Site domain name
+ * @slot logo - Optional slot to define the parent agency logo and url
+ * @slot primary-agency - Information about the primary parent agency
+ * @slot secondary-agency - Information about the secondary parent agency
+ * @slot link-about - url and optional text content for the parent agency's about page
+ * @slot link-accessibility - url and optional text content for the parent agency's accessibility statement
+ * @slot link-foia - url and optional text content for the parent agency's Freedom of Information Act page
+ * @slot link-fear - url and optional text content for the parent agency's No FEAR act page
+ * @slot link-oig - url and optional text content for the parent agency's Office of the inspector general page
+ * @slot link-performance -  url and optional text content for the parent agency's performance reports page
+ * @slot link-privacy - url and optional text content for the parent agency's privacy statement page
+ * @slot usagov - oOtional slot for defining custom USA.gov content
  *
  * @tagname usa-identifier
  */
@@ -21,13 +32,8 @@ export class UsaIdentifier extends LitElement {
   };
 
   static styles = [
-    unsafeCSS(usaIdentifierStyle),
     unsafeCSS(uswdsCoreStyle),
-    css`
-      .usa-identifier__usagov-description {
-        display: block;
-      }
-    `,
+    styles
   ];
 
   connectedCallback() {
@@ -58,6 +64,7 @@ export class UsaIdentifier extends LitElement {
 
   // Render the logo(s) for the masthead
   mastheadLogosTemplate() {
+    console.log(this.logos)
     if (this.logos.length > 0) {
       return html`
         <div class="usa-identifier__logos">
@@ -72,18 +79,15 @@ export class UsaIdentifier extends LitElement {
     }
   }
 
-
   mastheadTextTemplate() {
     const { masthead, taxpayer } = this._identifierText;
     const agencyIntro = this.agencyIntro ? this.agencyIntro.textContent: masthead.intro;
     const agencyConjunction = this.agencyConjunction ? this.agencyConjunction.textContent : masthead.conjunction;
     let taxpayerText;
-    console.log(this.agencyTaxpayer)
 
     if (this.includeTaxpayer) {
       taxpayerText = this.agencyTaxpayer ? html`. ${this.agencyTaxpayer.textContent}` : html`. ${taxpayer}`;
     }
-
     /**
      * Scaffold domain text:
      * Add necessary classes for styling
