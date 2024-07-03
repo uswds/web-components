@@ -4,12 +4,15 @@ export default css`
   :host {
     .usa-details {
         color: #1b1b1b;
+        /* TODO: use var to define this */
         font-family: Source Sans Pro Web,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
         font-size: 1.06rem;
         line-height: 1.5;
         margin-top: .5rem;
       }
       .usa-details__summary {
+        /* TODO: use local files */
+        /* TODO: determine if background image is still the best way to add icons here */
         background-image: url(https://designsystem.digital.gov/assets/img/usa-icons/add.svg);
         background-repeat: no-repeat;
         background-size: 1.5rem;
@@ -32,6 +35,7 @@ export default css`
         border-style: solid;
       }
       .usa-details[open] .usa-details__summary {
+        /* TODO: use local files */
         background-image: url(https://designsystem.digital.gov/assets/img/usa-icons/remove.svg);
       }
       .usa-details > .usa-details__summary  {

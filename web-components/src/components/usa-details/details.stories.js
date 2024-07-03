@@ -1,7 +1,5 @@
 import "./index";
-
 import { html, nothing } from "lit";
-
 
 export default {
   title: "Components/Details",
