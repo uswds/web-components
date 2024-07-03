@@ -35,6 +35,10 @@ export default css`
       display: block;
     }
 
+    .usa-identifier__logo+.usa-identifier__logo {
+      margin-left: .5rem;
+    }
+
     .usa-identifier__logo-img {
       height: 100%;
       width: auto;
