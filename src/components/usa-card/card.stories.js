@@ -312,7 +312,7 @@ export const CardGroup = {
     }
   },
   render: ({ title, media, content, buttonText }) => {
-    return`
+    return html`
       <usa-card-group>
         <usa-card>
           <div slot="card-header">
