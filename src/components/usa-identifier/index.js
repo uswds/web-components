@@ -28,7 +28,6 @@ export class UsaIdentifier extends LitElement {
   static properties = {
     lang: { type: String },
     taxpayer: {type: Boolean },
-    classes: {},
   };
 
   static styles = [
@@ -64,7 +63,6 @@ export class UsaIdentifier extends LitElement {
 
   // Render the logo(s) for the masthead
   mastheadLogosTemplate() {
-    console.log(this.logos)
     if (this.logos.length > 0) {
       return html`
         <div class="usa-identifier__logos">
