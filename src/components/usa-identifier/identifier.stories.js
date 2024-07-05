@@ -104,7 +104,7 @@ export default {
     aria_labels,
     agency_intro
   }) => html`
-    <usa-identifier lang=${lang || nothing} taxpayer=${taxpayer_show || nothing} aria-label=${aria_labels.main || nothing} >
+    <usa-identifier lang=${lang || nothing} taxpayer=${taxpayer_show || nothing} label=${aria_labels.main || nothing} >
       ${primary_agency_logo_show ? html`
       <a slot="logo" href="${primary_agency_url}">
         <img src="${primary_agency_logo}" alt="${primary_agency_name} logo" />
@@ -114,7 +114,7 @@ export default {
         <img src="${secondary_agency_logo}" alt="${secondary_agency_name} logo" />
       </a>`: null}
       <p slot="domain">${domain}</p>
-      <p slot="masthead" aria-label=${aria_labels.masthead || nothing}>
+      <p slot="masthead" label=${aria_labels.masthead || nothing}>
         ${agency_intro ? html`<span slot="agency-intro">${agency_intro}</span>`: null}
         <a slot="agency-primary" href="${primary_agency_url}">${primary_agency_name}</a>
         ${secondary_agency_show ? html`
@@ -122,7 +122,7 @@ export default {
           <a slot="agency-secondary" href="${secondary_agency_url}">${secondary_agency_name}</a>`: null}
         ${taxpayer_show && taxpayer_custom ? html`<span slot="agency-taxpayer">${taxpayer_custom}</span>`: null}
       </p>
-      <nav slot="links" aria-label=${aria_labels.links || nothing}>
+      <nav slot="links" label=${aria_labels.links || nothing}>
         <a slot="link-about" href="${link_about.url}" shortname="${primary_agency_shortname}">${link_about.label ? html`${link_about.label}`: null}</a>
         <a slot="link-accessibility" href="${link_accessibility.url}">${link_accessibility.label ? html`${link_accessibility.label}`: null}</a>
         <a slot="link-foia" href="${link_foia.url}">${link_foia.label ? html`${link_foia.label}`: null}</a>

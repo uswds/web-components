@@ -28,6 +28,7 @@ export class UsaIdentifier extends LitElement {
   static properties = {
     lang: { type: String },
     taxpayer: {type: Boolean },
+    label: { type: String }
   };
 
   static styles = [
@@ -102,10 +103,7 @@ export class UsaIdentifier extends LitElement {
     }
 
     return html`
-      <section
-        class="usa-identifier__identity"
-        aria-label="Agency description"
-      >
+      <section class="usa-identifier__identity">
         ${this.domain}
         <p class="usa-identifier__identity-disclaimer">
           ${this.agencySecondary?
@@ -122,7 +120,7 @@ export class UsaIdentifier extends LitElement {
       return html`
         <section
           class="usa-identifier__section usa-identifier__section--masthead"
-          aria-label="Agency identifier"
+          aria-label="Agency description"
         >
           <div class="usa-identifier__container">
             ${this.mastheadLogosTemplate()} ${this.mastheadTextTemplate()}
@@ -219,7 +217,7 @@ export class UsaIdentifier extends LitElement {
 
   render() {
     const { aria_labels } = this._identifierText;
-    const componentAriaLabel = this.getAttribute("aria-label") || aria_labels.main;
+    const componentAriaLabel = this.label || aria_labels.main;
     return html`
       <section class="usa-identifier" aria-label="${componentAriaLabel}">
         ${this.mastheadTemplate()}
