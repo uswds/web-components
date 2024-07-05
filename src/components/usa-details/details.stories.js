@@ -1,9 +1,15 @@
 import "./index";
 import { html, nothing } from "lit";
+import CustomDocs from "./usa-details.mdx";
 
 export default {
   title: "Components/Details",
   component: "usa-details",
+  parameters: {
+    docs: {
+      page: CustomDocs,
+    }
+  },
   argTypes: {
     groupName: { name: "Details group name" },
     bordered: { name: "Add border to panels" },
