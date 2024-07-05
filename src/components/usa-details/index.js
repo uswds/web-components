@@ -11,11 +11,11 @@ import uswdsCoreStyles from "@uswds/uswds/scss/uswds-core?inline";
  * @attribute {Boolean} open - Set the panel to be open on load
  * @attribute {String} name - Add a group name if the element is part of a details group
  *
- * @cssprop --theme-details-font-family - Sets the font family for the details element
- * @cssprop --theme-details-border-color - Sets the border width for the details element
- * @cssprop --theme-details-border-width - Sets the border color for the details element
- * @cssprop --theme-details-background-color - Sets the background color of the content panels
- * @cssprop --theme-details-summary-background-color - Sets the background color of the summary element
+ * @cssprop --usa-theme-details-font-family - Sets the font family for the details element
+ * @cssprop --usa-theme-details-border-color - Sets the border width for the details element
+ * @cssprop --usa-theme-details-border-width - Sets the border color for the details element
+ * @cssprop --usa-theme-details-background-color - Sets the background color of the content panels
+ * @cssprop --usa-theme-details-summary-background-color - Sets the background color of the summary element
  *
  * @tagname usa-details
  */
