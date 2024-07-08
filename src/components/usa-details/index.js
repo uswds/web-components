@@ -31,7 +31,7 @@ export class UsaDetails extends LitElement {
     this.details = [...this.querySelectorAll('details')];
   }
 
-  template() {
+  render() {
     const classes = {
       "usa-details": true,
       "usa-details__bordered": this.bordered
@@ -53,10 +53,6 @@ export class UsaDetails extends LitElement {
           `;
       })}
     `;
-  }
-
-  render() {
-    return this.template();
   }
 }
 
