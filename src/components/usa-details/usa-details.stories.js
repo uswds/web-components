@@ -1,6 +1,6 @@
 import "./index";
 import { html, nothing } from "lit";
-import CustomDocs from "./readme.mdx";
+import CustomDocs from "./_readme.mdx";
 
 export default {
   title: "Components/Details",
