@@ -1,6 +1,6 @@
 import "./index";
 import { html, nothing } from "lit";
-import CustomDocs from "./usa-details.mdx";
+import CustomDocs from "./readme.mdx";
 
 export default {
   title: "Components/Details",
@@ -24,6 +24,10 @@ export default {
     item3Summary: {name: "Item 3 - Summary text", if: { arg: 'item3Show' } },
     item3Content: { name: "Item 3 - Panel content", if: { arg: 'item3Show' } },
     item3Open: { name: "Item 3 - Open panel on load", if: { arg: 'item3Show' } },
+    CSSVarSummaryBackgroundColor: { name: "--usa-theme-details-summary-background-color" },
+    CSSVarPanelBackgroundColor: { name: "--usa-theme-details-panel-background-color" },
+    CSSVarBorderColor: { name: "--usa-theme-details-border-color" },
+    CSSVarBorderWidth: { name: "--usa-theme-details-border-width" },
   },
   args: {
     groupName: "",
@@ -39,6 +43,10 @@ export default {
     item3Summary: "Third Amendment",
     item3Content: "No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.",
     item3Open: false,
+    CSSVarPanelBackgroundColor: "",
+    CSSVarSummaryBackgroundColor: "",
+    CSSVarBorderColor: "",
+    CSSVarBorderWidth: ""
   },
   render: ({
     groupName,
@@ -54,7 +62,19 @@ export default {
     item3Summary,
     item3Content,
     item3Open,
+    CSSVarPanelBackgroundColor,
+    CSSVarSummaryBackgroundColor,
+    CSSVarBorderColor,
+    CSSVarBorderWidth,
   }) => html`
+    <style>
+      usa-details {
+        ${CSSVarBorderColor ? `--usa-theme-details-border-color: ${CSSVarBorderColor};`: null}
+        ${CSSVarBorderWidth ? `--usa-theme-details-border-width: ${CSSVarBorderWidth};`: null}
+        ${CSSVarPanelBackgroundColor ? `--usa-theme-details-panel-background-color: ${CSSVarPanelBackgroundColor};`: null}
+        ${CSSVarSummaryBackgroundColor ? `--usa-theme-details-summary-background-color: ${CSSVarSummaryBackgroundColor};`: null}
+      }
+    </style>
     <usa-details bordered="${bordered || nothing}">
       <details open=${item1Open || nothing} name=${groupName || nothing}>
         <summary>${item1Summary}</summary>
