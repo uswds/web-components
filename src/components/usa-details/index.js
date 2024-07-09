@@ -14,7 +14,7 @@ import uswdsCoreStyles from "@uswds/uswds/scss/uswds-core?inline";
  * @cssprop --usa-theme-details-font-family - Sets the font family for the details element
  * @cssprop --usa-theme-details-border-color - Sets the border width for the details element
  * @cssprop --usa-theme-details-border-width - Sets the border color for the details element
- * @cssprop --usa-theme-details-background-color - Sets the background color of the content panels
+ * @cssprop --usa-theme-details-panel-background-color - Sets the background color of the content panels
  * @cssprop --usa-theme-details-summary-background-color - Sets the background color of the summary element
  *
  * @tagname usa-details
@@ -23,7 +23,8 @@ export class UsaDetails extends LitElement {
   static styles = [unsafeCSS(uswdsCoreStyles), styles];
 
   static properties = {
-    bordered: { type: Boolean }
+    bordered: { type: Boolean },
+    name: { type: String }
   }
 
   connectedCallback() {
@@ -41,7 +42,6 @@ export class UsaDetails extends LitElement {
           this.summary = detail.querySelector('summary');
           this.content = detail.querySelector('[slot="details-body"]');
           this.open = detail.getAttribute('open');
-          this.name = detail.getAttribute('name');
           this.summary.classList.add('usa-details__summary');
           this.content.classList.add('usa-details__content');
 

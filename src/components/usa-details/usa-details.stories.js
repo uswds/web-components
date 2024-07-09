@@ -75,19 +75,19 @@ export default {
         ${CSSVarSummaryBackgroundColor ? `--usa-theme-details-summary-background-color: ${CSSVarSummaryBackgroundColor};`: null}
       }
     </style>
-    <usa-details bordered="${bordered || nothing}">
-      <details open=${item1Open || nothing} name=${groupName || nothing}>
+    <usa-details bordered="${bordered || nothing}" name=${groupName || nothing}>
+      <details open=${item1Open || nothing}>
         <summary>${item1Summary}</summary>
         <div slot="details-body">${item1Content}</div>
       </details>
       ${item2Show ? html`
-      <details open=${item2Open || nothing} name=${groupName || nothing}>
+      <details open=${item2Open || nothing}>
         <summary>${item2Summary}</summary>
         <div slot="details-body">${item2Content}</div>
       </details>
       `: null}
       ${item3Show ? html`
-      <details open=${item3Open || nothing} name=${groupName || nothing}>
+      <details open=${item3Open || nothing}>
         <summary>${item3Summary}</summary>
         <div slot="details-body">${item3Content}</div>
       </details>
