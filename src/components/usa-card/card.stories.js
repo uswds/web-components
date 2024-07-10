@@ -40,9 +40,8 @@ export default {
     return html`
       <usa-card>
         <div slot="card-header">
-          <h2 slot="card-heading">${title || "Card"}</h2>
+          <h2 part="card-heading">${title || "Card"}</h2>
         </div> 
-        <div slot="card-body">
           <p>
             ${content}
           </p>
@@ -107,13 +106,11 @@ export const CardWithMedia = {
       <usa-card ?header-first=${headerFirst}>
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 slot="card-heading">${title || "Card w/ Media"}</h2>
+          <h2 part="card-heading">${title || "Card w/ Media"}</h2>
         </div>
-        <div slot="card-body">
-          <p>
-            ${content}
-          </p>
-        </div>
+        <p>
+          ${content}
+        </p>
         <div slot="card-footer">
           <a href="#" class="usa-button">${buttonText}</a>
         </div>
@@ -145,13 +142,11 @@ export const MediaWithHeaderFirst = {
       <usa-card ?header-first=${headerFirst}>
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 slot="card-heading">${title || "Media with Header first"}</h2>
+          <h2 part="card-heading">${title || "Media with Header first"}</h2>
         </div>
-        <div slot="card-body">
-          <p>
-            ${content}
-          </p>
-        </div>
+        <p>
+          ${content}
+        </p>
         <div slot="card-footer">
           <a href="#" class="usa-button">${buttonText}</a>
         </div>
@@ -185,13 +180,11 @@ export const InsetMedia = {
       <usa-card>
         <img slot="card-media" src="${media}" alt="Placeholder image" inset>
         <div slot="card-header">
-          <h2 slot="card-heading">${title || "Inset Media"}</h2>
+          <h2 part="card-heading">${title || "Inset Media"}</h2>
         </div>
-        <div slot="card-body">
-          <p>
-            ${content}
-          </p>
-        </div>
+        <p>
+          ${content}
+        </p>
         <div slot="card-footer">
           <a href="#" class="usa-button">${buttonText}</a>
         </div>
@@ -225,13 +218,11 @@ export const ExdentMedia = {
       <usa-card>
         <img slot="card-media" src="${media}" alt="Placeholder image" exdent>
         <div slot="card-header">
-          <h2 slot="card-heading">${title || "Exdent media"}</h2>
+          <h2 part="card-heading">${title || "Exdent media"}</h2>
         </div>
-        <div slot="card-body">
-          <p>
-            ${content}
-          </p>
-        </div>
+        <p>
+          ${content}
+        </p>
         <div slot="card-footer">
           <a href="#" class="usa-button">${buttonText}</a>
         </div>
@@ -256,13 +247,11 @@ export const Flag = {
       <usa-card ?header-first=${headerFirst} layout="${layout == 'default' ? nothing : layout}">
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 slot="card-heading">${title || "Default flag"}</h2>
+          <h2 part="card-heading">${title || "Default flag"}</h2>
         </div>
-        <div slot="card-body">
-          <p>
-            ${content}
-          </p>
-        </div>
+        <p>
+          ${content}
+        </p>
         <div slot="card-footer">
           <a href="#" class="usa-button">${buttonText}</a>
         </div>
@@ -287,13 +276,12 @@ export const FlagMediaRightInset = {
       <usa-card ?header-first=${headerFirst} layout="${layout == 'default' ? nothing : layout}">
         <img slot="card-media" src="${media}" alt="Placeholder image">
         <div slot="card-header">
-          <h2 slot="card-heading">${title || "Flag media right inset"}
+          <h2 part="card-heading">${title || "Flag media right inset"}
           </h2>
         </div>
-        <div slot="card-body">
-          <p>
-            ${content}
-          </p>
+        <p>
+          ${content}
+        </p>
         </div>
         <div slot="card-footer">
           <a href="#" class="usa-button">${buttonText}</a>
@@ -321,13 +309,11 @@ export const CardGroup = {
       <usa-card-group>
         <usa-card>
           <div slot="card-header">
-            <h2 slot="card-heading">${title || "Card"}</h2>
+            <h2 part="card-heading">${title || "Card"}</h2>
           </div> 
-          <div slot="card-body">
-            <p>
-              ${content}
-            </p>
-          </div>
+          <p>
+            ${content}
+          </p>
           <div slot="card-footer">
             <a href="#" class="usa-button">${buttonText}</a>
           </div>
@@ -336,13 +322,11 @@ export const CardGroup = {
         <usa-card>
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 slot="card-heading">${ title || "Card w/ Media"}</h2>
+            <h2 part="card-heading">${ title || "Card w/ Media"}</h2>
           </div>
-          <div slot="card-body">
-            <p>
-              ${content}
-            </p>
-          </div>
+          <p>
+            ${content}
+          </p>>
           <div slot="card-footer">
             <a href="#" class="usa-button">${buttonText}</a>
           </div>
@@ -351,13 +335,11 @@ export const CardGroup = {
         <usa-card header-first>
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 slot="card-heading">${ title || "Media with Header first"}</h2>
+            <h2 part="card-heading">${ title || "Media with Header first"}</h2>
           </div>
-          <div slot="card-body">
-            <p>
-              ${content}
-            </p>
-          </div>
+          <p>
+            ${content}
+          </p>
           <div slot="card-footer">
             <a href="#" class="usa-button">${buttonText}</a>
           </div>
@@ -366,13 +348,11 @@ export const CardGroup = {
         <usa-card>
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 slot="card-heading">${ title || "Inset Media"}</h2>
+            <h2 part="card-heading">${ title || "Inset Media"}</h2>
           </div>
-          <div slot="card-body">
-            <p>
-              ${content}
-            </p>
-          </div>
+          <p>
+            ${content}
+          </p>
           <div slot="card-footer">
             <a href="#" class="usa-button">${buttonText}</a>
           </div>
@@ -381,13 +361,11 @@ export const CardGroup = {
         <usa-card>
           <img slot="card-media" src="${media}" alt="Placeholder image" exdent>
           <div slot="card-header">
-            <h2 slot="card-heading">${ title || "Exdent media"}</h2>
+            <h2 part="card-heading">${ title || "Exdent media"}</h2>
           </div>
-          <div slot="card-body">
-            <p>
-              ${content}
-            </p>
-          </div>
+          <p>
+            ${content}
+          </p>
           <div slot="card-footer">
             <a href="#" class="usa-button">${buttonText}</a>
           </div>
@@ -396,13 +374,11 @@ export const CardGroup = {
         <usa-card headerFirst layout="flag">
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 slot="card-heading">${title || "Default flag"}</h2>
+            <h2 part="card-heading">${title || "Default flag"}</h2>
           </div>
-          <div slot="card-body">
-            <p>
-              ${content}
-            </p>
-          </div>
+          <p>
+            ${content}
+          </p>
           <div slot="card-footer">
             <a href="#" class="usa-button">${buttonText}</a>
           </div>
@@ -411,19 +387,46 @@ export const CardGroup = {
         <usa-card headerFirst layout="flag-alt">
           <img slot="card-media" src="${media}" alt="Placeholder image">
           <div slot="card-header">
-            <h2 slot="card-heading">${title || "Flag media right inset"}
+            <h2 part="card-heading">${title || "Flag media right inset"}
             </h2>
           </div>
-          <div slot="card-body">
-            <p>
-              ${content}
-            </p>
-          </div>
+          <p>
+            ${content}
+          </p>
           <div slot="card-footer">
             <a href="#" class="usa-button">${buttonText}</a>
           </div>
         </usa-card>
       </usa-card-group>
     `
-  }
+  },
 }
+
+  export const TestStory = {
+    render: () => {
+      return html`
+        <usa-card-group>
+          <usa-card>
+            <div slot="card-header">
+              <h1 part="card-heading" >Header 1</h1>
+            </div>
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam neque ullam quia harum quaerat debitis, et minima fugit expedita hic?
+            </p>
+            <p>I am a p tag outside of the body slot! Captured via the generic slot and added to they card body template.</p>
+            <div slot="card-footer">
+              <a href="#" class="test-button">
+                click me
+              </a>
+            </div>
+          </usa-card>
+          <usa-card>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam neque ullam quia harum quaerat debitis, et minima fugit expedita hic?
+            <button class="usa-button">
+              Click me
+            </button>
+          </usa-card>
+        </usa-card-group>
+      `
+    } 
+  }
