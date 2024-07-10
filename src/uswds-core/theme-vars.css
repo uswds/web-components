@@ -1,0 +1,12 @@
+:root {
+  /* Theme colors */
+  --usa-theme-color-base-lightest: var(--usa-system-color-gray-5);
+  /* Applied colors */
+  --usa-theme-page-background-color: var(--usa-system-color-white);
+  --usa-theme-text-color: var(--usa-system-color-ink);
+  /* Font weight */
+  --usa-theme-text-light: 100;
+  --usa-theme-text-bold: 700;
+  /* Font family */
+  --usa-theme-font-body: Source Sans Pro Web, Helvetica Neue, Helvetica, Roboto, Arial, sans-serif;
+}
