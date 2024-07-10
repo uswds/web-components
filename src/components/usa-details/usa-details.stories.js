@@ -1,17 +1,17 @@
 import "./index";
 import { html, nothing } from "lit";
-import CustomDocs from "./_readme.mdx";
+import readme from "./_readme.mdx";
 
 export default {
   title: "Components/Details",
   component: "usa-details",
   parameters: {
     docs: {
-      page: CustomDocs,
+      page: readme,
     }
   },
   argTypes: {
-    groupName: { name: "Details group name" },
+    multiselect: { name: "Allow multi-select" },
     bordered: { name: "Add border to panels" },
     item1Summary: {name: "Item 1 - Summary text"},
     item1Content: { name: "Item 1 - Panel content"},
@@ -30,7 +30,7 @@ export default {
     CSSVarBorderWidth: { name: "--usa-theme-details-border-width" },
   },
   args: {
-    groupName: "",
+    multiselect: false,
     bordered: false,
     item1Summary: "First Amendment",
     item1Content: "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.",
@@ -49,6 +49,7 @@ export default {
     CSSVarBorderWidth: ""
   },
   render: ({
+    multiselect,
     groupName,
     bordered,
     item1Summary,
@@ -75,7 +76,7 @@ export default {
         ${CSSVarSummaryBackgroundColor ? `--usa-theme-details-summary-background-color: ${CSSVarSummaryBackgroundColor};`: null}
       }
     </style>
-    <usa-details bordered="${bordered || nothing}" name=${groupName || nothing}>
+    <usa-details bordered="${bordered || nothing}" multiselect="${multiselect || nothing}">
       <details open=${item1Open || nothing}>
         <summary>${item1Summary}</summary>
         <div slot="details-body">${item1Content}</div>
@@ -112,7 +113,6 @@ export const Open = {
 
 export const GroupSingleSelect = {
   args: {
-    groupName: "example-group-name",
     item1Open: true,
     item2Show: true,
     item3Show: true,
@@ -121,6 +121,7 @@ export const GroupSingleSelect = {
 
 export const GroupMultiSelect = {
   args: {
+    multiselect: true,
     item1Open: true,
     item2Show: true,
     item3Show: true,

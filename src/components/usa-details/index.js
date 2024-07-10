@@ -24,17 +24,20 @@ export class UsaDetails extends LitElement {
 
   static properties = {
     bordered: { type: Boolean },
-    name: { type: String }
+    multiselect: { type: Boolean },
+    name: { type: String },
   }
 
   connectedCallback() {
     super.connectedCallback();
     this.details = [...this.querySelectorAll('details')];
+    if (!this.multiselect) {
+      this.name = `usa-details-${Math.floor(Math.random() * 100000)}`;
+    }
   }
 
   render() {
     const classes = {
-      "usa-details": true,
       "usa-details__bordered": this.bordered
     }
     return html`
@@ -44,9 +47,8 @@ export class UsaDetails extends LitElement {
           this.open = detail.getAttribute('open');
           this.summary.classList.add('usa-details__summary');
           this.content.classList.add('usa-details__content');
-
           return html`
-            <details class="${classMap(classes)}" open="${this.open || nothing}" name="${this.name || nothing}">
+            <details class="usa-details ${classMap(classes)}" open="${this.open || nothing}" name="${this.name || nothing}">
               ${this.summary}
               ${this.content}
             </details>
