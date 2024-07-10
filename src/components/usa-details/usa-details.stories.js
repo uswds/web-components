@@ -11,7 +11,7 @@ export default {
     }
   },
   argTypes: {
-    multiselect: { name: "Allow multi-select" },
+    groupName: { name: "Details group name" },
     bordered: { name: "Add border to panels" },
     item1Summary: {name: "Item 1 - Summary text"},
     item1Content: { name: "Item 1 - Panel content"},
@@ -30,7 +30,7 @@ export default {
     CSSVarBorderWidth: { name: "--usa-theme-details-border-width" },
   },
   args: {
-    multiselect: false,
+    groupName: "",
     bordered: false,
     item1Summary: "First Amendment",
     item1Content: "Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.",
@@ -49,7 +49,6 @@ export default {
     CSSVarBorderWidth: ""
   },
   render: ({
-    multiselect,
     groupName,
     bordered,
     item1Summary,
@@ -69,26 +68,30 @@ export default {
     CSSVarBorderWidth,
   }) => html`
     <style>
-      usa-details {
-        ${CSSVarBorderColor ? `--usa-theme-details-border-color: ${CSSVarBorderColor};`: null}
-        ${CSSVarBorderWidth ? `--usa-theme-details-border-width: ${CSSVarBorderWidth};`: null}
-        ${CSSVarPanelBackgroundColor ? `--usa-theme-details-panel-background-color: ${CSSVarPanelBackgroundColor};`: null}
-        ${CSSVarSummaryBackgroundColor ? `--usa-theme-details-summary-background-color: ${CSSVarSummaryBackgroundColor};`: null}
+      usa-details::part(summary) {
+        ${CSSVarSummaryBackgroundColor ? `background-color: ${CSSVarSummaryBackgroundColor};`: null};
+      }
+      usa-details::part(content) {
+        ${CSSVarPanelBackgroundColor ? `background-color: ${CSSVarPanelBackgroundColor};`: null}
+      }
+      usa-details::part(wrapper) {
+        ${CSSVarBorderColor ? `border-color: ${CSSVarBorderColor};`: null}
+        ${CSSVarBorderWidth ? `border-width: ${CSSVarBorderWidth};`: null}
       }
     </style>
-    <usa-details bordered="${bordered || nothing}" multiselect="${multiselect || nothing}">
-      <details open=${item1Open || nothing}>
+    <usa-details class="test" bordered="${bordered || nothing}">
+      <details open=${item1Open || nothing} name=${groupName || nothing}>
         <summary>${item1Summary}</summary>
         <div slot="details-body">${item1Content}</div>
       </details>
       ${item2Show ? html`
-      <details open=${item2Open || nothing}>
+      <details open=${item2Open || nothing} name=${groupName || nothing}>
         <summary>${item2Summary}</summary>
         <div slot="details-body">${item2Content}</div>
       </details>
       `: null}
       ${item3Show ? html`
-      <details open=${item3Open || nothing}>
+      <details open=${item3Open || nothing} name=${groupName || nothing}>
         <summary>${item3Summary}</summary>
         <div slot="details-body">${item3Content}</div>
       </details>
@@ -113,6 +116,7 @@ export const Open = {
 
 export const GroupSingleSelect = {
   args: {
+    groupName: "example-group-name",
     item1Open: true,
     item2Show: true,
     item3Show: true,
@@ -121,7 +125,6 @@ export const GroupSingleSelect = {
 
 export const GroupMultiSelect = {
   args: {
-    multiselect: true,
     item1Open: true,
     item2Show: true,
     item3Show: true,

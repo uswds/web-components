@@ -1,7 +1,6 @@
 import { LitElement, html, css, unsafeCSS, nothing } from "lit";
 import { classMap } from "lit/directives/class-map.js";
 import styles from "./usa-details.css.js";
-import uswdsCoreStyles from "@uswds/uswds/scss/uswds-core?inline";
 
 /**
  * @summary The usa-details component.
@@ -20,20 +19,15 @@ import uswdsCoreStyles from "@uswds/uswds/scss/uswds-core?inline";
  * @tagname usa-details
  */
 export class UsaDetails extends LitElement {
-  static styles = [unsafeCSS(uswdsCoreStyles), styles];
+  static styles = [styles];
 
   static properties = {
     bordered: { type: Boolean },
-    multiselect: { type: Boolean },
-    name: { type: String },
   }
 
   connectedCallback() {
     super.connectedCallback();
     this.details = [...this.querySelectorAll('details')];
-    if (!this.multiselect) {
-      this.name = `usa-details-${Math.floor(Math.random() * 100000)}`;
-    }
   }
 
   render() {
@@ -45,10 +39,14 @@ export class UsaDetails extends LitElement {
           this.summary = detail.querySelector('summary');
           this.content = detail.querySelector('[slot="details-body"]');
           this.open = detail.getAttribute('open');
+          this.name = detail.getAttribute('name');
+          this.summary.setAttribute("part", "summary");
           this.summary.classList.add('usa-details__summary');
+          this.content.setAttribute("part", "content");
           this.content.classList.add('usa-details__content');
+
           return html`
-            <details class="usa-details ${classMap(classes)}" open="${this.open || nothing}" name="${this.name || nothing}">
+            <details part="wrapper" class="usa-details ${classMap(classes)}" open="${this.open || nothing}" name="${this.name || nothing}">
               ${this.summary}
               ${this.content}
             </details>
