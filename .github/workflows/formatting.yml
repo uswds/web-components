@@ -12,5 +12,7 @@ jobs:
           cache: "npm"
       - name: Install dependencies
         run: npm ci
-      - name: Run prettier
+      - name: Run prettier JavaScript
         run: "npm run prettier:js"
+      - name: Run prettier Markdown
+        run: "npm run prettier:md"
