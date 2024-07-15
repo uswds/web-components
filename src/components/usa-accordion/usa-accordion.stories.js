@@ -11,7 +11,7 @@ export default {
     }
   },
   argTypes: {
-    multiselect: { name: "Allow multi-select" },
+    multiselect: { name: "Allow multi-select interaction" },
     bordered: { name: "Add border to panels" },
     item1Summary: { name: "Item 1 - Summary text" },
     item1Content: { name: "Item 1 - Panel content" },
@@ -22,10 +22,13 @@ export default {
     item3Summary: { name: "Item 3 - Summary text" },
     item3Content: { name: "Item 3 - Panel content" },
     item3Open: { name: "Item 3 - Open panel on load" },
-    CSSVarSummaryBackgroundColor: { name: "--usa-theme-details-summary-background-color" },
-    CSSVarPanelBackgroundColor: { name: "--usa-theme-details-panel-background-color" },
-    CSSVarBorderColor: { name: "--usa-theme-details-border-color" },
-    CSSVarBorderWidth: { name: "--usa-theme-details-border-width" },
+    borderColor: { name: "Border color" },
+    borderWidth: { name: "Border width" },
+    summaryBackgroundColor: { name: "Summary - background color" },
+    summaryTextColor: { name: "Summary - text color" },
+    panelBackgroundColor: { name: "Panel - background color" },
+    panelTextColor: { name: "Panel - text color" },
+    fontFamily: { name: "Font family" },
   },
   args: {
     multiselect: false,
@@ -39,10 +42,13 @@ export default {
     item3Summary: "Third Amendment",
     item3Content: "No Soldier shall, in time of peace be quartered in any house, without the consent of the Owner, nor in time of war, but in a manner to be prescribed by law.",
     item3Open: false,
-    CSSVarPanelBackgroundColor: "",
-    CSSVarSummaryBackgroundColor: "",
-    CSSVarBorderColor: "",
-    CSSVarBorderWidth: ""
+    fontFamily: "",
+    panelBackgroundColor: "",
+    panelTextColor: "",
+    summaryBackgroundColor: "",
+    summaryTextColor: "",
+    borderColor: "",
+    borderWidth: ""
   },
   render: ({
     multiselect,
@@ -56,17 +62,27 @@ export default {
     item3Summary,
     item3Content,
     item3Open,
-    CSSVarPanelBackgroundColor,
-    CSSVarSummaryBackgroundColor,
-    CSSVarBorderColor,
-    CSSVarBorderWidth,
+    fontFamily,
+    panelBackgroundColor,
+    panelTextColor,
+    summaryBackgroundColor,
+    summaryTextColor,
+    borderColor,
+    borderWidth
   }) => html`
     <style>
-      usa-accordion {
-        ${CSSVarBorderColor ? `--usa-theme-details-border-color: ${CSSVarBorderColor};`: null}
-        ${CSSVarBorderWidth ? `--usa-theme-details-border-width: ${CSSVarBorderWidth};`: null}
-        ${CSSVarPanelBackgroundColor ? `--usa-theme-details-panel-background-color: ${CSSVarPanelBackgroundColor};`: null}
-        ${CSSVarSummaryBackgroundColor ? `--usa-theme-details-summary-background-color: ${CSSVarSummaryBackgroundColor};`: null};
+      usa-accordion::part(wrapper) {
+        ${borderColor ? `border-color: ${borderColor};`: null}
+        ${borderWidth ? `border-width: ${borderWidth};`: null}
+        ${fontFamily ? `font-family: ${fontFamily};`: null}
+      }
+      usa-accordion::part(summary) {
+        ${summaryBackgroundColor ? `background-color: ${summaryBackgroundColor} !important;`: null}
+        ${summaryTextColor ? `color: ${summaryTextColor} !important;`: null}
+      }
+      usa-accordion::part(content) {
+        ${panelBackgroundColor ? `background-color: ${panelBackgroundColor} !important;`: null}
+        ${panelTextColor ? `color: ${panelTextColor} !important;`: null}
       }
     </style>
     <usa-accordion bordered="${bordered || nothing}" multiselect="${multiselect || nothing}">
