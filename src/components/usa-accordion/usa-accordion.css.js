@@ -36,7 +36,7 @@ export default css`
       font-family: var(--usa-theme-accordion-font-family);
       font-size: 1.06rem;
       line-height: 1.5;
-      margin-top: var(----usa-theme-accordion-margin-top);
+      margin-top: var(--usa-theme-accordion-margin-top);
     }
 
     .usa-accordion__summary {
