@@ -9,8 +9,8 @@ export default css`
     --usa-theme-accordion-border-width: var(--usa-system-unit-05);
     --usa-theme-accordion-font-family: var(--usa-theme-font-body);
     --usa-theme-accordion-icon-size: var(--usa-system-unit-3);
-    --usa-theme-accordion-icon-open: url("https://designsystem.digital.gov/assets/img/usa-icons/add.svg");
-    --usa-theme-accordion-icon-closed: url("https://designsystem.digital.gov/assets/img/usa-icons/remove.svg");
+    --usa-theme-accordion-icon-open: url("https://designsystem.digital.gov/assets/img/usa-icons/remove.svg");
+    --usa-theme-accordion-icon-closed: url("https://designsystem.digital.gov/assets/img/usa-icons/add.svg");
     --usa-theme-accordion-icon-position: right 1.25rem center;
     --usa-theme-accordion-margin-top: var(--usa-system-unit-1);
     /* panel vars */
@@ -40,7 +40,7 @@ export default css`
     }
 
     .usa-accordion__summary {
-      background-image: var(--usa-theme-accordion-icon-open);
+      background-image: var(--usa-theme-accordion-icon-closed);
       background-repeat: no-repeat;
       background-size: var(--usa-theme-accordion-summary-icon-size);
       background-color: var(--usa-theme-accordion-summary-background-color);
@@ -71,7 +71,7 @@ export default css`
     }
     .usa-accordion[open] .usa-accordion__summary {
       /* TODO: use local files */
-      background-image: var(--usa-theme-accordion-icon-closed);
+      background-image: var(--usa-theme-accordion-icon-open);
     }
     .usa-accordion > .usa-accordion__summary  {
       list-style: none;
