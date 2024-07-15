@@ -1,0 +1,46 @@
+import { Meta, Story, Canvas, Stories, Controls, Primary } from '@storybook/blocks';
+import * as AccordionStories from './usa-accordion.stories';
+
+# Accordion
+
+A accordion component hides or reveals hidden content panels when selected.
+
+- [Learn more about using this component on designsystem.digital.gov](https://designsystem.digital.gov/components/accordion/)
+- [Accessibility tests](https://designsystem.digital.gov/components/accordion/accessibility-tests/)
+- [Release notes]
+
+## Element name
+`<usa-accordion>`
+
+## Implementation example
+
+<Canvas of={AccordionStories.OpenPanel} />
+
+## Expected elements
+| Name | Description | Example code | Count |
+|:--------|:--------|:--------|:--------|
+| `<details>` | Wrapper | `<details></details>` | 1+ |
+| `<summary>` | Panel title |`<summary>[Title text]</summary>` | 1 per `<details>` element |
+| `<div slot="accordion-body">` | Panel content |`<div slot="details-body">[Collapsible panel content]</div>` | 1 per `<details>` element |
+
+## Customization
+### Props and attributes
+
+| Attribute/prop | Element | Description |
+|:--------|:--------|:--------|
+| `multiselect` | `<usa-details>` | Allow multiple panels to be open at once.
+| `bordered` | `<usa-details>` | Add a border to the details element.
+| `open="true"` | `<details>` | Add the `open` attribute to a child `<details>` element to make the content inside the `details-content` slot visible on page load.
+
+### CSS variables
+| Description | USWDS 4 CSS variable | USWDS 3 setting |
+|:--------|:--------|:--------|
+| Summary/title background color | `--usa-theme-accordion-summary-background-color` | `$theme-accordion-button-background-color` |
+| Panel background color |`--usa-theme-accordion-panel-background-color` | `$theme-accordion-background-color` |
+| Component border color |  `--usa-theme-accordion-border-color` | `$theme-accordion-border-color` |
+| Component border width | `--usa-theme-accordion-border-width` | `$theme-accordion-border-width` |
+| Component font family | `--usa-theme-accordion-font-family` | `$theme-accordion-font-family` |
+
+## All variants
+
+<Stories />
