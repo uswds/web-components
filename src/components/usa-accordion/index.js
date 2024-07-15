@@ -46,9 +46,10 @@ export class UsaAccordion extends LitElement {
           this.open = detail.getAttribute('open');
           this.summary.setAttribute("part", "summary");
           this.summary.classList.add('usa-accordion__summary');
+          this.content.setAttribute("part", "content");
           this.content.classList.add('usa-accordion__content');
           return html`
-            <details class="usa-accordion ${classMap(classes)}" open="${this.open || nothing}" name="${this.name || nothing}">
+            <details part="wrapper" class="usa-accordion ${classMap(classes)}" open="${this.open || nothing}" name="${this.name || nothing}">
               ${this.summary}
               ${this.content}
             </details>
