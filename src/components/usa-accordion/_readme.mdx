@@ -23,16 +23,24 @@ A accordion component hides or reveals hidden content panels when selected.
 | `<summary>` | Panel title |`<summary>[Title text]</summary>` | 1 per `<details>` element |
 | `<div slot="accordion-body">` | Panel content |`<div slot="details-body">[Collapsible panel content]</div>` | 1 per `<details>` element |
 
-## Customization
-### Props and attributes
+## Props and attributes
 
 | Attribute/prop | Element | Description |
 |:--------|:--------|:--------|
 | `multiselect` | `<usa-details>` | Allow multiple panels to be open at once.
 | `bordered` | `<usa-details>` | Add a border to the details element.
-| `open="true"` | `<details>` | Add the `open` attribute to a child `<details>` element to make the content inside the `details-content` slot visible on page load.
+| `open` | `<details>` | Add the `open` attribute to a child `<details>` element to make the content inside the `details-content` slot visible on page load.
 
-### CSS variables
+## Parts
+
+| Attribute/prop | Description |
+|:--------|:--------|
+| `wrapper` | The base `<details>` element
+| `summary` | The `<summary>` element inside of `<details>`
+| `content` | The content panel inside of `<details>`
+
+
+## CSS variables
 | Description | USWDS 4 CSS variable | USWDS 3 setting |
 |:--------|:--------|:--------|
 | Summary/title background color | `--usa-theme-accordion-summary-background-color` | `$theme-accordion-button-background-color` |
