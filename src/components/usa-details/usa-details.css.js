@@ -37,7 +37,7 @@ export default css`
       font-family: var(--usa-theme-details-font-family);
       font-size: 1.06rem;
       line-height: 1.5;
-      margin-top: var(----usa-theme-details-margin-top);
+      margin-top: var(--usa-theme-details-margin-top);
     }
 
     .usa-details__summary {
