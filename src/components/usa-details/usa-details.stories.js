@@ -79,7 +79,7 @@ export default {
         ${CSSVarBorderWidth ? `border-width: ${CSSVarBorderWidth};`: null}
       }
     </style>
-    <usa-details class="test" bordered="${bordered || nothing}">
+    <usa-details bordered="${bordered || nothing}">
       <details open=${item1Open || nothing} name=${groupName || nothing}>
         <summary>${item1Summary}</summary>
         <div slot="details-body">${item1Content}</div>
