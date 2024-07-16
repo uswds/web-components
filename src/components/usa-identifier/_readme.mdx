@@ -1,0 +1,47 @@
+import { Meta, Story, Canvas, Stories, Controls, Primary } from '@storybook/blocks';
+import * as IdentifierStories from './identifier.stories';
+
+# Identifier
+
+The identifier communicates a site's parent agency and displays agency links required by federal laws and policies.
+
+- [Learn more about using this component on designsystem.digital.gov](https://designsystem.digital.gov/components/identifier/)
+- [Accessibility tests]
+- [Release notes]
+
+## Element name
+`<usa-identifier>`
+
+## Implementation example
+
+<Canvas of={IdentifierStories.Default} />
+
+
+## Props and attributes
+
+| Attribute or prop | Element | Description |
+|:--------|:--------|:--------|
+| `lang` | `<usa-identifier>` | Set the language for the default component content.
+| `taxpayer` | `<usa-identifier>` | Include the taxpayer disclaimer |
+
+## Parts
+
+| CSS Part | Description |
+|:--------|:--------|
+| masthead | |
+| links | |
+| usagov | |
+
+Learn more about [adding custom styles with CSS Parts].
+
+
+## CSS variables
+| Description | USWDS 4 CSS variable | USWDS 3 setting |
+|:--------|:--------|:--------|
+
+
+Learn more about [customizing component styles with CSS custom properties].
+
+## All variants
+
+<Stories />

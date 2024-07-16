@@ -1,10 +1,16 @@
 import "./index";
 import { html, nothing } from "lit";
 import usaIdentifierContent from "./identifier.json";
+import readme from "./_readme.mdx";
 
 export default {
   title: "Components/Identifier",
   component: "usa-identifier",
+  parameters: {
+    docs: {
+      page: readme,
+    }
+  },
   argTypes: {
     lang: {
       options: ['en', 'es'],
