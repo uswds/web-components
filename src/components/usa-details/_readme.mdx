@@ -1,0 +1,46 @@
+import { Meta, Story, Canvas, Stories, Controls, Primary } from '@storybook/blocks';
+import * as DetailsStories from './usa-details.stories';
+
+
+# Details
+
+A details component hides or reveals hidden content panels when selected.
+
+- [Learn more about using this component on designsystem.digital.gov](https://designsystem.digital.gov/components/accordion/)
+- [Accessibility tests](https://designsystem.digital.gov/components/accordion/accessibility-tests/)
+- [Release notes]
+
+## Element name
+`<usa-details>`
+
+## Implementation example
+
+<Canvas of={DetailsStories.GroupSingleSelect} />
+
+## Expected elements
+| Name | Description | Example code | Count |
+|:--------|:--------|:--------|:--------|
+| `<details>` | Wrapper | `<details></details>` | 1+ |
+| `<summary>` | Panel title |`<summary>[Title text]</summary>` | 1 per `<details>` element |
+| `<div slot="details-body">` | Panel content |`<div slot="details-body">[Collapsible panel content]</div>` | 1 per `<details>` element |
+
+## Customization
+### Props and attributes
+
+| Attribute/prop | Element | Description |
+|:--------|:--------|:--------|
+| `open="true"` | `<details>` | If the `open` attribute is present on the `<details>` element, the content inside its `details-content` slot should be visible on load.
+| `name="[group name]"` | `<details>` | If a defined `name` attribute is present on the `<details>` element, the `<details>` elements with the same `name` value will be treated as a single-select group and toggle each other.
+
+### CSS variables
+| Description | USWDS 4 CSS variable | USWDS 3 setting |
+|:--------|:--------|:--------|
+| Summary/title background color | `--usa-theme-details-summary-background-color` | `$theme-accordion-button-background-color` |
+| Panel background color |`--usa-theme-details-panel-background-color` | `$theme-accordion-background-color` |
+| Component border color |  `--usa-theme-details-border-color` | `$theme-accordion-border-color` |
+| Component border width | `--usa-theme-details-border-width` | `$theme-accordion-border-width` |
+| Component font family | `--usa-theme-details-font-family` | `$theme-accordion-font-family` |
+
+## All variants
+
+<Stories />

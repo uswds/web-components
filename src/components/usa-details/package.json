@@ -1,0 +1,12 @@
+{
+  "name": "usa-details",
+  "version": "0.0.1",
+  "description": "USWDS details component",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE.md"
+}
