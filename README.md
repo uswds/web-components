@@ -1,12 +1,11 @@
 # USWDS.next (aka Screaming Eagle 🦅)
 
 > [!CAUTION]
-> Work on the next version of the Design System will happen in this repo. At the moment, any code in here is exploratory only, and in an extremely pre-alpha stage. APIs *will* change.
+> Work on the next version of the Design System will happen in this repo. At the moment, any code in here is exploratory only, and in an extremely pre-alpha stage. APIs _will_ change.
 
+Over the course of the next several months (and beyond), we will incrementally build the next version of the Design System. This version will introduce [Web Component](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)-based implementations of Design System elements. We intend that, as we ship new components and new versions of existing components, you will be able to use them alongside older versions of USWDS.
 
-Over the course of the next several months (and beyond), we will incrementally build the next version of the Design System. This version will introduce [Web Component](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)-based implmentations of Design System elements. We intend that, as we ship new components and new versions of existing components, you will be able to use them alongside older versions of USWDS.
-
-* [More on our decision to use Web Components](https://github.com/uswds/uswds-proposals/blob/main/decisions/0001-use-web-components.md)
+- [More on our decision to use Web Components](https://github.com/uswds/uswds-proposals/blob/main/decisions/0001-use-web-components.md)
 
 ## Guiding Principles
 
