@@ -1,0 +1,35 @@
+/* import { css, unsafeCSS } from "lit";
+import inputStyles from "@uswds/uswds/scss/usa-input?inline"; */
+
+a:focus,
+.usa-input:focus {
+  outline-width: var(--theme-focus-width, 0.25rem);
+  outline-style: var(--theme-focus-style, solid);
+  outline-color: var(--theme-focus-color, #2491ff);
+  outline-offset: var(--theme-focus-offset, 0);
+}
+
+/* // css`.usa-input {
+//   @extend %block-input-general;
+//   @extend %block-input-styles;
+
+//   &:disabled,
+//   &[aria-disabled="true"] {
+//     @include u-disabled;
+//     @include u-disabled-high-contrast-border;
+//     // Fix for Safari
+//     -webkit-text-fill-color: color("disabled-dark");
+//   }
+// }
+
+// .usa-input--error {
+//   @include u-border($theme-input-state-border-width, "error-dark");
+//   padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+//   padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+// }
+
+// .usa-input--success {
+//   @include u-border($theme-input-state-border-width, "success");
+//   padding-top: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+//   padding-bottom: calc(#{units(1)} - #{units($theme-input-state-border-width)});
+// }` */

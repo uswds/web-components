@@ -1,10 +1,11 @@
 {
-  "name": "web-components",
+  "name": "@uswds/web-components",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "build": "vite build",
+    "build": "npm run clean && vite build",
+    "clean": "rimraf dist",
     "dev": "vite",
     "prettier:js": "npx prettier --check './src/components/**/*.js'",
     "prettier:js:fix": "npx prettier --write './src/components/**/*.js'",
@@ -43,6 +44,7 @@
     "http-server": "^14.1.1",
     "jsdom": "^24.1.1",
     "prettier": "^3.3.3",
+    "rimraf": "^6.0.1",
     "shadow-dom-testing-library": "^1.11.2",
     "storybook": "^8.2.7",
     "vite": "^5.3.5",
@@ -51,8 +53,5 @@
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.20.0"
-  },
-  "workspaces": [
-    "src/components/*"
-  ]
+  }
 }
