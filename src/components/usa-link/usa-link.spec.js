@@ -42,4 +42,9 @@ describe("progressively enhanced usa-link component", async () => {
   it("should render link with component markup", () => {
     expect(getInsideLink().className).toContain("usa-link");
   });
+
+  it("should render only one <a> tag", () => {
+    let aTags = document.body.querySelector("usa-link")?.shadowRoot?.querySelectorAll("a");
+    expect(aTags.length).toBe(1);
+  });
 });

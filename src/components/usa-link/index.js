@@ -26,9 +26,10 @@ export class UsaLink extends LitElement {
     const childLink = this.querySelector("a");
     if (!childLink) return false;
 
-    this.href = childLink.href;
     this.slottedChildren = childLink;
+    this.slottedChildren.classList.add('usa-link');
     this.shadowRoot.appendChild(this.slottedChildren);
+    return true;
   }
 
   constructor() {
@@ -36,9 +37,7 @@ export class UsaLink extends LitElement {
   }
 
   templateWithChildren() {
-    return html`<a class="usa-link" href="${this.href}"
-      >${this.slottedChildren}</a
-    >`;
+    return html`${this.slottedChildren}`;
   }
 
   templateWithSlots() {
