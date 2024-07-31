@@ -1,7 +1,7 @@
 {
   "name": "@uswds/web-components",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0-alpha",
   "type": "module",
   "exports": {
     ".": {
