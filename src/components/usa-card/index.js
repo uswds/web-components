@@ -1,4 +1,4 @@
-import { LitElement, html} from "lit";
+import { LitElement, html } from "lit";
 import { classMap } from "lit/directives/class-map.js";
 import { cardStyles } from "./usa-card.scss";
 
