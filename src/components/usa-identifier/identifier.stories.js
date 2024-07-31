@@ -1,6 +1,5 @@
 import "./index";
 import { html, nothing } from "lit";
-import usaIdentifierContent from "./identifier.json";
 import readme from "./_readme.mdx";
 
 export default {
@@ -160,13 +159,13 @@ export const CustomTranslation = {
     secondary_agency_conjunction: "et",
     link_about: {
       shortname: "[Agency shortname]",
-      label: "[French] About",
+      label: "À propos",
       url: "javascipt:void(0)"
     },
     taxpayer_show: true,
     taxpayer_custom: "Produit et publié aux frais des contribuables.",
     link_accessibility: {
-      label: "[French] Accessibility statement",
+      label: "Déclaration d'accessibilité",
       url: "javascipt:void(0)"
     },
     link_foia: {
@@ -174,31 +173,31 @@ export const CustomTranslation = {
       url: "javascipt:void(0)"
     },
     link_no_FEAR: {
-      label: "[French] No FEAR Act data",
+      label: "[French] No FEAR Act",
       url: "javascipt:void(0)"
     },
     link_oig: {
-      label: "[French] Office of the Inspector General",
+      label: "Bureau de l'Inspecteur général",
       url: "javascipt:void(0)"
     },
     link_performance: {
-      label: "[French] Performance reports",
+      label: "Rapports de performances",
       url: "javascipt:void(0)"
     },
     link_privacy: {
-      label: "[French] Privacy policy",
+      label: "Politique de confidentialité",
       url: "javascipt:void(0)"
     },
     usagov: {
       include: true,
-      text: "[French] Looking for U.S. government information and services?",
-      link_label: "[French] Visit USA.gov",
-      link_url: "[French]https://www.usa.gov/",
+      text: "Vous recherchez des informations et des services du gouvernement américain ?",
+      link_label: "Visitez USA.gov",
+      link_url: "https://www.usa.gov/",
     },
     aria_labels: {
-      main: "[French] Agency identifier",
-      links: "[French] Important links",
-      masthead: "[French] Agency description"
+      main: "Identifiant de l'agence",
+      links: "Liens importants",
+      masthead: "Descriptif de l'agence"
     }
   },
 }
