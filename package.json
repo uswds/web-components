@@ -8,6 +8,8 @@
     "dev": "vite",
     "prettier:js": "npx prettier --check './src/components/**/*.js'",
     "prettier:js:fix": "npx prettier --write './src/components/**/*.js'",
+    "prettier:md": "npx prettier --check '**/*.{md,mdx}'",
+    "prettier:md:fix": "npx prettier --write '**/*.{md,mdx}'",
     "start": "npm run storybook",
     "storybook:build": "storybook build",
     "storybook": "storybook dev -p 8008",
