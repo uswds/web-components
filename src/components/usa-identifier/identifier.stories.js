@@ -119,23 +119,19 @@ export default {
         <img src="${secondary_agency_logo}" alt="${secondary_agency_name} logo" />
       </a>`: null}
       <p slot="domain">${domain}</p>
-      <p slot="masthead" label=${aria_labels.masthead || nothing}>
-        ${agency_intro ? html`<span slot="agency-intro">${agency_intro}</span>`: null}
-        <a slot="agency-primary" href="${primary_agency_url}">${primary_agency_name}</a>
-        ${secondary_agency_show ? html`
-          <span slot="agency-conjunction">${secondary_agency_conjunction}</span>
-          <a slot="agency-secondary" href="${secondary_agency_url}">${secondary_agency_name}</a>`: null}
-        ${taxpayer_show && taxpayer_custom ? html`<span slot="agency-taxpayer">${taxpayer_custom}</span>`: null}
-      </p>
-      <nav slot="links" label=${aria_labels.links || nothing}>
-        <a slot="link-about" href="${link_about.url}" shortname="${primary_agency_shortname}">${link_about.label ? html`${link_about.label}`: null}</a>
-        <a slot="link-accessibility" href="${link_accessibility.url}">${link_accessibility.label ? html`${link_accessibility.label}`: null}</a>
-        <a slot="link-foia" href="${link_foia.url}">${link_foia.label ? html`${link_foia.label}`: null}</a>
-        <a slot="link-fear" href="${link_no_FEAR.url}">${link_no_FEAR.label ? html`${link_no_FEAR.label}`: null}</a>
-        <a slot="link-oig" href="${link_oig.url}">${link_oig.label ? html`${link_oig.label}`: null}</a>
-        <a slot="link-performance" href="${link_performance.url}">${link_performance.label ? html`${link_performance.label}`: null}</a>
-        <a slot="link-privacy" href="${link_privacy.url}">${link_privacy.label ? html`${link_privacy.label}`: null}</a>
-      </nav>
+      ${agency_intro ? html`<span slot="agency-intro">${agency_intro}</span>`: null}
+      <a slot="agency-primary" href="${primary_agency_url}">${primary_agency_name}</a>
+      ${secondary_agency_show ? html`
+        <span slot="agency-conjunction">${secondary_agency_conjunction}</span>
+        <a slot="agency-secondary" href="${secondary_agency_url}">${secondary_agency_name}</a>`: null}
+      ${taxpayer_show && taxpayer_custom ? html`<span slot="agency-taxpayer">${taxpayer_custom}</span>`: null}
+      <a slot="link-about" href="${link_about.url}" shortname="${primary_agency_shortname}">${link_about.label ? html`${link_about.label}`: null}</a>
+      <a slot="link-accessibility" href="${link_accessibility.url}">${link_accessibility.label ? html`${link_accessibility.label}`: null}</a>
+      <a slot="link-foia" href="${link_foia.url}">${link_foia.label ? html`${link_foia.label}`: null}</a>
+      <a slot="link-fear" href="${link_no_FEAR.url}">${link_no_FEAR.label ? html`${link_no_FEAR.label}`: null}</a>
+      <a slot="link-oig" href="${link_oig.url}">${link_oig.label ? html`${link_oig.label}`: null}</a>
+      <a slot="link-performance" href="${link_performance.url}">${link_performance.label ? html`${link_performance.label}`: null}</a>
+      <a slot="link-privacy" href="${link_privacy.url}">${link_privacy.label ? html`${link_privacy.label}`: null}</a>
       ${usagov.include ? html`
         <div slot="usagov">
           ${usagov.text} <a href="${usagov.link_url}">${usagov.link_label}</a>
