@@ -45,7 +45,7 @@ describe("usa-identifier component - one logo", async () => {
 
   it("adds both logos to the component", () => {
     expect(
-      getInsideIdentifier().querySelectorAll(".usa-identifier__logo").length
+      getInsideIdentifier().querySelectorAll(".usa-identifier__logo").length,
     ).toBe(2);
   });
 });

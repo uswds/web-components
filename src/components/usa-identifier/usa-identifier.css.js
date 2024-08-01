@@ -8,7 +8,9 @@ export default css`
     --usa-theme-identifier-font-family: var(--usa-theme-font-body);
     --usa-theme-identifier-max-width: var(--usa-theme-grid-container-max-width);
     --usa-theme-identifier-primary-text-color: var(--usa-system-color-gray-10);
-    --usa-theme-identifier-secondary-text-color: var(--usa-system-color-gray-cool-30);
+    --usa-theme-identifier-secondary-text-color: var(
+      --usa-system-color-gray-cool-30
+    );
 
     .usa-identifier {
       background-color: var(--usa-theme-identifier-background-color);
@@ -42,7 +44,7 @@ export default css`
       text-decoration: none;
     }
 
-    .usa-identifier__logo+.usa-identifier__logo {
+    .usa-identifier__logo + .usa-identifier__logo {
       margin-left: var(--usa-system-unit-1);
     }
 
