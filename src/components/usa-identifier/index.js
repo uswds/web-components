@@ -1,4 +1,4 @@
-import { LitElement, html, css, unsafeCSS } from "lit";
+import { LitElement, html, css, unsafeCSS, nothing } from "lit";
 import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
 import styles from "./usa-identifier.css.js";
 import usaIdentifierContent from "./identifier.json";
@@ -20,7 +20,7 @@ import usaIdentifierContent from "./identifier.json";
  * @slot link-oig - url and optional text content for the parent agency's Office of the inspector general page
  * @slot link-performance -  url and optional text content for the parent agency's performance reports page
  * @slot link-privacy - url and optional text content for the parent agency's privacy statement page
- * @slot usagov - oOtional slot for defining custom USA.gov content
+ * @slot usagov - Optional slot for defining custom USA.gov content
  *
  * @tagname usa-identifier
  */
@@ -139,45 +139,53 @@ export class UsaIdentifier extends LitElement {
     const requiredLinks = [
       {
         title: `${linkAbout} ${agencyShortname}`,
-        href: this.linkAbout.getAttribute("href")
+        href: this.linkAbout.getAttribute("href"),
+        target: this.linkAbout.getAttribute("target")
       },
       {
         title: this.linkAccessibility.textContent || required_links.accessibility,
-        href: this.linkAccessibility.getAttribute("href")
+        href: this.linkAccessibility.getAttribute("href"),
+        target: this.linkAccessibility.getAttribute("target")
       },
       {
         title: this.linkFOIA.textContent || required_links.foia,
-        href: this.linkFOIA.getAttribute("href")
+        href: this.linkFOIA.getAttribute("href"),
+        target: this.linkFOIA.getAttribute("target")
       },
       {
         title: this.linkNoFEAR.textContent || required_links.no_fear,
-        href: this.linkNoFEAR.getAttribute("href")
+        href: this.linkNoFEAR.getAttribute("href"),
+        target: this.linkNoFEAR.getAttribute("target")
       },
       {
         title: this.linkOIG.textContent || required_links.oig,
-        href: this.linkOIG.getAttribute("href")
+        href: this.linkOIG.getAttribute("href"),
+        target: this.linkOIG.getAttribute("target")
       },
       {
         title: this.linkPerformance.textContent || required_links.performance,
-        href: this.linkPerformance.getAttribute("href")
+        href: this.linkPerformance.getAttribute("href"),
+        target: this.linkPerformance.getAttribute("target")
       },
       {
         title: this.linkPrivacy.textContent || required_links.privacy,
-        href: this.linkPrivacy.getAttribute("href")
+        href: this.linkPrivacy.getAttribute("href"),
+        target: this.linkPrivacy.getAttribute("target")
       }
     ];
 
     return html`
+
       <nav
         class="usa-identifier__section usa-identifier__section--required-links"
         aria-label="${linksLabel}"
       >
         <div class="usa-identifier__container">
           <ul class="usa-identifier__required-links-list">
-            ${requiredLinks.map((requiredLink) =>
+          ${requiredLinks.map((requiredLink) =>
               html`
                 <li class="usa-identifier__required-links-item">
-                  <a class="usa-identifier__required-link usa-link" href="${requiredLink.href}">${requiredLink.title}</a>
+                  <a class="usa-identifier__required-link usa-link" target=${requiredLink.target ?? nothing} href="${requiredLink.href ?? nothing}">${requiredLink.title}</a>
                 </li>
               `
             )}
