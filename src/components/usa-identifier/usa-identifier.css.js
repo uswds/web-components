@@ -84,6 +84,15 @@ export default css`
       font-weight: var(--usa-theme-text-bold);
     }
 
+    .usa-identifier__usagov-description {
+      margin: 0;
+    }
+
+    .usa-identifier__usagov-description a {
+      display: inline-block;
+      font-weight: var(--usa-theme-text-bold);
+    }
+
     .usa-identifier__identity-disclaimer a,
     .usa-identifier__identity-disclaimer a:visited,
     .usa-identifier__usagov-description a,
@@ -99,12 +108,6 @@ export default css`
 
     .usa-identifier__required-links-item:last-child {
       margin-bottom: 0;
-    }
-
-    .usa-identifier__section--usagov a {
-      color: var(--usa-theme-identifier-primary-text-color);
-      display: inline-block;
-      font-weight: var(--usa-theme-text-bold);
     }
 
     @media (min-width: 40em) {
