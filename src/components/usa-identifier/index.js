@@ -66,11 +66,13 @@ export class UsaIdentifier extends LitElement {
   mastheadLogosTemplate() {
     if (this.logos.length > 0) {
       return html`
-        <div class="usa-identifier__logos">
+        <div class="usa-identifier__logos" part="logo-wrapper">
           ${this.logos.map((logo) => {
             const logoImage = logo.querySelector("img");
             logo.classList.add("usa-identifier__logo");
+            logo.setAttribute("part", "logo");
             logoImage.classList.add("usa-identifier__logo-img");
+            logoImage.setAttribute("part", "logo-image");
             return html`${logo}`;
           })}
         </div>
@@ -93,19 +95,21 @@ export class UsaIdentifier extends LitElement {
      */
     if (this.domain) {
       this.domain.classList.add("usa-identifier__identity-domain");
+      this.domain.setAttribute("part", "domain");
     }
-    /**
-     * Scaffold disclaimer text:
-     * Add necessary classes for styling
-     */
-    if (this.disclaimer) {
-      this.disclaimer.classList.add("usa-identifier__identity-disclaimer");
+
+    if (this.agencyPrimary) {
+      this.agencyPrimary.setAttribute("part", "disclaimer-link");
+    }
+
+    if (this.agencySecondary) {
+      this.agencySecondary.setAttribute("part", "disclaimer-link");
     }
 
     return html`
       <section class="usa-identifier__identity">
         ${this.domain}
-        <p class="usa-identifier__identity-disclaimer">
+        <p class="usa-identifier__identity-disclaimer" part="disclaimer">
           ${this.agencySecondary?
             html`${agencyIntro} ${this.agencyPrimary} ${agencyConjunction} ${this.agencySecondary}${taxpayerText}`:
             html`${agencyIntro} ${this.agencyPrimary}${taxpayerText}`}
@@ -185,7 +189,7 @@ export class UsaIdentifier extends LitElement {
           ${requiredLinks.map((requiredLink) =>
               html`
                 <li class="usa-identifier__required-links-item">
-                  <a class="usa-identifier__required-link usa-link" target=${requiredLink.target ?? nothing} href="${requiredLink.href ?? nothing}">${requiredLink.title}</a>
+                  <a class="usa-identifier__required-link usa-link" part="link" target=${requiredLink.target ?? nothing} href="${requiredLink.href ?? nothing}">${requiredLink.title}</a>
                 </li>
               `
             )}
@@ -207,6 +211,7 @@ export class UsaIdentifier extends LitElement {
     if (this.usagov) {
       const usagovLink = this.usagov.querySelector("a");
       usagovLink.classList.add("usa-link");
+      usagovLink.setAttribute("part", "usagov-link");
       usagovContent = this.usagov;
     }
 
@@ -215,9 +220,9 @@ export class UsaIdentifier extends LitElement {
         class="usa-identifier__section usa-identifier__section--usagov"
       >
         <div class="usa-identifier__container">
-          <div class="usa-identifier__usagov-description">
+          <p class="usa-identifier__usagov-description" part="usagov">
             ${usagovContent}
-          </div>
+          </p>
         </div>
       </section>
     `;
