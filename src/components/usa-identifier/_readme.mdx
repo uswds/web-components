@@ -5,40 +5,54 @@ import * as IdentifierStories from './identifier.stories';
 
 The identifier communicates a site's parent agency and displays agency links required by federal laws and policies.
 
-- [Learn more about using this component on designsystem.digital.gov](https://designsystem.digital.gov/components/identifier/)
-- [Accessibility tests]
-- [Release notes]
+**Related links:**
+
+- [Using the identifier component](https://designsystem.digital.gov/components/identifier/) (designsystem.digital.gov)
+- [Identifier accessibility tests](https://designsystem.digital.gov/components/identifier/) (designsystem.digital.gov)
+- [Changelog or Release notes]
 
 ## Element name
 `<usa-identifier>`
+
+## Installation
+- [`npm install @uswds/...`]
+- [`@import ...`]
 
 ## Implementation example
 
 <Canvas of={IdentifierStories.Default} />
 
 
-## Props and attributes
+## Properties
 
-| Attribute or prop | Element | Description |
+| Property | Type | Description |
 |:--------|:--------|:--------|
-| `lang` | `<usa-identifier>` | Set the language for the default component content.
-| `taxpayer` | `<usa-identifier>` | Include the taxpayer disclaimer |
+| `label` | `string` | Set a custom aria label for the identifier component. Default value: "Agency identifier" |
+| `lang` | `string` | Set the language for the default component content. Expected values: "en", "es"
+| `taxpayer` | `boolean` | Include the taxpayer disclaimer |
 
 ## Parts
 
 | CSS Part | Description |
-|:--------|:--------|
-| masthead | |
-| links | |
-| usagov | |
+| :------- | :---------- |
+| `disclaimer-text` | Disclaimer text `<p>` element |
+| `disclaimer-link` | Anchor element inside the disclaimer text |
+| `domain` | Domain name `<p>` element |
+| `link` | Anchor element in the required Link list |
+| `usagov` | USA.gov text `<p>` element |
+| `usagov-link` | anchor element inside the usagov text |
 
 Learn more about [adding custom styles with CSS Parts].
 
 
 ## CSS variables
-| Description | USWDS 4 CSS variable | USWDS 3 setting |
+| CSS variable | Default value | Description |
 |:--------|:--------|:--------|
-
+|`--usa-theme-identifier-background-color` | `--usa-system-color-ink` | Component background color |
+|`--usa-theme-identifier-font-family` | `--usa-theme-font-body` | Component font family |
+|`--usa-theme-identifier-max-width` | `--usa-theme-grid-container-max-width` | |
+|`--usa-theme-identifier-primary-text-color` | `--usa-system-color-gray-10` | Text color used in the disclaimer and USA.gov statement |
+|`--usa-theme-identifier-secondary-text-color` | `--usa-system-color-gray-cool-30` | Text color used in the domain name and link list |
 
 Learn more about [customizing component styles with CSS custom properties].
 
