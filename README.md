@@ -1,7 +1,11 @@
+> [!CAUTION]
+> Work on the next version of the Design System is happening in this repo. The code in this repository is not yet ready for production use
+
 # USWDS Web Components
 
-> [!CAUTION]
-> Work on the next version of the Design System will happen in this repo. At the moment, any code in here is exploratory only, and in an extremely pre-alpha stage. APIs _will_ change.
+The [United States Web Design System](https://designsystem.digital.gov) includes a library of open source UI components and a visual style guide for U.S. federal government websites.
+
+This repository is for the code for the next version of the design system. We maintain another repository for the [current version of the design system](https://github.com/uswds/uswds) as well as [its documentation and website](https://github.com/uswds/uswds-site). To see the design system and its documentation on the web, visit [https://designsystem.digital.gov](https://designsystem.digital.gov).
 
 Over the course of the next several months (and beyond), we will incrementally build the next version of the Design System. This version will introduce [Web Component](https://developer.mozilla.org/en-US/docs/Web/API/Web_components)-based implementations of Design System elements. We intend that, as we ship new components and new versions of existing components, you will be able to use them alongside older versions of USWDS.
 
@@ -20,3 +24,7 @@ While this new version is meant to facilitate incremental adoption, the new comp
 - **How can we be sure the new components are as accessible as possible?** Existing USWDS components [use JavaScript to progressively enhance semantic HTML](https://designsystem.digital.gov/documentation/developers/) to make them useable to as much of the public as possible. Because web components require JavaScript by default, developing the next version of Design System components will require special attention to continuing the progressive enhancement approach.
 
 This is not an exhaustive list, and we expect many more big and small questions to arise over the course of developing this release.
+
+## Upgrading to Web Components
+
+We are releasing these Web Components incrementally with the intent that they can also be added incrementally to existing sites that are currently using USWDS. If you are not currently using USWDS or are using a version older USWDS 3, we recommend adopting version 3 in the near term rather than waiting until the full suite of Web Components is production-ready. 
