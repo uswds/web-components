@@ -1,4 +1,4 @@
-# USWDS.next (aka Screaming Eagle 🦅)
+# USWDS Web Components
 
 > [!CAUTION]
 > Work on the next version of the Design System will happen in this repo. At the moment, any code in here is exploratory only, and in an extremely pre-alpha stage. APIs _will_ change.
