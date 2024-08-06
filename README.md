@@ -13,7 +13,7 @@ Over the course of the next several months (and beyond), we will incrementally b
 
 ## Upgrading to Web Components
 
-We are releasing these Web Components incrementally with the intent that they can also be added incrementally to existing sites that are currently using USWDS. If you are not currently using USWDS or are using a version older USWDS 3, we recommend adopting version 3 in the near term rather than waiting until the full suite of Web Components is production-ready. 
+We are releasing these Web Components incrementally with the intent that they can also be added incrementally to existing sites that are currently using USWDS. If you are not currently using USWDS or are using a version older USWDS 3, we recommend adopting version 3 in the near term rather than waiting until the full suite of Web Components is production-ready.
 
 ## Guiding Principles
 
