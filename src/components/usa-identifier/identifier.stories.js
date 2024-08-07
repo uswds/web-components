@@ -95,7 +95,6 @@ export default {
     secondary_agency_url,
     secondary_agency_conjunction,
     domain,
-    masthead,
     taxpayer_show,
     taxpayer_custom,
     link_about,
@@ -190,11 +189,7 @@ export const CustomTranslation = {
       link_label: "Visitez USA.gov",
       link_url: "https://www.usa.gov/",
     },
-    aria_labels: {
-      main: "Identifiant de l'agence",
-      links: "Liens importants",
-      masthead: "Descriptif de l'agence"
-    }
+    aria_label: "Identifiant de l'agence"
   },
 }
 

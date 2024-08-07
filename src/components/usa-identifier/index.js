@@ -122,10 +122,7 @@ export class UsaIdentifier extends LitElement {
   mastheadTemplate() {
     if (this.domain || this.disclaimer || this.logos.length > 0) {
       return html`
-        <section
-          class="usa-identifier__section usa-identifier__section--masthead"
-          aria-label="Agency description"
-        >
+        <section class="usa-identifier__section usa-identifier__section--masthead">
           <div class="usa-identifier__container">
             ${this.mastheadLogosTemplate()} ${this.mastheadTextTemplate()}
           </div>
@@ -136,8 +133,7 @@ export class UsaIdentifier extends LitElement {
 
   // Render the list of links
   linksTemplate() {
-    const { required_links, aria_labels } = this._identifierText;
-    const linksLabel = aria_labels.links;
+    const { required_links } = this._identifierText;
     const linkAbout = this.linkAbout.textContent || required_links.about;
     const agencyShortname = this.linkAbout.getAttribute("shortname") || this.primaryAgency.textContent;
     const requiredLinks = [
@@ -180,10 +176,7 @@ export class UsaIdentifier extends LitElement {
 
     return html`
 
-      <nav
-        class="usa-identifier__section usa-identifier__section--required-links"
-        aria-label="${linksLabel}"
-      >
+      <nav class="usa-identifier__section usa-identifier__section--required-links">
         <div class="usa-identifier__container">
           <ul class="usa-identifier__required-links-list">
           ${requiredLinks.map((requiredLink) =>
@@ -229,8 +222,8 @@ export class UsaIdentifier extends LitElement {
   }
 
   render() {
-    const { aria_labels } = this._identifierText;
-    const componentAriaLabel = this.label || aria_labels.main;
+    const { aria_label } = this._identifierText;
+    const componentAriaLabel = this.label || aria_label;
     return html`
       <section class="usa-identifier" aria-label="${componentAriaLabel}">
         ${this.mastheadTemplate()}
