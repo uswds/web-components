@@ -24,14 +24,31 @@ The identifier communicates a site's parent agency and displays agency links req
 
 Learn more about [installing and using USWDS web components] (TK).
 
+## Slots
+| Name | Element | Expected content | Attributes |
+|:--------|:--------|:--------|:--------|
+| `logo` | `<a>` | `<img>`: Parent agency logo.  | `href`: url for your parent agency's home page. |
+| `domain` | `<p>` | Text: Your site's domain name  | -- |
+| `agency-intro` (optional) | `<span>` |  Custom text: "An official website of the" | `href`: url for your parent agency's home page |
+| `agency-primary` | `<a>` | Text: Parent agency full name  | `href`: url for your parent agency's home page |
+| `agency-secondary` (optional) | `<a>` | Text: Secondary parent agency full name  | `href`: url for your secondary parent agency's home page |
+| `agency-taxpayer` (optional) | `<span>` | Custom text: "Produced and published at taxpayer expense." | `href`: url for your secondary parent agency's home page |
+| `link-about` | `<a>` | Custom text: "About" (optional) | `href`: url for your primary parent agency's about page <br/> `shortname`: Text for your primary parent agency's acronym or shortname (optional) |
+| `link-accessibility` | `<a>` | Custom text: "Accesibility statement" (optional) | `href`: url for your primary parent agency's accessibility page |
+| `link-foia` | `<a>` | Custom text: "FOIA requests" (optional)| `href`: url for your primary parent agency's Freedom of Information Act page |
+| `link-fear` | `<a>` | Custom text: "No FEAR Act data" (optional)| `href`: url for your primary parent agency's No FEAR page |
+| `link-oig` | `<a>` | Custom text: "Office of the Inspector General" (optional) | `href`: url for your primary parent agency's OIG page |
+| `link-performance` | `<a>` | Custom text: "Performance reports" (optional) | `href`: url for your primary parent agency's performance reports page |
+| `link-privacy` | `<a>` | Custom text:  "Privacy policy" (optional) | `href`: url for your primary parent agency's privacy policy page |
+| `usagov` (optional) | `<a>` | Custom text: "Looking for U.S. government information and services?" <br/> `<a>`: Visit USA.gov | `href`: url for the relevant translation of the usa.gov home page|
+
 ## Properties and attributes
 
 | Property | Element | Type |  Description |
 |:--------|:--------|:--------|:--------|
 | `label` | `<usa-identifier>` | `string` | Set a custom aria label for the identifier component. Default value: "Agency identifier" |
 | `lang` | `<usa-identifier>` | `string` | Set the language for the default component text. Expected values: "en", "es" |
-| `taxpayer` | `<usa-identifier>` | `boolean` | Include the taxpayer disclaimer text |
-| `shortname` | `slot[link-about]` | `string` | Set the acronym (or shortname) for the parent agency. For example, if your parent agency is the General Services Administration, you would set the value to "GSA" and the link text would read "About GSA". Default value: The full agency name added to the text in the `agency-primary` slot. |
+| `taxpayer` | `<usa-identifier>` | `boolean` | Include the "Produced and published at taxpayer expense" text |
 
 ## Parts
 
