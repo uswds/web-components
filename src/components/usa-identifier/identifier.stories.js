@@ -36,7 +36,7 @@ export default {
     link_performance: { name: "Required link - Performance reports" },
     link_privacy: { name: "Required link - Privacy policy" },
     usagov: { name: "USA.gov information" },
-    aria_labels: { name: "Aria labels"}
+    aria_label: { name: "Aria label"}
   },
   args: {
     lang: "en",
@@ -52,6 +52,7 @@ export default {
     secondary_agency_url: "javascipt:void(0)",
     secondary_agency_conjunction: "and",
     taxpayer_show: false,
+    aria_label: "",
     link_about: {
       url: "javascipt:void(0)"
     },
@@ -76,11 +77,6 @@ export default {
     usagov: {
       include: false,
     },
-    aria_labels: {
-      main: "",
-      links: "",
-      masthead: ""
-    }
   },
   render: ({
     lang,
@@ -105,10 +101,10 @@ export default {
     link_performance,
     link_privacy,
     usagov,
-    aria_labels,
+    aria_label,
     agency_intro
   }) => html`
-    <usa-identifier lang=${lang || nothing} taxpayer=${taxpayer_show || nothing} label=${aria_labels.main || nothing} >
+    <usa-identifier lang=${lang || nothing} taxpayer=${taxpayer_show || nothing} label=${aria_label || nothing} >
       ${primary_agency_logo_show ? html`
       <a slot="logo" href="${primary_agency_url}">
         <img src="${primary_agency_logo}" alt="${primary_agency_name} logo" />
@@ -159,6 +155,7 @@ export const CustomTranslation = {
     },
     taxpayer_show: true,
     taxpayer_custom: "Produit et publié aux frais des contribuables.",
+    aria_label: "Identifiant de l'agence",
     link_accessibility: {
       label: "Déclaration d'accessibilité",
       url: "javascipt:void(0)"
@@ -189,7 +186,6 @@ export const CustomTranslation = {
       link_label: "Visitez USA.gov",
       link_url: "https://www.usa.gov/",
     },
-    aria_label: "Identifiant de l'agence"
   },
 }
 
