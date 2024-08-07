@@ -9,7 +9,7 @@ The identifier communicates a site's parent agency and displays agency links req
 
 - [Using the identifier component](https://designsystem.digital.gov/components/identifier/) (designsystem.digital.gov)
 - [Identifier accessibility tests](https://designsystem.digital.gov/components/identifier/) (designsystem.digital.gov)
-- [Changelog or Release notes]
+- [Changelog or Release notes] (TK)
 
 ## Element name
 `<usa-identifier>`
@@ -22,42 +22,43 @@ The identifier communicates a site's parent agency and displays agency links req
 - [`npm install @uswds/...`]
 - [`@import ...`]
 
-Learn more about [installing and using USWDS web components].
-## Properties
+Learn more about [installing and using USWDS web components] (TK).
 
-| Property | Type | Description |
-|:--------|:--------|:--------|
-| `label` | `string` | Set a custom aria label for the identifier component. Default value: "Agency identifier" |
-| `lang` | `string` | Set the language for the default component text. Expected values: "en", "es"
-| `taxpayer` | `boolean` | Include the taxpayer disclaimer |
+## Properties and attributes
+
+| Property | Element | Type |  Description |
+|:--------|:--------|:--------|:--------|
+| `label` | `<usa-identifier>` | `string` | Set a custom aria label for the identifier component. Default value: "Agency identifier" |
+| `lang` | `<usa-identifier>` | `string` | Set the language for the default component text. Expected values: "en", "es" |
+| `taxpayer` | `<usa-identifier>` | `boolean` | Include the taxpayer disclaimer text |
+| `shortname` | `slot[link-about]` | `string` | Set the acronym (or shortname) for the parent agency. For example, if your parent agency is the General Services Administration, you would set the value to "GSA" and the link text would read "About GSA". Default value: The full agency name added to the text in the `agency-primary` slot. |
 
 ## Parts
 
 | CSS Part | Description |
 | :------- | :---------- |
-| `disclaimer-text` | Disclaimer text `<p>` element |
-| `disclaimer-link` | Anchor element inside the disclaimer text |
-| `domain` | Domain name `<p>` element |
-| `link` | Anchor element in the required Link list |
-| `logo` | Anchor element that wraps each logo |
-| `logo-wrapper` | Div element that wraps all logos |
-| `logo-image` | Logo image element |
-| `usagov` | USA.gov text `<p>` element |
-| `usagov-link` | Anchor element inside the usagov text |
+| `disclaimer-text` | The `<p>` element that wraps the "An official website of the..." disclaimer text |
+| `disclaimer-link` | The `<a>` element inside the disclaimer text |
+| `domain` | The `<p>` element that wraps your site's domain name |
+| `logo` | The agency logo `<img>` element  |
+| `logo-wrapper` | The `<div>` element that wraps all logos |
+| `logo-link` | The `<a>` elements that wrap each logo |
+| `required-link` | The `<a>` elements in the required link list |
+| `usagov` | The `<p>` element that wraps the USA.gov text |
+| `usagov-link` | The `<a>` element inside the usagov text |
 
-Learn more about [adding custom styles with CSS Parts].
+Learn more about [adding custom styles with CSS Parts] (TK).
 
-
-## CSS variables
+## Component CSS variables
 | CSS variable | Default value | Description |
 |:--------|:--------|:--------|
-|`--usa-theme-identifier-background-color` | `--usa-system-color-ink` | Component background color |
-|`--usa-theme-identifier-font-family` | `--usa-theme-font-body` | Component font family |
-|`--usa-theme-identifier-max-width` | `--usa-theme-grid-container-max-width` | |
+|`--usa-theme-identifier-background-color` | `--usa-system-color-ink` | Background color of the identifier |
+|`--usa-theme-identifier-font-family` | `--usa-theme-font-body` | Font family of the identifier |
+|`--usa-theme-identifier-max-width` | `--usa-theme-grid-container-max-width` | Maximum width of the content within the identifier. Use the same max-width as your site footer. |
 |`--usa-theme-identifier-primary-text-color` | `--usa-system-color-gray-10` | Text color used in the disclaimer and USA.gov statement |
 |`--usa-theme-identifier-secondary-text-color` | `--usa-system-color-gray-cool-30` | Text color used in the domain name and link list |
 
-Learn more about [customizing component styles with CSS custom properties].
+Learn more about [customizing component styles with CSS custom properties] (TK).
 
 ## All variants
 
