@@ -19,11 +19,7 @@
       "link_label": "Visit USA.gov",
       "link_url": "https://www.usa.gov/"
     },
-    "aria_labels": {
-      "main": "Agency identifier",
-      "links": "Important links",
-      "masthead": "Agency description"
-    }
+    "aria_label": "Agency identifier"
   },
   "es": {
     "masthead": {
@@ -45,10 +41,6 @@
       "link_label": "Visite USA.gov en Español",
       "link_url": "https://www.usa.gov/espanol/"
     },
-    "aria_labels": {
-      "main": "Identificador de la agencia",
-      "links": "Enlaces importantes",
-      "masthead": "Identificador de la agencia"
-    }
+    "aria_label": "Identificador de la agencia"
   }
-  }
+}
