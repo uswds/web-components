@@ -24,6 +24,41 @@ The identifier communicates a site's parent agency and displays agency links req
 
 Learn more about [installing and using USWDS web components] (TK).
 
+## Properties
+
+| Property | Element | Type |  Description |
+|:--------|:--------|:--------|:--------|
+| `label` | `<usa-identifier>` | `string` | Set a custom aria label for the identifier component. Default value: "Agency identifier" |
+| `lang` | `<usa-identifier>` | `string` | Set the language for the default component text. Expected values: "en", "es" |
+| `taxpayer` | `<usa-identifier>` | `boolean` | Include the "Produced and published at taxpayer expense" text |
+
+## CSS parts
+
+| CSS Part | Description |
+| :------- | :---------- |
+| `disclaimer-text` | The `<p>` element that wraps the "An official website of the..." disclaimer text |
+| `disclaimer-link` | The `<a>` element inside the disclaimer text |
+| `domain` | The `<p>` element that wraps your site's domain name |
+| `logo` | The agency logo `<img>` element  |
+| `logo-wrapper` | The `<div>` element that wraps all logos |
+| `logo-link` | The `<a>` elements that wrap each logo |
+| `required-link` | The `<a>` elements in the required link list |
+| `usagov` | The `<p>` element that wraps the USA.gov text |
+| `usagov-link` | The `<a>` element inside the usagov text |
+
+Learn more about [adding custom styles with CSS Parts] (TK).
+
+## CSS variables
+| CSS variable | Default value | Description |
+|:--------|:--------|:--------|
+|`--usa-theme-identifier-background-color` | `--usa-system-color-ink` | Background color of the identifier |
+|`--usa-theme-identifier-font-family` | `--usa-theme-font-body` | Font family of the identifier |
+|`--usa-theme-identifier-max-width` | `--usa-theme-grid-container-max-width` | Maximum width of the content within the identifier. Use the same max-width as your site footer. |
+|`--usa-theme-identifier-primary-text-color` | `--usa-system-color-gray-10` | Text color used in the disclaimer and USA.gov statement |
+|`--usa-theme-identifier-secondary-text-color` | `--usa-system-color-gray-cool-30` | Text color used in the domain name and link list |
+
+Learn more about [customizing component styles with CSS custom properties] (TK).
+
 ## Slots
 | Name | Element | Expected content | Attributes |
 |:--------|:--------|:--------|:--------|
@@ -41,41 +76,6 @@ Learn more about [installing and using USWDS web components] (TK).
 | `link-performance` | `<a>` | Custom text: "Performance reports" (optional) | `href`: url for your primary parent agency's performance reports page |
 | `link-privacy` | `<a>` | Custom text:  "Privacy policy" (optional) | `href`: url for your primary parent agency's privacy policy page |
 | `usagov` (optional) | `<a>` | Custom text: "Looking for U.S. government information and services?" <br/> `<a>`: Visit USA.gov | `href`: url for the relevant translation of the usa.gov home page|
-
-## Properties and attributes
-
-| Property | Element | Type |  Description |
-|:--------|:--------|:--------|:--------|
-| `label` | `<usa-identifier>` | `string` | Set a custom aria label for the identifier component. Default value: "Agency identifier" |
-| `lang` | `<usa-identifier>` | `string` | Set the language for the default component text. Expected values: "en", "es" |
-| `taxpayer` | `<usa-identifier>` | `boolean` | Include the "Produced and published at taxpayer expense" text |
-
-## Parts
-
-| CSS Part | Description |
-| :------- | :---------- |
-| `disclaimer-text` | The `<p>` element that wraps the "An official website of the..." disclaimer text |
-| `disclaimer-link` | The `<a>` element inside the disclaimer text |
-| `domain` | The `<p>` element that wraps your site's domain name |
-| `logo` | The agency logo `<img>` element  |
-| `logo-wrapper` | The `<div>` element that wraps all logos |
-| `logo-link` | The `<a>` elements that wrap each logo |
-| `required-link` | The `<a>` elements in the required link list |
-| `usagov` | The `<p>` element that wraps the USA.gov text |
-| `usagov-link` | The `<a>` element inside the usagov text |
-
-Learn more about [adding custom styles with CSS Parts] (TK).
-
-## Component CSS variables
-| CSS variable | Default value | Description |
-|:--------|:--------|:--------|
-|`--usa-theme-identifier-background-color` | `--usa-system-color-ink` | Background color of the identifier |
-|`--usa-theme-identifier-font-family` | `--usa-theme-font-body` | Font family of the identifier |
-|`--usa-theme-identifier-max-width` | `--usa-theme-grid-container-max-width` | Maximum width of the content within the identifier. Use the same max-width as your site footer. |
-|`--usa-theme-identifier-primary-text-color` | `--usa-system-color-gray-10` | Text color used in the disclaimer and USA.gov statement |
-|`--usa-theme-identifier-secondary-text-color` | `--usa-system-color-gray-cool-30` | Text color used in the domain name and link list |
-
-Learn more about [customizing component styles with CSS custom properties] (TK).
 
 ## All variants
 
