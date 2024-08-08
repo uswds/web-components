@@ -6,13 +6,14 @@ import usaIdentifierContent from "./identifier.json";
 /**
  * @summary The usa-identifier component.
  *
- * @attribute {String} lang - Set the language for default text content (Options: "en" (Default), "es")
- * @attribute {Boolean} taxpayer - Include the taxpayer disclaimer text
+ * @attribute {String} label - Text content for the component's aria label
+ * @attribute {String} lang - The language for default text content (Options: "en" (Default), "es")
+ * @attribute {Boolean} taxpayer - Turn on the taxpayer disclaimer text
  *
+ * @slot agency-primary - Information about the primary parent agency
+ * @slot agency-secondary - Information about the secondary parent agency
+ * @slot agency-conjunction - The connecting word between parent agencies. Default value: "and"
  * @slot domain - Site domain name
- * @slot logo - Optional slot to define the parent agency logo and url
- * @slot primary-agency - Information about the primary parent agency
- * @slot secondary-agency - Information about the secondary parent agency
  * @slot link-about - url and optional text content for the parent agency's about page
  * @slot link-accessibility - url and optional text content for the parent agency's accessibility statement
  * @slot link-foia - url and optional text content for the parent agency's Freedom of Information Act page
@@ -20,6 +21,7 @@ import usaIdentifierContent from "./identifier.json";
  * @slot link-oig - url and optional text content for the parent agency's Office of the inspector general page
  * @slot link-performance -  url and optional text content for the parent agency's performance reports page
  * @slot link-privacy - url and optional text content for the parent agency's privacy statement page
+ * @slot logo - Optional slot to define the parent agency logo and url
  * @slot usagov - Optional slot for defining custom USA.gov content
  *
  * @tagname usa-identifier
