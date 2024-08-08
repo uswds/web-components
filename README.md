@@ -1,5 +1,5 @@
 > [!CAUTION]
-> Work on the next version of the Design System is happening in this repo. The code in this repository is not yet ready for production use
+> Work on the next version of the Design System is happening in this repo. The code in this repository is not yet ready for production use.
 
 # USWDS Web Components
 
