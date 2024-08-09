@@ -3,10 +3,11 @@
 Thank you for your interest in contributing to USWDS web components.
 
 > [!Important]
+>
 > **This repo is currently in beta and is not yet ready for community code contributions.**
-> 
+>
 > While the USWDS core team works through big decisions about architecture and style, we ask that you do not submit pull requests. Instead, we encourage you to contribute by your sharing your ideas, concerns, questions, and experiences with the USWDS core team and community.
-> 
+>
 > Learn more about how you can provide feedback in the [submitting an issue](#submitting-an-issue) and [starting a discussion](#starting-a-discussion) sections below.
 
 ## How can I contribute?
