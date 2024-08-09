@@ -10,12 +10,15 @@ Thank you for your interest in contributing to USWDS web components.
 ## How can I contribute?
 
 ### Submitting an issue
+
 If you have discovered a bug or have a new feature to suggest, let us know by submitting an issue. We’ll address it as soon as we are able (but because we are in beta, please be aware that it might be awhile).
 
 ### Starting a discussion
+
 If you want to discuss big picture ideas with the USWDS core team and the community, open a discussion.
 
 ### Submitting a PR
+
 At this time, we are not accepting code contributions in the community. Check back in Spring 2025 for how to contribute pull requests to USWDS web components.
 
 ## Code of Conduct
