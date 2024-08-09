@@ -14,7 +14,7 @@ Thank you for your interest in contributing to USWDS web components.
 
 ### Submitting an issue
 
-If you have discovered a bug or have a new feature to suggest, let us know by [submitting an issue on GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). We’ll address it as soon as we are able (but because we are in beta, please be aware that it might be awhile).
+If you have discovered a bug, let us know by [submitting an issue on GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). We’ll address it as soon as we are able (but because we are in beta, please be aware that it might be awhile).
 
 ### Starting a discussion
 
