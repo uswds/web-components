@@ -22,7 +22,7 @@ If you want to share ideas, questions, or concerns with the USWDS core team and 
 
 ### Submitting a pull request
 
-At this time, we are not accepting code contributions in the community. We expect to open up community pull request submissions in early 2025, so check back later for instructions on how to contribute pull requests to USWDS web components.
+At this time, we are not accepting <u>code</u> contributions from the community. We expect to open up community pull request submissions in early 2025, so check back later for instructions on how to contribute pull requests to USWDS web components.
 
 ## Code of Conduct
 
