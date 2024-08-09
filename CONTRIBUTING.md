@@ -4,9 +4,9 @@ Thank you for your interest in contributing to USWDS web components.
 
 > [!Important]
 >
-> **This repo is currently in beta and is not yet ready for community code contributions.**
+> **This repo is currently in beta and not yet ready for community code contributions.**
 >
-> While the USWDS core team works through big decisions about architecture and style, we ask that you do not submit pull requests. Instead, we encourage you to contribute by your sharing your ideas, concerns, questions, and experiences with the USWDS core team and community.
+> While the USWDS core team works through decisions about architecture and style, we ask that you do not submit pull requests. Instead, we encourage you to contribute by your sharing your ideas, concerns, questions, and experiences with the USWDS core team and community.
 >
 > Learn more about how you can provide feedback in the [submitting an issue](#submitting-an-issue) and [starting a discussion](#starting-a-discussion) sections below.
 
@@ -14,7 +14,7 @@ Thank you for your interest in contributing to USWDS web components.
 
 ### Submitting an issue
 
-If you have discovered a bug, let us know by [submitting an issue on GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). We’ll address it as soon as we are able (but because we are in beta, please be aware that it might be awhile).
+If you have discovered a bug, let us know by [submitting an issue on GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). We are in beta and may not be able to respond immediately, but we will address as soon as as we are able.
 
 ### Starting a discussion
 
