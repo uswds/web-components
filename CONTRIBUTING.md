@@ -3,23 +3,25 @@
 Thank you for your interest in contributing to USWDS web components.
 
 > [!Important]
-> This repo is currently in beta. Because of this, we are not accepting code contributions from the community at this time. While the core team works through top-level questions about architecture and style, we ask that you do not submit pull requests. The code base is likely to change a lot over the next few months, and we will not be able to review PRs in a timely manner.
->
-> At this time, the best way to contribute to USWDS web components is testing our components in your environment and providing feedback on your experience. Learn more about how you can provide feedback in the submitting an issue and starting a discussion sections below.
+> **This repo is currently in beta and is not yet ready for community code contributions.**
+> 
+> While the USWDS core team works through big decisions about architecture and style, we ask that you do not submit pull requests. We will not be able to review them in a timely manner. Instead, we encourage you to contribute by your sharing your ideas, concerns, and questions.
+> 
+> The best way to contribute at this time is to install our beta components in your test environments and let us know how it goes. Learn more about how you can provide feedback in the [submitting an issue](#submitting-an-issue) and [starting a discussion](#starting-a-discussion) sections below.
 
 ## How can I contribute?
 
 ### Submitting an issue
 
-If you have discovered a bug or have a new feature to suggest, let us know by submitting an issue. We’ll address it as soon as we are able (but because we are in beta, please be aware that it might be awhile).
+If you have discovered a bug or have a new feature to suggest, let us know by [submitting an issue on GitHub](https://docs.github.com/en/issues/tracking-your-work-with-issues/creating-an-issue). We’ll address it as soon as we are able (but because we are in beta, please be aware that it might be awhile).
 
 ### Starting a discussion
 
-If you want to discuss big picture ideas with the USWDS core team and the community, open a discussion.
+If you want to share ideas, questions, or concerns with the USWDS core team and community, [open a discussion on GitHub](https://docs.github.com/en/discussions/quickstart#creating-a-new-discussion).
 
-### Submitting a PR
+### Submitting a pull request
 
-At this time, we are not accepting code contributions in the community. Check back in Spring 2025 for how to contribute pull requests to USWDS web components.
+At this time, we are not accepting code contributions in the community. We expect to start accepting pull requests beginning in 2025, so keep checking back for how to contribute pull requests to USWDS web components.
 
 ## Code of Conduct
 
