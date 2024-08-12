@@ -107,13 +107,17 @@ export default {
   }) => html`
     <usa-identifier lang=${lang || nothing} taxpayer=${taxpayer_show || nothing} label=${aria_label || nothing} >
       ${primary_agency_logo_show ? html`
-      <a slot="logo" href="${primary_agency_url}">
-        <img src="${primary_agency_logo}" alt="${primary_agency_name} logo" />
-      </a>`: null}
+      <usa-link name="logo">
+        <a href="${primary_agency_url}">
+          <img src="${primary_agency_logo}" alt="${primary_agency_name} logo" />
+        </a>
+      </usa-link>`: null}
       ${secondary_agency_show ? html`
-      <a slot="logo" href="${secondary_agency_url}">
-        <img src="${secondary_agency_logo}" alt="${secondary_agency_name} logo" />
-      </a>`: null}
+      <usa-link name="logo">
+        <a href="${secondary_agency_url}">
+          <img src="${secondary_agency_logo}" alt="${secondary_agency_name} logo" />
+        </a>
+    </usa-link>`: null}
       <p slot="domain">${domain}</p>
       ${agency_intro ? html`<span slot="agency-intro">${agency_intro}</span>`: null}
       <usa-link name="agency-primary"><a href="${primary_agency_url}">${primary_agency_name}</a></usa-link>

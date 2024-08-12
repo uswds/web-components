@@ -48,7 +48,7 @@ export class UsaIdentifier extends LitElement {
     this.disclaimer = this.querySelector('[slot="disclaimer"]');
     this.domain = this.querySelector('[slot="domain"]');
     this.includeTaxpayer = this.getAttribute("taxpayer");
-    this.logos = [...this.querySelectorAll('[slot="logo"]')];
+    this.logos = [...this.querySelectorAll('[name="logo"] a')];
     this.linkAbout = this.querySelector('[name="link-about"] a');
     this.linkAccessibility = this.querySelector('[name="link-accessibility"] a');
     this.linkFOIA = this.querySelector('[name="link-foia"] a');
