@@ -40,23 +40,23 @@ export class UsaIdentifier extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.domain = this.querySelector('[slot="domain"]');
-    this.logos = [...this.querySelectorAll('[slot="logo"]')];
-    this.linkAbout = this.querySelector('[slot="link-about"]');
-    this.linkAccessibility = this.querySelector('[slot="link-accessibility"]');
-    this.linkFOIA = this.querySelector('[slot="link-foia"]');
-    this.linkNoFEAR = this.querySelector('[slot="link-fear"]');
-    this.linkOIG = this.querySelector('[slot="link-oig"]');
-    this.linkPerformance = this.querySelector('[slot="link-performance"]');
-    this.linkPrivacy = this.querySelector('[slot="link-privacy"]');
-    this.disclaimer = this.querySelector('[slot="disclaimer"]');
-    this.usagov = this.querySelector('[slot="usagov"]');
-    this.agencyIntro = this.querySelector('[slot="agency-intro"]');
-    this.agencyPrimary = this.querySelector('[slot="agency-primary"]');
-    this.agencySecondary = this.querySelector('[slot="agency-secondary"]');
     this.agencyConjunction = this.querySelector('[slot="agency-conjunction"]');
+    this.agencyIntro = this.querySelector('[slot="agency-intro"]');
+    this.agencyPrimary = this.querySelector('[name="agency-primary"] a');
+    this.agencySecondary = this.querySelector('[name="agency-secondary"] a');
     this.agencyTaxpayer = this.querySelector('[slot="agency-taxpayer"]');
+    this.disclaimer = this.querySelector('[slot="disclaimer"]');
+    this.domain = this.querySelector('[slot="domain"]');
     this.includeTaxpayer = this.getAttribute("taxpayer");
+    this.logos = [...this.querySelectorAll('[slot="logo"]')];
+    this.linkAbout = this.querySelector('[name="link-about"] a');
+    this.linkAccessibility = this.querySelector('[name="link-accessibility"] a');
+    this.linkFOIA = this.querySelector('[name="link-foia"] a');
+    this.linkNoFEAR = this.querySelector('[name="link-fear"] a');
+    this.linkOIG = this.querySelector('[name="link-oig"] a');
+    this.linkPerformance = this.querySelector('[name="link-performance"] a');
+    this.linkPrivacy = this.querySelector('[name="link-privacy"] a');
+    this.usagov = this.querySelector('[slot="usagov"]');
   }
 
   get _identifierText() {

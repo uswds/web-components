@@ -1,4 +1,5 @@
 import "./index";
+import "../usa-link/index";
 import { html, nothing } from "lit";
 import readme from "./_readme.mdx";
 
@@ -115,18 +116,35 @@ export default {
       </a>`: null}
       <p slot="domain">${domain}</p>
       ${agency_intro ? html`<span slot="agency-intro">${agency_intro}</span>`: null}
-      <a slot="agency-primary" href="${primary_agency_url}">${primary_agency_name}</a>
+      <usa-link name="agency-primary"><a href="${primary_agency_url}">${primary_agency_name}</a></usa-link>
       ${secondary_agency_show ? html`
         <span slot="agency-conjunction">${secondary_agency_conjunction}</span>
-        <a slot="agency-secondary" href="${secondary_agency_url}">${secondary_agency_name}</a>`: null}
+        <usa-link name="agency-secondary"><a href="${secondary_agency_url}">${secondary_agency_name}</a></usa-link>`: null}
       ${taxpayer_show && taxpayer_custom ? html`<span slot="agency-taxpayer">${taxpayer_custom}</span>`: null}
-      <a slot="link-about" href="${link_about.url}" shortname="${primary_agency_shortname}">${link_about.label ? html`${link_about.label}`: null}</a>
-      <a slot="link-accessibility" href="${link_accessibility.url}">${link_accessibility.label ? html`${link_accessibility.label}`: null}</a>
-      <a slot="link-foia" href="${link_foia.url}">${link_foia.label ? html`${link_foia.label}`: null}</a>
-      <a slot="link-fear" href="${link_no_FEAR.url}">${link_no_FEAR.label ? html`${link_no_FEAR.label}`: null}</a>
-      <a slot="link-oig" href="${link_oig.url}">${link_oig.label ? html`${link_oig.label}`: null}</a>
-      <a slot="link-performance" href="${link_performance.url}">${link_performance.label ? html`${link_performance.label}`: null}</a>
-      <a slot="link-privacy" href="${link_privacy.url}">${link_privacy.label ? html`${link_privacy.label}`: null}</a>
+
+      <usa-link name="link-about"><a href="${link_about.url}" shortname="${primary_agency_shortname}">${link_about.label ? html`${link_about.label}`: null}</a></usa-link>
+      <usa-link name="link-accessibility"><a href="${link_accessibility.url}">${link_accessibility.label ? html`${link_accessibility.label}`: null}</a></usa-link>
+      <usa-link name="link-foia"><a href="${link_foia.url}">${link_foia.label ? html`${link_foia.label}`: null}</a></usa-link>
+      <usa-link name="link-fear"><a href="${link_no_FEAR.url}">${link_no_FEAR.label ? html`${link_no_FEAR.label}`: null}</a></usa-link>
+      <usa-link name="link-oig"><a href="${link_oig.url}">${link_oig.label ? html`${link_oig.label}`: null}</a></usa-link>
+      <usa-link name="link-performance"><a href="${link_performance.url}">${link_performance.label ? html`${link_performance.label}`: null}</a></usa-link>
+      <usa-link name="link-privacy"><a href="${link_privacy.url}">${link_privacy.label ? html`${link_privacy.label}`: null}</a></usa-link>
+      <!--start alternatives to slot-->
+      <!-- <a data-name="link-privacy" href="${link_privacy.url}">${link_privacy.label ? html`${link_privacy.label}`: null}</a> -->
+
+      <!-- <div slot="link-privacy"><a href="${link_privacy.url}">${link_privacy.label ? html`${link_privacy.label}`: null}</a></slot> -->
+
+      <!-- <usa-link name="link-privacy" >
+        <a href="${link_privacy.url}">
+          ${link_privacy.label ? html`${link_privacy.label}`: null}
+        </a>
+      </usa-link> -->
+
+      <!-- <usa-link name="link-privacy" href="${link_privacy.url}">
+        ${link_privacy.label ? html`${link_privacy.label}`: null}
+      </usa-link> -->
+      <!--end alternatives to slot -->
+
       ${usagov.include ? html`
         <div slot="usagov">
           ${usagov.text} <a href="${usagov.link_url}">${usagov.link_label}</a>
