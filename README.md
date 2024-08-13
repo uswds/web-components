@@ -28,3 +28,10 @@ While this new version is meant to facilitate incremental adoption, the new comp
 - **How can we be sure the new components are as accessible as possible?** Existing USWDS components [use JavaScript to progressively enhance semantic HTML](https://designsystem.digital.gov/documentation/developers/) to make them useable to as much of the public as possible. Because web components require JavaScript by default, developing the next version of design system components will require special attention to continuing the progressive enhancement approach.
 
 This is not an exhaustive list, and we expect many more big and small questions to arise over the course of developing these components.
+
+## Components Available
+| Component | Release Status |
+| --- | --- |
+| Link  (source) (documentation) | Alpha 🔴 |
+| Banner (source) (documentation) | Alpha 🔴 |
+| Identifier (source) (documentation) | Alpha 🔴 |
