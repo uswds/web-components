@@ -13,7 +13,7 @@ Over the course of the next several months (and beyond), we will incrementally b
 
 ## Upgrading to Web Components
 
-We are releasing these Web Components incrementally with the intent that they can also be added incrementally to existing sites that are currently using USWDS. If you are not currently using USWDS or are using a version older USWDS 3, we recommend adopting version 3 in the near term rather than waiting until the full suite of Web Components is production-ready.
+We are releasing these Web Components incrementally with the intent that they can also be added incrementally to existing sites that are currently using USWDS. If you are not currently using USWDS or are using a version older than USWDS 3, we recommend adopting version 3 in the near term rather than waiting until the full suite of Web Components is production-ready.
 
 ## Guiding Principles
 
@@ -33,5 +33,5 @@ This is not an exhaustive list, and we expect many more big and small questions 
 
 | Component                                                                                                                                                                                                                                                  | Release Status |
 | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
-| Link ([source](https://github.com/uswds/web-components/tree/develop/src/components/usa-link)) ([documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/uswds-next/?path=/docs/components-banner--docs))   | Alpha 🔴       |
-| Banner ([source](https://github.com/uswds/web-components/tree/develop/src/components/usa-banner)) ([documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/uswds-next/?path=/docs/components-link--docs)) | Alpha 🔴       |
+| Link ([source](https://github.com/uswds/web-components/tree/develop/src/components/usa-link)) ([documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/uswds-next/?path=/docs/components-banner--docs))   | Alpha 🔴        |
+| Banner ([source](https://github.com/uswds/web-components/tree/develop/src/components/usa-banner)) ([documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/uswds-next/?path=/docs/components-link--docs)) | Alpha 🔴        |
