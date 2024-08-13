@@ -8,7 +8,8 @@
       "import": "./dist/components/index.js",
       "default": "./dist/components/index.js"
     },
-    "./components/*": "./dist/components/*.js"
+    "./components/*": "./dist/components/*.js",
+    "./src/components/*": "./src/components/*/index.js"
   },
   "scripts": {
     "build": "npm run clean && vite build",
