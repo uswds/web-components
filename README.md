@@ -1,5 +1,5 @@
 > [!CAUTION]
-> Work on the next version of the Design System is happening in this repo. The code in this repository is not yet ready for production use.
+> Work on the next version of the Design System is happening in this repo. The code in this repository is not yet ready for production use. See our [release lifecycle documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/uswds-next/?path=/docs/release-lifecycle--docs) for more information on how we will determine when components are production-ready.
 
 # USWDS Web Components
 
