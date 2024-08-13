@@ -30,8 +30,7 @@ While this new version is meant to facilitate incremental adoption, the new comp
 This is not an exhaustive list, and we expect many more big and small questions to arise over the course of developing these components.
 
 ## Components Available
-| Component | Release Status |
-| --- | --- |
-| Link  (source) (documentation) | Alpha 🔴 |
-| Banner (source) (documentation) | Alpha 🔴 |
-| Identifier (source) (documentation) | Alpha 🔴 |
+| Component                                                                                                                                                                                                                                                  | Release Status |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| Link  ([source](https://github.com/uswds/web-components/tree/develop/src/components/usa-link)) ([documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/uswds-next/?path=/docs/components-banner--docs))  | Alpha 🔴        |
+| Banner ([source](https://github.com/uswds/web-components/tree/develop/src/components/usa-banner)) ([documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/uswds-next/?path=/docs/components-link--docs)) | Alpha 🔴        |
