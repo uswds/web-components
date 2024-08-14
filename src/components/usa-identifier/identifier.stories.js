@@ -62,8 +62,9 @@ export default {
     link_oig: { name: "Required link - Office of the Inspector General" },
     link_performance: { name: "Required link - Performance reports" },
     link_privacy: { name: "Required link - Privacy policy" },
-    usagov: { name: "USA.gov information" },
-    aria_label: { name: "Aria label" },
+    usagov: { name: "Custom USA.gov information" },
+    aria_label: { name: "Custom aria label" },
+    agency_intro: {name: 'Custom agency intro text ("An official website of the")'}
   },
   args: {
     lang: "en",
@@ -82,7 +83,6 @@ export default {
     secondary_agency_conjunction: "and",
     taxpayer_show: false,
     taxpayer_custom: "",
-    aria_label: "",
     link_about: {
       url: "javascipt:void(0)",
     },
@@ -104,9 +104,13 @@ export default {
     link_privacy: {
       url: "javascipt:void(0)",
     },
+    aria_label: "",
     usagov: {
-      include: false,
+      text: "",
+      link_label: "",
+      link_url: "",
     },
+    agency_intro: ""
   },
   render: ({
     lang,
@@ -201,7 +205,7 @@ export default {
       ${taxpayer_show && taxpayer_custom
         ? html`<span slot="agency-taxpayer">${taxpayer_custom}</span>`
         : null}
-      ${usagov.include
+      ${usagov.custom
         ? html` <div slot="usagov">
             ${usagov.text} <a href="${usagov.link_url}">${usagov.link_label}</a>
           </div>`
@@ -255,7 +259,7 @@ export const CustomTranslation = {
       url: "javascipt:void(0)",
     },
     usagov: {
-      include: true,
+      custom: true,
       text: "Vous recherchez des informations et des services du gouvernement américain ?",
       link_label: "Visitez USA.gov",
       link_url: "https://www.usa.gov/",
