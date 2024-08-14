@@ -3,6 +3,12 @@
   "private": true,
   "version": "1.0.0-alpha",
   "type": "module",
+  "files": [
+    ".storybook",
+    "storybook",
+    "dist",
+    "src",
+  ],
   "exports": {
     ".": {
       "import": "./dist/components/index.js",
