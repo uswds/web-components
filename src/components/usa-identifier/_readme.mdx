@@ -5,6 +5,7 @@ import {
   Stories,
   Controls,
   Primary,
+  Source,
 } from "@storybook/blocks";
 import * as IdentifierStories from "./identifier.stories";
 
@@ -16,7 +17,6 @@ The identifier communicates a site's parent agency and displays agency links req
 
 - [Using the identifier component](https://designsystem.digital.gov/components/identifier/) (designsystem.digital.gov)
 - [Identifier accessibility tests](https://designsystem.digital.gov/components/identifier/accessibility-tests) (designsystem.digital.gov)
-- [Changelog or Release notes] (TK)
 
 ## Element name
 
@@ -26,32 +26,38 @@ The identifier communicates a site's parent agency and displays agency links req
 
 <Canvas of={IdentifierStories.Default} />
 
-## Installation
+## Importing identifier
 
-- [`npm install @uswds/...`]
-- [`@import ...`]
+- [`@import ...`] (TK)
 
 Learn more about [installing and using USWDS web components] (TK).
 
 ## Properties
 
-| Property   | Element            | Type      | Description                                                                              |
-| :--------- | :----------------- | :-------- | :--------------------------------------------------------------------------------------- |
-| `label`    | `<usa-identifier>` | `string`  | Set a custom aria label for the identifier component. Default value: "Agency identifier" |
-| `lang`     | `<usa-identifier>` | `string`  | Set the language for the default component text. Expected values: "en", "es"             |
-| `taxpayer` | `<usa-identifier>` | `boolean` | Include the "Produced and published at taxpayer expense" text                            |
+| Property           | Element            | Type      | Description                                                                              |
+| :----------------- | :----------------- | :-------- | :--------------------------------------------------------------------------------------- |
+| `label`            | `<usa-identifier>` | `string`  | Set a custom aria label for the identifier component. Default value: "Agency identifier" |
+| `lang`             | `<usa-identifier>` | `string`  | Set the language for the default component text. Expected values: "en", "es"             |
+| `taxpayer`         | `<usa-identifier>` | `boolean` | Include the "Produced and published at taxpayer expense" text                            |
+| `urlAbout`         | `<usa-identifier>` | `string`  | The url for the parent agency's "About" page                                             |
+| `urlAccessibility` | `<usa-identifier>` | `string`  | The url for the parent agency's "Accesibility statement" page                            |
+| `urlFOIA`          | `<usa-identifier>` | `string`  | The url for the parent agency's "FOIA requests" page                                     |
+| `urlNoFEAR`        | `<usa-identifier>` | `string`  | The url for the parent agency's No FEAR Act data" page                                   |
+| `urlOIG`           | `<usa-identifier>` | `string`  | The url for the parent agency's "Office of the inspector general" page                   |
+| `urlPerformance`   | `<usa-identifier>` | `string`  | The url for the parent agency's "Performance reports" page                               |
+| `urlPrivacy`       | `<usa-identifier>` | `string`  | The url for the parent agency's "Privacy policy" page                                    |
 
 ## CSS parts
 
 | CSS Part          | Description                                                                      |
 | :---------------- | :------------------------------------------------------------------------------- |
-| `disclaimer-text` | The `<p>` element that wraps the "An official website of the..." disclaimer text |
+| `disclaimer`      | The `<p>` element that wraps the "An official website of the..." disclaimer text |
 | `disclaimer-link` | The `<a>` element inside the disclaimer text                                     |
 | `domain`          | The `<p>` element that wraps your site's domain name                             |
-| `logo`            | The agency logo `<img>` element                                                  |
+| `logo-image`      | The agency logo `<img>` element                                                  |
 | `logo-wrapper`    | The `<div>` element that wraps all logos                                         |
-| `logo-link`       | The `<a>` elements that wrap each logo                                           |
-| `required-link`   | The `<a>` elements in the required link list                                     |
+| `logo`            | The `<a>` elements that wrap each logo                                           |
+| `required-link`   | The `<a>` elements in the required links list                                    |
 | `usagov`          | The `<p>` element that wraps the USA.gov text                                    |
 | `usagov-link`     | The `<a>` element inside the usagov text                                         |
 
@@ -71,22 +77,15 @@ Learn more about [customizing component styles with CSS custom properties] (TK).
 
 ## Slots
 
-| Name                          | Element  | Expected content                                                                                | Attributes                                                                                                                                       |
-| :---------------------------- | :------- | :---------------------------------------------------------------------------------------------- | :----------------------------------------------------------------------------------------------------------------------------------------------- |
-| `agency-intro` (optional)     | `<span>` | Custom text: "An official website of the"                                                       | `href`: url for your parent agency's home page                                                                                                   |
-| `agency-primary`              | `<a>`    | Text: Parent agency full name                                                                   | `href`: url for your parent agency's home page                                                                                                   |
-| `agency-secondary` (optional) | `<a>`    | Text: Secondary parent agency full name                                                         | `href`: url for your secondary parent agency's home page                                                                                         |
-| `agency-taxpayer` (optional)  | `<span>` | Custom text: "Produced and published at taxpayer expense."                                      | `href`: url for your secondary parent agency's home page                                                                                         |
-| `domain`                      | `<p>`    | Text: Your site's domain name                                                                   | --                                                                                                                                               |
-| `link-about`                  | `<a>`    | Custom text: "About" (optional)                                                                 | `href`: url for your primary parent agency's about page <br/> `shortname`: Text for your primary parent agency's acronym or shortname (optional) |
-| `link-accessibility`          | `<a>`    | Custom text: "Accesibility statement" (optional)                                                | `href`: url for your primary parent agency's accessibility page                                                                                  |
-| `link-foia`                   | `<a>`    | Custom text: "FOIA requests" (optional)                                                         | `href`: url for your primary parent agency's Freedom of Information Act page                                                                     |
-| `link-fear`                   | `<a>`    | Custom text: "No FEAR Act data" (optional)                                                      | `href`: url for your primary parent agency's No FEAR page                                                                                        |
-| `link-oig`                    | `<a>`    | Custom text: "Office of the Inspector General" (optional)                                       | `href`: url for your primary parent agency's OIG page                                                                                            |
-| `link-performance`            | `<a>`    | Custom text: "Performance reports" (optional)                                                   | `href`: url for your primary parent agency's performance reports page                                                                            |
-| `link-privacy`                | `<a>`    | Custom text: "Privacy policy" (optional)                                                        | `href`: url for your primary parent agency's privacy policy page                                                                                 |
-| `logo`                        | `<a>`    | `<img>`: Parent agency logo.                                                                    | `href`: url for your parent agency's home page.                                                                                                  |
-| `usagov` (optional)           | `<a>`    | Custom text: "Looking for U.S. government information and services?" <br/> `<a>`: Visit USA.gov | `href`: url for the relevant translation of the usa.gov home page                                                                                |
+| Name                          | Element  | Expected content                                                                                | Attributes                                                        |
+| :---------------------------- | :------- | :---------------------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
+| `agency-intro` (optional)     | `<span>` | Custom text: "An official website of the"                                                       | `href`: url for your parent agency's home page                    |
+| `agency-primary`              | `<a>`    | Text: Parent agency full name                                                                   | `href`: url for your parent agency's home page                    |
+| `agency-secondary` (optional) | `<a>`    | Text: Secondary parent agency full name                                                         | `href`: url for your secondary parent agency's home page          |
+| `agency-taxpayer` (optional)  | `<span>` | Custom text: "Produced and published at taxpayer expense."                                      | `href`: url for your secondary parent agency's home page          |
+| `domain`                      | `<p>`    | Text: Your site's domain name                                                                   | --                                                                |
+| `logo`                        | `<a>`    | `<img>`: The parent agency logo image element                                                   | `href`: url for your parent agency's home page.                   |
+| `usagov` (optional)           | `<a>`    | Custom text: "Looking for U.S. government information and services?" <br/> `<a>`: Visit USA.gov | `href`: url for the relevant translation of the usa.gov home page |
 
 ## All variants
 

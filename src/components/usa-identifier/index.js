@@ -1,5 +1,5 @@
 import { LitElement, html, css, unsafeCSS, nothing } from "lit";
-import uswdsCoreStyle from "@uswds/uswds/scss/uswds-core?inline";
+import {repeat} from 'lit/directives/repeat.js';
 import styles from "./usa-identifier.css.js";
 import usaIdentifierContent from "./identifier.json";
 
@@ -9,18 +9,18 @@ import usaIdentifierContent from "./identifier.json";
  * @attribute {String} label - Text content for the component's aria label
  * @attribute {String} lang - The language for default text content (Options: "en" (Default), "es")
  * @attribute {Boolean} taxpayer - Turn on the taxpayer disclaimer text
+ * @attribute {String} urlAbout - The url for the parent agency's "About" page
+ * @attribute {String} urlAccessibility - The url for the parent agency's "Accesibility statement" page
+ * @attribute {String} urlFOIA - The url for the parent agency's "FOIA requests" page
+ * @attribute {String} urlNoFEAR - The url for the parent agency's No FEAR Act data" page
+ * @attribute {String} urlOIG - The url for the parent agency's "Office of the inspector general" page
+ * @attribute {String} urlPerformance -  The url for the parent agency's "Performance reports" page
+ * @attribute {String} urlPrivacy - The url for the parent agency's "Privacy policy" page
  *
  * @slot agency-primary - Information about the primary parent agency
  * @slot agency-secondary - Information about the secondary parent agency
  * @slot agency-conjunction - The connecting word between parent agencies. Default value: "and"
  * @slot domain - Site domain name
- * @slot link-about - url and optional text content for the parent agency's about page
- * @slot link-accessibility - url and optional text content for the parent agency's accessibility statement
- * @slot link-foia - url and optional text content for the parent agency's Freedom of Information Act page
- * @slot link-fear - url and optional text content for the parent agency's No FEAR act page
- * @slot link-oig - url and optional text content for the parent agency's Office of the inspector general page
- * @slot link-performance -  url and optional text content for the parent agency's performance reports page
- * @slot link-privacy - url and optional text content for the parent agency's privacy statement page
  * @slot logo - Optional slot to define the parent agency logo and url
  * @slot usagov - Optional slot for defining custom USA.gov content
  *
@@ -31,30 +31,28 @@ export class UsaIdentifier extends LitElement {
     lang: { type: String },
     taxpayer: { type: Boolean },
     label: { type: String },
+    urlAbout: { type: String },
+    urlAccessibility: { type: String },
+    urlFOIA: { type: String },
+    urlNoFEAR: { type: String },
+    urlOIG: { type: String },
+    urlPerformance: { type: String },
+    urlPrivacy: { type: String },
   };
 
-  static styles = [unsafeCSS(uswdsCoreStyle), styles];
+  static styles = [styles];
 
   connectedCallback() {
     super.connectedCallback();
     this.agencyConjunction = this.querySelector('[slot="agency-conjunction"]');
     this.agencyIntro = this.querySelector('[slot="agency-intro"]');
-    this.agencyPrimary = this.querySelector('[name="agency-primary"] a');
-    this.agencySecondary = this.querySelector('[name="agency-secondary"] a');
+    this.agencyPrimary = this.querySelector('[slot="agency-primary"] a');
+    this.agencySecondary = this.querySelector('[slot="agency-secondary"] a');
     this.agencyTaxpayer = this.querySelector('[slot="agency-taxpayer"]');
     this.disclaimer = this.querySelector('[slot="disclaimer"]');
     this.domain = this.querySelector('[slot="domain"]');
     this.includeTaxpayer = this.getAttribute("taxpayer");
-    this.logos = [...this.querySelectorAll('[name="logo"] a')];
-    this.linkAbout = this.querySelector('[name="link-about"] a');
-    this.linkAccessibility = this.querySelector(
-      '[name="link-accessibility"] a',
-    );
-    this.linkFOIA = this.querySelector('[name="link-foia"] a');
-    this.linkNoFEAR = this.querySelector('[name="link-fear"] a');
-    this.linkOIG = this.querySelector('[name="link-oig"] a');
-    this.linkPerformance = this.querySelector('[name="link-performance"] a');
-    this.linkPrivacy = this.querySelector('[name="link-privacy"] a');
+    this.logos = [...this.querySelectorAll('[slot="logo"] a')];
     this.usagov = this.querySelector('[slot="usagov"]');
   }
 
@@ -145,37 +143,17 @@ export class UsaIdentifier extends LitElement {
   // Render the list of links
   linksTemplate() {
     const { required_links } = this._identifierText;
-    const linkAbout = this.linkAbout.textContent || required_links.about;
-    const agencyShortname =
-      this.linkAbout.getAttribute("shortname") ||
-      this.primaryAgency.textContent;
-    const requiredLinks = [
-      this.linkAbout,
-      this.linkAccessibility,
-      this.linkFOIA,
-      this.linkNoFEAR,
-      this.linkOIG,
-      this.linkPerformance,
-      this.linkPrivacy,
+    const agencyShortname = this.agencyPrimary.getAttribute("agency-shortname");
+
+    this.requiredLinks = [
+      {url: this.urlAbout, text: `${required_links.about} ${agencyShortname}`},
+      {url: this.urlAccessibility, text: required_links.accessibility},
+      {url: this.urlFOIA, text: required_links.foia},
+      {url: this.urlNoFEAR, text: required_links.no_fear},
+      {url: this.urlOIG, text: required_links.oig},
+      {url: this.urlPerformance, text: required_links.performance},
+      {url: this.urlPrivacy, text: required_links.privacy},
     ];
-
-    this.linkAbout.textContent = `${linkAbout} ${agencyShortname}`;
-    this.linkAccessibility.textContent =
-      this.linkAccessibility.textContent || required_links.accessibility;
-    this.linkFOIA.textContent =
-      this.linkFOIA.textContent || required_links.foia;
-    this.linkNoFEAR.textContent =
-      this.linkNoFEAR.textContent || required_links.no_fear;
-    this.linkOIG.textContent = this.linkOIG.textContent || required_links.oig;
-    this.linkPerformance.textContent =
-      this.linkPerformance.textContent || required_links.performance;
-    this.linkPrivacy.textContent =
-      this.linkPrivacy.textContent || required_links.privacy;
-
-    requiredLinks.forEach((requiredLink) => {
-      requiredLink.classList.add("usa-identifier__required-link", "usa-link");
-      requiredLink.setAttribute("part", "link");
-    });
 
     return html`
       <nav
@@ -183,13 +161,14 @@ export class UsaIdentifier extends LitElement {
       >
         <div class="usa-identifier__container">
           <ul class="usa-identifier__required-links-list">
-            ${requiredLinks.map(
-              (requiredLink) => html`
+            ${repeat(
+                this.requiredLinks,
+                (link) => html`
                 <li class="usa-identifier__required-links-item">
-                  ${requiredLink}
+                  <a class="usa-identifier__required-link usa-link" part="required-link" href="${link.url}">${link.text}</a>
                 </li>
-              `,
-            )}
+              `
+              )}
           </ul>
         </div>
       </nav>
