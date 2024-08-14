@@ -1,5 +1,5 @@
 import { LitElement, html, css, unsafeCSS, nothing } from "lit";
-import {repeat} from 'lit/directives/repeat.js';
+import { repeat } from "lit/directives/repeat.js";
 import styles from "./usa-identifier.css.js";
 import usaIdentifierContent from "./identifier.json";
 
@@ -16,6 +16,13 @@ import usaIdentifierContent from "./identifier.json";
  * @attribute {String} urlOIG - The url for the parent agency's "Office of the inspector general" page
  * @attribute {String} urlPerformance -  The url for the parent agency's "Performance reports" page
  * @attribute {String} urlPrivacy - The url for the parent agency's "Privacy policy" page
+ * @attribute {String} textAbout - Custom text content for the "About" link
+ * @attribute {String} textAccessibility - Custom text content for the "Accessibility statement" link
+ * @attribute {String} textFOIA - Custom text content for the "FOIA requests" link
+ * @attribute {String} textNoFEAR - Custom text content for the "No FEAR Act Data" link
+ * @attribute {String} textOIG - Custom text content for the "Office of the Inspector General" link
+ * @attribute {String} textPerformance -  Custom text content for the "Performance reports" link
+ * @attribute {String} textPrivacy - Custom text content for the "Privacy policy" link
  *
  * @slot agency-primary - Information about the primary parent agency
  * @slot agency-secondary - Information about the secondary parent agency
@@ -38,6 +45,13 @@ export class UsaIdentifier extends LitElement {
     urlOIG: { type: String },
     urlPerformance: { type: String },
     urlPrivacy: { type: String },
+    textAbout: { type: String },
+    textAccessibility: { type: String },
+    textFOIA: { type: String },
+    textOIG: { type: String },
+    textNoFEAR: { type: String },
+    textPerformance: { type: String },
+    textPrivacy: { type: String },
   };
 
   static styles = [styles];
@@ -144,15 +158,37 @@ export class UsaIdentifier extends LitElement {
   linksTemplate() {
     const { required_links } = this._identifierText;
     const agencyShortname = this.agencyPrimary.getAttribute("agency-shortname");
+    const aboutText = this.textAbout || required_links.about;
 
     this.requiredLinks = [
-      {url: this.urlAbout, text: `${required_links.about} ${agencyShortname}`},
-      {url: this.urlAccessibility, text: required_links.accessibility},
-      {url: this.urlFOIA, text: required_links.foia},
-      {url: this.urlNoFEAR, text: required_links.no_fear},
-      {url: this.urlOIG, text: required_links.oig},
-      {url: this.urlPerformance, text: required_links.performance},
-      {url: this.urlPrivacy, text: required_links.privacy},
+      {
+        url: this.urlAbout,
+        text: `${aboutText} ${agencyShortname}`,
+      },
+      {
+        url: this.urlAccessibility,
+        text: this.textAccessibility || required_links.accessibility,
+      },
+      {
+        url: this.urlFOIA,
+        text: this.textFOIA || required_links.foia,
+      },
+      {
+        url: this.urlNoFEAR,
+        text: this.textNoFEAR || required_links.no_fear,
+      },
+      {
+        url: this.urlOIG,
+        text: this.textOIG || required_links.oig,
+      },
+      {
+        url: this.urlPerformance,
+        text: this.textPerformance || required_links.performance,
+      },
+      {
+        url: this.urlPrivacy,
+        text: this.textPrivacy || required_links.privacy,
+      },
     ];
 
     return html`
@@ -162,13 +198,18 @@ export class UsaIdentifier extends LitElement {
         <div class="usa-identifier__container">
           <ul class="usa-identifier__required-links-list">
             ${repeat(
-                this.requiredLinks,
-                (link) => html`
+              this.requiredLinks,
+              (link) => html`
                 <li class="usa-identifier__required-links-item">
-                  <a class="usa-identifier__required-link usa-link" part="required-link" href="${link.url}">${link.text}</a>
+                  <a
+                    class="usa-identifier__required-link usa-link"
+                    part="required-link"
+                    href="${link.url}"
+                    >${link.text}</a
+                  >
                 </li>
-              `
-              )}
+              `,
+            )}
           </ul>
         </div>
       </nav>
