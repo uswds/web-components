@@ -63,7 +63,9 @@ export default {
     link_privacy: { name: "Required link - Privacy policy" },
     usagov: { name: "Custom USA.gov information" },
     aria_label: { name: "Custom aria label" },
-    agency_intro: {name: 'Custom agency intro text ("An official website of the")'}
+    agency_intro: {
+      name: 'Custom agency intro text ("An official website of the")',
+    },
   },
   args: {
     lang: "en",
@@ -109,7 +111,7 @@ export default {
       link_label: "",
       link_url: "",
     },
-    agency_intro: ""
+    agency_intro: "",
   },
   render: ({
     lang,
