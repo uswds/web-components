@@ -27,4 +27,3 @@ At this time, we are not accepting code contributions from the community. We exp
 USWDS is committed to building a safe, welcoming, harassment-free culture for everyone. USWDS is a part of the Technology Transformation Services (TTS) within the General Services Administration (GSA) and we expect everyone to follow the [GSA TTS Code of Conduct](https://handbook.tts.gsa.gov/about-us/code-of-conduct/).
 
 We encourage you to read this project’s Contribution Guide (you are here) and its [README](https://github.com/uswds/web-components). If you want to read more about our open source policy or have questions, check out the [18F Open Source Policy GitHub repository](https://github.com/18f/open-source-policy) or send us an [email](mailto:uswds@gsa.gov).
-
