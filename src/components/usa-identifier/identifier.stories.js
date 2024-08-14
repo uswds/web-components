@@ -1,5 +1,4 @@
 import "./index";
-import "../usa-link/index";
 import { html, nothing } from "lit";
 import readme from "./_readme.mdx";
 
