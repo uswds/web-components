@@ -1,5 +1,5 @@
 > [!CAUTION]
-> Work on the next version of the Design System is happening in this repo. The code in this repository is not yet ready for production use.
+> Work on the next version of the Design System is happening in this repo. The code in this repository is not yet ready for production use. See our [release lifecycle documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/web-components/?path=/docs/release-lifecycle--docs) for more information on how we will determine when components are production-ready.
 
 # USWDS Web Components
 
@@ -13,7 +13,7 @@ Over the course of the next several months (and beyond), we will incrementally b
 
 ## Upgrading to Web Components
 
-We are releasing these Web Components incrementally with the intent that they can also be added incrementally to existing sites that are currently using USWDS. If you are not currently using USWDS or are using a version older USWDS 3, we recommend adopting version 3 in the near term rather than waiting until the full suite of Web Components is production-ready.
+We are releasing these Web Components incrementally with the intent that they can also be added incrementally to existing sites that are currently using USWDS. If you are not currently using USWDS or are using a version older than USWDS 3, we recommend adopting version 3 in the near term rather than waiting until the full suite of Web Components is production-ready.
 
 ## Guiding Principles
 
@@ -28,3 +28,10 @@ While this new version is meant to facilitate incremental adoption, the new comp
 - **How can we be sure the new components are as accessible as possible?** Existing USWDS components [use JavaScript to progressively enhance semantic HTML](https://designsystem.digital.gov/documentation/developers/) to make them useable to as much of the public as possible. Because web components require JavaScript by default, developing the next version of design system components will require special attention to continuing the progressive enhancement approach.
 
 This is not an exhaustive list, and we expect many more big and small questions to arise over the course of developing these components.
+
+## Components Available
+
+| Component                                                                                                                                                                                                                                                      | Release Status |
+| -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
+| Link ([source](https://github.com/uswds/web-components/tree/develop/src/components/usa-link)) ([documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/web-components/?path=/docs/components-banner--docs))   | Alpha 🔴       |
+| Banner ([source](https://github.com/uswds/web-components/tree/develop/src/components/usa-banner)) ([documentation](https://federalist-c7964e49-2db7-4585-85f1-49d23b9329cb.sites.pages.cloud.gov/site/uswds/web-components/?path=/docs/components-link--docs)) | Alpha 🔴       |
