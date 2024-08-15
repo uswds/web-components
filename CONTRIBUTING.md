@@ -6,7 +6,7 @@ Thanks for your interest in contributing to USWDS Web Components.
 >
 > **This repo is currently in beta and not yet ready for community code contributions.**
 >
-> While the USWDS core team works through decisions about architecture and style, we'd ask that you do not submit pull requests. Instead, we plesae contribute by sharing your bug reports, ideas, concerns, questions, and experiences with the USWDS core team and community as we describe below.
+> While the USWDS core team works through decisions about architecture and style, we'd ask that you do not submit pull requests. Instead, please contribute by sharing your bug reports, ideas, concerns, questions, and experiences with the USWDS core team and community as we describe below.
 
 ## How can I contribute?
 
