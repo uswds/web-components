@@ -93,8 +93,10 @@ export default css`
       font-weight: var(--usa-theme-text-bold);
     }
 
+    .usa-identifier__identity-disclaimer,
     .usa-identifier__identity-disclaimer a,
     .usa-identifier__identity-disclaimer a:visited,
+    .usa-identifier__usagov-description,
     .usa-identifier__usagov-description a,
     .usa-identifier__usagov-description a:visited {
       color: var(--usa-theme-identifier-primary-text-color);
