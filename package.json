@@ -19,12 +19,14 @@
     "pages": "npm run storybook:build && cp -r storybook-static _site"
   },
   "dependencies": {
+    "@lit/localize": "^0.12.2",
     "@uswds/uswds": "^3.8.1",
     "lit": "^3.2.0",
     "sass": "^1.77.6"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.6.1",
+    "@lit/localize-tools": "^0.8.0",
     "@storybook/addon-a11y": "^8.2.7",
     "@storybook/addon-essentials": "^8.2.7",
     "@storybook/addon-links": "^8.2.7",
