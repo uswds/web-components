@@ -8,10 +8,10 @@ export default css`
     --usa-theme-identifier-font-family: var(--usa-theme-font-body);
     --usa-theme-identifier-max-width: var(--usa-theme-grid-container-max-width);
     --usa-theme-identifier-text-color: var(--usa-system-color-white);
-    --usa-theme-identifier-primary-link-color: var(
+    --usa-theme-identifier-secondary-text-color: var(
       --usa-system-color-gray-cool-10
     );
-    --usa-theme-identifier-secondary-link-color: var(
+    --usa-theme-identifier-link-list-color: var(
       --usa-system-color-gray-cool-30
     );
 
@@ -63,7 +63,7 @@ export default css`
     }
 
     .usa-identifier__identity-domain {
-      color: var(--usa-theme-identifier-secondary-link-color);
+      color: var(--usa-theme-identifier-link-list-color);
     }
 
     .usa-identifier__identity-disclaimer,
@@ -101,12 +101,12 @@ export default css`
     .usa-identifier__identity-disclaimer a:visited,
     .usa-identifier__usagov-description a,
     .usa-identifier__usagov-description a:visited {
-      color: var(--usa-theme-identifier-primary-link-color);
+      color: var(--usa-theme-identifier-secondary-text-color);
     }
 
     .usa-identifier__required-link,
     .usa-identifier__required-link.usa-link {
-      color: var(--usa-theme-identifier-secondary-link-color);
+      color: var(--usa-theme-identifier-link-list-color);
       display: inline-block;
     }
 

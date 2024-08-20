@@ -66,6 +66,12 @@ export default {
     agency_intro: {
       name: 'Custom agency intro text ("An official website of the")',
     },
+    CSSVarBackgroundColor: { name: "--usa-theme-identifier-background-color" },
+    CSSVarTextColor: { name: "--usa-theme-identifier-text-color" },
+    CSSVarSecondaryTextColor: {
+      name: "--usa-theme-identifier-secondary-text-color",
+    },
+    CSSVarLinkListColor: { name: "--usa-theme-identifier-link-list-color" },
   },
   args: {
     lang: "en",
@@ -112,6 +118,10 @@ export default {
       link_url: "",
     },
     agency_intro: "",
+    CSSVarBackgroundColor: "",
+    CSSVarTextColor: "",
+    CSSVarSecondaryTextColor: "",
+    CSSVarLinkListColor: "",
   },
   render: ({
     lang,
@@ -138,6 +148,10 @@ export default {
     usagov,
     aria_label,
     agency_intro,
+    CSSVarBackgroundColor,
+    CSSVarTextColor,
+    CSSVarSecondaryTextColor,
+    CSSVarLinkListColor,
   }) => html`
     <usa-identifier
       lang=${lang || nothing}
@@ -158,6 +172,22 @@ export default {
       textPerformance=${link_performance.text || nothing}
       textPrivacy=${link_privacy.text || nothing}
     >
+      <style>
+        usa-identifier {
+          ${CSSVarBackgroundColor
+          ? `--usa-theme-identifier-background-color: ${CSSVarBackgroundColor};`
+          : null}
+          ${CSSVarTextColor
+          ? `--usa-theme-identifier-text-color: ${CSSVarTextColor};`
+          : null}
+          ${CSSVarSecondaryTextColor
+          ? `--usa-theme-identifier-secondary-text-color: ${CSSVarSecondaryTextColor};`
+          : null}
+          ${CSSVarLinkListColor
+          ? `--usa-theme-identifier-link-list-color: ${CSSVarLinkListColor};`
+          : null}
+        }
+      </style>
       ${primary_agency_logo_show
         ? html`
             <div slot="logo">
