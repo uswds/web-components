@@ -7,13 +7,15 @@ export default css`
     --usa-theme-identifier-background-color: var(--usa-system-color-ink);
     --usa-theme-identifier-font-family: var(--usa-theme-font-body);
     --usa-theme-identifier-max-width: var(--usa-theme-grid-container-max-width);
-    --usa-theme-identifier-primary-text-color: var(--usa-system-color-gray-10);
-    --usa-theme-identifier-secondary-text-color: var(
+    --usa-theme-identifier-text-color: var(--usa-system-color-white);
+    --usa-theme-identifier-primary-link-color: var(--usa-system-color-gray-cool-10);
+    --usa-theme-identifier-secondary-link-color: var(
       --usa-system-color-gray-cool-30
     );
 
     .usa-identifier {
       background-color: var(--usa-theme-identifier-background-color);
+      color: var(--usa-theme-identifier-text-color);
       font-family: var(--usa-theme-identifier-font-family);
       font-size: 1.06rem;
       line-height: 1.3;
@@ -59,7 +61,7 @@ export default css`
     }
 
     .usa-identifier__identity-domain {
-      color: var(--usa-theme-identifier-secondary-text-color);
+      color: var(--usa-theme-identifier-secondary-link-color);
     }
 
     .usa-identifier__identity-disclaimer,
@@ -93,18 +95,16 @@ export default css`
       font-weight: var(--usa-theme-text-bold);
     }
 
-    .usa-identifier__identity-disclaimer,
     .usa-identifier__identity-disclaimer a,
     .usa-identifier__identity-disclaimer a:visited,
-    .usa-identifier__usagov-description,
     .usa-identifier__usagov-description a,
     .usa-identifier__usagov-description a:visited {
-      color: var(--usa-theme-identifier-primary-text-color);
+      color: var(--usa-theme-identifier-primary-link-color);
     }
 
     .usa-identifier__required-link,
     .usa-identifier__required-link.usa-link {
-      color: var(--usa-theme-identifier-secondary-text-color);
+      color: var(--usa-theme-identifier-secondary-link-color);
       display: inline-block;
     }
 
