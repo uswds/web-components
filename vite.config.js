@@ -12,4 +12,22 @@ export default defineConfig({
     globals: true,
     environment: "jsdom",
   },
+  build: {
+    lib: {
+      entry: {
+        "components/usa-banner": "src/components/usa-banner/index.js",
+        "components/usa-link": "src/components/usa-link/index.js",
+        "components/index": "src/components/index",
+      },
+    },
+    rollupOptions: {
+      external: ["lit"],
+      output: {
+        globals: {
+          lit: "lit",
+        },
+        format: "es",
+      },
+    },
+  },
 });
