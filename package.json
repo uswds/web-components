@@ -1,11 +1,28 @@
 {
-  "name": "web-components",
+  "name": "@uswds/web-components",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0-alpha",
   "type": "module",
+  "files": [
+    ".storybook",
+    "storybook",
+    "scripts",
+    "dist",
+    "src"
+  ],
+  "exports": {
+    ".": {
+      "import": "./dist/components/index.js",
+      "default": "./dist/components/index.js"
+    },
+    "./components/*": "./dist/components/*.js",
+    "./src/components/*": "./src/components/*/index.js"
+  },
   "scripts": {
-    "build": "vite build",
+    "build": "npm run clean && vite build",
+    "clean": "node ./scripts/rmrf.js dist",
     "dev": "vite",
+    "prepare": "npm run build",
     "prettier:js": "npx prettier --check './src/components/**/*.js'",
     "prettier:js:fix": "npx prettier --write './src/components/**/*.js'",
     "prettier:md": "npx prettier --check '**/*.{md,mdx}'",
@@ -52,8 +69,5 @@
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.20.0"
-  },
-  "workspaces": [
-    "src/components/*"
-  ]
+  }
 }
