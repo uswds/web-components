@@ -8,7 +8,9 @@ export default css`
     --usa-theme-identifier-font-family: var(--usa-theme-font-body);
     --usa-theme-identifier-max-width: var(--usa-theme-grid-container-max-width);
     --usa-theme-identifier-text-color: var(--usa-system-color-white);
-    --usa-theme-identifier-primary-link-color: var(--usa-system-color-gray-cool-10);
+    --usa-theme-identifier-primary-link-color: var(
+      --usa-system-color-gray-cool-10
+    );
     --usa-theme-identifier-secondary-link-color: var(
       --usa-system-color-gray-cool-30
     );
