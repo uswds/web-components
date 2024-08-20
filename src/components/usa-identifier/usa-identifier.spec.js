@@ -45,13 +45,16 @@ describe("usa-identifier component", async () => {
 
   it("adds both logos to the component", () => {
     expect(
-      getInsideIdentifier().querySelector(".usa-identifier__logos").children.length
+      getInsideIdentifier().querySelector(".usa-identifier__logos").children
+        .length,
     ).toBeGreaterThan(1);
   });
 
   it("generates the required links list with seven child links", () => {
     expect(
-      getInsideIdentifier().querySelector(".usa-identifier__required-links-list").children.length
+      getInsideIdentifier().querySelector(
+        ".usa-identifier__required-links-list",
+      ).children.length,
     ).toBe(7);
   });
 });
