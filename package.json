@@ -16,7 +16,8 @@
       "default": "./dist/components/index.js"
     },
     "./components/*": "./dist/components/*.js",
-    "./src/components/*": "./src/components/*/index.js"
+    "./src/components/*": "./src/components/*/index.js",
+    "./core/*": "./src/core/*"
   },
   "scripts": {
     "build": "npm run clean && vite build",
