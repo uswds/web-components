@@ -7,6 +7,7 @@ import { unsafeCSS, css } from "lit";
 import close from "@uswds/uswds/img/usa-icons/close.svg";
 import expandMore from "@uswds/uswds/img/usa-icons/expand_more.svg";
 import expandLess from "@uswds/uswds/img/usa-icons/expand_less.svg";
+import lock from "@uswds/uswds/img/usa-icons/lock.svg";
 
 export const bannerStyles = [
   unsafeCSS(usaBannerStyle),
@@ -37,13 +38,13 @@ export const bannerStyles = [
       font-family: inherit;
     }
 
-    .usa-accordion__button {
+    .usa-banner__button {
       color: var(--theme-banner-link-color);
       cursor: pointer;
       font-family: inherit;
     }
 
-    .usa-accordion__button:hover {
+    .usa-banner__button:hover {
       color: var(--theme-banner-link-hover-color);
     }
 
@@ -57,6 +58,27 @@ export const bannerStyles = [
     .usa-banner__button[aria-expanded="true"]::after {
       background-image: url(${unsafeCSS(close)});
       mask-image: url(${unsafeCSS(close)});
+    }
+
+    /**
+     * HTTPS section lock icon.
+     *
+     * Had to re-write styles to avoid reliance of SASS mixins & functions.
+     * Height and width taken from calculated output in USWDS 3 banner.
+     */
+    .usa-banner__icon-lock {
+      background-image: url(${unsafeCSS(lock)});
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      display: inline-block;
+      height: 1.5ex;
+      mask-image: url(${unsafeCSS(lock)});
+      mask-position: center;
+      mask-repeat: no-repeat;
+      mask-size: cover;
+      vertical-align: middle;
+      width: 1.21875ex;
     }
 
     @media all and (min-width: 40em) {
