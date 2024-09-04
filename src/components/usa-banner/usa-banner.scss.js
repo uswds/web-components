@@ -50,13 +50,13 @@ export const bannerStyles = [
     /* In USWDS close icon is set via max-width media query, flipped it here. */
     .usa-banner__button::after,
     .usa-banner__header-action::after {
-      background-image: url(${unsafeCSS(expandMore)});
-      mask-image: url(${unsafeCSS(expandMore)});
+      background-image: url("${unsafeCSS(expandMore)}");
+      mask-image: url("${unsafeCSS(expandMore)}");
     }
 
     .usa-banner__button[aria-expanded="true"]::after {
-      background-image: url(${unsafeCSS(close)});
-      mask-image: url(${unsafeCSS(close)});
+      background-image: url("${unsafeCSS(close)}");
+      mask-image: url("${unsafeCSS(close)}");
     }
 
     /**
@@ -66,13 +66,13 @@ export const bannerStyles = [
      * Height and width taken from calculated output in USWDS 3 banner.
      */
     .usa-banner__icon-lock {
-      background-image: url(${unsafeCSS(lock)});
+      background-image: url("${unsafeCSS(lock)}");
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
       display: inline-block;
       height: 1.5ex;
-      mask-image: url(${unsafeCSS(lock)});
+      mask-image: url("${unsafeCSS(lock)}");
       mask-position: center;
       mask-repeat: no-repeat;
       mask-size: cover;
@@ -82,8 +82,8 @@ export const bannerStyles = [
 
     @media all and (min-width: 40em) {
       .usa-banner__button[aria-expanded="true"]::after {
-        background-image: url(${unsafeCSS(expandLess)});
-        mask-image: url(${unsafeCSS(expandLess)});
+        background-image: url("${unsafeCSS(expandLess)}");
+        mask-image: url("${unsafeCSS(expandLess)}");
       }
     }
   `,
