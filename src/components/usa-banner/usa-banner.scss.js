@@ -1,5 +1,4 @@
 import usaBannerStyle from "@uswds/uswds/scss/usa-banner?inline";
-// import { Colors, Fonts } from "../../core/index.css";
 
 ("@uswds/uswds/scss/usa-banner");
 import { unsafeCSS, css } from "lit";
