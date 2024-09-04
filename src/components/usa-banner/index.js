@@ -8,6 +8,28 @@ import usFlagSmall from "@uswds/uswds/img/us_flag_small.png";
 import iconDotGov from "@uswds/uswds/img/icon-dot-gov.svg";
 import iconHttps from "@uswds/uswds/img/icon-https.svg";
 
+/**
+ * @summary The usa-banner component.
+ *
+ * @attribute {string} lang - The element's language.
+ * @attribute {boolean} isOpen - If the banner is expanded or not.
+ * @attribute {string} label - The custom aria label users can override.
+ * @attribute {string} string - The top level domain for the site.
+ *
+ * @cssprop --theme-banner-background-color - Sets banner background color.
+ * @cssprop --theme-banner-font-family - Sets banner font family.
+ * @cssprop --theme-banner-link-color - Sets the default link color.
+ * @cssprop --theme-banner-link-hover-color - Sets the default link color.
+ *
+ * @slot banner-text - The text for official government website text.
+ * @slot banner-action - Action text label "Here's how you know."
+ * @slot domain-heading - Heading text for the domain section.
+ * @slot domain-text - Body text for domain section.
+ * @slot https-heading - Heading for HTTPs section.
+ * @slot https-text - Body text for HTTPs section.
+ *
+ * @tagname usa-banner
+ */
 export class UsaBanner extends LitElement {
   static properties = {
     lang: { type: String },
@@ -39,7 +61,7 @@ export class UsaBanner extends LitElement {
         banner: {
           label: "Official website of the United States government",
           text: "An official website of the United States government",
-          action: "Here's how you know",
+          action: "Here's how you know!",
         },
         domain: {
           heading: "Official websites use",
