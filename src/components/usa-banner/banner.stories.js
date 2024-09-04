@@ -25,12 +25,6 @@ export default {
 
 export const Default = {};
 
-export const CustomAriaLabel = {
-  args: {
-    label: "A custom aria label",
-  },
-};
-
 export const CustomContent = {
   args: {
     bannerText: "Un site Web officiel du gouvernement américain",
