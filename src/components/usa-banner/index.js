@@ -64,7 +64,7 @@ export class UsaBanner extends LitElement {
         banner: {
           label: "Official website of the United States government",
           text: "An official website of the United States government",
-          action: "Here's how you know!",
+          action: "Here's how you know",
         },
         domain: {
           heading: "Official websites use",
