@@ -1,0 +1,102 @@
+import {
+  Meta,
+  Story,
+  Canvas,
+  Stories,
+  Controls,
+  Primary,
+  Source,
+} from "@storybook/blocks";
+import * as IdentifierStories from "./identifier.stories";
+
+# Identifier
+
+The identifier communicates a site's parent agency and displays agency links required by federal laws and policies.
+
+**Related links:**
+
+- [Using the identifier component](https://designsystem.digital.gov/components/identifier/) (designsystem.digital.gov)
+- [Identifier accessibility tests](https://designsystem.digital.gov/components/identifier/accessibility-tests) (designsystem.digital.gov)
+
+## Element name
+
+`<usa-identifier>`
+
+## Implementation example
+
+<Canvas of={IdentifierStories.Default} />
+
+## Importing identifier
+
+- [`@import ...`] (TK)
+
+Learn more about [installing and using USWDS web components] (Link TK).
+
+## Properties
+
+| Property            | Element            | Type      | Description                                                                              |
+| :------------------ | :----------------- | :-------- | :--------------------------------------------------------------------------------------- |
+| `label`             | `<usa-identifier>` | `string`  | Set a custom aria label for the identifier component. Default value: "Agency identifier" |
+| `lang`              | `<usa-identifier>` | `string`  | Set the language for the default component text. Expected values: "en", "es"             |
+| `taxpayer`          | `<usa-identifier>` | `boolean` | Include the "Produced and published at taxpayer expense" text                            |
+| `textAbout`         | `<usa-identifier>` | `string`  | Custom translation text for the "Accessibility statement" link                           |
+| `textAccessibility` | `<usa-identifier>` | `string`  | Custom translation text for the "About" link                                             |
+| `textFOIA`          | `<usa-identifier>` | `string`  | Custom translation text for the "FOIA Requests" link                                     |
+| `textNoFEAR`        | `<usa-identifier>` | `string`  | Custom translation text for the "No FEAR Act data" link                                  |
+| `textOIG`           | `<usa-identifier>` | `string`  | Custom translation text for the "Office of the Inspector General" link                   |
+| `textPerformance`   | `<usa-identifier>` | `string`  | Custom translation text for the "Performance reports" link                               |
+| `textPrivacy`       | `<usa-identifier>` | `string`  | Custom translation text for the "Privacy policy" link                                    |
+| `urlAbout`          | `<usa-identifier>` | `string`  | The url for the parent agency's "About" page                                             |
+| `urlAccessibility`  | `<usa-identifier>` | `string`  | The url for the parent agency's "Accesibility statement" page                            |
+| `urlFOIA`           | `<usa-identifier>` | `string`  | The url for the parent agency's "FOIA requests" page                                     |
+| `urlNoFEAR`         | `<usa-identifier>` | `string`  | The url for the parent agency's No FEAR Act data" page                                   |
+| `urlOIG`            | `<usa-identifier>` | `string`  | The url for the parent agency's "Office of the inspector general" page                   |
+| `urlPerformance`    | `<usa-identifier>` | `string`  | The url for the parent agency's "Performance reports" page                               |
+| `urlPrivacy`        | `<usa-identifier>` | `string`  | The url for the parent agency's "Privacy policy" page                                    |
+
+Learn more about [using properties on custom elements] (Link TK)
+
+## CSS parts
+
+| CSS Part          | Description                                                                      |
+| :---------------- | :------------------------------------------------------------------------------- |
+| `disclaimer`      | The `<p>` element that wraps the "An official website of the..." disclaimer text |
+| `disclaimer-link` | The `<a>` element inside the disclaimer text                                     |
+| `domain`          | The `<p>` element that wraps your site's domain name                             |
+| `logo-image`      | The agency logo `<img>` element                                                  |
+| `logo-wrapper`    | The `<div>` element that wraps all logos                                         |
+| `logo`            | The `<a>` elements that wrap each logo                                           |
+| `required-link`   | The `<a>` elements in the required links list                                    |
+| `usagov`          | The `<p>` element that wraps the USA.gov text                                    |
+| `usagov-link`     | The `<a>` element inside the usagov text                                         |
+
+Learn more about [adding custom styles with CSS Parts] (Link TK).
+
+## CSS variables
+
+| CSS variable                                  | Default value                          | Description                                                                                     |
+| :-------------------------------------------- | :------------------------------------- | :---------------------------------------------------------------------------------------------- |
+| `--usa-theme-identifier-background-color`     | `--usa-system-color-ink`               | Background color of the identifier                                                              |
+| `--usa-theme-identifier-font-family`          | `--usa-theme-font-body`                | Font family of the identifier                                                                   |
+| `--usa-theme-identifier-max-width`            | `--usa-theme-grid-container-max-width` | Maximum width of the content within the identifier. Use the same max-width as your site footer. |
+| `--usa-theme-identifier-text-color`           | `--usa-system-color-white`             | Text color used in the disclaimer and USA.gov statement                                         |
+| `--usa-theme-identifier-secondary-text-color` | `--usa-system-color-gray-cool-10`      | Link color used in the disclaimer and USA.gov statement                                         |
+| `--usa-theme-identifier-link-list-color`      | `--usa-system-color-gray-cool-30`      | Link color used required link list                                                              |
+
+Learn more about [customizing component styles with CSS custom properties] (TK).
+
+## Slots
+
+| Name                          | Element  | Expected content                                                                                | Attributes                                                        |
+| :---------------------------- | :------- | :---------------------------------------------------------------------------------------------- | :---------------------------------------------------------------- |
+| `agency-intro` (optional)     | `<span>` | Custom text: "An official website of the"                                                       | `href`: url for your parent agency's home page                    |
+| `agency-primary`              | `<a>`    | Text: Parent agency full name                                                                   | `href`: url for your parent agency's home page                    |
+| `agency-secondary` (optional) | `<a>`    | Text: Secondary parent agency full name                                                         | `href`: url for your secondary parent agency's home page          |
+| `agency-taxpayer` (optional)  | `<span>` | Custom text: "Produced and published at taxpayer expense."                                      | `href`: url for your secondary parent agency's home page          |
+| `domain`                      | `<p>`    | Text: Your site's domain name                                                                   | --                                                                |
+| `logo`                        | `<a>`    | Image: An `<a>` element wrapping the the parent agency logo `<img>` element                     | `href`: url for your parent agency's home page.                   |
+| `usagov` (optional)           | `<a>`    | Custom text: "Looking for U.S. government information and services?" <br/> `<a>`: Visit USA.gov | `href`: url for the relevant translation of the usa.gov home page |
+
+## All variants
+
+<Stories />
