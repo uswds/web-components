@@ -70,7 +70,7 @@
     "storybook": "^8.2.7",
     "vite": "^5.3.5",
     "vitest": "^1.6.0",
-    "wait-on": "^7.1.0"
+    "wait-on": "^7.2.0"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.20.0"
