@@ -1,6 +1,6 @@
 <!---
 Step 1 - Title this PR with the following format:
-Web components - : [Brief statement describing what this pull request does]
+Web components : [Brief statement describing what this pull request does]
 eg: "Web components: Update dependencies"
  -->
 
