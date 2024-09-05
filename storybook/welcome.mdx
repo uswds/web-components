@@ -29,64 +29,37 @@ npm run start
 
 # Colors
 
+## System
+
 <ColorPalette>
   <ColorItem
     title="Base"
     subtitle="Grayscale colors"
     colors={{
-      White: "#FFFFFF",
-      "Longer custom text": "#F3F3F3",
-      Black: "#000",
+      "--usa-base-lightest": "#F0F0F0",
+    }}
+  />
+</ColorPalette>
+
+## Global
+
+<ColorPalette>
+  <ColorItem
+    title="Link"
+    subtitle="Link colors"
+    colors={{
+      "--usa-theme-link-color": "#005EA2",
+      "--usa-theme-link-hover-color": "#1A4480",
     }}
   />
 </ColorPalette>
 
 ---
 
-# Typography
+# Creating stories
 
-export const typography = {
-  type: {
-    primary:
-      "Public Sans Web, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica, Arial, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol",
-  },
-  weight: {
-    regular: "400",
-    bold: "700",
-    extrabold: "800",
-    black: "900",
-  },
-  size: {
-    xs1: 13,
-    xs2: 14,
-    xs3: 15,
-    sm: 16,
-    md: 17,
-    lg: 22,
-    xl1: 32,
-    xl2: 40,
-    xl3: 48,
-  },
-};
+Stories should the following component features:
 
-export const SampleText =
-  "Lorem ipsum dolor sit amet, consectetur adipiscing elit.";
-
-**Font:** Public Sans Web
-
-<Typeset
-  fontSizes={[
-    Number(typography.size.xs1),
-    Number(typography.size.xs2),
-    Number(typography.size.xs3),
-    Number(typography.size.sm),
-    Number(typography.size.md),
-    Number(typography.size.lg),
-    Number(typography.size.xl1),
-    Number(typography.size.xl2),
-    Number(typography.size.xl3),
-  ]}
-  fontWeight={typography.weight.black}
-  sampleText={SampleText}
-  fontFamily={typography.type.primary}
-/>
+- Variants
+- Properties
+- CSS Custom Properties
