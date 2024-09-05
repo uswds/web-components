@@ -1,15 +1,23 @@
-// Custom StorybookJS Docs theme.
-import UswdsTheme from "./UswdsTheme";
+/**
+ * Custom elements for component docs generation.
+ */
+import { setCustomElementsManifest } from "@storybook/web-components";
+import customElements from "../custom-elements.json";
+
+setCustomElementsManifest(customElements);
 
 /**
  *
- * StorybookJS UI Styles
+ * StorybookJS theme
  *
  */
 
-// Global StorybookJS styles.
+// Custom theme.
+import UswdsTheme from "./UswdsTheme";
+
+// Global styles.
 import "../storybook/index.css";
-// Documentation theme overrides.
+// Documentation overrides.
 import "./index.css";
 
 /** @type { import('@storybook/web-components').Preview } */
