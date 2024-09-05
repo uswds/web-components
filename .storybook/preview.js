@@ -1,8 +1,15 @@
+// Custom StorybookJS Docs theme.
 import UswdsTheme from "./UswdsTheme";
 
-// Global component styles.
+/**
+ *
+ * StorybookJS UI Styles
+ *
+ */
+
+// Global StorybookJS styles.
 import "../storybook/index.css";
-// Theme overrides.
+// Documentation theme overrides.
 import "./index.css";
 
 /** @type { import('@storybook/web-components').Preview } */
