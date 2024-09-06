@@ -1,7 +1,7 @@
 <!---
 Step 1 - Title this PR with the following format:
-USWDS-Next: [Brief statement describing what this pull request does]
-eg: "USWDS-Next: Update dependencies"
+Web components : [Brief statement describing what this pull request does]
+eg: "Web components: Update dependencies"
  -->
 
 # Summary
@@ -72,7 +72,7 @@ _Share recommended methods for reviewing this change._
 ## Dependency updates
 
 | Dependency name              | Previous version | New version |
-| ---------------------------- | :--------------: | :---------: |
+| :---------------------------- | :--------------: | :---------: |
 | [Updated dependency example] |     [1.0.0]      |   [1.0.1]   |
 | [New dependency example]     |        --        |   [3.0.1]   |
 | [Removed dependency example] |     [2.10.2]     |     --      |
