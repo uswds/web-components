@@ -39,9 +39,9 @@
     "pages": "npm run storybook:build && cp -r storybook-static _site"
   },
   "dependencies": {
-    "@uswds/uswds": "^3.8.1",
+    "@uswds/uswds": "^3.8.2",
     "lit": "^3.2.0",
-    "sass": "^1.77.6"
+    "sass": "^1.78.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.8.0",
@@ -54,25 +54,25 @@
     "@storybook/manager-api": "^8.2.9",
     "@storybook/test": "^8.2.9",
     "@storybook/test-runner": "^0.19.0",
-    "@storybook/theming": "^8.2.7",
-    "@storybook/web-components": "^8.2.7",
-    "@storybook/web-components-vite": "^8.2.7",
+    "@storybook/theming": "^8.2.9",
+    "@storybook/web-components": "^8.2.9",
+    "@storybook/web-components-vite": "^8.2.9",
     "@vitest/ui": "^1.6.0",
-    "axe-playwright": "^2.0.1",
+    "axe-playwright": "^2.0.2",
     "concurrently": "^8.2.2",
     "custom-elements-manifest": "^2.1.0",
-    "eslint": "^9.9.1",
+    "eslint": "^9.10.0",
     "eslint-config-prettier": "^9.1.0",
     "http-server": "^14.1.1",
     "jsdom": "^24.1.1",
     "prettier": "^3.3.3",
-    "shadow-dom-testing-library": "^1.11.2",
-    "storybook": "^8.2.7",
-    "vite": "^5.3.5",
+    "shadow-dom-testing-library": "^1.11.3",
+    "storybook": "^8.2.9",
+    "vite": "^5.4.3",
     "vitest": "^1.6.0",
     "wait-on": "^7.2.0"
   },
   "optionalDependencies": {
-    "@rollup/rollup-linux-x64-gnu": "^4.20.0"
+    "@rollup/rollup-linux-x64-gnu": "^4.21.2"
   }
 }
