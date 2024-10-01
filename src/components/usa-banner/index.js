@@ -146,6 +146,17 @@ export class UsaBanner extends LitElement {
     `;
   }
 
+  lockIcon() {
+    return html`
+      <span
+        class="usa-banner__icon-lock"
+        role="img"
+        aria-label="Locked padlock icon"
+        part="lock-icon"
+      ></span>
+    `;
+  }
+
   httpsTemplate(tld) {
     const { https } = this._bannerText;
 
@@ -165,10 +176,8 @@ export class UsaBanner extends LitElement {
             </slot> </strong
           ><br />
           <slot name="https-text">
-            ${unsafeHTML(https.text1)} (<span
-              class="usa-banner__icon-lock"
-            ></span
-            >) ${unsafeHTML(https.text2)} .${tld} ${https.text3}
+            ${unsafeHTML(https.text1)} (${this.lockIcon()})
+            ${unsafeHTML(https.text2)} .${tld} ${https.text3}
           </slot>
         </p>
       </div>

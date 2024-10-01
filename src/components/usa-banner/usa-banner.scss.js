@@ -62,7 +62,8 @@ export const bannerStyles = [
     /**
      * HTTPS section lock icon.
      *
-     * Had to re-write styles to avoid reliance of SASS mixins & functions.
+     * Rewrote styles to avoid reliance of SASS mixins & functions.
+     *
      * Height and width taken from calculated output in USWDS 3 banner.
      */
     .usa-banner__icon-lock {
