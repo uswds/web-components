@@ -4,21 +4,21 @@ import { html, nothing } from "lit";
 
 import { userEvent, expect, waitFor } from "@storybook/test";
 import { within } from "shadow-dom-testing-library";
+import { unsafeHTML } from "lit/directives/unsafe-html.js";
 
 export default {
   title: "Components/Banner",
   component: "usa-banner",
   args: {
     label: "",
-    tld: "",
-    lang: "",
+    tld: "gov",
+    lang: "en",
   },
   render: ({ lang, label, tld }) => html`
     <usa-banner
       lang=${lang || nothing}
       label=${label || nothing}
       tld=${tld || nothing}
-      data-testid="banner"
     ></usa-banner>
   `,
 };
@@ -26,16 +26,23 @@ export default {
 export const Default = {};
 
 export const CustomContent = {
+  argTypes: {
+    tld: { table: { disable: true } },
+    lang: { table: { disable: true } },
+  },
   args: {
+    label: "Un site Web officiel du gouvernement américain",
     bannerText: "Un site Web officiel du gouvernement américain",
     bannerAction: "Voici comment vous le savez",
     domainHeading: "Les sites Web officiels utilisent",
     domainText:
       "Un site Web .gov appartient à une organisation gouvernementale officielle aux États-Unis.",
     httpsHeading: "Les sites Web .gov sécurisés utilisent HTTPS",
-    httpsText: `Un verrou ou (lock) https:// signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`,
+    httpsText: `Un <strong>verrou</strong> (<span class="usa-banner__icon-lock" role="img" aria-label="Locked padlock icon"></span>) ou <strong>https://</strong> signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`,
+    tld: "mil",
   },
   render: ({
+    label,
     bannerText,
     bannerAction,
     domainHeading,
@@ -43,13 +50,13 @@ export const CustomContent = {
     httpsHeading,
     httpsText,
   }) => html`
-    <usa-banner>
+    <usa-banner label=${label || nothing}>
       <span slot="banner-text">${bannerText}</span>
       <span slot="banner-action">${bannerAction}</span>
       <span slot="domain-heading">${domainHeading}</span>
       <span slot="domain-text">${domainText}</span>
       <span slot="https-heading">${httpsHeading}</span>
-      <span slot="https-text">${httpsText}</span>
+      <span slot="https-text">${unsafeHTML(httpsText)}</span>
     </usa-banner>
   `,
 };
