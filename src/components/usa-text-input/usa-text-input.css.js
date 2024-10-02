@@ -12,26 +12,39 @@ export default css`
       color: #1b1b1b;
       display: block;
       height: 2.5rem;
-      margin-top: .5rem;
+      margin-top: 0.5rem;
       max-width: 30rem;
-      padding: .5rem;
+      padding: 0.5rem;
       width: 100%;
       -webkit-appearance: none;
       -moz-appearance: none;
       appearance: none;
-      font-family: Source Sans Pro Web,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+      font-family:
+        Source Sans Pro Web,
+        Helvetica Neue,
+        Helvetica,
+        Roboto,
+        Arial,
+        sans-serif;
       font-size: 1.06rem;
       line-height: 1.3;
     }
 
-    input:not([disabled]):focus, textarea:not([disabled]):focus {
-      outline: .25rem solid #2491ff;
+    input:not([disabled]):focus,
+    textarea:not([disabled]):focus {
+      outline: 0.25rem solid #2491ff;
       outline-offset: 0;
     }
 
     .usa-label {
       color: #1b1b1b;
-      font-family: Source Sans Pro Web,Helvetica Neue,Helvetica,Roboto,Arial,sans-serif;
+      font-family:
+        Source Sans Pro Web,
+        Helvetica Neue,
+        Helvetica,
+        Roboto,
+        Arial,
+        sans-serif;
       font-size: 1.06rem;
       line-height: 1.3;
       display: block;

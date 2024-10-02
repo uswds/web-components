@@ -17,28 +17,24 @@ export class UsaTextInput extends LitElement {
 
   connectedCallback() {
     super.connectedCallback();
-    this.label = this.querySelector('label');
-    this.input = this.querySelector('input');
+    this.label = this.querySelector("label");
+    this.input = this.querySelector("input");
   }
 
   constructor() {
     super();
   }
 
-
   render() {
     if (this.label) {
       this.label.classList.add("usa-label");
-    };
+    }
 
     if (this.input) {
       this.input.classList.add("usa-input");
-    };
+    }
 
-    return html`
-      ${this.label}
-      ${this.input}
-    `
+    return html` ${this.label} ${this.input} `;
   }
 }
 
