@@ -29,7 +29,7 @@
     "prettier:js:fix": "npx prettier --write './src/components/**/*.js'",
     "prettier:md": "npx prettier --check '**/*.{md,mdx}'",
     "prettier:md:fix": "npx prettier --write '**/*.{md,mdx}'",
-    "start": "npm run storybook && npm run manifest:watch",
+    "start": "npm run storybook & npm run manifest:watch",
     "storybook:build": "storybook build",
     "storybook": "storybook dev -p 8008",
     "manifest:build": "npx cem analyze --litelement",

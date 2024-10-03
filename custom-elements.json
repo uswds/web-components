@@ -483,15 +483,6 @@
             },
             {
               "type": {
-                "text": "boolean"
-              },
-              "description": "If the banner is expanded or not.",
-              "name": "isOpen",
-              "default": "false",
-              "fieldName": "isOpen"
-            },
-            {
-              "type": {
                 "text": "string"
               },
               "description": "The custom aria label users can override.",
@@ -503,19 +494,21 @@
                 "text": "string"
               },
               "description": "The top level domain for the site.",
-              "name": "string"
+              "name": "tld",
+              "default": "\"gov\"",
+              "fieldName": "tld"
+            },
+            {
+              "name": "isOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "isOpen"
             },
             {
               "name": "classes",
               "fieldName": "classes"
-            },
-            {
-              "name": "tld",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"gov\"",
-              "fieldName": "tld"
             }
           ],
           "superclass": {
