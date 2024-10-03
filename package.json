@@ -3,6 +3,7 @@
   "private": true,
   "version": "1.0.0-alpha",
   "type": "module",
+  "customElements": "custom-elements.json",
   "files": [
     ".storybook",
     "storybook",
@@ -20,7 +21,7 @@
     "./core/*": "./src/core/*"
   },
   "scripts": {
-    "build": "npm run clean && vite build",
+    "build": "npm run clean && vite build && npm run manifest:build",
     "clean": "node ./scripts/rmrf.js dist",
     "dev": "vite",
     "prepare": "npm run build",
@@ -28,9 +29,11 @@
     "prettier:js:fix": "npx prettier --write './src/components/**/*.js'",
     "prettier:md": "npx prettier --check '**/*.{md,mdx}'",
     "prettier:md:fix": "npx prettier --write '**/*.{md,mdx}'",
-    "start": "npm run storybook",
+    "start": "npm run storybook && npm run manifest:watch",
     "storybook:build": "storybook build",
     "storybook": "storybook dev -p 8008",
+    "manifest:build": "npx cem analyze --litelement",
+    "manifest:watch": "npx cem analyze --litelement --watch --dev",
     "test": "vitest",
     "test:storybook:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"npm run storybook:build --quiet && npx http-server storybook-static --port 6006 --silent\" \"wait-on tcp:127.0.0.1:6006 && npx test-storybook\"",
     "vite:preview": "vite preview",
@@ -39,11 +42,13 @@
   "dependencies": {
     "@uswds/uswds": "^3.8.2",
     "lit": "^3.2.0",
-    "sass": "^1.77.6"
+    "sass": "^1.78.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^1.8.0",
+    "@custom-elements-manifest/analyzer": "^0.10.3",
     "@storybook/addon-a11y": "^8.2.9",
+    "@storybook/addon-docs": "^8.2.9",
     "@storybook/addon-essentials": "^8.2.9",
     "@storybook/addon-links": "^8.2.9",
     "@storybook/blocks": "^8.2.9",
@@ -57,7 +62,8 @@
     "@vitest/ui": "^1.6.0",
     "axe-playwright": "^2.0.3",
     "concurrently": "^8.2.2",
-    "eslint": "^9.9.1",
+    "custom-elements-manifest": "^2.1.0",
+    "eslint": "^9.10.0",
     "eslint-config-prettier": "^9.1.0",
     "http-server": "^14.1.1",
     "jsdom": "^24.1.1",
@@ -66,7 +72,7 @@
     "storybook": "^8.2.9",
     "vite": "^5.4.8",
     "vitest": "^1.6.0",
-    "wait-on": "^7.1.0"
+    "wait-on": "^7.2.0"
   },
   "optionalDependencies": {
     "@rollup/rollup-linux-x64-gnu": "^4.21.2"
