@@ -12,9 +12,8 @@ import iconHttps from "@uswds/uswds/img/icon-https.svg";
  * @summary The usa-banner component.
  *
  * @attribute {string} lang - The element's language.
- * @attribute {boolean} isOpen - If the banner is expanded or not.
  * @attribute {string} label - The custom aria label users can override.
- * @attribute {string} string - The top level domain for the site.
+ * @attribute {string} tld - The top level domain for the site.
  *
  * @cssprop --theme-banner-background-color - Sets banner background color.
  * @cssprop --theme-banner-font-family - Sets banner font family.
