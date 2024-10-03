@@ -1,10 +1,213 @@
+/* ==========================================================================
+   USWDS Fonts & theme settings
+   ========================================================================== */
+
+/*
+   Theme settings
+   ========================================================================== */
 :root {
-  --font-stack-source-sans-pro: "Source Sans Pro", "Helvetica Neue", "Helvetica",
+  --font-stack-source-sans-pro: "Source Sans Pro Web", "Helvetica Neue", "Helvetica",
     "Roboto", "Arial", sans-serif;
+    font-display: fallback;
   --font-stack-public-sans: "Public Sans Web", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
 
   --usa-font-sans: var(--font-stack-source-sans-pro);
   --usa-font-ui: var(--usa-font-sans);
+}
+
+/*
+   Source Sans Pro Web
+   ========================================================================== */
+@font-face {
+  font-display: fallback;
+  font-family: "Source Sans Pro Web";
+  font-style: normal;
+  font-weight: 300;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-light-webfont.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-regular-webfont.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-bold-webfont.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: italic;
+  font-weight: 300;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-lightitalic-webfont.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-italic-webfont.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: italic;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-bolditalic-webfont.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: normal;
+  font-weight: 300;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-light-webfont.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-regular-webfont.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-bold-webfont.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: italic;
+  font-weight: 300;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-lightitalic-webfont.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: italic;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-italic-webfont.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Source Sans Pro Web";
+  font-style: italic;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("@uswds/uswds/fonts/source-sans-pro/sourcesanspro-bolditalic-webfont.woff2")
+    format("woff2");
+}
+
+/*
+   Public Sans
+   ========================================================================== */
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 300;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Light.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 400;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Regular.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 700;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Bold.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: italic;
+  font-weight: 300;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-LightItalic.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: italic;
+  font-weight: 400;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Italic.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: italic;
+  font-weight: 700;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-BoldItalic.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 300;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Light.woff2")
+    format("woff2");
+}
+
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 400;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Regular.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: normal;
+  font-weight: 700;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Bold.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: italic;
+  font-weight: 300;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-LightItalic.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: italic;
+  font-weight: 400;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-Italic.woff2")
+    format("woff2");
+}
+@font-face {
+  font-family: "Public Sans Web";
+  font-style: italic;
+  font-weight: 700;
+  src: url("@uswds/uswds/fonts/public-sans/PublicSans-BoldItalic.woff2")
+    format("woff2");
 }
