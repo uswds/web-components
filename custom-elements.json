@@ -38,7 +38,7 @@
         {
           "kind": "class",
           "description": "",
-          "name": "R",
+          "name": "I",
           "members": [
             {
               "kind": "method",
@@ -56,16 +56,16 @@
             },
             {
               "kind": "method",
-              "name": "svgLock"
-            },
-            {
-              "kind": "method",
               "name": "domainTemplate",
               "parameters": [
                 {
                   "name": "e"
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "lockIcon"
             },
             {
               "kind": "method",
@@ -110,7 +110,7 @@
             }
           ],
           "superclass": {
-            "name": "oe",
+            "name": "re",
             "package": "lit"
           },
           "tagName": "usa-banner",
@@ -122,7 +122,7 @@
           "kind": "custom-element-definition",
           "name": "usa-banner",
           "declaration": {
-            "name": "R",
+            "name": "I",
             "module": "dist/components/usa-banner.js"
           }
         },
@@ -130,7 +130,7 @@
           "kind": "js",
           "name": "UsaBanner",
           "declaration": {
-            "name": "R",
+            "name": "I",
             "module": "dist/components/usa-banner.js"
           }
         }
@@ -204,6 +204,368 @@
           "declaration": {
             "name": "UsaBanner",
             "module": "src/components/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-banner/banner.spec.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-banner/banner.stories.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "Default",
+          "type": {
+            "text": "object"
+          },
+          "default": "{}"
+        },
+        {
+          "kind": "variable",
+          "name": "CustomContent",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ argTypes: { tld: { table: { disable: true } }, lang: { table: { disable: true } }, }, args: { label: \"Un site Web officiel du gouvernement américain\", bannerText: \"Un site Web officiel du gouvernement américain\", bannerAction: \"Voici comment vous le savez\", domainHeading: \"Les sites Web officiels utilisent\", domainText: \"Un site Web .gov appartient à une organisation gouvernementale officielle aux États-Unis.\", httpsHeading: \"Les sites Web .gov sécurisés utilisent HTTPS\", httpsText: `Un <strong>verrou</strong> (<span class=\"usa-banner__icon-lock\" role=\"img\" aria-label=\"Locked padlock icon\"></span>) ou <strong>https://</strong> signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`, tld: \"mil\", }, render: ({ label, bannerText, bannerAction, domainHeading, domainText, httpsHeading, httpsText, }) => html` <usa-banner label=${label || nothing}> <span slot=\"banner-text\">${bannerText}</span> <span slot=\"banner-action\">${bannerAction}</span> <span slot=\"domain-heading\">${domainHeading}</span> <span slot=\"domain-text\">${domainText}</span> <span slot=\"https-heading\">${httpsHeading}</span> <span slot=\"https-text\">${unsafeHTML(httpsText)}</span> </usa-banner> `, }"
+        },
+        {
+          "kind": "variable",
+          "name": "Mil",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ args: { tld: \"mil\", }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "EspañolGov",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ args: { lang: \"es\", }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "EspañolMil",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ args: { lang: \"es\", tld: \"mil\", }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "ToggleBanner",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ play: async ({ canvasElement }) => { const canvas = within(canvasElement); const button = canvas.getByShadowRole(\"button\"); const dotGovText = canvas.getByShadowText(\"Official websites use .gov\"); userEvent.click(button); await waitFor(() => { expect(dotGovText).toBeVisible(); }); userEvent.click(button); await waitFor(() => { expect(dotGovText).not.toBeVisible(); }); }, }"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Default",
+          "declaration": {
+            "name": "Default",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "CustomContent",
+          "declaration": {
+            "name": "CustomContent",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Mil",
+          "declaration": {
+            "name": "Mil",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "EspañolGov",
+          "declaration": {
+            "name": "EspañolGov",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "EspañolMil",
+          "declaration": {
+            "name": "EspañolMil",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ToggleBanner",
+          "declaration": {
+            "name": "ToggleBanner",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-banner/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UsaBanner",
+          "cssProperties": [
+            {
+              "description": "Sets banner background color.",
+              "name": "--theme-banner-background-color"
+            },
+            {
+              "description": "Sets banner font family.",
+              "name": "--theme-banner-font-family"
+            },
+            {
+              "description": "Sets the default link color.",
+              "name": "--theme-banner-link-color"
+            },
+            {
+              "description": "Sets the default link color.",
+              "name": "--theme-banner-link-hover-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The text for official government website text.",
+              "name": "banner-text"
+            },
+            {
+              "description": "Action text label \"Here's how you know.\"",
+              "name": "banner-action"
+            },
+            {
+              "description": "Heading text for the domain section.",
+              "name": "domain-heading"
+            },
+            {
+              "description": "Body text for domain section.",
+              "name": "domain-text"
+            },
+            {
+              "description": "Heading for HTTPs section.",
+              "name": "https-heading"
+            },
+            {
+              "description": "Body text for HTTPs section.",
+              "name": "https-text"
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "toggle"
+            },
+            {
+              "kind": "field",
+              "name": "_bannerText",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "_actionText",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "domainTemplate",
+              "parameters": [
+                {
+                  "name": "tld"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "lockIcon"
+            },
+            {
+              "kind": "method",
+              "name": "httpsTemplate",
+              "parameters": [
+                {
+                  "name": "tld"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "lang",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"en\"",
+              "attribute": "lang",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "isOpen",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "isOpen"
+            },
+            {
+              "kind": "field",
+              "name": "tld",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"gov\"",
+              "attribute": "tld",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "data",
+              "privacy": "public",
+              "type": {
+                "text": "object"
+              },
+              "default": "{ en: { banner: { label: \"Official website of the United States government\", text: \"An official website of the United States government\", action: \"Here's how you know\", }, domain: { heading: \"Official websites use\", text1: \"A\", text2: \"website belongs to an official government organization in the United States.\", }, https: { heading1: \"Secure\", heading2: \"websites use HTTPS\", text1: \"A <strong>lock</strong>\", text2: \"or <strong>https://</strong> means you’ve safely connected to the\", text3: \"website. Share sensitive information only on official, secure websites.\", }, }, es: { banner: { label: \"Un sitio oficial del Gobierno de Estados Unidos\", text: \"Un sitio oficial del Gobierno de Estados Unidos\", action: \"Así es como usted puede verificarlo\", }, domain: { heading: \"Los sitios web oficiales usan\", text1: \"Un sitio web\", text2: \"pertenece a una organización oficial del Gobierno de Estados Unidos.\", }, https: { heading1: \"Los sitios web seguros\", heading2: \"usan HTTPS\", text1: \"Un <strong>candado</strong>\", text2: \"o <strong>https://</strong> significa que usted se conectó de forma segura a un sitio web\", text3: \"Comparta información sensible sólo en sitios web oficiales y seguros.\", }, }, }"
+            },
+            {
+              "kind": "field",
+              "name": "classes",
+              "privacy": "public",
+              "attribute": "classes"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "label"
+            }
+          ],
+          "attributes": [
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The element's language.",
+              "name": "lang",
+              "default": "\"en\"",
+              "fieldName": "lang"
+            },
+            {
+              "type": {
+                "text": "boolean"
+              },
+              "description": "If the banner is expanded or not.",
+              "name": "isOpen",
+              "default": "false",
+              "fieldName": "isOpen"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The custom aria label users can override.",
+              "name": "label",
+              "fieldName": "label"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The top level domain for the site.",
+              "name": "string"
+            },
+            {
+              "name": "classes",
+              "fieldName": "classes"
+            },
+            {
+              "name": "tld",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"gov\"",
+              "fieldName": "tld"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "usa-banner",
+          "summary": "The usa-banner component.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UsaBanner",
+          "declaration": {
+            "name": "UsaBanner",
+            "module": "src/components/usa-banner/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "usa-banner",
+          "declaration": {
+            "name": "UsaBanner",
+            "module": "src/components/usa-banner/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-banner/usa-banner.scss.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "bannerStyles",
+          "type": {
+            "text": "array"
+          },
+          "default": "[ unsafeCSS(usaBannerStyle), css` :host { --theme-banner-background-color: var(--usa-base-lightest, #f0f0f0); --theme-banner-font-family: var(--usa-font-ui, system-ui, sans-serif); --theme-banner-link-color: var(--theme-link-color, #005ea2); --theme-banner-link-color-hover: var(--theme-link-hover-color, #1a4480); // Missing theme-banner-max-width because we can't pass custom property to media queries. } * { box-sizing: border-box; } .usa-banner { background-color: var(--theme-banner-background-color); font-family: var(--theme-banner-font-family); } .usa-banner__inner { flex-wrap: nowrap; } /* Allows banner action to inherit font variable. */ .usa-banner .usa-accordion { font-family: inherit; } .usa-banner__button { color: var(--theme-banner-link-color); cursor: pointer; font-family: inherit; } .usa-banner__button:hover { color: var(--theme-banner-link-hover-color); } /* In USWDS close icon is set via max-width media query, flipped it here. */ .usa-banner__button::after, .usa-banner__header-action::after { background-image: url(\"${unsafeCSS(expandMore)}\"); mask-image: url(\"${unsafeCSS(expandMore)}\"); } .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(\"${unsafeCSS(close)}\"); mask-image: url(\"${unsafeCSS(close)}\"); } /** * HTTPS section lock icon. * * Rewrote styles to avoid reliance of SASS mixins & functions. * * Height and width taken from calculated output in USWDS 3 banner. */ .usa-banner__icon-lock { background-image: url(\"${unsafeCSS(lock)}\"); background-position: center; background-repeat: no-repeat; background-size: cover; display: inline-block; height: 1.5ex; mask-image: url(\"${unsafeCSS(lock)}\"); mask-position: center; mask-repeat: no-repeat; mask-size: cover; vertical-align: middle; width: 1.21875ex; } @media all and (min-width: 40em) { .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(\"${unsafeCSS(expandLess)}\"); mask-image: url(\"${unsafeCSS(expandLess)}\"); } } `, ]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "bannerStyles",
+          "declaration": {
+            "name": "bannerStyles",
+            "module": "src/components/usa-banner/usa-banner.scss.js"
           }
         }
       ]
@@ -380,322 +742,6 @@
       "path": "src/components/usa-link/usa-link.spec.js",
       "declarations": [],
       "exports": []
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/usa-banner/banner.stories.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "Default",
-          "type": {
-            "text": "object"
-          },
-          "default": "{}"
-        },
-        {
-          "kind": "variable",
-          "name": "CustomAriaLabel",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ args: { label: \"A custom aria label\", }, }"
-        },
-        {
-          "kind": "variable",
-          "name": "CustomContent",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ args: { bannerText: \"Un site Web officiel du gouvernement américain\", bannerAction: \"Voici comment vous le savez\", domainHeading: \"Les sites Web officiels utilisent\", domainText: \"Un site Web .gov appartient à une organisation gouvernementale officielle aux États-Unis.\", httpsHeading: \"Les sites Web .gov sécurisés utilisent HTTPS\", httpsText: `Un verrou ou (lock) https:// signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`, }, render: ({ bannerText, bannerAction, domainHeading, domainText, httpsHeading, httpsText, }) => html` <usa-banner> <span slot=\"banner-text\">${bannerText}</span> <span slot=\"banner-action\">${bannerAction}</span> <span slot=\"domain-heading\">${domainHeading}</span> <span slot=\"domain-text\">${domainText}</span> <span slot=\"https-heading\">${httpsHeading}</span> <span slot=\"https-text\">${httpsText}</span> </usa-banner> `, }"
-        },
-        {
-          "kind": "variable",
-          "name": "Mil",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ args: { tld: \"mil\", }, }"
-        },
-        {
-          "kind": "variable",
-          "name": "EspañolGov",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ args: { lang: \"es\", }, }"
-        },
-        {
-          "kind": "variable",
-          "name": "EspañolMil",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ args: { lang: \"es\", tld: \"mil\", }, }"
-        },
-        {
-          "kind": "variable",
-          "name": "ToggleBanner",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ play: async ({ canvasElement }) => { const canvas = within(canvasElement); const button = canvas.getByShadowRole(\"button\"); const dotGovText = canvas.getByShadowText(\"Official websites use .gov\"); userEvent.click(button); await waitFor(() => { expect(dotGovText).toBeVisible(); }); userEvent.click(button); await waitFor(() => { expect(dotGovText).not.toBeVisible(); }); }, }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "src/components/usa-banner/banner.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Default",
-          "declaration": {
-            "name": "Default",
-            "module": "src/components/usa-banner/banner.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CustomAriaLabel",
-          "declaration": {
-            "name": "CustomAriaLabel",
-            "module": "src/components/usa-banner/banner.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CustomContent",
-          "declaration": {
-            "name": "CustomContent",
-            "module": "src/components/usa-banner/banner.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Mil",
-          "declaration": {
-            "name": "Mil",
-            "module": "src/components/usa-banner/banner.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "EspañolGov",
-          "declaration": {
-            "name": "EspañolGov",
-            "module": "src/components/usa-banner/banner.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "EspañolMil",
-          "declaration": {
-            "name": "EspañolMil",
-            "module": "src/components/usa-banner/banner.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ToggleBanner",
-          "declaration": {
-            "name": "ToggleBanner",
-            "module": "src/components/usa-banner/banner.stories.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/usa-banner/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "UsaBanner",
-          "members": [
-            {
-              "kind": "method",
-              "name": "toggle"
-            },
-            {
-              "kind": "field",
-              "name": "_bannerText",
-              "readonly": true
-            },
-            {
-              "kind": "field",
-              "name": "_actionText",
-              "readonly": true
-            },
-            {
-              "kind": "method",
-              "name": "svgLock"
-            },
-            {
-              "kind": "method",
-              "name": "domainTemplate",
-              "parameters": [
-                {
-                  "name": "tld"
-                }
-              ]
-            },
-            {
-              "kind": "method",
-              "name": "httpsTemplate",
-              "parameters": [
-                {
-                  "name": "tld"
-                }
-              ]
-            },
-            {
-              "kind": "field",
-              "name": "lang",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"en\"",
-              "attribute": "lang"
-            },
-            {
-              "kind": "field",
-              "name": "isOpen",
-              "privacy": "public",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "attribute": "isOpen"
-            },
-            {
-              "kind": "field",
-              "name": "tld",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"gov\"",
-              "attribute": "tld",
-              "reflects": true
-            },
-            {
-              "kind": "field",
-              "name": "data",
-              "privacy": "public",
-              "type": {
-                "text": "object"
-              },
-              "default": "{ en: { banner: { label: \"Official website of the United States government\", text: \"An official website of the United States government\", action: \"Here's how you know\", }, domain: { heading: \"Official websites use\", text1: \"A\", text2: \"website belongs to an official government organization in the United States.\", }, https: { heading1: \"Secure\", heading2: \"websites use HTTPS\", text1: \"A <strong>lock</strong>\", text2: \"or <strong>https://</strong> means you’ve safely connected to the\", text3: \"website. Share sensitive information only on official, secure websites.\", }, }, es: { banner: { label: \"Un sitio oficial del Gobierno de Estados Unidos\", text: \"Un sitio oficial del Gobierno de Estados Unidos\", action: \"Así es como usted puede verificarlo\", }, domain: { heading: \"Los sitios web oficiales usan\", text1: \"Un sitio web\", text2: \"pertenece a una organización oficial del Gobierno de Estados Unidos.\", }, https: { heading1: \"Los sitios web seguros\", heading2: \"usan HTTPS\", text1: \"Un <strong>candado</strong>\", text2: \"o <strong>https://</strong> significa que usted se conectó de forma segura a un sitio web\", text3: \"Comparta información sensible sólo en sitios web oficiales y seguros.\", }, }, }"
-            },
-            {
-              "kind": "field",
-              "name": "classes",
-              "privacy": "public",
-              "attribute": "classes"
-            },
-            {
-              "kind": "field",
-              "name": "label",
-              "privacy": "public",
-              "type": {
-                "text": "string"
-              },
-              "attribute": "label"
-            }
-          ],
-          "attributes": [
-            {
-              "name": "lang",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"en\"",
-              "fieldName": "lang"
-            },
-            {
-              "name": "isOpen",
-              "type": {
-                "text": "boolean"
-              },
-              "default": "false",
-              "fieldName": "isOpen"
-            },
-            {
-              "name": "classes",
-              "fieldName": "classes"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "fieldName": "label"
-            },
-            {
-              "name": "tld",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"gov\"",
-              "fieldName": "tld"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "usa-banner",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "UsaBanner",
-          "declaration": {
-            "name": "UsaBanner",
-            "module": "src/components/usa-banner/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "usa-banner",
-          "declaration": {
-            "name": "UsaBanner",
-            "module": "src/components/usa-banner/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/usa-banner/usa-banner.scss.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "bannerStyles",
-          "type": {
-            "text": "array"
-          },
-          "default": "[ unsafeCSS(usaBannerStyle), css` * { box-sizing: border-box; } .usa-banner__inner { flex-wrap: nowrap; } .usa-accordion__button { cursor: pointer; } `, //* In USWDS close icon is set via max-width media query, flipped it here. css` .usa-banner__button::after, .usa-banner__header-action::after { background-image: url(${unsafeCSS(expandMore)}); mask-image: url(${unsafeCSS(expandMore)}); } .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(${unsafeCSS(close)}); mask-image: url(${unsafeCSS(close)}); } @media all and (min-width: 40em) { .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(${unsafeCSS(expandLess)}); mask-image: url(${unsafeCSS(expandLess)}); } } `, ]"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "bannerStyles",
-          "declaration": {
-            "name": "bannerStyles",
-            "module": "src/components/usa-banner/usa-banner.scss.js"
-          }
-        }
-      ]
     }
   ]
 }
