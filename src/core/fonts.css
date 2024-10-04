@@ -6,9 +6,8 @@
    Theme settings
    ========================================================================== */
 :root {
-  --font-stack-source-sans-pro: "Source Sans Pro Web", "Helvetica Neue", "Helvetica",
-    "Roboto", "Arial", sans-serif;
-    font-display: fallback;
+  --font-stack-source-sans-pro: "Source Sans Pro Web", "Helvetica Neue",
+    "Helvetica", "Roboto", "Arial", sans-serif;
   --font-stack-public-sans: "Public Sans Web", -apple-system, BlinkMacSystemFont,
     "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji",
     "Segoe UI Emoji", "Segoe UI Symbol";
@@ -21,7 +20,6 @@
    Source Sans Pro Web
    ========================================================================== */
 @font-face {
-  font-display: fallback;
   font-family: "Source Sans Pro Web";
   font-style: normal;
   font-weight: 300;
