@@ -6,9 +6,9 @@ import styles from "./usa-text-input.css.js";
  *
  * @slot - This element has a slot
  *
-
  * @cssprop --theme-input-line-height - Sets the line-height of input element
  * @cssprop --theme-input-max-width - Sets the max width of the input element
+ * @cssprop --theme-input-state-border-width - Sets the border width of error and success states.
  *
  * @tagname usa-text-input
  */
