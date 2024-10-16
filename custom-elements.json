@@ -210,179 +210,6 @@
     },
     {
       "kind": "javascript-module",
-      "path": "src/components/usa-link/index.js",
-      "declarations": [
-        {
-          "kind": "class",
-          "description": "",
-          "name": "UsaLink",
-          "cssProperties": [
-            {
-              "description": "Sets the link color",
-              "name": "--theme-link-color"
-            },
-            {
-              "description": "Sets the color for visited links",
-              "name": "--theme-link-visited-color"
-            },
-            {
-              "description": "Sets the hover state link color",
-              "name": "--theme-link-hover-color"
-            },
-            {
-              "description": "Sets the active state link color",
-              "name": "--theme-link-active-color"
-            }
-          ],
-          "slots": [
-            {
-              "description": "This element has a slot",
-              "name": ""
-            }
-          ],
-          "members": [
-            {
-              "kind": "method",
-              "name": "hasLinkChild"
-            },
-            {
-              "kind": "method",
-              "name": "templateWithChildren"
-            },
-            {
-              "kind": "method",
-              "name": "templateWithSlots"
-            },
-            {
-              "kind": "field",
-              "name": "href",
-              "privacy": "public",
-              "attribute": "href"
-            }
-          ],
-          "attributes": [
-            {
-              "type": {
-                "text": "String"
-              },
-              "description": "The url for the link",
-              "name": "href",
-              "fieldName": "href"
-            }
-          ],
-          "superclass": {
-            "name": "LitElement",
-            "package": "lit"
-          },
-          "tagName": "usa-link",
-          "summary": "The usa-link component.",
-          "customElement": true
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "UsaLink",
-          "declaration": {
-            "name": "UsaLink",
-            "module": "src/components/usa-link/index.js"
-          }
-        },
-        {
-          "kind": "custom-element-definition",
-          "name": "usa-link",
-          "declaration": {
-            "name": "UsaLink",
-            "module": "src/components/usa-link/index.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/usa-link/link.stories.js",
-      "declarations": [
-        {
-          "kind": "variable",
-          "name": "Default",
-          "type": {
-            "text": "object"
-          },
-          "default": "{}"
-        },
-        {
-          "kind": "variable",
-          "name": "ChildLink",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ parameters: { a11y: { config: { rules: [ { // It seems like this is just an issue with the test not // knowing about shadow DOM content projecting into the slot // but this should be verified manually id: \"link-name\", reviewOnFail: true, }, ], }, }, }, render: ({ href, label }) => html` <usa-link> <a href=\"${href}\">${label}</a> </usa-link> `, }"
-        },
-        {
-          "kind": "variable",
-          "name": "Inverse",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ parameters: { backgrounds: { default: \"dark\" }, }, }"
-        }
-      ],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "src/components/usa-link/link.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Default",
-          "declaration": {
-            "name": "Default",
-            "module": "src/components/usa-link/link.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "ChildLink",
-          "declaration": {
-            "name": "ChildLink",
-            "module": "src/components/usa-link/link.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "Inverse",
-          "declaration": {
-            "name": "Inverse",
-            "module": "src/components/usa-link/link.stories.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/usa-link/usa-link.css.js",
-      "declarations": [],
-      "exports": [
-        {
-          "kind": "js",
-          "name": "default",
-          "declaration": {
-            "module": "src/components/usa-link/usa-link.css.js"
-          }
-        }
-      ]
-    },
-    {
-      "kind": "javascript-module",
-      "path": "src/components/usa-link/usa-link.spec.js",
-      "declarations": [],
-      "exports": []
-    },
-    {
-      "kind": "javascript-module",
       "path": "src/components/usa-banner/banner.stories.js",
       "declarations": [
         {
@@ -696,6 +523,179 @@
           }
         }
       ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-link/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UsaLink",
+          "cssProperties": [
+            {
+              "description": "Sets the link color",
+              "name": "--theme-link-color"
+            },
+            {
+              "description": "Sets the color for visited links",
+              "name": "--theme-link-visited-color"
+            },
+            {
+              "description": "Sets the hover state link color",
+              "name": "--theme-link-hover-color"
+            },
+            {
+              "description": "Sets the active state link color",
+              "name": "--theme-link-active-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "This element has a slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "hasLinkChild"
+            },
+            {
+              "kind": "method",
+              "name": "templateWithChildren"
+            },
+            {
+              "kind": "method",
+              "name": "templateWithSlots"
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "privacy": "public",
+              "attribute": "href"
+            }
+          ],
+          "attributes": [
+            {
+              "type": {
+                "text": "String"
+              },
+              "description": "The url for the link",
+              "name": "href",
+              "fieldName": "href"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "usa-link",
+          "summary": "The usa-link component.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UsaLink",
+          "declaration": {
+            "name": "UsaLink",
+            "module": "src/components/usa-link/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "usa-link",
+          "declaration": {
+            "name": "UsaLink",
+            "module": "src/components/usa-link/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-link/link.stories.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "Default",
+          "type": {
+            "text": "object"
+          },
+          "default": "{}"
+        },
+        {
+          "kind": "variable",
+          "name": "ChildLink",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ parameters: { a11y: { config: { rules: [ { // It seems like this is just an issue with the test not // knowing about shadow DOM content projecting into the slot // but this should be verified manually id: \"link-name\", reviewOnFail: true, }, ], }, }, }, render: ({ href, label }) => html` <usa-link> <a href=\"${href}\">${label}</a> </usa-link> `, }"
+        },
+        {
+          "kind": "variable",
+          "name": "Inverse",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ parameters: { backgrounds: { default: \"dark\" }, }, }"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "src/components/usa-link/link.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Default",
+          "declaration": {
+            "name": "Default",
+            "module": "src/components/usa-link/link.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ChildLink",
+          "declaration": {
+            "name": "ChildLink",
+            "module": "src/components/usa-link/link.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Inverse",
+          "declaration": {
+            "name": "Inverse",
+            "module": "src/components/usa-link/link.stories.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-link/usa-link.css.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "src/components/usa-link/usa-link.css.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-link/usa-link.spec.js",
+      "declarations": [],
+      "exports": []
     }
   ]
 }
