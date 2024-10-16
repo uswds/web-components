@@ -5,11 +5,15 @@ import "./index.js";
 function getInsideInput() {
   return document.body
     .querySelector("usa-text-input")
-    ?.shadowRoot?.querySelector("input");
+    .shadowRoot;
 }
 
 function getLabelContext() {
-  return document.getElementsByTagName("label")?.shadowRoot?.getAttribute("for")
+  return getInsideInput().querySelector("label")?.shadowRoot?.getAttribute("for")
+}
+
+function getInputElement() {
+  return getInsideInput().querySelector("input");
 }
 
 describe("usa-text-input component", async () => {
@@ -23,12 +27,10 @@ describe("usa-text-input component", async () => {
   });
 
   it("Should show props", () => {
-    getInsideInput();
-    expect(getInsideInput().getAttribute("id")).toContain("input-type-text");
+    expect(getInputElement().getAttribute("id")).toContain("input-type-text");
   })
   
   it("Should have an associated label", () => {
-    getInsideInput();
-    expect(getInsideInput().getAttribute("id")).toMatch(getLabelContext());
+    expect(getInputElement().getAttribute("id")).toMatch(getLabelContext());
   })
 })
