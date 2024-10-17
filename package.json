@@ -1,7 +1,6 @@
 {
   "name": "@uswds/web-components",
-  "private": true,
-  "version": "1.0.0-alpha",
+  "version": "0.0.1-alpha",
   "type": "module",
   "customElements": "custom-elements.json",
   "files": [
@@ -11,6 +10,9 @@
     "dist",
     "src"
   ],
+  "publishConfig": {
+    "access": "public"
+  },
   "exports": {
     ".": {
       "import": "./dist/components/index.js",
