@@ -1,4 +1,4 @@
-import { LitElement, css, html } from "lit";
+import { LitElement, html } from "lit";
 import styles from "./usa-text-input.css.js";
 
 /**
@@ -14,6 +14,9 @@ import styles from "./usa-text-input.css.js";
  */
 export class UsaTextInput extends LitElement {
   static styles = [styles];
+  static properties = {
+    state: { type: String, reflect: true }
+  };
 
   connectedCallback() {
     super.connectedCallback();
@@ -32,6 +35,26 @@ export class UsaTextInput extends LitElement {
 
     if (this.input) {
       this.input.classList.add("usa-input");
+    }
+
+    if (this.state == "success") {
+      this.input?.classList.add("usa-input--success");
+    } else {
+      this.input?.classList.remove("usa-input--success");
+    }
+
+    if (this.state == "error") {
+      this.label?.classList.add("usa-label--error");
+      this.input?.classList.add("usa-input--error");
+    } else {
+      this.label?.classList.remove("usa-label--error");
+      this.input?.classList.remove("usa-input--error");
+    }
+
+    if (this.state == "disabled") {
+      this.input?.setAttribute("disabled", "");
+    } else {
+      this.input?.removeAttribute("disabled");
     }
 
     return html` ${this.label} ${this.input} `;
