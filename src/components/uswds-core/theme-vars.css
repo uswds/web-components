@@ -1,6 +1,10 @@
 :root {
   /* Theme colors */
   --usa-theme-color-base-lightest: var(--usa-system-color-gray-5);
+  --usa-theme-color-disabled-lighter: var(--usa-system-color-gray-20);
+  --usa-theme-color-disabled-dard: var(--usa-system-color-gray-70);
+  --usa-theme-color-error-dark: var(--usa-system-color-red-60v);
+  --usa-theme-color-success: var(--usa-system-color-green-cool-40v);
   /* Applied colors */
   --usa-theme-page-background-color: var(--usa-system-color-white);
   --usa-theme-text-color: var(--usa-system-color-ink);
