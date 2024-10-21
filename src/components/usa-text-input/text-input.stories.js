@@ -18,7 +18,7 @@ export default {
     state: "Default",
   },
   render: ({ state }) => html`
-    <usa-text-input state=${state == "Default" ? nothing : state} test>
+    <usa-text-input state=${state == "Default" ? nothing : state}>
       <label for="input-type-text">Text input label</label>
       <input id="input-type-text" name="input-type-text" />
     </usa-text-input>
