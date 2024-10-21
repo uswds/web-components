@@ -7,7 +7,9 @@ export default css`
     --theme-input-line-height: 1.3;
     --theme-input-max-width: 30rem;
     --theme-input-state-border-width: var(--usa-system-unit-05);
-    --theme-input-state-border-negative-margin: calc(var(--usa-system-unit-1) - vcar(--theme-input-state-border-width));
+    --theme-input-state-border-negative-margin: calc(
+      var(--usa-system-unit-1) - vcar(--theme-input-state-border-width)
+    );
 
     .usa-input {
       box-sizing: border-box;
@@ -85,7 +87,7 @@ export default css`
 
     .usa-label--error {
       font-weight: 700;
-      margin-top: 0
+      margin-top: 0;
     }
   }
 `;

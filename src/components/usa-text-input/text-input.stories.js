@@ -10,12 +10,12 @@ export default {
       control: { type: "radio" },
       options: ["Default", "success", "error", "disabled"],
       table: {
-        defaultValue: { summary: "Default" }
-      }
+        defaultValue: { summary: "Default" },
+      },
     },
   },
   args: {
-    state: "Default"
+    state: "Default",
   },
   render: ({ state }) => html`
     <usa-text-input state=${state == "Default" ? nothing : state} test>

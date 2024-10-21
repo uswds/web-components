@@ -3,9 +3,7 @@ import { beforeEach, describe, expect, it } from "vitest";
 import "./index.js";
 
 function getInsideInput() {
-  return document.body
-    .querySelector("usa-text-input")
-    .shadowRoot;
+  return document.body.querySelector("usa-text-input").shadowRoot;
 }
 
 function getLabelElement() {
@@ -13,7 +11,7 @@ function getLabelElement() {
 }
 
 function getLabelContext() {
-  return getLabelElement().getAttribute("for")
+  return getLabelElement().getAttribute("for");
 }
 
 function getInputElement() {
@@ -27,17 +25,17 @@ describe("usa-text-input component", async () => {
         <label for="input-type-text">Text input label</label>
         <input id="input-type-text" name="input-type-text">
       </usa-text-input>
-    `
+    `;
   });
 
   it("Should show props", () => {
     expect(getInputElement().getAttribute("id")).toContain("input-type-text");
   });
-  
+
   it("Should have an associated label", () => {
     expect(getInputElement().getAttribute("id")).toMatch(getLabelContext());
   });
-})
+});
 
 describe("usa-text-input error state", async () => {
   beforeEach(async () => {
@@ -46,14 +44,14 @@ describe("usa-text-input error state", async () => {
         <label for="input-type-text">Text input label</label>
         <input id="input-type-text" name="input-type-text">
       </usa-text-input>
-    `
+    `;
   });
 
   it("Should add error classes to elements", () => {
     expect(getLabelElement().classList.contains("usa-label--error"));
     expect(getInputElement().classList.contains("usa-input--error"));
-  })
-}) 
+  });
+});
 
 describe("usa-text-input success state", async () => {
   beforeEach(async () => {
@@ -62,13 +60,13 @@ describe("usa-text-input success state", async () => {
         <label for="input-type-text">Text input label</label>
         <input id="input-type-text" name="input-type-text">
       </usa-text-input>
-    `
+    `;
   });
 
   it("Should add success classes to elements", () => {
     expect(getInputElement().classList.contains("usa-input--success"));
-  })
-}) 
+  });
+});
 
 describe("usa-text-input disabled state", async () => {
   beforeEach(async () => {
@@ -77,10 +75,10 @@ describe("usa-text-input disabled state", async () => {
         <label for="input-type-text">Text input label</label>
         <input id="input-type-text" name="input-type-text">
       </usa-text-input>
-    `
+    `;
   });
 
   it("Should add disabled classes to elements", () => {
     expect(getInputElement().hasAttribute("disabled"));
-  })
-}) 
+  });
+});

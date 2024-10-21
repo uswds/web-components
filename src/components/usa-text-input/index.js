@@ -15,7 +15,7 @@ import styles from "./usa-text-input.css.js";
 export class UsaTextInput extends LitElement {
   static styles = [styles];
   static properties = {
-    state: { type: String, reflect: true }
+    state: { type: String, reflect: true },
   };
 
   connectedCallback() {
