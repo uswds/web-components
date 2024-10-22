@@ -20,6 +20,9 @@ import "../storybook/index.css";
 // Documentation overrides.
 import "./index.css";
 
+// USWDS Core props.
+import "../src/core/index.css";
+
 /** @type { import('@storybook/web-components').Preview } */
 const preview = {
   parameters: {

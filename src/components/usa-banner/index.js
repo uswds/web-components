@@ -8,9 +8,33 @@ import usFlagSmall from "@uswds/uswds/img/us_flag_small.png";
 import iconDotGov from "@uswds/uswds/img/icon-dot-gov.svg";
 import iconHttps from "@uswds/uswds/img/icon-https.svg";
 
+/**
+ * @summary The usa-banner component.
+ *
+ * @attribute {string} lang - The element's language.
+ * @attribute {string} label - The custom aria label users can override.
+ * @attribute {string} tld - The top level domain for the site.
+ *
+ * @cssprop --theme-banner-background-color - Sets banner background color.
+ * @cssprop --theme-banner-font-family - Sets banner font family.
+ * @cssprop --theme-banner-link-color - Sets the default link color.
+ * @cssprop --theme-banner-link-hover-color - Sets the default link color.
+ *
+ * @slot banner-text - The text for official government website text.
+ * @slot banner-action - Action text label "Here's how you know."
+ * @slot domain-heading - Heading text for the domain section.
+ * @slot domain-text - Body text for domain section.
+ * @slot https-heading - Heading for HTTPs section.
+ * @slot https-text - Body text for HTTPs section.
+ *
+ * @tagname usa-banner
+ */
 export class UsaBanner extends LitElement {
   static properties = {
-    lang: { type: String },
+    lang: {
+      type: String,
+      reflect: true,
+    },
     data: { attribute: false },
     isOpen: { type: Boolean },
     classes: {},
@@ -96,32 +120,6 @@ export class UsaBanner extends LitElement {
     return bannerActionText?.textContent;
   }
 
-  // TODO: Use inline image instead or translate strings.
-  svgLock() {
-    return html`
-      <span class="icon-lock">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="52"
-          height="64"
-          viewBox="0 0 52 64"
-          class="usa-banner__lock-image"
-          role="img"
-          aria-labelledby="banner-lock-description-default"
-          focusable="false"
-        >
-          <title id="banner-lock-title-default">Lock</title>
-          <desc id="banner-lock-description-default">Locked padlock icon</desc>
-          <path
-            fill="#000000"
-            fill-rule="evenodd"
-            d="M26 0c10.493 0 19 8.507 19 19v9h3a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H4a4 4 0 0 1-4-4V32a4 4 0 0 1 4-4h3v-9C7 8.507 15.507 0 26 0zm0 8c-5.979 0-10.843 4.77-10.996 10.712L15 19v9h22v-9c0-6.075-4.925-11-11-11z"
-          />
-        </svg>
-      </span>
-    `;
-  }
-
   domainTemplate(tld) {
     const { domain } = this._bannerText;
 
@@ -147,6 +145,17 @@ export class UsaBanner extends LitElement {
     `;
   }
 
+  lockIcon() {
+    return html`
+      <span
+        class="usa-banner__icon-lock"
+        role="img"
+        aria-label="Locked padlock icon"
+        part="lock-icon"
+      ></span>
+    `;
+  }
+
   httpsTemplate(tld) {
     const { https } = this._bannerText;
 
@@ -166,7 +175,7 @@ export class UsaBanner extends LitElement {
             </slot> </strong
           ><br />
           <slot name="https-text">
-            ${unsafeHTML(https.text1)} (${this.svgLock()})
+            ${unsafeHTML(https.text1)} (${this.lockIcon()})
             ${unsafeHTML(https.text2)} .${tld} ${https.text3}
           </slot>
         </p>

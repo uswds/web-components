@@ -38,7 +38,7 @@
         {
           "kind": "class",
           "description": "",
-          "name": "R",
+          "name": "I",
           "members": [
             {
               "kind": "method",
@@ -56,16 +56,16 @@
             },
             {
               "kind": "method",
-              "name": "svgLock"
-            },
-            {
-              "kind": "method",
               "name": "domainTemplate",
               "parameters": [
                 {
                   "name": "e"
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "lockIcon"
             },
             {
               "kind": "method",
@@ -110,7 +110,7 @@
             }
           ],
           "superclass": {
-            "name": "oe",
+            "name": "re",
             "package": "lit"
           },
           "tagName": "usa-banner",
@@ -122,7 +122,7 @@
           "kind": "custom-element-definition",
           "name": "usa-banner",
           "declaration": {
-            "name": "R",
+            "name": "I",
             "module": "dist/components/usa-banner.js"
           }
         },
@@ -130,7 +130,7 @@
           "kind": "js",
           "name": "UsaBanner",
           "declaration": {
-            "name": "R",
+            "name": "I",
             "module": "dist/components/usa-banner.js"
           }
         }
@@ -210,6 +210,12 @@
     },
     {
       "kind": "javascript-module",
+      "path": "src/components/usa-banner/banner.spec.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
       "path": "src/components/usa-banner/banner.stories.js",
       "declarations": [
         {
@@ -222,19 +228,11 @@
         },
         {
           "kind": "variable",
-          "name": "CustomAriaLabel",
-          "type": {
-            "text": "object"
-          },
-          "default": "{ args: { label: \"A custom aria label\", }, }"
-        },
-        {
-          "kind": "variable",
           "name": "CustomContent",
           "type": {
             "text": "object"
           },
-          "default": "{ args: { bannerText: \"Un site Web officiel du gouvernement américain\", bannerAction: \"Voici comment vous le savez\", domainHeading: \"Les sites Web officiels utilisent\", domainText: \"Un site Web .gov appartient à une organisation gouvernementale officielle aux États-Unis.\", httpsHeading: \"Les sites Web .gov sécurisés utilisent HTTPS\", httpsText: `Un verrou ou (lock) https:// signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`, }, render: ({ bannerText, bannerAction, domainHeading, domainText, httpsHeading, httpsText, }) => html` <usa-banner> <span slot=\"banner-text\">${bannerText}</span> <span slot=\"banner-action\">${bannerAction}</span> <span slot=\"domain-heading\">${domainHeading}</span> <span slot=\"domain-text\">${domainText}</span> <span slot=\"https-heading\">${httpsHeading}</span> <span slot=\"https-text\">${httpsText}</span> </usa-banner> `, }"
+          "default": "{ argTypes: { tld: { table: { disable: true } }, lang: { table: { disable: true } }, }, args: { label: \"Un site Web officiel du gouvernement américain\", bannerText: \"Un site Web officiel du gouvernement américain\", bannerAction: \"Voici comment vous le savez\", domainHeading: \"Les sites Web officiels utilisent\", domainText: \"Un site Web .gov appartient à une organisation gouvernementale officielle aux États-Unis.\", httpsHeading: \"Les sites Web .gov sécurisés utilisent HTTPS\", httpsText: `Un <strong>verrou</strong> (<span class=\"usa-banner__icon-lock\" role=\"img\" aria-label=\"Locked padlock icon\"></span>) ou <strong>https://</strong> signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`, tld: \"mil\", }, render: ({ label, bannerText, bannerAction, domainHeading, domainText, httpsHeading, httpsText, }) => html` <usa-banner label=${label || nothing}> <span slot=\"banner-text\">${bannerText}</span> <span slot=\"banner-action\">${bannerAction}</span> <span slot=\"domain-heading\">${domainHeading}</span> <span slot=\"domain-text\">${domainText}</span> <span slot=\"https-heading\">${httpsHeading}</span> <span slot=\"https-text\">${unsafeHTML(httpsText)}</span> </usa-banner> `, }"
         },
         {
           "kind": "variable",
@@ -282,14 +280,6 @@
           "name": "Default",
           "declaration": {
             "name": "Default",
-            "module": "src/components/usa-banner/banner.stories.js"
-          }
-        },
-        {
-          "kind": "js",
-          "name": "CustomAriaLabel",
-          "declaration": {
-            "name": "CustomAriaLabel",
             "module": "src/components/usa-banner/banner.stories.js"
           }
         },
@@ -343,6 +333,50 @@
           "kind": "class",
           "description": "",
           "name": "UsaBanner",
+          "cssProperties": [
+            {
+              "description": "Sets banner background color.",
+              "name": "--theme-banner-background-color"
+            },
+            {
+              "description": "Sets banner font family.",
+              "name": "--theme-banner-font-family"
+            },
+            {
+              "description": "Sets the default link color.",
+              "name": "--theme-banner-link-color"
+            },
+            {
+              "description": "Sets the default link color.",
+              "name": "--theme-banner-link-hover-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "The text for official government website text.",
+              "name": "banner-text"
+            },
+            {
+              "description": "Action text label \"Here's how you know.\"",
+              "name": "banner-action"
+            },
+            {
+              "description": "Heading text for the domain section.",
+              "name": "domain-heading"
+            },
+            {
+              "description": "Body text for domain section.",
+              "name": "domain-text"
+            },
+            {
+              "description": "Heading for HTTPs section.",
+              "name": "https-heading"
+            },
+            {
+              "description": "Body text for HTTPs section.",
+              "name": "https-text"
+            }
+          ],
           "members": [
             {
               "kind": "method",
@@ -360,16 +394,16 @@
             },
             {
               "kind": "method",
-              "name": "svgLock"
-            },
-            {
-              "kind": "method",
               "name": "domainTemplate",
               "parameters": [
                 {
                   "name": "tld"
                 }
               ]
+            },
+            {
+              "kind": "method",
+              "name": "lockIcon"
             },
             {
               "kind": "method",
@@ -388,7 +422,8 @@
                 "text": "string"
               },
               "default": "\"en\"",
-              "attribute": "lang"
+              "attribute": "lang",
+              "reflects": true
             },
             {
               "kind": "field",
@@ -438,12 +473,30 @@
           ],
           "attributes": [
             {
-              "name": "lang",
               "type": {
                 "text": "string"
               },
+              "description": "The element's language.",
+              "name": "lang",
               "default": "\"en\"",
               "fieldName": "lang"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The custom aria label users can override.",
+              "name": "label",
+              "fieldName": "label"
+            },
+            {
+              "type": {
+                "text": "string"
+              },
+              "description": "The top level domain for the site.",
+              "name": "tld",
+              "default": "\"gov\"",
+              "fieldName": "tld"
             },
             {
               "name": "isOpen",
@@ -456,21 +509,6 @@
             {
               "name": "classes",
               "fieldName": "classes"
-            },
-            {
-              "name": "label",
-              "type": {
-                "text": "string"
-              },
-              "fieldName": "label"
-            },
-            {
-              "name": "tld",
-              "type": {
-                "text": "string"
-              },
-              "default": "\"gov\"",
-              "fieldName": "tld"
             }
           ],
           "superclass": {
@@ -478,6 +516,7 @@
             "package": "lit"
           },
           "tagName": "usa-banner",
+          "summary": "The usa-banner component.",
           "customElement": true
         }
       ],
@@ -510,7 +549,7 @@
           "type": {
             "text": "array"
           },
-          "default": "[ unsafeCSS(usaBannerStyle), css` * { box-sizing: border-box; } .usa-banner__inner { flex-wrap: nowrap; } .usa-accordion__button { cursor: pointer; } `, //* In USWDS close icon is set via max-width media query, flipped it here. css` .usa-banner__button::after, .usa-banner__header-action::after { background-image: url(${unsafeCSS(expandMore)}); mask-image: url(${unsafeCSS(expandMore)}); } .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(${unsafeCSS(close)}); mask-image: url(${unsafeCSS(close)}); } @media all and (min-width: 40em) { .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(${unsafeCSS(expandLess)}); mask-image: url(${unsafeCSS(expandLess)}); } } `, ]"
+          "default": "[ unsafeCSS(usaBannerStyle), css` :host { --theme-banner-background-color: var(--usa-base-lightest, #f0f0f0); --theme-banner-font-family: var(--usa-font-ui, system-ui, sans-serif); --theme-banner-link-color: var(--theme-link-color, #005ea2); --theme-banner-link-color-hover: var(--theme-link-hover-color, #1a4480); // Missing theme-banner-max-width because we can't pass custom property to media queries. } * { box-sizing: border-box; } .usa-banner { background-color: var(--theme-banner-background-color); font-family: var(--theme-banner-font-family); } .usa-banner__inner { flex-wrap: nowrap; } /* Allows banner action to inherit font variable. */ .usa-banner .usa-accordion { font-family: inherit; } .usa-banner__button { color: var(--theme-banner-link-color); cursor: pointer; font-family: inherit; } .usa-banner__button:hover { color: var(--theme-banner-link-hover-color); } /* In USWDS close icon is set via max-width media query, flipped it here. */ .usa-banner__button::after, .usa-banner__header-action::after { background-image: url(\"${unsafeCSS(expandMore)}\"); mask-image: url(\"${unsafeCSS(expandMore)}\"); } .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(\"${unsafeCSS(close)}\"); mask-image: url(\"${unsafeCSS(close)}\"); } /** * HTTPS section lock icon. * * Rewrote styles to avoid reliance of SASS mixins & functions. * * Height and width taken from calculated output in USWDS 3 banner. */ .usa-banner__icon-lock { background-image: url(\"${unsafeCSS(lock)}\"); background-position: center; background-repeat: no-repeat; background-size: cover; display: inline-block; height: 1.5ex; mask-image: url(\"${unsafeCSS(lock)}\"); mask-position: center; mask-repeat: no-repeat; mask-size: cover; vertical-align: middle; width: 1.21875ex; } @media all and (min-width: 40em) { .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(\"${unsafeCSS(expandLess)}\"); mask-image: url(\"${unsafeCSS(expandLess)}\"); } } `, ]"
         }
       ],
       "exports": [

@@ -17,7 +17,8 @@
       "default": "./dist/components/index.js"
     },
     "./components/*": "./dist/components/*.js",
-    "./src/components/*": "./src/components/*/index.js"
+    "./src/components/*": "./src/components/*/index.js",
+    "./core/*": "./src/core/*"
   },
   "scripts": {
     "build": "npm run clean && vite build && npm run manifest:build",
@@ -28,7 +29,7 @@
     "prettier:js:fix": "npx prettier --write './src/components/**/*.js'",
     "prettier:md": "npx prettier --check '**/*.{md,mdx}'",
     "prettier:md:fix": "npx prettier --write '**/*.{md,mdx}'",
-    "start": "npm run storybook && npm run manifest:watch",
+    "start": "npm run storybook & npm run manifest:watch",
     "storybook:build": "storybook build",
     "storybook": "storybook dev -p 8008",
     "manifest:build": "npx cem analyze --litelement",
@@ -54,9 +55,7 @@
     "@storybook/manager-api": "^8.3.5",
     "@storybook/test": "^8.3.5",
     "@storybook/test-runner": "^0.19.0",
-    "@storybook/theming": "^8.3.5",
-    "@storybook/web-components": "^8.3.5",
-    "@storybook/web-components-vite": "^8.3.5",
+    "@vitest/eslint-plugin": "^1.1.4",
     "@vitest/ui": "^1.6.0",
     "axe-playwright": "^2.0.3",
     "concurrently": "^8.2.2",
