@@ -1,0 +1,701 @@
+{
+  "schemaVersion": "1.0.0",
+  "readme": "",
+  "modules": [
+    {
+      "kind": "javascript-module",
+      "path": "scripts/rmrf.js",
+      "declarations": [],
+      "exports": []
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UsaBanner",
+          "declaration": {
+            "name": "n",
+            "module": "dist/components/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "UsaLink",
+          "declaration": {
+            "name": "a",
+            "module": "dist/components/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/usa-banner.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "R",
+          "members": [
+            {
+              "kind": "method",
+              "name": "toggle"
+            },
+            {
+              "kind": "field",
+              "name": "_bannerText",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "_actionText",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "svgLock"
+            },
+            {
+              "kind": "method",
+              "name": "domainTemplate",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "httpsTemplate",
+              "parameters": [
+                {
+                  "name": "e"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "lang",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"en\""
+            },
+            {
+              "kind": "field",
+              "name": "isOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "!1"
+            },
+            {
+              "kind": "field",
+              "name": "tld",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"gov\""
+            },
+            {
+              "kind": "field",
+              "name": "data",
+              "type": {
+                "text": "object"
+              },
+              "default": "{ en: { banner: { label: \"Official website of the United States government\", text: \"An official website of the United States government\", action: \"Here's how you know\" }, domain: { heading: \"Official websites use\", text1: \"A\", text2: \"website belongs to an official government organization in the United States.\" }, https: { heading1: \"Secure\", heading2: \"websites use HTTPS\", text1: \"A <strong>lock</strong>\", text2: \"or <strong>https://</strong> means you’ve safely connected to the\", text3: \"website. Share sensitive information only on official, secure websites.\" } }, es: { banner: { label: \"Un sitio oficial del Gobierno de Estados Unidos\", text: \"Un sitio oficial del Gobierno de Estados Unidos\", action: \"Así es como usted puede verificarlo\" }, domain: { heading: \"Los sitios web oficiales usan\", text1: \"Un sitio web\", text2: \"pertenece a una organización oficial del Gobierno de Estados Unidos.\" }, https: { heading1: \"Los sitios web seguros\", heading2: \"usan HTTPS\", text1: \"Un <strong>candado</strong>\", text2: \"o <strong>https://</strong> significa que usted se conectó de forma segura a un sitio web\", text3: \"Comparta información sensible sólo en sitios web oficiales y seguros.\" } } }"
+            }
+          ],
+          "superclass": {
+            "name": "oe",
+            "package": "lit"
+          },
+          "tagName": "usa-banner",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "usa-banner",
+          "declaration": {
+            "name": "R",
+            "module": "dist/components/usa-banner.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "UsaBanner",
+          "declaration": {
+            "name": "R",
+            "module": "dist/components/usa-banner.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "dist/components/usa-link.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "i",
+          "members": [
+            {
+              "kind": "method",
+              "name": "hasLinkChild"
+            },
+            {
+              "kind": "method",
+              "name": "templateWithChildren"
+            },
+            {
+              "kind": "method",
+              "name": "templateWithSlots"
+            }
+          ],
+          "superclass": {
+            "name": "n",
+            "package": "lit"
+          },
+          "tagName": "usa-link",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "custom-element-definition",
+          "name": "usa-link",
+          "declaration": {
+            "name": "i",
+            "module": "dist/components/usa-link.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "UsaLink",
+          "declaration": {
+            "name": "i",
+            "module": "dist/components/usa-link.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/index.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UsaLink",
+          "declaration": {
+            "name": "UsaLink",
+            "module": "src/components/index.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "UsaBanner",
+          "declaration": {
+            "name": "UsaBanner",
+            "module": "src/components/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-banner/banner.stories.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "Default",
+          "type": {
+            "text": "object"
+          },
+          "default": "{}"
+        },
+        {
+          "kind": "variable",
+          "name": "CustomAriaLabel",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ args: { label: \"A custom aria label\", }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "CustomContent",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ args: { bannerText: \"Un site Web officiel du gouvernement américain\", bannerAction: \"Voici comment vous le savez\", domainHeading: \"Les sites Web officiels utilisent\", domainText: \"Un site Web .gov appartient à une organisation gouvernementale officielle aux États-Unis.\", httpsHeading: \"Les sites Web .gov sécurisés utilisent HTTPS\", httpsText: `Un verrou ou (lock) https:// signifie que vous êtes connecté(e) en toute sécurité au site Web .gov. Assurez-vous de ne partager des informations sensibles que sur des sites Web officiels et sécurisés.`, }, render: ({ bannerText, bannerAction, domainHeading, domainText, httpsHeading, httpsText, }) => html` <usa-banner> <span slot=\"banner-text\">${bannerText}</span> <span slot=\"banner-action\">${bannerAction}</span> <span slot=\"domain-heading\">${domainHeading}</span> <span slot=\"domain-text\">${domainText}</span> <span slot=\"https-heading\">${httpsHeading}</span> <span slot=\"https-text\">${httpsText}</span> </usa-banner> `, }"
+        },
+        {
+          "kind": "variable",
+          "name": "Mil",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ args: { tld: \"mil\", }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "EspañolGov",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ args: { lang: \"es\", }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "EspañolMil",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ args: { lang: \"es\", tld: \"mil\", }, }"
+        },
+        {
+          "kind": "variable",
+          "name": "ToggleBanner",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ play: async ({ canvasElement }) => { const canvas = within(canvasElement); const button = canvas.getByShadowRole(\"button\"); const dotGovText = canvas.getByShadowText(\"Official websites use .gov\"); userEvent.click(button); await waitFor(() => { expect(dotGovText).toBeVisible(); }); userEvent.click(button); await waitFor(() => { expect(dotGovText).not.toBeVisible(); }); }, }"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Default",
+          "declaration": {
+            "name": "Default",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "CustomAriaLabel",
+          "declaration": {
+            "name": "CustomAriaLabel",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "CustomContent",
+          "declaration": {
+            "name": "CustomContent",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Mil",
+          "declaration": {
+            "name": "Mil",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "EspañolGov",
+          "declaration": {
+            "name": "EspañolGov",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "EspañolMil",
+          "declaration": {
+            "name": "EspañolMil",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ToggleBanner",
+          "declaration": {
+            "name": "ToggleBanner",
+            "module": "src/components/usa-banner/banner.stories.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-banner/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UsaBanner",
+          "members": [
+            {
+              "kind": "method",
+              "name": "toggle"
+            },
+            {
+              "kind": "field",
+              "name": "_bannerText",
+              "readonly": true
+            },
+            {
+              "kind": "field",
+              "name": "_actionText",
+              "readonly": true
+            },
+            {
+              "kind": "method",
+              "name": "svgLock"
+            },
+            {
+              "kind": "method",
+              "name": "domainTemplate",
+              "parameters": [
+                {
+                  "name": "tld"
+                }
+              ]
+            },
+            {
+              "kind": "method",
+              "name": "httpsTemplate",
+              "parameters": [
+                {
+                  "name": "tld"
+                }
+              ]
+            },
+            {
+              "kind": "field",
+              "name": "lang",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"en\"",
+              "attribute": "lang"
+            },
+            {
+              "kind": "field",
+              "name": "isOpen",
+              "privacy": "public",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "attribute": "isOpen"
+            },
+            {
+              "kind": "field",
+              "name": "tld",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"gov\"",
+              "attribute": "tld",
+              "reflects": true
+            },
+            {
+              "kind": "field",
+              "name": "data",
+              "privacy": "public",
+              "type": {
+                "text": "object"
+              },
+              "default": "{ en: { banner: { label: \"Official website of the United States government\", text: \"An official website of the United States government\", action: \"Here's how you know\", }, domain: { heading: \"Official websites use\", text1: \"A\", text2: \"website belongs to an official government organization in the United States.\", }, https: { heading1: \"Secure\", heading2: \"websites use HTTPS\", text1: \"A <strong>lock</strong>\", text2: \"or <strong>https://</strong> means you’ve safely connected to the\", text3: \"website. Share sensitive information only on official, secure websites.\", }, }, es: { banner: { label: \"Un sitio oficial del Gobierno de Estados Unidos\", text: \"Un sitio oficial del Gobierno de Estados Unidos\", action: \"Así es como usted puede verificarlo\", }, domain: { heading: \"Los sitios web oficiales usan\", text1: \"Un sitio web\", text2: \"pertenece a una organización oficial del Gobierno de Estados Unidos.\", }, https: { heading1: \"Los sitios web seguros\", heading2: \"usan HTTPS\", text1: \"Un <strong>candado</strong>\", text2: \"o <strong>https://</strong> significa que usted se conectó de forma segura a un sitio web\", text3: \"Comparta información sensible sólo en sitios web oficiales y seguros.\", }, }, }"
+            },
+            {
+              "kind": "field",
+              "name": "classes",
+              "privacy": "public",
+              "attribute": "classes"
+            },
+            {
+              "kind": "field",
+              "name": "label",
+              "privacy": "public",
+              "type": {
+                "text": "string"
+              },
+              "attribute": "label"
+            }
+          ],
+          "attributes": [
+            {
+              "name": "lang",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"en\"",
+              "fieldName": "lang"
+            },
+            {
+              "name": "isOpen",
+              "type": {
+                "text": "boolean"
+              },
+              "default": "false",
+              "fieldName": "isOpen"
+            },
+            {
+              "name": "classes",
+              "fieldName": "classes"
+            },
+            {
+              "name": "label",
+              "type": {
+                "text": "string"
+              },
+              "fieldName": "label"
+            },
+            {
+              "name": "tld",
+              "type": {
+                "text": "string"
+              },
+              "default": "\"gov\"",
+              "fieldName": "tld"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "usa-banner",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UsaBanner",
+          "declaration": {
+            "name": "UsaBanner",
+            "module": "src/components/usa-banner/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "usa-banner",
+          "declaration": {
+            "name": "UsaBanner",
+            "module": "src/components/usa-banner/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-banner/usa-banner.scss.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "bannerStyles",
+          "type": {
+            "text": "array"
+          },
+          "default": "[ unsafeCSS(usaBannerStyle), css` * { box-sizing: border-box; } .usa-banner__inner { flex-wrap: nowrap; } .usa-accordion__button { cursor: pointer; } `, //* In USWDS close icon is set via max-width media query, flipped it here. css` .usa-banner__button::after, .usa-banner__header-action::after { background-image: url(${unsafeCSS(expandMore)}); mask-image: url(${unsafeCSS(expandMore)}); } .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(${unsafeCSS(close)}); mask-image: url(${unsafeCSS(close)}); } @media all and (min-width: 40em) { .usa-banner__button[aria-expanded=\"true\"]::after { background-image: url(${unsafeCSS(expandLess)}); mask-image: url(${unsafeCSS(expandLess)}); } } `, ]"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "bannerStyles",
+          "declaration": {
+            "name": "bannerStyles",
+            "module": "src/components/usa-banner/usa-banner.scss.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-link/index.js",
+      "declarations": [
+        {
+          "kind": "class",
+          "description": "",
+          "name": "UsaLink",
+          "cssProperties": [
+            {
+              "description": "Sets the link color",
+              "name": "--theme-link-color"
+            },
+            {
+              "description": "Sets the color for visited links",
+              "name": "--theme-link-visited-color"
+            },
+            {
+              "description": "Sets the hover state link color",
+              "name": "--theme-link-hover-color"
+            },
+            {
+              "description": "Sets the active state link color",
+              "name": "--theme-link-active-color"
+            }
+          ],
+          "slots": [
+            {
+              "description": "This element has a slot",
+              "name": ""
+            }
+          ],
+          "members": [
+            {
+              "kind": "method",
+              "name": "hasLinkChild"
+            },
+            {
+              "kind": "method",
+              "name": "templateWithChildren"
+            },
+            {
+              "kind": "method",
+              "name": "templateWithSlots"
+            },
+            {
+              "kind": "field",
+              "name": "href",
+              "privacy": "public",
+              "attribute": "href"
+            }
+          ],
+          "attributes": [
+            {
+              "type": {
+                "text": "String"
+              },
+              "description": "The url for the link",
+              "name": "href",
+              "fieldName": "href"
+            }
+          ],
+          "superclass": {
+            "name": "LitElement",
+            "package": "lit"
+          },
+          "tagName": "usa-link",
+          "summary": "The usa-link component.",
+          "customElement": true
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "UsaLink",
+          "declaration": {
+            "name": "UsaLink",
+            "module": "src/components/usa-link/index.js"
+          }
+        },
+        {
+          "kind": "custom-element-definition",
+          "name": "usa-link",
+          "declaration": {
+            "name": "UsaLink",
+            "module": "src/components/usa-link/index.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-link/link.stories.js",
+      "declarations": [
+        {
+          "kind": "variable",
+          "name": "Default",
+          "type": {
+            "text": "object"
+          },
+          "default": "{}"
+        },
+        {
+          "kind": "variable",
+          "name": "ChildLink",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ parameters: { a11y: { config: { rules: [ { // It seems like this is just an issue with the test not // knowing about shadow DOM content projecting into the slot // but this should be verified manually id: \"link-name\", reviewOnFail: true, }, ], }, }, }, render: ({ href, label }) => html` <usa-link> <a href=\"${href}\">${label}</a> </usa-link> `, }"
+        },
+        {
+          "kind": "variable",
+          "name": "Inverse",
+          "type": {
+            "text": "object"
+          },
+          "default": "{ parameters: { backgrounds: { default: \"dark\" }, }, }"
+        }
+      ],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "src/components/usa-link/link.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Default",
+          "declaration": {
+            "name": "Default",
+            "module": "src/components/usa-link/link.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "ChildLink",
+          "declaration": {
+            "name": "ChildLink",
+            "module": "src/components/usa-link/link.stories.js"
+          }
+        },
+        {
+          "kind": "js",
+          "name": "Inverse",
+          "declaration": {
+            "name": "Inverse",
+            "module": "src/components/usa-link/link.stories.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-link/usa-link.css.js",
+      "declarations": [],
+      "exports": [
+        {
+          "kind": "js",
+          "name": "default",
+          "declaration": {
+            "module": "src/components/usa-link/usa-link.css.js"
+          }
+        }
+      ]
+    },
+    {
+      "kind": "javascript-module",
+      "path": "src/components/usa-link/usa-link.spec.js",
+      "declarations": [],
+      "exports": []
+    }
+  ]
+}
