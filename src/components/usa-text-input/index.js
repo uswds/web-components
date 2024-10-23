@@ -9,14 +9,13 @@ import styles from "./usa-text-input.css.js";
  * @cssprop --theme-input-line-height - Sets the line-height of input element
  * @cssprop --theme-input-max-width - Sets the max width of the input element
  * @cssprop --theme-input-state-border-width - Sets the border width of error and success states.
+ * 
+ * @prop State - Controls state variants
  *
  * @tagname usa-text-input
  */
 export class UsaTextInput extends LitElement {
   static styles = [styles];
-  static properties = {
-    state: { type: String, reflect: true },
-  };
 
   connectedCallback() {
     super.connectedCallback();
@@ -35,26 +34,6 @@ export class UsaTextInput extends LitElement {
 
     if (this.input) {
       this.input.classList.add("usa-input");
-    }
-
-    if (this.state == "success") {
-      this.input?.classList.add("usa-input--success");
-    } else {
-      this.input?.classList.remove("usa-input--success");
-    }
-
-    if (this.state == "error") {
-      this.label?.classList.add("usa-label--error");
-      this.input?.classList.add("usa-input--error");
-    } else {
-      this.label?.classList.remove("usa-label--error");
-      this.input?.classList.remove("usa-input--error");
-    }
-
-    if (this.state == "disabled") {
-      this.input?.setAttribute("disabled", "");
-    } else {
-      this.input?.removeAttribute("disabled");
     }
 
     return html` ${this.label} ${this.input} `;

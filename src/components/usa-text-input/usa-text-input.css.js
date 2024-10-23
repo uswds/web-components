@@ -11,7 +11,7 @@ export default css`
       var(--usa-system-unit-1) - vcar(--theme-input-state-border-width)
     );
 
-    .usa-input {
+    input {
       box-sizing: border-box;
       background: var(--usa-theme-page-background-color);
       border-width: 1px;
@@ -39,21 +39,6 @@ export default css`
       line-height: var(--theme-input-line-height);
     }
 
-    .usa-input--error,
-    .usa-input--success {
-      border-width: var(--theme-input-state-border-width);
-      padding-top: var(--theme-input-state-border-negative-margin);
-      padding-bottom: var(--theme-input-state-border-negative-margin);
-    }
-
-    .usa-input--error {
-      border-color: var(--usa-theme-color-error-dark);
-    }
-
-    .usa-input--success {
-      border-color: var(--usa-system-color-green-cool-40v);
-    }
-
     input:not([disabled]):focus,
     textarea:not([disabled]):focus {
       outline-width: var(--usa-theme-focus-width);
@@ -68,7 +53,7 @@ export default css`
       cursor: not-allowed;
     }
 
-    .usa-label {
+    label {
       color: var(--usa-theme-text-color);
       font-family:
         Source Sans Pro Web,
@@ -84,10 +69,39 @@ export default css`
       margin-top: var(--usa-system-unit-3);
       max-width: var(--usa-system-unit-mobile-lg);
     }
+  }
 
-    .usa-label--error {
+  :host([state=success]),
+  :host([state=error]) {
+    input {
+      border-width: var(--theme-input-state-border-width);
+      padding-top: var(--theme-input-state-border-negative-margin);
+      padding-bottom: var(--theme-input-state-border-negative-margin);
+    }
+  }
+
+  :host([state=success]) {
+    input {
+      border-color: var(--usa-system-color-green-cool-40v);
+    }
+  }
+
+  :host([state=error]) {
+    input {
+      border-color: var(--usa-theme-color-error-dark);
+    }
+
+    label {
       font-weight: 700;
       margin-top: 0;
+    }
+  }
+
+  :host([state=disabled]) {
+    input {
+      background-color: var(--usa-theme-color-disabled-lighter);
+      color: var(--usa-theme-color-disabled-dark);
+      cursor: not-allowed;
     }
   }
 `;
