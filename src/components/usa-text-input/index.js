@@ -1,4 +1,4 @@
-import { LitElement, css, html } from "lit";
+import { LitElement, html } from "lit";
 import styles from "./usa-text-input.css.js";
 
 /**
@@ -9,6 +9,8 @@ import styles from "./usa-text-input.css.js";
  * @cssprop --theme-input-line-height - Sets the line-height of input element
  * @cssprop --theme-input-max-width - Sets the max width of the input element
  * @cssprop --theme-input-state-border-width - Sets the border width of error and success states.
+ * 
+ * @prop State - Controls state variants
  *
  * @tagname usa-text-input
  */

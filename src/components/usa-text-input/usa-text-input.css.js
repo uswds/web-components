@@ -7,8 +7,11 @@ export default css`
     --theme-input-line-height: 1.3;
     --theme-input-max-width: var(--usa-system-unit-mobile-lg);
     --theme-input-state-border-width: var(--usa-system-unit-05);
+    --theme-input-state-border-negative-margin: calc(
+      var(--usa-system-unit-1) - vcar(--theme-input-state-border-width)
+    );
 
-    .usa-input {
+    input {
       box-sizing: border-box;
       background: var(--usa-theme-page-background-color);
       border-width: 1px;
@@ -44,7 +47,13 @@ export default css`
       outline-offset: var(--usa-theme-focus-offset);
     }
 
-    .usa-label {
+    input:disabled {
+      background-color: var(--usa-theme-color-disabled-lighter);
+      color: var(--usa-theme-color-disabled-dark);
+      cursor: not-allowed;
+    }
+
+    label {
       color: var(--usa-theme-text-color);
       font-family:
         Source Sans Pro Web,
@@ -59,6 +68,40 @@ export default css`
       font-weight: 400;
       margin-top: var(--usa-system-unit-3);
       max-width: var(--usa-system-unit-mobile-lg);
+    }
+  }
+
+  :host([state=success]),
+  :host([state=error]) {
+    input {
+      border-width: var(--theme-input-state-border-width);
+      padding-top: var(--theme-input-state-border-negative-margin);
+      padding-bottom: var(--theme-input-state-border-negative-margin);
+    }
+  }
+
+  :host([state=success]) {
+    input {
+      border-color: var(--usa-system-color-green-cool-40v);
+    }
+  }
+
+  :host([state=error]) {
+    input {
+      border-color: var(--usa-theme-color-error-dark);
+    }
+
+    label {
+      font-weight: 700;
+      margin-top: 0;
+    }
+  }
+
+  :host([state=disabled]) {
+    input {
+      background-color: var(--usa-theme-color-disabled-lighter);
+      color: var(--usa-theme-color-disabled-dark);
+      cursor: not-allowed;
     }
   }
 `;

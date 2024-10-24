@@ -2,13 +2,16 @@
   --usa-system-color-white: #fff;
   --usa-system-color-gray-5: #f0f0f0;
   --usa-system-color-gray-10: #e6e6e6;
+  --usa-system-color-gray-20: #c9c9c9;
   --usa-system-color-gray-30: #adadad;
+  --usa-system-color-gray-70: #454545;
   --usa-system-color-gray-cool-10: #dfe1e2;
   --usa-system-color-gray-cool-30: #a9aeb1;
   --usa-system-color-gray-cool-60: #565c65;
   --usa-system-color-blue-50: #2378c3;
   --usa-system-color-blue-40v: #2491ff;
-
+  --usa-system-color-red-60v: #b50909;
+  --usa-system-color-green-cool-40v: #00a91c;
   --usa-system-color-ink: #1b1b1b;
   /* Spacing */
   --usa-system-unit-05: .25rem;
