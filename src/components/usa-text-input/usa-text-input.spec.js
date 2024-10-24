@@ -56,4 +56,3 @@ describe("usa-text-input component", async () => {
     expect(getInputElement().getAttribute("id")).toMatch(getLabelContext());
   });
 });
-
