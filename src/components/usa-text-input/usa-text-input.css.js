@@ -5,7 +5,7 @@ import "../uswds-core/theme-vars.css";
 export default css`
   :host {
     --theme-input-line-height: 1.3;
-    --theme-input-max-width: 30rem;
+    --theme-input-max-width: var(--usa-system-unit-mobile-lg);
     --theme-input-state-border-width: var(--usa-system-unit-05);
 
     .usa-input {
@@ -19,7 +19,7 @@ export default css`
       display: block;
       height: 2.5rem;
       margin-top: 0.5rem;
-      max-width: var(--usa-system-unit-mobile-lg);
+      max-width: var(--theme-input-max-width);
       padding: 0.5rem;
       width: 100%;
       -webkit-appearance: none;
