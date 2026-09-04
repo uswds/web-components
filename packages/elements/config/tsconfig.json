@@ -13,9 +13,6 @@
     "verbatimModuleSyntax": true,
     "moduleDetection": "force",
     "noEmit": true,
-    "baseUrl": "..",
-    "paths": { "@uswds/uswds/*": ["node_modules/@uswds/uswds/dist/*"] },
-
     /* Linting */
     "strict": true,
     "noUnusedLocals": true,

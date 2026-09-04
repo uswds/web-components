@@ -17,7 +17,9 @@
   },
   "scripts": {
     "build": "wireit",
-    "prepare": "npm run build"
+    "prepare": "npm run build",
+    "test": "vitest --config ./config/vitest.config.js",
+    "test:ci": "vitest run --config ./config/vitest.config.js"
   },
   "wireit": {
     "build": {
@@ -32,6 +34,7 @@
   },
   "devDependencies": {
     "style-dictionary": "^5.4.4",
+    "vitest": "^4.1.0",
     "wireit": "^0.14.13"
   }
 }

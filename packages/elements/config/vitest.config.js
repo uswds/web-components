@@ -8,8 +8,6 @@ export default defineConfig({
       "src/**/*.test.{js,ts}",
       "internals/**/*.spec.{js,ts}",
       "internals/**/*.test.{js,ts}",
-      "packages/*/internals/**/*.spec.{js,ts}",
-      "packages/*/internals/**/*.test.{js,ts}",
     ],
   },
 });

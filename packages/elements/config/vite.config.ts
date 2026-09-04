@@ -1,5 +1,6 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
+import { dirname, join } from "path";
+import { createRequire } from "module";
 import browserslist from "browserslist";
 import { browserslistToTargets } from "lightningcss";
 import litCss from "vite-plugin-lit-css";
@@ -10,6 +11,21 @@ import {
   mapEntriesToKeyValue,
   mapEntryToLimit,
 } from "../internals/build-helpers";
+
+/**
+ * Resolve `@uswds/uswds` via Node's own module resolution (walking up through
+ * `node_modules` from this config file) rather than assuming a fixed path
+ * relative to `process.cwd()`. This works whether `@uswds/uswds` is hoisted
+ * to the workspace root `node_modules` or installed locally within this
+ * package.
+ *
+ * `@uswds/uswds`'s `exports` map doesn't expose `./package.json` or
+ * `./dist`, so we resolve its `"."` entry point (`./dist/js/uswds.min.js`)
+ * and walk up two directories to get to `./dist`.
+ */
+const require = createRequire(import.meta.url);
+const uswdsDistPath = dirname(dirname(require.resolve("@uswds/uswds")));
+const uswdsPackagesPath = join(dirname(uswdsDistPath), "packages");
 
 const entries: Array<Entry> = [
   {
@@ -51,8 +67,7 @@ export default defineConfig({
   ],
   resolve: {
     alias: {
-      // Resolve from project root even when config is in ./config
-      "@uswds/uswds": resolve(process.cwd(), "node_modules/@uswds/uswds/dist"),
+      "@uswds/uswds": uswdsDistPath,
     },
   },
   css: {
@@ -68,7 +83,7 @@ export default defineConfig({
     },
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "./node_modules/@uswds/uswds/packages";`,
+        additionalData: `@import "${uswdsPackagesPath}";`,
       },
     },
   },
