@@ -28,6 +28,7 @@
     "build": "tsc -p ./config/tsconfig.json && vite build --config ./config/vite.config.ts && npm run manifest:build",
     "build:watch": "vite build --config ./config/vite.config.ts --watch",
     "dev": "vite --config ./config/vite.config.ts",
+    "federalist": "npm run pages",
     "fix-permissions": "sudo chown -R $(id -u):$(id -g) .",
     "pages": "npm run storybook:build && cp -r storybook-static _site",
     "prettier:js": "npx prettier --check '**/*.{cjs,css,js,json,jsx,mjs,ts,tsx}' --config ./config/.prettierrc",
