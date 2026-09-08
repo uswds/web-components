@@ -167,7 +167,7 @@
           ],
           "events": [
             {
-              "name": "close",
+              "name": "usa-alert-close",
               "type": {
                 "text": "CustomEvent"
               },
