@@ -1,5 +1,4 @@
 import { defineConfig } from "vite";
-import { resolve } from "path";
 import browserslist from "browserslist";
 import { browserslistToTargets } from "lightningcss";
 import litCss from "vite-plugin-lit-css";
@@ -49,12 +48,6 @@ export default defineConfig({
       tsconfigPath: "./config/tsconfig.json",
     }),
   ],
-  resolve: {
-    alias: {
-      // Resolve from project root even when config is in ./config
-      "@uswds/uswds": resolve(process.cwd(), "node_modules/@uswds/uswds/dist"),
-    },
-  },
   css: {
     transformer: "lightningcss",
     lightningcss: {
@@ -65,11 +58,6 @@ export default defineConfig({
       targets: browserslistToTargets(
         browserslist(["> 2%", "last 2 versions", "not dead"]),
       ),
-    },
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@import "./node_modules/@uswds/uswds/packages";`,
-      },
     },
   },
   build: {
